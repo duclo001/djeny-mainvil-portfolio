@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Djeny Mainvil - Économiste & Analyste des Affaires</title>
+  <meta content="Analyses et réflexions en économie et en intelligence des affaires pour aider les organisations à clarifier leurs décisions." name="description">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/john-sterlins-fresh-site.webflow.css" rel="stylesheet" type="text/css">
+  <link href="images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
+  <link href="images/favicon.jpg" rel="apple-touch-icon">
+  <style>
+    * {
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plusjakartadisplay', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow-x: hidden;
+      background: #ffffff;
+      color: #333;
+    }
+
+    /* Navigation */
+    .nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-logo img {
+      height: 50px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover {
+      color: #667eea;
+    }
+
+    /* Menu Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      transition: all 0.3s ease;
+      border-radius: 3px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      height: 80vh;
+      min-height: 600px;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 4rem;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(26,26,46,0.7), rgba(102,126,234,0.7)), url('images/profile-1080.jpeg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #1a1a2e;
+      margin-top: 70px;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      color: white;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-badge {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.9);
+      padding: 0.5rem 0;
+    }
+
+    .hero-badge::before {
+      content: '• ';
+      color: #ff8a56;
+      font-weight: bold;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: white;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: rgba(255,255,255,0.95);
+      max-width: 800px;
+      line-height: 1.6;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: #667eea;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(102,126,234,0.4);
+    }
+
+    .cta-button-secondary {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .cta-button-secondary:hover {
+      background: white;
+      color: #667eea;
+      box-shadow: 0 5px 20px rgba(255,255,255,0.3);
+    }
+
+    /* Main Layout */
+    .main-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 3rem;
+    }
+
+    .main-content {
+      min-width: 0;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+    }
+
+    .sidebar-section {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.95rem;
+    }
+
+    .sidebar-list {
+      list-style: none;
+    }
+
+    .sidebar-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .sidebar-list li:last-child {
+      border-bottom: none;
+    }
+
+    .sidebar-list a {
+      color: #667eea;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .sidebar-list a:hover {
+      color: #764ba2;
+    }
+
+    /* Section Styles */
+    .content-section {
+      background: white;
+      padding: 3rem;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: #1a1a2e;
+      padding-bottom: 1rem;
+      border-bottom: 3px solid #667eea;
+    }
+
+    .section-text {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Photo Grid */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .photo-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .photo-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Topics/Expertise */
+    .topics-list {
+      list-style: none;
+    }
+
+    .topics-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 1.1rem;
+      color: #333;
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .topics-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    .topics-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* Contact Section */
+    .contact-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 3rem;
+      border-radius: 15px;
+      color: white;
+    }
+
+    .contact-box h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-box p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.95;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: white;
+      color: #667eea;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .contact-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Footer */
+    .footer {
+      background: #1a1a2e;
+      color: white;
+      padding: 4rem 2rem 2rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      margin-bottom: 2rem;
+    }
+
+    .footer-logo img {
+      height: 80px;
+      width: auto;
+      filter: brightness(1.2);
+    }
+
+    .footer-tagline {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-subtitle {
+      opacity: 0.7;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .footer-link:hover {
+      color: #667eea;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .social-icon {
+      width: 45px;
+      height: 45px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      color: white;
+      text-decoration: none;
+      font-size: 1.3rem;
+    }
+
+    .social-icon:hover {
+      background: #667eea;
+      transform: translateY(-3px);
+    }
+
+    .footer-copyright {
+      opacity: 0.6;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Preloader */
+    .preloader {
+      z-index: 9999;
+      background-color: #fff;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      display: flex;
+      position: fixed;
+      top: 0%;
+      bottom: 0%;
+      left: 0%;
+      right: 0%;
+      overflow: hidden;
+    }
+
+    .preloader-left-div {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10vw;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .preloader-right-div {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-left: 10vw;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .text-block.preloader-text {
+      font-size: 65px;
+      font-weight: 500;
+      line-height: 100%;
+    }
+
+    .text-gradient {
+      background-image: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff8a56 77%, #ffa84b 91%);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      padding-right: 5px;
+      display: inline;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .main-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .sidebar {
+        position: static;
+        order: -1;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .content-section {
+        padding: 2.5rem 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        padding: 1rem;
+      }
+
+      .nav-logo img {
+        height: 40px;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 70%;
+        max-width: 280px;
+        height: auto;
+        max-height: 60vh;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        padding: 1.2rem;
+        gap: 0;
+        transition: left 0.3s ease;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        border-radius: 0 10px 10px 0;
+        overflow-y: auto;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .nav-links li {
+        width: 100%;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .nav-links li:last-child {
+        border-bottom: none;
+      }
+
+      .nav-link {
+        font-size: 1.1rem;
+        display: block;
+      }
+
+      .hero-section {
+        height: 70vh;
+        min-height: 500px;
+        padding-bottom: 2rem;
+        background-size: cover;
+        background-position: center top;
+      }
+
+      .hero-content {
+        padding: 0 1.5rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+        line-height: 1.3;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .hero-badge {
+        font-size: 0.8rem;
+      }
+
+      .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .main-container {
+        padding: 1.5rem 1rem;
+        gap: 1.5rem;
+      }
+
+      .content-section {
+        padding: 2rem 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .section-text {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .topics-list li {
+        font-size: 1rem;
+        padding: 0.8rem 0 0.8rem 1.5rem;
+      }
+
+      .topics-list li::before {
+        font-size: 1.1rem;
+      }
+
+      .sidebar-section {
+        padding: 1.2rem;
+      }
+
+      .contact-box {
+        padding: 2rem 1.5rem;
+      }
+
+      .contact-box h3 {
+        font-size: 1.5rem;
+      }
+
+      .contact-box p {
+        font-size: 1rem;
+      }
+
+      .contact-link {
+        width: 100%;
+        text-align: center;
+      }
+
+      .footer {
+        padding: 3rem 1.5rem 1.5rem;
+      }
+
+      .footer-logo img {
+        height: 60px;
+      }
+
+      .footer-tagline {
+        font-size: 1.2rem;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .footer-link {
+        font-size: 0.9rem;
+      }
+
+      .social-icons {
+        gap: 1rem;
+      }
+
+      .social-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.95rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .content-section {
+        padding: 1.5rem 1rem;
+      }
+
+      .preloader .text-block.preloader-text {
+        font-size: 45px;
+      }
+    }
+
+    /* Animation */
+    .fade-in {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div data-w-id="77a9cd61-24e6-6e56-0a8a-b16b1e09cbeb" style="display:flex" class="preloader">
+    <div class="preloader-left-div">
+      <div style="-webkit-transform:translate3d(0, 150%, 0) scale3d(1, 1, 1) rotateX(90deg) rotateY(null) rotateZ(30deg) skew(0, 0);-moz-transform:translate3d(0, 150%, 0) scale3d(1, 1, 1) rotateX(90deg) rotateY(null) rotateZ(30deg) skew(0, 0);-ms-transform:translate3d(0, 150%, 0) scale3d(1, 1, 1) rotateX(90deg) rotateY(null) rotateZ(30deg) skew(0, 0);transform:translate3d(0, 150%, 0) scale3d(1, 1, 1) rotateX(90deg) rotateY(null) rotateZ(30deg) skew(0, 0);transform-style:preserve-3d;opacity:0" class="text-block preloader-text left">Djeny </div>
+    </div>
+    <div class="preloader-right-div">
+      <div style="opacity:0;-webkit-transform:translate3d(0, 150%, 0) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(30deg) skew(0, 0);-moz-transform:translate3d(0, 150%, 0) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(30deg) skew(0, 0);-ms-transform:translate3d(0, 150%, 0) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(30deg) skew(0, 0);transform:translate3d(0, 150%, 0) scale3d(1, 1, 1) rotateX(90deg) rotateY(0) rotateZ(30deg) skew(0, 0);transform-style:preserve-3d" class="text-block preloader-text right">Mainvil<span class="text-gradient">.</span></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" style="opacity:0;transform:translate3d(0, -50px, 0)">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.jpg" alt="Djeny Mainvil">
+    </a>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#biographie" class="nav-link">Biographie</a></li>
+      <li><a href="#expertises" class="nav-link">Expertises</a></li>
+      <li><a href="#articles" class="nav-link">Articles</a></li>
+      <li><a href="#podcast" class="nav-link">Podcast</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section" style="opacity:0">
+    <div class="hero-overlay"></div>
+    <div class="hero-content fade-in">
+      <div class="hero-badges">
+        <span class="hero-badge">Économiste</span>
+        <span class="hero-badge">Analyste des Affaires</span>
+        <span class="hero-badge">5+ ans d'expérience</span>
+      </div>
+      <h1 class="hero-title">Donner du sens aux données pour mieux décider</h1>
+      <p class="hero-subtitle">Analyses et réflexions en économie et en intelligence des affaires pour aider les organisations à clarifier leurs décisions, structurer leur réflexion et mieux utiliser leurs données.</p>
+      <div class="cta-buttons">
+        <a href="#articles" class="cta-button">Explorer les articles</a>
+        <a href="#contact" class="cta-button cta-button-secondary">Me Contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="main-container" style="opacity:0">
+    <!-- Main Column -->
+    <main class="main-content">
+      
+      <!-- Pourquoi ce site Section -->
+      <section class="content-section fade-in">
+        <h2 class="section-title">Pourquoi ce site</h2>
+        <p class="section-text">
+          Les organisations évoluent aujourd'hui dans des environnements économiques et informationnels de plus en plus complexes. Les données sont disponibles, les outils sont nombreux, mais les décisions restent souvent difficiles à structurer et à arbitrer au quotidien.
+        </p>
+        <p class="section-text">
+          Ce site a été créé pour proposer un espace de réflexion clair et accessible, à la croisée de l'économie et de l'intelligence des affaires. J'y partage des analyses et des observations visant à mieux comprendre les enjeux organisationnels, à clarifier les priorités décisionnelles et à donner du sens à l'information existante.
+        </p>
+        <p class="section-text">
+          Ces réflexions s'adressent autant aux dirigeants et entrepreneurs qu'aux organisations à la recherche de profils capables d'analyser des situations complexes, de structurer la réflexion et de contribuer à des décisions éclairées.
+        </p>
+      </section>
+
+      <!-- Ce que vous trouverez ici Section -->
+      <section class="content-section fade-in">
+        <h2 class="section-title">Ce que vous trouverez ici</h2>
+        <ul class="topics-list">
+          <li>Une analyse structurée des enjeux économiques et organisationnels</li>
+          <li>Une lecture claire du rôle des données, des outils et des fonctions analytiques</li>
+          <li>Une approche humaine et pragmatique, adaptée aux réalités des PME et des environnements en croissance</li>
+        </ul>
+      </section>
+      
+      <!-- Biographie Section -->
+      <section id="biographie" class="content-section fade-in">
+        <h2 class="section-title">À Propos</h2>
+        <p class="section-text">
+          Je possède une <strong>double formation de deuxième cycle en économie et en intelligence des affaires</strong>, ainsi que plus de <strong>cinq années d'expérience professionnelle</strong> dans des fonctions analytiques et décisionnelles.
+        </p>
+        <p class="section-text">
+          Mon parcours m'a amenée à m'intéresser à la manière dont les organisations analysent l'information, structurent leur réflexion et prennent des décisions dans des contextes économiques souvent complexes et incertains.
+        </p>
+        <p class="section-text">
+          Au fil de mes expériences et de mes échanges avec des dirigeants, des recruteurs et des professionnels, j'ai constaté que les difficultés rencontrées ne tiennent pas uniquement à un manque d'outils ou de données, mais bien souvent à un <strong>manque de clarté sur les enjeux, les priorités décisionnelles et l'usage réel de l'information</strong>.
+        </p>
+        <p class="section-text">
+          À travers ce site et mes articles, je partage une approche analytique, structurée et accessible, visant à aider les organisations à mieux comprendre leurs situations, à poser les bonnes questions et à avancer de manière cohérente, selon leurs besoins réels.
+        </p>
+        
+        <!-- Photos Grid -->
+        <div class="photo-grid">
+          <div class="photo-item">
+            <img src="images/sofa.jpeg" alt="Djeny Mainvil">
+          </div>
+          <div class="photo-item">
+            <img src="images/dm.jpg" alt="Djeny Mainvil">
+          </div>
+        </div>
+      </section>
+
+      <!-- Comment je peux contribuer Section -->
+      <section id="expertises" class="content-section fade-in">
+        <h2 class="section-title">Comment je peux contribuer</h2>
+        <p class="section-text">
+          Mon travail s'appuie sur des compétences en <strong>analyse économique</strong>, en <strong>intelligence des affaires</strong> et en <strong>analyse de données</strong>, ainsi que sur la maîtrise d'outils tels que <strong>Power BI, R, SAS, SQL, Excel avancé, CRM, des environnements ERP et des solutions analytiques</strong>, utilisés comme des supports à la réflexion décisionnelle.
+        </p>
+        <p class="section-text">
+          Mon apport peut notamment concerner :
+        </p>
+        <ul class="topics-list">
+          <li>L'analyse de situations économiques ou organisationnelles complexes</li>
+          <li>La clarification des enjeux et des priorités décisionnelles</li>
+          <li>La structuration d'une réflexion en intelligence des affaires</li>
+          <li>L'aide à la compréhension et à l'utilisation de l'information existante</li>
+        </ul>
+      </section>
+
+      <!-- Articles Section -->
+      <section id="articles" class="content-section fade-in">
+        <h2 class="section-title">Publications Récentes</h2>
+        <p class="section-text">
+          Les articles publiés ici abordent des enjeux liés à l'économie, à l'intelligence des affaires, aux données et à la prise de décision. Ils s'adressent aux organisations et aux professionnels qui souhaitent dépasser les approches purement techniques pour adopter une réflexion plus structurée, plus cohérente et mieux adaptée à leur contexte.
+        </p>
+        
+        <div style="margin-top: 2rem;">
+          <a href="https://www.linkedin.com/posts/djeny-mainvil-msc-4a6a26189_on-parle-beaucoup-de-data-on-recrute-activity-7407404402543587328-E-Ar?utm_medium=ios_app&rcm=ACoAAFWX-w8BTRWjVycc1-_l9W9Qwd0o0On3IPY&utm_source=social_share_send&utm_campaign=whatsapp" target="_blank" style="text-decoration: none;">
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-bottom: 1.5rem; border-left: 4px solid #667eea; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+              <h3 style="color: #667eea; margin-bottom: 0.5rem; font-size: 1.3rem;">📊 Scientifique des données, analyste de données et analyste en intelligence d'affaires : comprendre les différences</h3>
+              <p style="color: #666; line-height: 1.7;">Une analyse claire des différents rôles analytiques et de leurs contributions spécifiques aux organisations.</p>
+            </div>
+          </a>
+          
+          <a href="https://www.linkedin.com/posts/djeny-mainvil-msc-4a6a26189_on-a-investi-dans-des-outils-de-donn%C3%A9es-activity-7408854026328514560-d9Xr?utm_medium=ios_app&rcm=ACoAACx31T4BE203pcDkaxacxjxjPCakJaAAy04&utm_source=social_share_send&utm_campaign=whatsapp" target="_blank" style="text-decoration: none;">
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-bottom: 1.5rem; border-left: 4px solid #667eea; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+              <h3 style="color: #667eea; margin-bottom: 0.5rem; font-size: 1.3rem;">🔧 ERP, BI et intelligence artificielle : comprendre le rôle des outils dans l'analytique</h3>
+              <p style="color: #666; line-height: 1.7;">Comment les outils technologiques s'intègrent dans une démarche analytique cohérente.</p>
+            </div>
+          </a>
+          
+          <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; border-left: 4px solid #667eea; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+            <h3 style="color: #667eea; margin-bottom: 0.5rem; font-size: 1.3rem;">💭 « Nous avons des données… mais nous ne savons pas quoi en faire »</h3>
+            <p style="color: #666; line-height: 1.7;">Réflexion sur les défis de la valorisation des données dans les organisations.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Podcast Section -->
+      <section id="podcast" class="content-section fade-in">
+        <h2 class="section-title">Podcast</h2>
+        <p class="section-text">
+          Écoutez mes interventions et discussions sur des sujets liés à l'analytique, aux données et aux stratégies numériques.
+        </p>
+        
+        <div style="margin-top: 2rem;">
+          <a href="https://digital.hec.ca/blog/comment-les-entreprises-captent-lattention-sur-tiktok-et-instagram-reels-et-utilisent-lanalytique-pour-maximiser-leur-visibilite-et-leur-chiffre-daffaires/" target="_blank" style="text-decoration: none;">
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; border-left: 4px solid #667eea; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+              <h3 style="color: #667eea; margin-bottom: 0.5rem; font-size: 1.3rem;">🎙️ Comment les entreprises captent l'attention sur TikTok et Instagram Reels</h3>
+              <p style="color: #666; line-height: 1.7;">Comment les entreprises utilisent l'analytique pour maximiser leur visibilité et leur chiffre d'affaires sur les réseaux sociaux.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="content-section fade-in">
+        <h2 class="section-title">Me Contacter</h2>
+        <div class="contact-box">
+          <h3>Discutons de vos besoins</h3>
+          <p>Si vous souhaitez échanger, discuter d'un besoin ou poser une question, vous pouvez me contacter ici :</p>
+          <div class="contact-links">
+            <a href="https://www.linkedin.com/in/djeny-mainvil-msc-4a6a26189" target="_blank" class="contact-link">💼 LinkedIn</a>
+            <a href="mailto:contact@djenymainvil.com" class="contact-link">📧 Email</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section fade-in">
+        <h3 class="sidebar-title">Domaines</h3>
+        <ul class="sidebar-list">
+          <li><a href="#expertises">Économie</a></li>
+          <li><a href="#expertises">Intelligence des Affaires</a></li>
+          <li><a href="#expertises">Analyse de Données</a></li>
+          <li><a href="#expertises">Prise de Décision</a></li>
+          <li><a href="#articles">Publications</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section fade-in">
+        <h3 class="sidebar-title">À qui s'adresse ce site</h3>
+        <ul class="sidebar-list">
+          <li>Dirigeants et entrepreneurs</li>
+          <li>PME et organisations en structuration</li>
+          <li>Recruteurs et gestionnaires</li>
+          <li>Professionnels et équipes en intelligence des affaires</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section fade-in">
+        <h3 class="sidebar-title">Outils & Compétences</h3>
+        <ul class="sidebar-list">
+          <li>Power BI</li>
+          <li>R & SAS</li>
+          <li>SQL</li>
+          <li>Excel Avancé</li>
+          <li>CRM & ERP</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="images/logo-white.jpg" alt="Djeny Mainvil">
+    </div>
+    <p class="footer-tagline">Analyser. Clarifier. Décider.</p>
+    <p class="footer-subtitle">Économiste & Analyste des Affaires</p>
+    
+    <div class="footer-links">
+      <a href="#biographie" class="footer-link">Biographie</a>
+      <a href="#expertises" class="footer-link">Expertises</a>
+      <a href="#articles" class="footer-link">Articles</a>
+      <a href="#podcast" class="footer-link">Podcast</a>
+      <a href="#contact" class="footer-link">Contact</a>
+    </div>
+    
+    <div class="social-icons">
+      <a href="#" class="social-icon">📧</a>
+      <a href="#" class="social-icon">💼</a>
+      <a href="#" class="social-icon">🌐</a>
+    </div>
+    
+    <p class="footer-copyright">&copy; 2026 Djeny Mainvil. Tous droits réservés.</p>
+  </footer>
+
+  <script src="js/webflow.js" type="text/javascript"></script>
+  
+  <script>
+    // Animation du preloader
+    document.addEventListener('DOMContentLoaded', function() {
+      var preloader = document.querySelector('.preloader');
+      var leftText = document.querySelector('.preloader-text.left');
+      var rightText = document.querySelector('.preloader-text.right');
+      var leftDiv = document.querySelector('.preloader-left-div');
+      var rightDiv = document.querySelector('.preloader-right-div');
+      
+      // Anime l'apparition des textes
+      setTimeout(function() {
+        leftText.style.transition = 'all 0.6s cubic-bezier(0.77, 0, 0.175, 1)';
+        leftText.style.transform = 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0deg) rotateY(0) rotateZ(0deg)';
+        leftText.style.opacity = '1';
+        
+        rightText.style.transition = 'all 0.6s cubic-bezier(0.77, 0, 0.175, 1)';
+        rightText.style.transform = 'translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0deg) rotateY(0) rotateZ(0deg)';
+        rightText.style.opacity = '1';
+      }, 100);
+      
+      // Anime la disparition des textes
+      setTimeout(function() {
+        leftText.style.transition = 'all 0.4s cubic-bezier(0.77, 0, 0.175, 1)';
+        leftText.style.transform = 'translate3d(0, -150%, 0)';
+        leftText.style.opacity = '0';
+        
+        rightText.style.transition = 'all 0.4s cubic-bezier(0.77, 0, 0.175, 1)';
+        rightText.style.transform = 'translate3d(0, -150%, 0)';
+        rightText.style.opacity = '0';
+      }, 1000);
+      
+      // Fait disparaître le preloader
+      setTimeout(function() {
+        leftDiv.style.transition = 'transform 0.6s cubic-bezier(0.77, 0, 0.175, 1)';
+        leftDiv.style.transform = 'translateX(-100%)';
+        
+        rightDiv.style.transition = 'transform 0.6s cubic-bezier(0.77, 0, 0.175, 1)';
+        rightDiv.style.transform = 'translateX(100%)';
+      }, 1300);
+      
+      // Cache complètement le preloader
+      setTimeout(function() {
+        preloader.style.display = 'none';
+      }, 1900);
+      
+      // Anime l'apparition du contenu de la page
+      setTimeout(function() {
+        var nav = document.querySelector('.nav');
+        var hero = document.querySelector('.hero-section');
+        var mainContainer = document.querySelector('.main-container');
+        
+        // Nav apparaît en premier
+        nav.style.transition = 'all 0.8s cubic-bezier(0.77, 0, 0.175, 1)';
+        nav.style.opacity = '1';
+        nav.style.transform = 'translate3d(0, 0, 0)';
+        
+        // Hero apparaît légèrement après
+        setTimeout(function() {
+          hero.style.transition = 'opacity 1s cubic-bezier(0.77, 0, 0.175, 1)';
+          hero.style.opacity = '1';
+        }, 150);
+        
+        // Main content apparaît ensuite
+        setTimeout(function() {
+          mainContainer.style.transition = 'opacity 1s cubic-bezier(0.77, 0, 0.175, 1)';
+          mainContainer.style.opacity = '1';
+        }, 300);
+      }, 1400);
+    });
+
+    // Menu hamburger
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navLinkItems = document.querySelectorAll('.nav-link');
+
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Fermer le menu quand on clique sur un lien
+    navLinkItems.forEach(link => {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
