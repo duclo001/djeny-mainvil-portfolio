@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
@@ -60,7 +60,78 @@
     }
 
     .nav-link:hover {
-      color: #667eea;
+      color: #ff9d70;
+    }
+
+    /* Dropdown Menu */
+    .nav-item {
+      position: relative;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .dropdown-toggle::after {
+      content: '▼';
+      font-size: 0.7rem;
+      transition: transform 0.3s ease;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      min-width: 220px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      margin-top: 0.5rem;
+      padding: 0.5rem 0;
+    }
+
+    .dropdown:hover .dropdown-menu,
+    .dropdown.active .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown:hover .dropdown-toggle::after,
+    .dropdown.active .dropdown-toggle::after {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu li {
+      list-style: none;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 0.7rem 1.5rem;
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .dropdown-menu a:hover {
+      background: #f8f9fa;
+      color: #ff9d70;
+      padding-left: 2rem;
     }
 
     /* Menu Hamburger */
@@ -143,7 +214,7 @@
 
     .hero-badge::before {
       content: '• ';
-      color: #ff8a56;
+      color: #ff9d70;
       font-weight: bold;
     }
 
@@ -172,7 +243,7 @@
     .cta-button {
       display: inline-block;
       padding: 1rem 2rem;
-      background: #667eea;
+      background: #ff9d70;
       color: white;
       text-decoration: none;
       border-radius: 5px;
@@ -184,7 +255,7 @@
 
     .cta-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(102,126,234,0.4);
+      box-shadow: 0 5px 20px rgba(255,157,112,0.4);
     }
 
     .cta-button-secondary {
@@ -195,7 +266,7 @@
 
     .cta-button-secondary:hover {
       background: white;
-      color: #667eea;
+      color: #ff9d70;
       box-shadow: 0 5px 20px rgba(255,255,255,0.3);
     }
 
@@ -252,14 +323,14 @@
     }
 
     .sidebar-list a {
-      color: #667eea;
+      color: #ff9d70;
       text-decoration: none;
       font-size: 0.9rem;
       transition: color 0.3s ease;
     }
 
     .sidebar-list a:hover {
-      color: #764ba2;
+      color: #ff6b3d;
     }
 
     /* Section Styles */
@@ -277,7 +348,7 @@
       margin-bottom: 2rem;
       color: #1a1a2e;
       padding-bottom: 1rem;
-      border-bottom: 3px solid #667eea;
+      border-bottom: 3px solid #ff9d70;
     }
 
     .section-text {
@@ -333,7 +404,7 @@
       content: '▸';
       position: absolute;
       left: 0;
-      color: #667eea;
+      color: #ff9d70;
       font-weight: bold;
       font-size: 1.3rem;
     }
@@ -344,7 +415,7 @@
 
     /* Contact Section */
     .contact-box {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #ff9d70 0%, #ff6b3d 100%);
       padding: 3rem;
       border-radius: 15px;
       color: white;
@@ -371,7 +442,7 @@
       display: inline-block;
       padding: 0.8rem 1.5rem;
       background: white;
-      color: #667eea;
+      color: #ff9d70;
       text-decoration: none;
       border-radius: 5px;
       font-weight: 600;
@@ -430,7 +501,7 @@
     }
 
     .footer-link:hover {
-      color: #667eea;
+      color: #ff9d70;
     }
 
     .social-icons {
@@ -455,7 +526,7 @@
     }
 
     .social-icon:hover {
-      background: #667eea;
+      background: #ff9d70;
       transform: translateY(-3px);
     }
 
@@ -508,7 +579,7 @@
     }
 
     .text-gradient {
-      background-image: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff8a56 77%, #ffa84b 91%);
+      background-image: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffa84b 91%);
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
       background-clip: text;
@@ -590,6 +661,43 @@
       .nav-link {
         font-size: 1.1rem;
         display: block;
+      }
+
+      /* Dropdown mobile styles */
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: #f8f9fa;
+        margin-top: 0.5rem;
+        margin-left: 1rem;
+        border-radius: 5px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        transform: none;
+        transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+      }
+
+      .dropdown.active .dropdown-menu {
+        max-height: 300px;
+        opacity: 1;
+        visibility: visible;
+        padding: 0.5rem 0;
+      }
+
+      .dropdown-menu a {
+        font-size: 1rem;
+        padding: 0.6rem 1rem;
+      }
+
+      .dropdown-toggle {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .dropdown.active .dropdown-toggle::after {
+        transform: rotate(180deg);
       }
 
       .hero-section {
@@ -778,27 +886,36 @@
       <span></span>
     </div>
     <ul class="nav-links">
-      <li><a href="#biographie" class="nav-link">Biographie</a></li>
-      <li><a href="#expertises" class="nav-link">Expertises</a></li>
-      <li><a href="#articles" class="nav-link">Articles</a></li>
-      <li><a href="#podcast" class="nav-link">Podcast</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
+      <li class="nav-item"><a href="#accueil" class="nav-link">Accueil</a></li>
+      <li class="nav-item"><a href="#expertise" class="nav-link">Expertise</a></li>
+      <li class="nav-item"><a href="#apropos" class="nav-link">A propos</a></li>
+      <li class="nav-item dropdown">
+        <span class="nav-link dropdown-toggle">Publications & Réflexions</span>
+        <ul class="dropdown-menu">
+          <li><a href="#articles">Articles & Analyses</a></li>
+          <li><a href="#podcast">Podcast</a></li>
+          <li><a href="#recherches">Recherches académiques</a></li>
+        </ul>
+      </li>
+      <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
     </ul>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero-section" style="opacity:0">
+  <section id="accueil" class="hero-section" style="opacity:0">
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in">
       <div class="hero-badges">
-        <span class="hero-badge">Économiste</span>
-        <span class="hero-badge">Analyste des Affaires</span>
-        <span class="hero-badge">5+ ans d'expérience</span>
+        <span class="hero-badge">Conseillère en solutions technologiques</span>
+        <span class="hero-badge">Makila AI | HEC</span>
+        <span class="hero-badge">BI • Analytics • Stratégie</span>
+        <span class="hero-badge">Français • Anglais (bilingue)</span>
       </div>
       <h1 class="hero-title">Donner du sens aux données pour mieux décider</h1>
+      <p class="hero-subtitle" style="margin-bottom: 1rem;">Solutions data pour la performance et la croissance</p>
       <p class="hero-subtitle">Analyses et réflexions en économie et en intelligence des affaires pour aider les organisations à clarifier leurs décisions, structurer leur réflexion et mieux utiliser leurs données.</p>
       <div class="cta-buttons">
-        <a href="#articles" class="cta-button">Explorer les articles</a>
+        <a href="#articles" class="cta-button">Explorer les publications</a>
         <a href="#contact" class="cta-button cta-button-secondary">Me Contacter</a>
       </div>
     </div>
@@ -833,20 +950,17 @@
         </ul>
       </section>
       
-      <!-- Biographie Section -->
-      <section id="biographie" class="content-section fade-in">
+      <!-- A Propos Section -->
+      <section id="apropos" class="content-section fade-in">
         <h2 class="section-title">À Propos</h2>
         <p class="section-text">
-          Je possède une <strong>double formation de deuxième cycle en économie et en intelligence des affaires</strong>, ainsi que plus de <strong>cinq années d'expérience professionnelle</strong> dans des fonctions analytiques et décisionnelles.
+          Conseillère en solutions technologiques spécialisée en données et intelligence d'affaires, j'accompagne les organisations dans la transformation de leurs données en décisions stratégiques. Mon parcours combine une <strong>double formation de niveau maîtrise en économie (Université de Montreal) et en intelligence d'affaires (HEC Montréal)</strong>, ainsi que plus de <strong>cinq années d'expérience</strong> dans des fonctions analytiques et décisionnelles.
         </p>
         <p class="section-text">
-          Mon parcours m'a amenée à m'intéresser à la manière dont les organisations analysent l'information, structurent leur réflexion et prennent des décisions dans des contextes économiques souvent complexes et incertains.
+          Au fil de mes expériences professionnelles et de mes échanges avec des dirigeants, recruteurs et professionnels, j'ai développé un intérêt marqué pour la manière dont les organisations analysent l'information, structurent leur réflexion et prennent des décisions dans des contextes économiques complexes et incertains. J'ai constaté que les difficultés rencontrées ne tiennent pas uniquement à un manque d'outils ou de données, mais très souvent à un <strong>manque de clarté sur les enjeux, les priorités décisionnelles et l'usage réel de l'information</strong>.
         </p>
         <p class="section-text">
-          Au fil de mes expériences et de mes échanges avec des dirigeants, des recruteurs et des professionnels, j'ai constaté que les difficultés rencontrées ne tiennent pas uniquement à un manque d'outils ou de données, mais bien souvent à un <strong>manque de clarté sur les enjeux, les priorités décisionnelles et l'usage réel de l'information</strong>.
-        </p>
-        <p class="section-text">
-          À travers ce site et mes articles, je partage une approche analytique, structurée et accessible, visant à aider les organisations à mieux comprendre leurs situations, à poser les bonnes questions et à avancer de manière cohérente, selon leurs besoins réels.
+          À travers mon travail, mes publications et ce site, je propose une approche analytique, structurée et accessible, orientée impact. Mon objectif est d'aider les organisations à mieux comprendre leur situation, à poser les bonnes questions et à avancer de manière cohérente, en alignant données, stratégie et besoins réels.
         </p>
         
         <!-- Photos Grid -->
@@ -860,49 +974,45 @@
         </div>
       </section>
 
-      <!-- Comment je peux contribuer Section -->
-      <section id="expertises" class="content-section fade-in">
-        <h2 class="section-title">Comment je peux contribuer</h2>
-        <p class="section-text">
-          Mon travail s'appuie sur des compétences en <strong>analyse économique</strong>, en <strong>intelligence des affaires</strong> et en <strong>analyse de données</strong>, ainsi que sur la maîtrise d'outils tels que <strong>Power BI, R, SAS, SQL, Excel avancé, CRM, des environnements ERP et des solutions analytiques</strong>, utilisés comme des supports à la réflexion décisionnelle.
-        </p>
-        <p class="section-text">
-          Mon apport peut notamment concerner :
-        </p>
+      <!-- Expertise Section -->
+      <section id="expertise" class="content-section fade-in">
+        <h2 class="section-title">Expertise</h2>
         <ul class="topics-list">
-          <li>L'analyse de situations économiques ou organisationnelles complexes</li>
-          <li>La clarification des enjeux et des priorités décisionnelles</li>
-          <li>La structuration d'une réflexion en intelligence des affaires</li>
-          <li>L'aide à la compréhension et à l'utilisation de l'information existante</li>
+          <li>Aide à la décision basée sur l'analyse des données</li>
+          <li>Business Intelligence et tableaux de bord décisionnels (Power BI, KPIs)</li>
+          <li>Analyse de données pour enjeux stratégiques et opérationnels</li>
+          <li>Conseil en solutions technologiques et analytiques</li>
         </ul>
       </section>
 
-      <!-- Articles Section -->
+      <!-- Articles & Analyses Section -->
       <section id="articles" class="content-section fade-in">
-        <h2 class="section-title">Publications Récentes</h2>
+        <h2 class="section-title">Articles & Analyses</h2>
         <p class="section-text">
           Les articles publiés ici abordent des enjeux liés à l'économie, à l'intelligence des affaires, aux données et à la prise de décision. Ils s'adressent aux organisations et aux professionnels qui souhaitent dépasser les approches purement techniques pour adopter une réflexion plus structurée, plus cohérente et mieux adaptée à leur contexte.
         </p>
         
         <div style="margin-top: 2rem;">
-          <a href="https://www.linkedin.com/posts/djeny-mainvil-msc-4a6a26189_on-parle-beaucoup-de-data-on-recrute-activity-7407404402543587328-E-Ar?utm_medium=ios_app&rcm=ACoAAFWX-w8BTRWjVycc1-_l9W9Qwd0o0On3IPY&utm_source=social_share_send&utm_campaign=whatsapp" target="_blank" style="text-decoration: none;">
-            <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-bottom: 1.5rem; border-left: 4px solid #667eea; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
-              <h3 style="color: #667eea; margin-bottom: 0.5rem; font-size: 1.3rem;">📊 Scientifique des données, analyste de données et analyste en intelligence d'affaires : comprendre les différences</h3>
+          <a href="article1.html" style="text-decoration: none;">
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-bottom: 1.5rem; border-left: 4px solid #ff9d70; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+              <h3 style="color: #ff9d70; margin-bottom: 0.5rem; font-size: 1.3rem;">📊 Scientifique des données, analyste de données et analyste en intelligence d'affaires : comprendre les différences</h3>
               <p style="color: #666; line-height: 1.7;">Une analyse claire des différents rôles analytiques et de leurs contributions spécifiques aux organisations.</p>
             </div>
           </a>
           
-          <a href="https://www.linkedin.com/posts/djeny-mainvil-msc-4a6a26189_on-a-investi-dans-des-outils-de-donn%C3%A9es-activity-7408854026328514560-d9Xr?utm_medium=ios_app&rcm=ACoAACx31T4BE203pcDkaxacxjxjPCakJaAAy04&utm_source=social_share_send&utm_campaign=whatsapp" target="_blank" style="text-decoration: none;">
-            <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-bottom: 1.5rem; border-left: 4px solid #667eea; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
-              <h3 style="color: #667eea; margin-bottom: 0.5rem; font-size: 1.3rem;">🔧 ERP, BI et intelligence artificielle : comprendre le rôle des outils dans l'analytique</h3>
+          <a href="article2.html" style="text-decoration: none;">
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-bottom: 1.5rem; border-left: 4px solid #ff9d70; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+              <h3 style="color: #ff9d70; margin-bottom: 0.5rem; font-size: 1.3rem;">🔧 ERP, BI et intelligence artificielle : comprendre le rôle des outils dans l'analytique</h3>
               <p style="color: #666; line-height: 1.7;">Comment les outils technologiques s'intègrent dans une démarche analytique cohérente.</p>
             </div>
           </a>
           
-          <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; border-left: 4px solid #667eea; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
-            <h3 style="color: #667eea; margin-bottom: 0.5rem; font-size: 1.3rem;">💭 « Nous avons des données… mais nous ne savons pas quoi en faire »</h3>
-            <p style="color: #666; line-height: 1.7;">Réflexion sur les défis de la valorisation des données dans les organisations.</p>
-          </div>
+          <a href="article3.html" style="text-decoration: none;">
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; border-left: 4px solid #ff9d70; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+              <h3 style="color: #ff9d70; margin-bottom: 0.5rem; font-size: 1.3rem;">💭 « Nous avons des données… mais nous ne savons pas quoi en faire »</h3>
+              <p style="color: #666; line-height: 1.7;">Réflexion sur les défis de la valorisation des données dans les organisations.</p>
+            </div>
+          </a>
         </div>
       </section>
 
@@ -915,23 +1025,36 @@
         
         <div style="margin-top: 2rem;">
           <a href="https://digital.hec.ca/blog/comment-les-entreprises-captent-lattention-sur-tiktok-et-instagram-reels-et-utilisent-lanalytique-pour-maximiser-leur-visibilite-et-leur-chiffre-daffaires/" target="_blank" style="text-decoration: none;">
-            <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; border-left: 4px solid #667eea; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
-              <h3 style="color: #667eea; margin-bottom: 0.5rem; font-size: 1.3rem;">🎙️ Comment les entreprises captent l'attention sur TikTok et Instagram Reels</h3>
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; border-left: 4px solid #ff9d70; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
+              <h3 style="color: #ff9d70; margin-bottom: 0.5rem; font-size: 1.3rem;">🎙️ Comment les entreprises captent l'attention sur TikTok et Instagram Reels</h3>
               <p style="color: #666; line-height: 1.7;">Comment les entreprises utilisent l'analytique pour maximiser leur visibilité et leur chiffre d'affaires sur les réseaux sociaux.</p>
             </div>
           </a>
         </div>
       </section>
 
+      <!-- Recherches académiques Section -->
+      <section id="recherches" class="content-section fade-in">
+        <h2 class="section-title">Recherches académiques</h2>
+        <p class="section-text">
+          Retrouvez ici mes travaux de recherche et contributions académiques dans le domaine de l'économie, de l'intelligence des affaires et de l'analyse de données.
+        </p>
+        
+        <div style="margin-top: 2rem;">
+          <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; border-left: 4px solid #ff9d70; margin-bottom: 1.5rem;">
+            <h3 style="color: #ff9d70; margin-bottom: 0.5rem; font-size: 1.3rem;">📚 Travaux académiques</h3>
+            <p style="color: #666; line-height: 1.7;">Section en cours de développement. Mes publications académiques seront bientôt disponibles ici.</p>
+          </div>
+        </div>
+      </section>
+
       <!-- Contact Section -->
       <section id="contact" class="content-section fade-in">
-        <h2 class="section-title">Me Contacter</h2>
+        <h2 class="section-title">Contact</h2>
         <div class="contact-box">
-          <h3>Discutons de vos besoins</h3>
-          <p>Si vous souhaitez échanger, discuter d'un besoin ou poser une question, vous pouvez me contacter ici :</p>
+          <h3>Échanger autour d'enjeux liés aux données, à la BI ou aux solutions technologiques.</h3>
           <div class="contact-links">
             <a href="https://www.linkedin.com/in/djeny-mainvil-msc-4a6a26189" target="_blank" class="contact-link">💼 LinkedIn</a>
-            <a href="mailto:contact@djenymainvil.com" class="contact-link">📧 Email</a>
           </div>
         </div>
       </section>
@@ -943,11 +1066,13 @@
       <div class="sidebar-section fade-in">
         <h3 class="sidebar-title">Domaines</h3>
         <ul class="sidebar-list">
-          <li><a href="#expertises">Économie</a></li>
-          <li><a href="#expertises">Intelligence des Affaires</a></li>
-          <li><a href="#expertises">Analyse de Données</a></li>
-          <li><a href="#expertises">Prise de Décision</a></li>
-          <li><a href="#articles">Publications</a></li>
+          <li><a href="#expertise">Économie</a></li>
+          <li><a href="#expertise">Intelligence des Affaires</a></li>
+          <li><a href="#expertise">Analyse de Données</a></li>
+          <li><a href="#expertise">Prise de Décision</a></li>
+          <li><a href="#articles">Articles & Analyses</a></li>
+          <li><a href="#podcast">Podcast</a></li>
+          <li><a href="#recherches">Recherches académiques</a></li>
         </ul>
       </div>
 
@@ -983,10 +1108,12 @@
     <p class="footer-subtitle">Économiste & Analyste des Affaires</p>
     
     <div class="footer-links">
-      <a href="#biographie" class="footer-link">Biographie</a>
-      <a href="#expertises" class="footer-link">Expertises</a>
-      <a href="#articles" class="footer-link">Articles</a>
+      <a href="#accueil" class="footer-link">Accueil</a>
+      <a href="#apropos" class="footer-link">A propos</a>
+      <a href="#expertise" class="footer-link">Expertise</a>
+      <a href="#articles" class="footer-link">Articles & Analyses</a>
       <a href="#podcast" class="footer-link">Podcast</a>
+      <a href="#recherches" class="footer-link">Recherches académiques</a>
       <a href="#contact" class="footer-link">Contact</a>
     </div>
     
@@ -1074,19 +1201,47 @@
     // Menu hamburger
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    const navLinkItems = document.querySelectorAll('.nav-link');
+    const navLinkItems = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
 
     hamburger.addEventListener('click', function() {
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('active');
     });
 
-    // Fermer le menu quand on clique sur un lien
+    // Gestion du dropdown sur mobile et desktop
+    if (dropdownToggle) {
+      dropdownToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdown.classList.toggle('active');
+      });
+    }
+
+    // Fermer le menu quand on clique sur un lien (sauf dropdown-toggle)
     navLinkItems.forEach(link => {
       link.addEventListener('click', function() {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
       });
+    });
+
+    // Fermer le menu mobile quand on clique sur un lien du dropdown
+    dropdownLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        dropdown.classList.remove('active');
+      });
+    });
+
+    // Fermer le dropdown si on clique ailleurs
+    document.addEventListener('click', function(e) {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('active');
+      }
     });
   </script>
 </body>

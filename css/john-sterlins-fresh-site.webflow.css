@@ -2,7 +2,7 @@
   --black: black;
   --medium-purple: #b16cea;
   --light-coral: #ff5e69;
-  --coral: #ff8a56;
+  --coral: #ff9d70;
   --sandy-brown: #ffa84b;
   --dim-grey: #666;
   --white: white;
@@ -1221,7 +1221,7 @@ figcaption {
   letter-spacing: 0;
   text-transform: none;
   -webkit-text-fill-color: transparent;
-  background-image: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff8a56 77%, #ffa84b 91%);
+  background-image: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffa84b 91%);
   -webkit-background-clip: text;
   background-clip: text;
   font-size: 20px;
@@ -2170,7 +2170,7 @@ figcaption {
   }
 
   .project-item-tag-text {
-    background-image: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff8a56 77%, #ffa84b 91%);
+    background-image: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffa84b 91%);
     font-size: 18px;
   }
 
