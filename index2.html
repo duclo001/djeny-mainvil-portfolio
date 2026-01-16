@@ -706,12 +706,78 @@
 
     /* Footer */
     .footer {
-      background: linear-gradient(135deg, #1a1a2e 0%, #2c3e50 100%);
-      color: white;
+      background: linear-gradient(135deg, #fff5f0 0%, #ffffff 30%, #f0f9ff 70%, #ffffff 100%);
+      color: #2c3e50;
       padding: 4rem 2rem 2rem;
       text-align: center;
       position: relative;
-      overflow: hidden;
+      overflow: visible;
+    }
+
+    .footer::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(255,157,112,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(59,130,246,0.15) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .footer > * {
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer .floating-globes {
+      z-index: 1 !important;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    .footer .globe {
+      opacity: 1 !important;
+      animation-name: float-footer !important;
+      color: rgba(255, 157, 112, 0.8) !important;
+      font-size: 1.5rem !important;
+      font-weight: 700 !important;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .footer .globe::before {
+      display: none;
+    }
+
+    @keyframes float-footer {
+      0% {
+        bottom: 0;
+        transform: translateX(0) translateY(0) rotate(0deg);
+        opacity: 0.4;
+      }
+      25% {
+        opacity: 0.8;
+      }
+      50% {
+        bottom: 40%;
+        transform: translateX(30px) translateY(-10px) rotate(180deg);
+        opacity: 0.7;
+      }
+      75% {
+        opacity: 0.6;
+      }
+      100% {
+        bottom: 0;
+        transform: translateX(0) translateY(0) rotate(360deg);
+        opacity: 0.4;
+      }
     }
 
     .footer::before {
@@ -724,6 +790,7 @@
       background: linear-gradient(90deg, #ff9d70, #3b82f6, #22c55e, #ff9d70);
       background-size: 200% 100%;
       animation: gradientMove 3s linear infinite;
+      z-index: 2;
     }
 
     @keyframes gradientMove {
@@ -733,12 +800,24 @@
 
     .footer-logo {
       margin-bottom: 2rem;
+      animation: floatSlow 6s ease-in-out infinite;
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
     }
 
     .footer-logo img {
       height: 80px;
       width: auto;
-      filter: brightness(1.2);
+      filter: brightness(1.2) drop-shadow(0 0 20px rgba(255,157,112,0.3));
+      transition: all 0.3s ease;
+    }
+
+    .footer-logo img:hover {
+      filter: brightness(1.4) drop-shadow(0 0 30px rgba(255,157,112,0.5));
+      transform: scale(1.05);
     }
 
     .footer-tagline {
@@ -746,32 +825,65 @@
       font-weight: 700;
       letter-spacing: 2px;
       margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, #2c3e50 0%, #ff9d70 50%, #2c3e50 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      background-size: 200% 100%;
+      animation: shimmerText 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmerText {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
     .footer-subtitle {
       opacity: 0.7;
       font-size: 1rem;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
+      position: relative;
+      padding-bottom: 2rem;
+    }
+
+    .footer-subtitle::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ff9d70, transparent);
     }
 
     .footer-links {
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
+      gap: 1rem;
+      margin-bottom: 3rem;
       flex-wrap: wrap;
     }
 
     .footer-link {
-      color: white;
+      color: #2c3e50;
       text-decoration: none;
-      transition: color 0.3s ease;
-      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
       font-weight: 600;
+      padding: 0.7rem 1.5rem;
+      background: rgba(255,255,255,0.6);
+      border-radius: 25px;
+      border: 1px solid rgba(59,130,246,0.2);
+      backdrop-filter: blur(10px);
     }
 
     .footer-link:hover {
-      color: #ff9d70;
+      color: white;
+      background: linear-gradient(135deg, #ff9d70, #ff6b3d);
+      border-color: transparent;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 20px rgba(255,157,112,0.4);
     }
 
     .social-icons {
@@ -782,30 +894,70 @@
     }
 
     .social-icon {
-      width: 45px;
-      height: 45px;
-      background: rgba(255,255,255,0.1);
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(255,157,112,0.1));
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s ease;
-      color: white;
+      transition: all 0.4s ease;
+      color: #2c3e50;
       text-decoration: none;
       font-size: 1.3rem;
+      border: 2px solid rgba(59,130,246,0.2);
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+
+    .social-icon::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      padding: 2px;
+      background: linear-gradient(135deg, #ff9d70, #3b82f6, #22c55e);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .social-icon:hover::before {
+      opacity: 1;
     }
 
     .social-icon:hover {
-      background: #ff9d70;
-      transform: translateY(-3px);
+      background: linear-gradient(135deg, #ff9d70, #ff6b3d);
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 10px 30px rgba(255,157,112,0.5);
+      border-color: transparent;
     }
 
     .footer-copyright {
-      opacity: 0.6;
+      opacity: 0.5;
       font-size: 0.9rem;
       margin-top: 2rem;
       padding-top: 2rem;
       border-top: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-copyright::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,157,112,0.5), transparent);
+    }
+
+    .footer-copyright:hover {
+      opacity: 0.8;
     }
 
     /* Preloader */
@@ -1541,33 +1693,36 @@
       <span></span>
     </div>
     <ul class="nav-links">
-      <li class="nav-item"><a href="#accueil" class="nav-link">Accueil</a></li>
-      <li class="nav-item"><a href="#apropos" class="nav-link">A propos</a></li>
-      <li class="nav-item"><a href="#expertise" class="nav-link">Expertise</a></li>
+      <li class="nav-item"><a href="#accueil" class="nav-link" data-translate="nav-accueil">Accueil</a></li>
+      <li class="nav-item"><a href="#apropos" class="nav-link" data-translate="nav-apropos">A propos</a></li>
+      <li class="nav-item"><a href="#expertise" class="nav-link" data-translate="nav-expertise">Expertise</a></li>
       <li class="nav-item dropdown">
-        <span class="nav-link dropdown-toggle">Publications & Réflexions</span>
+        <span class="nav-link dropdown-toggle" data-translate="nav-publications">Publications & Réflexions</span>
         <ul class="dropdown-menu">
-          <li><a href="#articles">Articles & Analyses</a></li>
-          <li><a href="#podcast">Podcast</a></li>
-          <li><a href="#recherches">Recherches académiques</a></li>
+          <li><a href="#articles" data-translate="nav-articles">Articles & Analyses</a></li>
+          <li><a href="#podcast" data-translate="nav-podcast">Podcast</a></li>
+          <li><a href="#recherches" data-translate="nav-recherches">Recherches académiques</a></li>
         </ul>
       </li>
-      <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      <li class="nav-item"><a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a></li>
     </ul>
+    <button class="language-toggle" onclick="toggleLanguage()">
+      <span id="current-lang">🇬🇧 EN</span>
+    </button>
   </nav>
 
   <!-- Hero Section -->
   <section id="accueil" class="hero-section" style="opacity:0">
     <!-- Floating Data & Analytics Symbols Background -->
     <div class="floating-globes">
-      <div class="globe" data-symbol="Σ">Σ</div>
-      <div class="globe" data-symbol="π">π</div>
-      <div class="globe" data-symbol="%">%</div>
-      <div class="globe" data-symbol="√">√</div>
-      <div class="globe" data-symbol="∞">∞</div>
-      <div class="globe" data-symbol="≈">≈</div>
-      <div class="globe" data-symbol="∫">∫</div>
-      <div class="globe" data-symbol="±">±</div>
+      <div class="globe" data-symbol="ANALYSE">ANALYSE</div>
+      <div class="globe" data-symbol="STRATÉGIE">STRATÉGIE</div>
+      <div class="globe" data-symbol="CONSEIL">CONSEIL</div>
+      <div class="globe" data-symbol="OPTIMISATION">OPTIMISATION</div>
+      <div class="globe" data-symbol="DÉCISION">DÉCISION</div>
+      <div class="globe" data-symbol="PERFORMANCE">PERFORMANCE</div>
+      <div class="globe" data-symbol="INNOVATION">INNOVATION</div>
+      <div class="globe" data-symbol="SOLUTIONS">SOLUTIONS</div>
     </div>
     
     <div class="hero-image-container">
@@ -1575,20 +1730,20 @@
     </div>
     <div class="hero-content fade-in">
       <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; color: #1a1a2e; background: linear-gradient(135deg, #ff9d70 0%, #ff6b3d 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Djeny Mainvil MSc.</h2>
-      <p style="font-size: 1.15rem; color: #333; margin-bottom: 0.3rem; font-weight: 600;">Conseillère en solutions technologiques</p>
-      <p style="font-size: 1rem; color: #555; margin-bottom: 2rem; font-style: italic;">Solutions data pour la performance et la croissance</p>
+      <p data-translate="hero-subtitle1" style="font-size: 1.15rem; color: #333; margin-bottom: 0.3rem; font-weight: 600;">Conseillère en solutions technologiques</p>
+      <p data-translate="hero-subtitle2" style="font-size: 1rem; color: #555; margin-bottom: 2rem; font-style: italic;">Solutions data pour la performance et la croissance</p>
       
       <div class="hero-badges">
         <span class="hero-badge">Makila AI | HEC</span>
-        <span class="hero-badge">BI • Analytics • Stratégie</span>
-        <span class="hero-badge">Français • Anglais (bilingue)</span>
+        <span data-translate="hero-badge2" class="hero-badge">BI • Analytics • Stratégie</span>
+        <span data-translate="hero-badge3" class="hero-badge">Français • Anglais (bilingue)</span>
       </div>
       
-      <h3 class="hero-title">Donner du sens aux données pour mieux décider</h3>
+      <h3 data-translate="hero-main" class="hero-title">Donner du sens aux données pour mieux décider</h3>
       
       <div class="cta-buttons">
-        <a href="#articles" class="cta-button cta-button-secondary">Explorer les publications</a>
-        <a href="#contact" class="cta-button cta-button-secondary">Me Contacter</a>
+        <a href="#articles" data-translate="hero-cta1" class="cta-button cta-button-secondary">Explorer les publications</a>
+        <a href="#contact" data-translate="hero-cta2" class="cta-button cta-button-secondary">Me Contacter</a>
       </div>
     </div>
   </section>
@@ -1600,14 +1755,14 @@
       
       <!-- A Propos Section -->
       <section id="apropos" class="content-section fade-in">
-        <h2 class="section-title">À Propos</h2>
-        <p class="section-text">
+        <h2 data-translate="section-apropos" class="section-title">À Propos</h2>
+        <p data-translate="apropos-p1" class="section-text">
           Conseillère en solutions technologiques spécialisée en données et intelligence d'affaires, j'accompagne les organisations dans la transformation de leurs données en décisions stratégiques. Mon parcours combine une <strong>double formation de niveau maîtrise en économie (Université de Montreal) et en intelligence d'affaires (HEC Montréal)</strong>, ainsi que plus de <strong>cinq années d'expérience</strong> dans des fonctions analytiques et décisionnelles.
         </p>
-        <p class="section-text">
+        <p data-translate="apropos-p2" class="section-text">
           Au fil de mes expériences professionnelles et de mes échanges avec des dirigeants, recruteurs et professionnels, j'ai développé un intérêt marqué pour la manière dont les organisations analysent l'information, structurent leur réflexion et prennent des décisions dans des contextes économiques complexes et incertains. J'ai constaté que les difficultés rencontrées ne tiennent pas uniquement à un manque d'outils ou de données, mais très souvent à un <strong>manque de clarté sur les enjeux, les priorités décisionnelles et l'usage réel de l'information</strong>.
         </p>
-        <p class="section-text">
+        <p data-translate="apropos-p3" class="section-text">
           À travers mon travail, mes publications et ce site, je propose une approche analytique, structurée et accessible, orientée impact. Mon objectif est d'aider les organisations à mieux comprendre leur situation, à poser les bonnes questions et à avancer de manière cohérente, en alignant données, stratégie et besoins réels.
         </p>
         
@@ -1624,43 +1779,43 @@
 
       <!-- Expertise Section -->
       <section id="expertise" class="content-section fade-in">
-        <h2 class="section-title">Expertise</h2>
+        <h2 data-translate="section-expertise" class="section-title">Expertise</h2>
         <ul class="topics-list">
-          <li>Aide à la décision basée sur l'analyse des données</li>
-          <li>Business Intelligence et tableaux de bord décisionnels (Power BI, KPIs)</li>
-          <li>Analyse de données pour enjeux stratégiques et opérationnels</li>
-          <li>Conseil en solutions technologiques et analytiques</li>
+          <li data-translate="expertise-1">Aide à la décision basée sur l'analyse des données</li>
+          <li data-translate="expertise-2">Business Intelligence et tableaux de bord décisionnels (Power BI, KPIs)</li>
+          <li data-translate="expertise-3">Analyse de données pour enjeux stratégiques et opérationnels</li>
+          <li data-translate="expertise-4">Conseil en solutions technologiques et analytiques</li>
         </ul>
       </section>
 
       <!-- Pourquoi ce site Section -->
       <section class="content-section fade-in">
-        <h2 class="section-title">Pourquoi ce site</h2>
-        <p class="section-text">
+        <h2 data-translate="section-pourquoi" class="section-title">Pourquoi ce site</h2>
+        <p data-translate="pourquoi-p1" class="section-text">
           Les organisations évoluent aujourd'hui dans des environnements économiques et informationnels de plus en plus complexes. Les données sont disponibles, les outils sont nombreux, mais les décisions restent souvent difficiles à structurer et à arbitrer au quotidien.
         </p>
-        <p class="section-text">
+        <p data-translate="pourquoi-p2" class="section-text">
           Ce site a été créé pour proposer un espace de réflexion clair et accessible, à la croisée de l'économie et de l'intelligence des affaires. J'y partage des analyses et des observations visant à mieux comprendre les enjeux organisationnels, à clarifier les priorités décisionnelles et à donner du sens à l'information existante.
         </p>
-        <p class="section-text">
+        <p data-translate="pourquoi-p3" class="section-text">
           Ces réflexions s'adressent autant aux dirigeants et entrepreneurs qu'aux organisations à la recherche de profils capables d'analyser des situations complexes, de structurer la réflexion et de contribuer à des décisions éclairées.
         </p>
       </section>
 
       <!-- Ce que vous trouverez ici Section -->
       <section class="content-section fade-in">
-        <h2 class="section-title">Ce que vous trouverez ici</h2>
+        <h2 data-translate="section-trouverez" class="section-title">Ce que vous trouverez ici</h2>
         <ul class="topics-list">
-          <li>Une analyse structurée des enjeux économiques et organisationnels</li>
-          <li>Une lecture claire du rôle des données, des outils et des fonctions analytiques</li>
-          <li>Une approche humaine et pragmatique, adaptée aux réalités des PME et des environnements en croissance</li>
+          <li data-translate="trouverez-1">Une analyse structurée des enjeux économiques et organisationnels</li>
+          <li data-translate="trouverez-2">Une lecture claire du rôle des données, des outils et des fonctions analytiques</li>
+          <li data-translate="trouverez-3">Une approche humaine et pragmatique, adaptée aux réalités des PME et des environnements en croissance</li>
         </ul>
       </section>
 
       <!-- Publications & Réflexions Section -->
       <section id="publications" class="content-section fade-in">
-        <h2 class="section-title">Publications & Réflexions</h2>
-        <p class="section-text" style="margin-bottom: 3rem;">
+        <h2 data-translate="section-publications" class="section-title">Publications & Réflexions</h2>
+        <p data-translate="publications-intro" class="section-text" style="margin-bottom: 3rem;">
           Retrouvez ici mes analyses, réflexions et contributions dans les domaines de l'économie, de l'intelligence des affaires et de l'analyse de données.
         </p>
         
@@ -1668,31 +1823,31 @@
         <div id="articles" style="background: linear-gradient(135deg, #fff8f3 0%, #ffffff 100%); padding: 2.5rem; border-radius: 15px; margin-bottom: 3rem; border: 1px solid rgba(255,157,112,0.1); box-shadow: 0 5px 20px rgba(255,157,112,0.08);">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
             <div style="background: linear-gradient(135deg, #ff9d70 0%, #ff6b3d 100%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(255,157,112,0.3);">📊</div>
-            <h3 style="font-size: 1.9rem; font-weight: 700; color: #1a1a2e; margin: 0;">Articles & Analyses</h3>
+            <h3 data-translate="articles-title" style="font-size: 1.9rem; font-weight: 700; color: #1a1a2e; margin: 0;">Articles & Analyses</h3>
           </div>
-          <p class="section-text" style="margin-bottom: 2rem;">
+          <p data-translate="articles-desc" class="section-text" style="margin-bottom: 2rem;">
             Les articles publiés ici abordent des enjeux liés à l'économie, à l'intelligence des affaires, aux données et à la prise de décision. Ils s'adressent aux organisations et aux professionnels qui souhaitent dépasser les approches purement techniques pour adopter une réflexion plus structurée, plus cohérente et mieux adaptée à leur contexte.
           </p>
           
           <div style="display: grid; gap: 1.5rem;">
             <a href="article1.html" style="text-decoration: none;">
               <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #ff9d70; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255,157,112,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
-                <h4 style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">📊 Scientifique des données, analyste de données et analyste en intelligence d'affaires</h4>
-                <p style="color: #666; line-height: 1.7; font-size: 1rem;">Une analyse claire des différents rôles analytiques et de leurs contributions spécifiques aux organisations.</p>
+                <h4 data-translate="article1-title" style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">📊 Scientifique des données, analyste de données et analyste en intelligence d'affaires</h4>
+                <p data-translate="article1-desc" style="color: #666; line-height: 1.7; font-size: 1rem;">Une analyse claire des différents rôles analytiques et de leurs contributions spécifiques aux organisations.</p>
               </div>
             </a>
             
             <a href="article2.html" style="text-decoration: none;">
               <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #ff9d70; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255,157,112,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
-                <h4 style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">🔧 ERP, BI et intelligence artificielle</h4>
-                <p style="color: #666; line-height: 1.7; font-size: 1rem;">Comment les outils technologiques s'intègrent dans une démarche analytique cohérente.</p>
+                <h4 data-translate="article2-title" style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">🔧 ERP, BI et intelligence artificielle</h4>
+                <p data-translate="article2-desc" style="color: #666; line-height: 1.7; font-size: 1rem;">Comment les outils technologiques s'intègrent dans une démarche analytique cohérente.</p>
               </div>
             </a>
             
             <a href="article3.html" style="text-decoration: none;">
               <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #ff9d70; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255,157,112,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
-                <h4 style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">💭 « Nous avons des données… mais nous ne savons pas quoi en faire »</h4>
-                <p style="color: #666; line-height: 1.7; font-size: 1rem;">Réflexion sur les défis de la valorisation des données dans les organisations.</p>
+                <h4 data-translate="article3-title" style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">💭 « Nous avons des données… mais nous ne savons pas quoi en faire »</h4>
+                <p data-translate="article3-desc" style="color: #666; line-height: 1.7; font-size: 1rem;">Réflexion sur les défis de la valorisation des données dans les organisations.</p>
               </div>
             </a>
           </div>
@@ -1702,17 +1857,17 @@
         <div id="podcast" style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); padding: 2.5rem; border-radius: 15px; margin-bottom: 3rem; border: 1px solid rgba(59,130,246,0.1); box-shadow: 0 5px 20px rgba(59,130,246,0.08);">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
             <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(59,130,246,0.3);">🎙️</div>
-            <h3 style="font-size: 1.9rem; font-weight: 700; color: #1a1a2e; margin: 0;">Podcast</h3>
+            <h3 data-translate="podcast-title" style="font-size: 1.9rem; font-weight: 700; color: #1a1a2e; margin: 0;">Podcast</h3>
           </div>
-          <p class="section-text" style="margin-bottom: 2rem;">
+          <p data-translate="podcast-desc" class="section-text" style="margin-bottom: 2rem;">
             Écoutez mes interventions et discussions sur des sujets liés à l'analytique, aux données et aux stratégies numériques.
           </p>
           
           <div style="display: grid; gap: 1.5rem;">
             <a href="https://digital.hec.ca/blog/comment-les-entreprises-captent-lattention-sur-tiktok-et-instagram-reels-et-utilisent-lanalytique-pour-maximiser-leur-visibilite-et-leur-chiffre-daffaires/" target="_blank" style="text-decoration: none;">
               <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #3b82f6; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(59,130,246,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
-                <h4 style="color: #3b82f6; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">🎙️ Comment les entreprises captent l'attention sur TikTok et Instagram Reels</h4>
-                <p style="color: #666; line-height: 1.7; font-size: 1rem;">Comment les entreprises utilisent l'analytique pour maximiser leur visibilité et leur chiffre d'affaires sur les réseaux sociaux.</p>
+                <h4 data-translate="podcast1-title" style="color: #3b82f6; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">🎙️ Comment les entreprises captent l'attention sur TikTok et Instagram Reels</h4>
+                <p data-translate="podcast1-desc" style="color: #666; line-height: 1.7; font-size: 1rem;">Comment les entreprises utilisent l'analytique pour maximiser leur visibilité et leur chiffre d'affaires sur les réseaux sociaux.</p>
               </div>
             </a>
           </div>
@@ -1722,17 +1877,17 @@
         <div id="recherches" style="background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%); padding: 2.5rem; border-radius: 15px; border: 1px solid rgba(34,197,94,0.1); box-shadow: 0 5px 20px rgba(34,197,94,0.08);">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
             <div style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(34,197,94,0.3);">📚</div>
-            <h3 style="font-size: 1.9rem; font-weight: 700; color: #1a1a2e; margin: 0;">Recherches académiques</h3>
+            <h3 data-translate="recherches-title" style="font-size: 1.9rem; font-weight: 700; color: #1a1a2e; margin: 0;">Recherches académiques</h3>
           </div>
-          <p class="section-text" style="margin-bottom: 2rem;">
+          <p data-translate="recherches-desc" class="section-text" style="margin-bottom: 2rem;">
             Retrouvez ici mes travaux de recherche et contributions académiques dans le domaine de l'économie, de l'intelligence des affaires et de l'analyse de données.
           </p>
           
           <div style="display: grid; gap: 1.5rem;">
             <a href="recherches.html" style="text-decoration: none;">
               <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #22c55e; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(34,197,94,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
-                <h4 style="color: #22c55e; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">📚 Travaux académiques</h4>
-                <p style="color: #666; line-height: 1.7; font-size: 1rem;">Découvrez mes trois principaux travaux de recherche : un rapport de stage HEC sur l'optimisation de la performance par Power BI, un rapport de recherche UdeM sur la réallocation de l'emploi durant la COVID-19, et un mémoire sur les investissements directs étrangers dans les télécommunications en Haïti.</p>
+                <h4 data-translate="recherche1-title" style="color: #22c55e; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">📚 Travaux académiques</h4>
+                <p data-translate="recherche1-desc" style="color: #666; line-height: 1.7; font-size: 1rem;">Découvrez mes trois principaux travaux de recherche : un rapport de stage HEC sur l'optimisation de la performance par Power BI, un rapport de recherche UdeM sur la réallocation de l'emploi durant la COVID-19, et un mémoire sur les investissements directs étrangers dans les télécommunications en Haïti.</p>
               </div>
             </a>
           </div>
@@ -1741,9 +1896,9 @@
 
       <!-- Contact Section -->
       <section id="contact" class="content-section fade-in">
-        <h2 class="section-title">Contact</h2>
+        <h2 data-translate="section-contact" class="section-title">Contact</h2>
         <div class="contact-box">
-          <h3>Échanger autour d'enjeux liés aux données, à la BI ou aux solutions technologiques.</h3>
+          <h3 data-translate="contact-subtitle">Échanger autour d'enjeux liés aux données, à la BI ou aux solutions technologiques.</h3>
           <div class="contact-links">
             <a href="https://www.linkedin.com/in/djeny-mainvil-msc-4a6a26189" target="_blank" class="contact-link">💼 LinkedIn</a>
           </div>
@@ -1756,16 +1911,16 @@
     <aside class="sidebar">
       <div class="sidebar-section scroll-reveal-right" style="background: linear-gradient(135deg, #fff8f3 0%, #ffffff 100%); border: 2px solid rgba(255,157,112,0.1);">
         <img src="images/Djeny Mainvil Photo.jpg" alt="Djeny Mainvil" style="width: 100%; border-radius: 15px; margin-bottom: 1rem; animation: floating 6s ease-in-out infinite; animation-delay: 0.3s; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 3px solid white;">
-        <h3 class="sidebar-title" style="color: #ff9d70; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;"><span style="font-size: 1.3rem;">🎓</span> Domaines</h3>
+        <h3 data-translate="sidebar-etudes" class="sidebar-title" style="color: #ff9d70; font-size: 1rem;">Études</h3>
         <ul class="sidebar-list">
-          <li style="background: white; margin-bottom: 0.5rem; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #ff9d70;"><a href="#expertise">Maîtrise en Intelligence des Affaires (HEC)</a></li>
-          <li style="background: white; margin-bottom: 0.5rem; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #ff9d70;"><a href="#expertise">Maîtrise en sciences économiques (Université de Montréal)</a></li>
-          <li style="background: white; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #ff9d70;"><a href="#expertise">Baccalauréat en sciences économiques (Quisqueya)</a></li>
+          <li data-translate="domaine-1" style="background: white; margin-bottom: 0.5rem; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #ff9d70;"><a href="#expertise">Maîtrise en Intelligence des Affaires (HEC)</a></li>
+          <li data-translate="domaine-2" style="background: white; margin-bottom: 0.5rem; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #ff9d70;"><a href="#expertise">Maîtrise en sciences économiques (Université de Montréal)</a></li>
+          <li data-translate="domaine-3" style="background: white; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #ff9d70;"><a href="#expertise">Baccalauréat en sciences économiques (Université Quisqueya)</a></li>
         </ul>
       </div>
 
       <div class="sidebar-section scroll-reveal-right" style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); border: 2px solid rgba(59,130,246,0.1);">
-        <h3 class="sidebar-title" style="color: #3b82f6; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;"><span style="font-size: 1.3rem;">💻</span> Outils & Compétences</h3>
+        <h3 data-translate="sidebar-outils" class="sidebar-title" style="color: #3b82f6; font-size: 1rem;">Outils & Compétences</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
           <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1);">Power BI</span>
           <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1);">Python</span>
@@ -1778,12 +1933,12 @@
       </div>
 
       <div class="sidebar-section scroll-reveal-right" style="background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%); border: 2px solid rgba(34,197,94,0.1);">
-        <h3 class="sidebar-title" style="color: #22c55e; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;"><span style="font-size: 1.3rem;">👥</span> À qui s'adresse ce site</h3>
+        <h3 data-translate="sidebar-audience" class="sidebar-title" style="color: #22c55e; font-size: 1rem;">À qui s'adresse ce site</h3>
         <ul style="list-style: none; padding: 0; margin: 0;">
-          <li style="background: white; margin-bottom: 0.5rem; padding: 0.8rem 0.8rem 0.8rem 2.5rem; border-radius: 8px; border-left: 3px solid #22c55e; position: relative; font-size: 0.9rem; color: #444;"><span style="position: absolute; left: 0.8rem; top: 50%; transform: translateY(-50%); font-size: 1rem;">👔</span> Dirigeants et entrepreneurs</li>
-          <li style="background: white; margin-bottom: 0.5rem; padding: 0.8rem 0.8rem 0.8rem 2.5rem; border-radius: 8px; border-left: 3px solid #22c55e; position: relative; font-size: 0.9rem; color: #444;"><span style="position: absolute; left: 0.8rem; top: 50%; transform: translateY(-50%); font-size: 1rem;">🏢</span> PME et organisations en structuration</li>
-          <li style="background: white; margin-bottom: 0.5rem; padding: 0.8rem 0.8rem 0.8rem 2.5rem; border-radius: 8px; border-left: 3px solid #22c55e; position: relative; font-size: 0.9rem; color: #444;"><span style="position: absolute; left: 0.8rem; top: 50%; transform: translateY(-50%); font-size: 1rem;">🎯</span> Recruteurs et gestionnaires</li>
-          <li style="background: white; padding: 0.8rem 0.8rem 0.8rem 2.5rem; border-radius: 8px; border-left: 3px solid #22c55e; position: relative; font-size: 0.9rem; color: #444;"><span style="position: absolute; left: 0.8rem; top: 50%; transform: translateY(-50%); font-size: 1rem;">📊</span> Professionnels et équipes en intelligence des affaires</li>
+          <li data-translate="audience-1" style="background: white; margin-bottom: 0.5rem; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #22c55e; font-size: 0.9rem; color: #444;">Dirigeants et entrepreneurs</li>
+          <li data-translate="audience-2" style="background: white; margin-bottom: 0.5rem; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #22c55e; font-size: 0.9rem; color: #444;">PME et organisations en structuration</li>
+          <li data-translate="audience-3" style="background: white; margin-bottom: 0.5rem; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #22c55e; font-size: 0.9rem; color: #444;">Recruteurs et gestionnaires</li>
+          <li data-translate="audience-4" style="background: white; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #22c55e; font-size: 0.9rem; color: #444;">Professionnels et équipes en intelligence des affaires</li>
         </ul>
       </div>
     </aside>
@@ -1791,18 +1946,30 @@
 
   <!-- Footer -->
   <footer class="footer">
+    <!-- Floating Data & Analytics Keywords Background -->
+    <div class="floating-globes">
+      <div class="globe" data-symbol="DATA">DATA</div>
+      <div class="globe" data-symbol="BI">BI</div>
+      <div class="globe" data-symbol="ANALYTICS">ANALYTICS</div>
+      <div class="globe" data-symbol="POWER BI">POWER BI</div>
+      <div class="globe" data-symbol="KPI">KPI</div>
+      <div class="globe" data-symbol="INSIGHTS">INSIGHTS</div>
+      <div class="globe" data-symbol="DASHBOARD">DASHBOARD</div>
+      <div class="globe" data-symbol="SQL">SQL</div>
+    </div>
+    
     <div class="footer-logo">
       <img src="images/logo-white.jpg" alt="Djeny Mainvil">
     </div>
-    <p class="footer-tagline">Analyser. Clarifier. Décider.</p>
-    <p class="footer-subtitle">Économiste & Analyste des Affaires</p>
+    <p data-translate="footer-tagline" class="footer-tagline">Analyser. Clarifier. Décider.</p>
+    <p data-translate="footer-subtitle" class="footer-subtitle">Économiste & Analyste des Affaires</p>
     
     <div class="footer-links">
-      <a href="#accueil" class="footer-link">Accueil</a>
-      <a href="#apropos" class="footer-link">A propos</a>
-      <a href="#expertise" class="footer-link">Expertise</a>
-      <a href="#articles" class="footer-link">Publications & Réflexions</a>
-      <a href="#contact" class="footer-link">Contact</a>
+      <a href="#accueil" data-translate="nav-accueil" class="footer-link">Accueil</a>
+      <a href="#apropos" data-translate="nav-apropos" class="footer-link">A propos</a>
+      <a href="#expertise" data-translate="nav-expertise" class="footer-link">Expertise</a>
+      <a href="#articles" data-translate="nav-publications" class="footer-link">Publications & Réflexions</a>
+      <a href="#contact" data-translate="nav-contact" class="footer-link">Contact</a>
     </div>
     
     <div class="social-icons">
@@ -1811,10 +1978,184 @@
       <a href="#" class="social-icon">🌐</a>
     </div>
     
-    <p class="footer-copyright">&copy; 2026 Djeny Mainvil. Tous droits réservés.</p>
+    <p data-translate="footer-copyright" class="footer-copyright">&copy; 2026 Djeny Mainvil. Tous droits réservés.</p>
   </footer>
 
   <script src="js/webflow.js" type="text/javascript"></script>
+  
+  <script>
+    // Système de traduction bilingue
+    let currentLang = localStorage.getItem('language') || 'fr';
+
+    const translations = {
+      fr: {
+        'nav-accueil': 'Accueil',
+        'nav-apropos': 'A propos',
+        'nav-expertise': 'Expertise',
+        'nav-publications': 'Publications & Réflexions',
+        'nav-articles': 'Articles & Analyses',
+        'nav-podcast': 'Podcast',
+        'nav-recherches': 'Recherches académiques',
+        'nav-contact': 'Contact',
+        'hero-subtitle1': 'Conseillère en solutions technologiques',
+        'hero-subtitle2': 'Solutions data pour la performance et la croissance',
+        'hero-badge2': 'BI • Analytics • Stratégie',
+        'hero-badge3': 'Français • Anglais (bilingue)',
+        'hero-main': 'Donner du sens aux données pour mieux décider',
+        'hero-cta1': 'Explorer les publications',
+        'hero-cta2': 'Me Contacter',
+        'section-apropos': 'À Propos',
+        'apropos-p1': 'Conseillère en solutions technologiques spécialisée en données et intelligence d\'affaires, j\'accompagne les organisations dans la transformation de leurs données en décisions stratégiques. Mon parcours combine une double formation de niveau maîtrise en économie (Université de Montreal) et en intelligence d\'affaires (HEC Montréal), ainsi que plus de cinq années d\'expérience dans des fonctions analytiques et décisionnelles.',
+        'apropos-p2': 'Au fil de mes expériences professionnelles et de mes échanges avec des dirigeants, recruteurs et professionnels, j\'ai développé un intérêt marqué pour la manière dont les organisations analysent l\'information, structurent leur réflexion et prennent des décisions dans des contextes économiques complexes et incertains. J\'ai constaté que les difficultés rencontrées ne tiennent pas uniquement à un manque d\'outils ou de données, mais très souvent à un manque de clarté sur les enjeux, les priorités décisionnelles et l\'usage réel de l\'information.',
+        'apropos-p3': 'À travers mon travail, mes publications et ce site, je propose une approche analytique, structurée et accessible, orientée impact. Mon objectif est d\'aider les organisations à mieux comprendre leur situation, à poser les bonnes questions et à avancer de manière cohérente, en alignant données, stratégie et besoins réels.',
+        'section-expertise': 'Expertise',
+        'expertise-1': 'Aide à la décision basée sur l\'analyse des données',
+        'expertise-2': 'Business Intelligence et tableaux de bord décisionnels (Power BI, KPIs)',
+        'expertise-3': 'Analyse de données pour enjeux stratégiques et opérationnels',
+        'expertise-4': 'Conseil en solutions technologiques et analytiques',
+        'section-pourquoi': 'Pourquoi ce site',
+        'pourquoi-p1': 'Les organisations évoluent aujourd\'hui dans des environnements économiques et informationnels de plus en plus complexes. Les données sont disponibles, les outils sont nombreux, mais les décisions restent souvent difficiles à structurer et à arbitrer au quotidien.',
+        'pourquoi-p2': 'Ce site a été créé pour proposer un espace de réflexion clair et accessible, à la croisée de l\'économie et de l\'intelligence des affaires. J\'y partage des analyses et des observations visant à mieux comprendre les enjeux organisationnels, à clarifier les priorités décisionnelles et à donner du sens à l\'information existante.',
+        'pourquoi-p3': 'Ces réflexions s\'adressent autant aux dirigeants et entrepreneurs qu\'aux organisations à la recherche de profils capables d\'analyser des situations complexes, de structurer la réflexion et de contribuer à des décisions éclairées.',
+        'section-trouverez': 'Ce que vous trouverez ici',
+        'trouverez-1': 'Une analyse structurée des enjeux économiques et organisationnels',
+        'trouverez-2': 'Une lecture claire du rôle des données, des outils et des fonctions analytiques',
+        'trouverez-3': 'Une approche humaine et pragmatique, adaptée aux réalités des PME et des environnements en croissance',
+        'section-publications': 'Publications & Réflexions',
+        'publications-intro': 'Retrouvez ici mes analyses, réflexions et contributions dans les domaines de l\'économie, de l\'intelligence des affaires et de l\'analyse de données.',
+        'articles-title': 'Articles & Analyses',
+        'articles-desc': 'Les articles publiés ici abordent des enjeux liés à l\'économie, à l\'intelligence des affaires, aux données et à la prise de décision. Ils s\'adressent aux organisations et aux professionnels qui souhaitent dépasser les approches purement techniques pour adopter une réflexion plus structurée, plus cohérente et mieux adaptée à leur contexte.',
+        'article1-title': '📊 Scientifique des données, analyste de données et analyste en intelligence d\'affaires',
+        'article1-desc': 'Une analyse claire des différents rôles analytiques et de leurs contributions spécifiques aux organisations.',
+        'article2-title': '🔧 ERP, BI et intelligence artificielle',
+        'article2-desc': 'Comment les outils technologiques s\'intègrent dans une démarche analytique cohérente.',
+        'article3-title': '💭 « Nous avons des données… mais nous ne savons pas quoi en faire »',
+        'article3-desc': 'Réflexion sur les défis de la valorisation des données dans les organisations.',
+        'podcast-title': 'Podcast',
+        'podcast-desc': 'Écoutez mes interventions et discussions sur des sujets liés à l\'analytique, aux données et aux stratégies numériques.',
+        'podcast1-title': '🎙️ Comment les entreprises captent l\'attention sur TikTok et Instagram Reels',
+        'podcast1-desc': 'Comment les entreprises utilisent l\'analytique pour maximiser leur visibilité et leur chiffre d\'affaires sur les réseaux sociaux.',
+        'recherches-title': 'Recherches académiques',
+        'recherches-desc': 'Retrouvez ici mes travaux de recherche et contributions académiques dans le domaine de l\'économie, de l\'intelligence des affaires et de l\'analyse de données.',
+        'recherche1-title': '📚 Travaux académiques',
+        'recherche1-desc': 'Découvrez mes trois principaux travaux de recherche : un rapport de stage HEC sur l\'optimisation de la performance par Power BI, un rapport de recherche UdeM sur la réallocation de l\'emploi durant la COVID-19, et un mémoire sur les investissements directs étrangers dans les télécommunications en Haïti.',
+        'section-contact': 'Contact',
+        'contact-subtitle': 'Échanger autour d\'enjeux liés aux données, à la BI ou aux solutions technologiques.',
+        'sidebar-etudes': 'Études',
+        'domaine-1': 'Maîtrise en Intelligence des Affaires (HEC)',
+        'domaine-2': 'Maîtrise en sciences économiques (Université de Montréal)',
+        'domaine-3': 'Baccalauréat en sciences économiques (Université Quisqueya)',
+        'sidebar-outils': 'Outils & Compétences',
+        'sidebar-audience': 'À qui s\'adresse ce site',
+        'audience-1': 'Dirigeants et entrepreneurs',
+        'audience-2': 'PME et organisations en structuration',
+        'audience-3': 'Recruteurs et gestionnaires',
+        'audience-4': 'Professionnels et équipes en intelligence des affaires',
+        'footer-tagline': 'Analyser. Clarifier. Décider.',
+        'footer-subtitle': 'Économiste & Analyste des Affaires',
+        'footer-copyright': '© 2026 Djeny Mainvil. Tous droits réservés.'
+      },
+      en: {
+        'nav-accueil': 'Home',
+        'nav-apropos': 'About',
+        'nav-expertise': 'Expertise',
+        'nav-publications': 'Publications & Insights',
+        'nav-articles': 'Articles & Analysis',
+        'nav-podcast': 'Podcast',
+        'nav-recherches': 'Academic Research',
+        'nav-contact': 'Contact',
+        'hero-subtitle1': 'Technology Solutions Consultant',
+        'hero-subtitle2': 'Data solutions for performance and growth',
+        'hero-badge2': 'BI • Analytics • Strategy',
+        'hero-badge3': 'French • English (bilingual)',
+        'hero-main': 'Making sense of data for better decisions',
+        'hero-cta1': 'Explore publications',
+        'hero-cta2': 'Contact Me',
+        'section-apropos': 'About',
+        'apropos-p1': 'As a technology solutions consultant specializing in data and business intelligence, I help organizations transform their data into strategic decisions. My background combines a dual master\'s degree in economics (Université de Montréal) and business intelligence (HEC Montréal), along with over five years of experience in analytical and decision-making roles.',
+        'apropos-p2': 'Through my professional experiences and exchanges with executives, recruiters, and professionals, I have developed a keen interest in how organizations analyze information, structure their thinking, and make decisions in complex and uncertain economic contexts. I have found that the difficulties encountered are not only due to a lack of tools or data, but very often to a lack of clarity on the issues, decision-making priorities, and the actual use of information.',
+        'apropos-p3': 'Through my work, publications, and this site, I offer an analytical, structured, and accessible approach focused on impact. My goal is to help organizations better understand their situation, ask the right questions, and move forward consistently, aligning data, strategy, and real needs.',
+        'section-expertise': 'Expertise',
+        'expertise-1': 'Data-driven decision support',
+        'expertise-2': 'Business Intelligence and decision dashboards (Power BI, KPIs)',
+        'expertise-3': 'Data analysis for strategic and operational challenges',
+        'expertise-4': 'Consulting in technological and analytical solutions',
+        'section-pourquoi': 'Why This Site',
+        'pourquoi-p1': 'Organizations today operate in increasingly complex economic and information environments. Data is available, tools are numerous, but decisions often remain difficult to structure and prioritize on a daily basis.',
+        'pourquoi-p2': 'This site was created to provide a clear and accessible space for reflection at the intersection of economics and business intelligence. I share analyses and observations aimed at better understanding organizational issues, clarifying decision-making priorities, and making sense of existing information.',
+        'pourquoi-p3': 'These reflections are addressed to executives and entrepreneurs as well as organizations looking for profiles capable of analyzing complex situations, structuring thinking, and contributing to informed decisions.',
+        'section-trouverez': 'What You Will Find Here',
+        'trouverez-1': 'A structured analysis of economic and organizational issues',
+        'trouverez-2': 'A clear understanding of the role of data, tools, and analytical functions',
+        'trouverez-3': 'A human and pragmatic approach, adapted to the realities of SMEs and growing environments',
+        'section-publications': 'Publications & Insights',
+        'publications-intro': 'Find here my analyses, reflections, and contributions in the fields of economics, business intelligence, and data analysis.',
+        'articles-title': 'Articles & Analysis',
+        'articles-desc': 'The articles published here address issues related to economics, business intelligence, data, and decision-making. They are aimed at organizations and professionals who wish to go beyond purely technical approaches to adopt a more structured, coherent, and context-appropriate reflection.',
+        'article1-title': '📊 Data Scientist, Data Analyst, and Business Intelligence Analyst',
+        'article1-desc': 'A clear analysis of different analytical roles and their specific contributions to organizations.',
+        'article2-title': '🔧 ERP, BI, and Artificial Intelligence',
+        'article2-desc': 'How technological tools integrate into a coherent analytical approach.',
+        'article3-title': '💭 "We have data... but we don\'t know what to do with it"',
+        'article3-desc': 'Reflection on the challenges of data valorization in organizations.',
+        'podcast-title': 'Podcast',
+        'podcast-desc': 'Listen to my interventions and discussions on topics related to analytics, data, and digital strategies.',
+        'podcast1-title': '🎙️ How companies capture attention on TikTok and Instagram Reels',
+        'podcast1-desc': 'How companies use analytics to maximize their visibility and revenue on social networks.',
+        'recherches-title': 'Academic Research',
+        'recherches-desc': 'Find here my research work and academic contributions in the field of economics, business intelligence, and data analysis.',
+        'recherche1-title': '📚 Academic Work',
+        'recherche1-desc': 'Discover my three main research works: an HEC internship report on performance optimization through Power BI, a UdeM research report on employment reallocation during COVID-19, and a thesis on foreign direct investments in telecommunications in Haiti.',
+        'section-contact': 'Contact',
+        'contact-subtitle': 'Discuss issues related to data, BI, or technological solutions.',
+        'sidebar-etudes': 'Education',
+        'domaine-1': 'Master\'s in Business Intelligence (HEC)',
+        'domaine-2': 'Master\'s in Economics (University of Montreal)',
+        'domaine-3': 'Bachelor\'s in Economics (Quisqueya University)',
+        'sidebar-outils': 'Tools & Skills',
+        'sidebar-audience': 'Who This Site Is For',
+        'audience-1': 'Executives and entrepreneurs',
+        'audience-2': 'SMEs and organizations in structuring',
+        'audience-3': 'Recruiters and managers',
+        'audience-4': 'Professionals and business intelligence teams',
+        'footer-tagline': 'Analyze. Clarify. Decide.',
+        'footer-subtitle': 'Economist & Business Analyst',
+        'footer-copyright': '© 2026 Djeny Mainvil. All rights reserved.'
+      }
+    };
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'fr' ? 'en' : 'fr';
+      localStorage.setItem('language', currentLang);
+      updateContent();
+      updateLanguageButton();
+    }
+
+    function updateLanguageButton() {
+      const langButton = document.getElementById('current-lang');
+      if (currentLang === 'fr') {
+        langButton.innerHTML = '🇬🇧 EN';
+      } else {
+        langButton.innerHTML = '🇫🇷 FR';
+      }
+    }
+
+    function updateContent() {
+      const lang = translations[currentLang];
+      
+      document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (lang[key]) {
+          element.textContent = lang[key];
+        }
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      updateContent();
+      updateLanguageButton();
+    });
+  </script>
   
   <script>
     // Animation du preloader
