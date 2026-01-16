@@ -1668,6 +1668,99 @@
     @keyframes blink {
       50% { border-color: transparent; }
     }
+
+    /* Animation pour les boîtes d'icônes */
+    .icon-box {
+      animation: iconPulse 3s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .icon-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 70%
+      );
+      animation: shimmerRotate 3s linear infinite;
+    }
+
+    @keyframes iconPulse {
+      0%, 100% { 
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 4px 15px rgba(255,157,112,0.3);
+      }
+      50% { 
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 8px 30px rgba(255,157,112,0.5);
+      }
+    }
+
+    @keyframes shimmerRotate {
+      0% {
+        transform: translateX(-100%) translateY(-100%) rotate(0deg);
+      }
+      100% {
+        transform: translateX(100%) translateY(100%) rotate(360deg);
+      }
+    }
+
+    .icon-box-podcast {
+      animation: iconPulsePodcast 3s ease-in-out infinite;
+    }
+
+    .icon-box-podcast::before {
+      background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 70%
+      );
+      animation: shimmerRotate 3s linear infinite;
+    }
+
+    @keyframes iconPulsePodcast {
+      0%, 100% { 
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 4px 15px rgba(59,130,246,0.3);
+      }
+      50% { 
+        transform: scale(1.1) rotate(-5deg);
+        box-shadow: 0 8px 30px rgba(59,130,246,0.5);
+      }
+    }
+
+    .icon-box-recherche {
+      animation: iconPulseRecherche 3s ease-in-out infinite;
+    }
+
+    .icon-box-recherche::before {
+      background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 70%
+      );
+      animation: shimmerRotate 3s linear infinite;
+    }
+
+    @keyframes iconPulseRecherche {
+      0%, 100% { 
+        transform: scale(1) rotate(0deg);
+        box-shadow: 0 4px 15px rgba(34,197,94,0.3);
+      }
+      50% { 
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 8px 30px rgba(34,197,94,0.5);
+      }
+    }
   </style>
 </head>
 <body>
@@ -1822,7 +1915,7 @@
         <!-- Articles & Analyses Subsection -->
         <div id="articles" style="background: linear-gradient(135deg, #fff8f3 0%, #ffffff 100%); padding: 2.5rem; border-radius: 15px; margin-bottom: 3rem; border: 1px solid rgba(255,157,112,0.1); box-shadow: 0 5px 20px rgba(255,157,112,0.08);">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-            <div style="background: linear-gradient(135deg, #ff9d70 0%, #ff6b3d 100%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(255,157,112,0.3);">📊</div>
+            <div class="icon-box" style="background: linear-gradient(135deg, #ff9d70 0%, #ff6b3d 100%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(255,157,112,0.3);"></div>
             <h3 data-translate="articles-title" style="font-size: 1.9rem; font-weight: 700; color: #1a1a2e; margin: 0;">Articles & Analyses</h3>
           </div>
           <p data-translate="articles-desc" class="section-text" style="margin-bottom: 2rem;">
@@ -1832,21 +1925,21 @@
           <div style="display: grid; gap: 1.5rem;">
             <a href="article1.html" style="text-decoration: none;">
               <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #ff9d70; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255,157,112,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
-                <h4 data-translate="article1-title" style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">📊 Scientifique des données, analyste de données et analyste en intelligence d'affaires</h4>
+                <h4 data-translate="article1-title" style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">Scientifique des données, analyste de données et analyste en intelligence d'affaires</h4>
                 <p data-translate="article1-desc" style="color: #666; line-height: 1.7; font-size: 1rem;">Une analyse claire des différents rôles analytiques et de leurs contributions spécifiques aux organisations.</p>
               </div>
             </a>
             
             <a href="article2.html" style="text-decoration: none;">
               <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #ff9d70; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255,157,112,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
-                <h4 data-translate="article2-title" style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">🔧 ERP, BI et intelligence artificielle</h4>
+                <h4 data-translate="article2-title" style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">ERP, BI et intelligence artificielle</h4>
                 <p data-translate="article2-desc" style="color: #666; line-height: 1.7; font-size: 1rem;">Comment les outils technologiques s'intègrent dans une démarche analytique cohérente.</p>
               </div>
             </a>
             
             <a href="article3.html" style="text-decoration: none;">
               <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #ff9d70; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255,157,112,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
-                <h4 data-translate="article3-title" style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">💭 « Nous avons des données… mais nous ne savons pas quoi en faire »</h4>
+                <h4 data-translate="article3-title" style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">« Nous avons des données… mais nous ne savons pas quoi en faire »</h4>
                 <p data-translate="article3-desc" style="color: #666; line-height: 1.7; font-size: 1rem;">Réflexion sur les défis de la valorisation des données dans les organisations.</p>
               </div>
             </a>
@@ -1856,7 +1949,7 @@
         <!-- Podcast Subsection -->
         <div id="podcast" style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); padding: 2.5rem; border-radius: 15px; margin-bottom: 3rem; border: 1px solid rgba(59,130,246,0.1); box-shadow: 0 5px 20px rgba(59,130,246,0.08);">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-            <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(59,130,246,0.3);">🎙️</div>
+            <div class="icon-box icon-box-podcast" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(59,130,246,0.3);"></div>
             <h3 data-translate="podcast-title" style="font-size: 1.9rem; font-weight: 700; color: #1a1a2e; margin: 0;">Podcast</h3>
           </div>
           <p data-translate="podcast-desc" class="section-text" style="margin-bottom: 2rem;">
@@ -1866,7 +1959,7 @@
           <div style="display: grid; gap: 1.5rem;">
             <a href="https://digital.hec.ca/blog/comment-les-entreprises-captent-lattention-sur-tiktok-et-instagram-reels-et-utilisent-lanalytique-pour-maximiser-leur-visibilite-et-leur-chiffre-daffaires/" target="_blank" style="text-decoration: none;">
               <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #3b82f6; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(59,130,246,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
-                <h4 data-translate="podcast1-title" style="color: #3b82f6; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">🎙️ Comment les entreprises captent l'attention sur TikTok et Instagram Reels</h4>
+                <h4 data-translate="podcast1-title" style="color: #3b82f6; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">Comment les entreprises captent l'attention sur TikTok et Instagram Reels</h4>
                 <p data-translate="podcast1-desc" style="color: #666; line-height: 1.7; font-size: 1rem;">Comment les entreprises utilisent l'analytique pour maximiser leur visibilité et leur chiffre d'affaires sur les réseaux sociaux.</p>
               </div>
             </a>
@@ -1876,7 +1969,7 @@
         <!-- Recherches académiques Subsection -->
         <div id="recherches" style="background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%); padding: 2.5rem; border-radius: 15px; border: 1px solid rgba(34,197,94,0.1); box-shadow: 0 5px 20px rgba(34,197,94,0.08);">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-            <div style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(34,197,94,0.3);">📚</div>
+            <div class="icon-box icon-box-recherche" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(34,197,94,0.3);"></div>
             <h3 data-translate="recherches-title" style="font-size: 1.9rem; font-weight: 700; color: #1a1a2e; margin: 0;">Recherches académiques</h3>
           </div>
           <p data-translate="recherches-desc" class="section-text" style="margin-bottom: 2rem;">
@@ -1884,10 +1977,24 @@
           </p>
           
           <div style="display: grid; gap: 1.5rem;">
-            <a href="recherches.html" style="text-decoration: none;">
+            <a href="recherches.html#hec" style="text-decoration: none;">
               <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #22c55e; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(34,197,94,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
-                <h4 data-translate="recherche1-title" style="color: #22c55e; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">📚 Travaux académiques</h4>
-                <p data-translate="recherche1-desc" style="color: #666; line-height: 1.7; font-size: 1rem;">Découvrez mes trois principaux travaux de recherche : un rapport de stage HEC sur l'optimisation de la performance par Power BI, un rapport de recherche UdeM sur la réallocation de l'emploi durant la COVID-19, et un mémoire sur les investissements directs étrangers dans les télécommunications en Haïti.</p>
+                <h4 data-translate="recherches-hec-title" style="color: #22c55e; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">HEC Montréal - Rapport de Stage</h4>
+                <p data-translate="recherches-hec-work" style="color: #666; line-height: 1.7; font-size: 1rem;">Optimisation de la performance marketing et commerciale dans une PME industrielle par l'intelligence d'affaires : intégration de données multi-sources et développement de tableaux de bord Power BI</p>
+              </div>
+            </a>
+            
+            <a href="recherches.html#udem" style="text-decoration: none;">
+              <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #22c55e; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(34,197,94,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
+                <h4 data-translate="recherches-udem-title" style="color: #22c55e; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">Université de Montréal - Rapport de Recherche</h4>
+                <p data-translate="recherches-udem-work" style="color: #666; line-height: 1.7; font-size: 1rem;">Crise de la Covid-19 et réallocation de l'emploi aux États-Unis et au Canada</p>
+              </div>
+            </a>
+            
+            <a href="recherches.html#quisqueya" style="text-decoration: none;">
+              <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #22c55e; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(34,197,94,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
+                <h4 data-translate="recherches-memoire-title" style="color: #22c55e; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">Université Quisqueya - Mémoire</h4>
+                <p data-translate="recherches-memoire-work" style="color: #666; line-height: 1.7; font-size: 1rem;">Investissements directs étrangers (IDE) dans le secteur de la télécommunication et demande de formation technique en Haïti : le cas des étudiants de Canado Technique (2014-2019)</p>
               </div>
             </a>
           </div>
@@ -2025,19 +2132,19 @@
         'publications-intro': 'Retrouvez ici mes analyses, réflexions et contributions dans les domaines de l\'économie, de l\'intelligence des affaires et de l\'analyse de données.',
         'articles-title': 'Articles & Analyses',
         'articles-desc': 'Les articles publiés ici abordent des enjeux liés à l\'économie, à l\'intelligence des affaires, aux données et à la prise de décision. Ils s\'adressent aux organisations et aux professionnels qui souhaitent dépasser les approches purement techniques pour adopter une réflexion plus structurée, plus cohérente et mieux adaptée à leur contexte.',
-        'article1-title': '📊 Scientifique des données, analyste de données et analyste en intelligence d\'affaires',
+        'article1-title': 'Scientifique des données, analyste de données et analyste en intelligence d\'affaires',
         'article1-desc': 'Une analyse claire des différents rôles analytiques et de leurs contributions spécifiques aux organisations.',
-        'article2-title': '🔧 ERP, BI et intelligence artificielle',
+        'article2-title': 'ERP, BI et intelligence artificielle',
         'article2-desc': 'Comment les outils technologiques s\'intègrent dans une démarche analytique cohérente.',
-        'article3-title': '💭 « Nous avons des données… mais nous ne savons pas quoi en faire »',
+        'article3-title': '« Nous avons des données… mais nous ne savons pas quoi en faire »',
         'article3-desc': 'Réflexion sur les défis de la valorisation des données dans les organisations.',
         'podcast-title': 'Podcast',
         'podcast-desc': 'Écoutez mes interventions et discussions sur des sujets liés à l\'analytique, aux données et aux stratégies numériques.',
-        'podcast1-title': '🎙️ Comment les entreprises captent l\'attention sur TikTok et Instagram Reels',
+        'podcast1-title': 'Comment les entreprises captent l\'attention sur TikTok et Instagram Reels',
         'podcast1-desc': 'Comment les entreprises utilisent l\'analytique pour maximiser leur visibilité et leur chiffre d\'affaires sur les réseaux sociaux.',
         'recherches-title': 'Recherches académiques',
         'recherches-desc': 'Retrouvez ici mes travaux de recherche et contributions académiques dans le domaine de l\'économie, de l\'intelligence des affaires et de l\'analyse de données.',
-        'recherche1-title': '📚 Travaux académiques',
+        'recherche1-title': 'Travaux académiques',
         'recherche1-desc': 'Découvrez mes trois principaux travaux de recherche : un rapport de stage HEC sur l\'optimisation de la performance par Power BI, un rapport de recherche UdeM sur la réallocation de l\'emploi durant la COVID-19, et un mémoire sur les investissements directs étrangers dans les télécommunications en Haïti.',
         'section-contact': 'Contact',
         'contact-subtitle': 'Échanger autour d\'enjeux liés aux données, à la BI ou aux solutions technologiques.',
@@ -2092,19 +2199,19 @@
         'publications-intro': 'Find here my analyses, reflections, and contributions in the fields of economics, business intelligence, and data analysis.',
         'articles-title': 'Articles & Analysis',
         'articles-desc': 'The articles published here address issues related to economics, business intelligence, data, and decision-making. They are aimed at organizations and professionals who wish to go beyond purely technical approaches to adopt a more structured, coherent, and context-appropriate reflection.',
-        'article1-title': '📊 Data Scientist, Data Analyst, and Business Intelligence Analyst',
+        'article1-title': 'Data Scientist, Data Analyst, and Business Intelligence Analyst',
         'article1-desc': 'A clear analysis of different analytical roles and their specific contributions to organizations.',
-        'article2-title': '🔧 ERP, BI, and Artificial Intelligence',
+        'article2-title': 'ERP, BI, and Artificial Intelligence',
         'article2-desc': 'How technological tools integrate into a coherent analytical approach.',
-        'article3-title': '💭 "We have data... but we don\'t know what to do with it"',
+        'article3-title': '"We have data... but we don\'t know what to do with it"',
         'article3-desc': 'Reflection on the challenges of data valorization in organizations.',
         'podcast-title': 'Podcast',
         'podcast-desc': 'Listen to my interventions and discussions on topics related to analytics, data, and digital strategies.',
-        'podcast1-title': '🎙️ How companies capture attention on TikTok and Instagram Reels',
+        'podcast1-title': 'How companies capture attention on TikTok and Instagram Reels',
         'podcast1-desc': 'How companies use analytics to maximize their visibility and revenue on social networks.',
         'recherches-title': 'Academic Research',
         'recherches-desc': 'Find here my research work and academic contributions in the field of economics, business intelligence, and data analysis.',
-        'recherche1-title': '📚 Academic Work',
+        'recherche1-title': 'Academic Work',
         'recherche1-desc': 'Discover my three main research works: an HEC internship report on performance optimization through Power BI, a UdeM research report on employment reallocation during COVID-19, and a thesis on foreign direct investments in telecommunications in Haiti.',
         'section-contact': 'Contact',
         'contact-subtitle': 'Discuss issues related to data, BI, or technological solutions.',
