@@ -10,6 +10,9 @@
   <link href="css/john-sterlins-fresh-site.webflow.css" rel="stylesheet" type="text/css">
   <link href="images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
   <link href="images/favicon.jpg" rel="apple-touch-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
       -webkit-font-smoothing: antialiased;
@@ -19,10 +22,12 @@
     }
 
     body {
-      font-family: 'Plusjakartadisplay', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
       overflow-x: hidden;
       background: #ffffff;
-      color: #333;
+      color: #2c3e50;
+      font-weight: 400;
+      letter-spacing: -0.01em;
     }
 
     /* Navigation */
@@ -49,14 +54,16 @@
       display: flex;
       gap: 2rem;
       list-style: none;
+      align-items: center;
     }
 
     .nav-link {
-      color: #333;
+      color: #2c3e50;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
       transition: color 0.3s ease;
       font-size: 0.95rem;
+      letter-spacing: -0.01em;
     }
 
     .nav-link:hover {
@@ -66,17 +73,29 @@
     /* Dropdown Menu */
     .nav-item {
       position: relative;
+      display: flex;
+      align-items: center;
     }
 
     .dropdown {
       position: relative;
+      display: flex;
+      align-items: center;
     }
 
     .dropdown-toggle {
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 0.3rem;
+      color: #333;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .dropdown-toggle:hover {
+      color: #ff9d70;
     }
 
     .dropdown-toggle::after {
@@ -166,37 +185,192 @@
 
     /* Hero Section */
     .hero-section {
-      position: relative;
-      height: 80vh;
-      min-height: 600px;
-      display: flex;
-      align-items: flex-end;
-      padding-bottom: 4rem;
-      overflow: hidden;
-      background: linear-gradient(135deg, rgba(26,26,46,0.7), rgba(102,126,234,0.7)), url('images/profile-1080.jpeg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-color: #1a1a2e;
       margin-top: 70px;
+      display: flex;
+      min-height: 70vh;
+      background: linear-gradient(135deg, #fff5f0 0%, #ffffff 30%, #f0f9ff 70%, #ffffff 100%);
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-overlay {
+    .hero-section::before {
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+      background: radial-gradient(circle at 20% 50%, rgba(255,157,112,0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 50%, rgba(59,130,246,0.15) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Floating Globes Background */
+    .floating-globes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .globe {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(255, 157, 112, 0.6);
+      animation: float-up linear infinite;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .globe::before {
+      content: attr(data-symbol);
+      position: absolute;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Different financial symbols and animations */
+    .globe:nth-child(1) {
+      width: 80px;
+      height: 80px;
+      left: 10%;
+      animation-duration: 15s;
+      animation-delay: 0s;
+      font-size: 3rem;
+      color: rgba(34, 197, 94, 0.5);
+    }
+
+    .globe:nth-child(2) {
+      width: 100px;
+      height: 100px;
+      left: 25%;
+      animation-duration: 20s;
+      animation-delay: 3s;
+      font-size: 2.5rem;
+      color: rgba(59, 130, 246, 0.5);
+    }
+
+    .globe:nth-child(3) {
+      width: 70px;
+      height: 70px;
+      left: 50%;
+      animation-duration: 18s;
+      animation-delay: 7s;
+      font-size: 2rem;
+      color: rgba(255, 157, 112, 0.5);
+    }
+
+    .globe:nth-child(4) {
+      width: 90px;
+      height: 90px;
+      left: 70%;
+      animation-duration: 22s;
+      animation-delay: 2s;
+      font-size: 2.8rem;
+      color: rgba(168, 85, 247, 0.5);
+    }
+
+    .globe:nth-child(5) {
+      width: 75px;
+      height: 75px;
+      left: 85%;
+      animation-duration: 17s;
+      animation-delay: 5s;
+      font-size: 2.3rem;
+      color: rgba(34, 197, 94, 0.5);
+    }
+
+    .globe:nth-child(6) {
+      width: 85px;
+      height: 85px;
+      left: 40%;
+      animation-duration: 19s;
+      animation-delay: 9s;
+      font-size: 2.6rem;
+      color: rgba(239, 68, 68, 0.5);
+    }
+
+    .globe:nth-child(7) {
+      width: 65px;
+      height: 65px;
+      left: 15%;
+      animation-duration: 16s;
+      animation-delay: 4s;
+      font-size: 2rem;
+      color: rgba(59, 130, 246, 0.5);
+    }
+
+    .globe:nth-child(8) {
+      width: 95px;
+      height: 95px;
+      left: 65%;
+      animation-duration: 21s;
+      animation-delay: 8s;
+      font-size: 3rem;
+      color: rgba(255, 157, 112, 0.5);
+    }
+
+    @keyframes float-up {
+      0% {
+        bottom: -150px;
+        transform: translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        bottom: 110vh;
+        transform: translateX(100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .hero-image-container {
+      flex: 1;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem 3rem 3rem;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+
+    .hero-overlay {
+      display: none;
     }
 
     .hero-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 3rem 4rem 2rem;
+      background: transparent;
+      color: #333;
       position: relative;
-      z-index: 2;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      color: white;
+      z-index: 1;
     }
 
     .hero-badges {
@@ -207,29 +381,42 @@
     }
 
     .hero-badge {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.9);
-      padding: 0.5rem 0;
+      background: linear-gradient(135deg, rgba(255,157,112,0.1) 0%, rgba(255,157,112,0.05) 100%);
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 2px solid rgba(255,157,112,0.3);
+      color: #333;
+      box-shadow: 0 4px 15px rgba(255,157,112,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .hero-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255,157,112,0.2);
+      border-color: rgba(255,157,112,0.5);
     }
 
     .hero-badge::before {
-      content: '• ';
+      content: '✦ ';
       color: #ff9d70;
       font-weight: bold;
     }
 
     .hero-title {
-      font-size: 3.5rem;
-      font-weight: 800;
+      font-size: 1.5rem;
+      font-weight: 300;
       margin-bottom: 1rem;
-      color: white;
-      line-height: 1.2;
+      color: #1a1a2e;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
     }
 
     .hero-subtitle {
       font-size: 1.3rem;
       margin-bottom: 2rem;
-      color: rgba(255,255,255,0.95);
+      color: #555;
       max-width: 800px;
       line-height: 1.6;
     }
@@ -260,14 +447,14 @@
 
     .cta-button-secondary {
       background: transparent;
-      border: 2px solid white;
-      color: white;
+      border: 2px solid #ff9d70;
+      color: #ff9d70;
     }
 
     .cta-button-secondary:hover {
-      background: white;
-      color: #ff9d70;
-      box-shadow: 0 5px 20px rgba(255,255,255,0.3);
+      background: #ff9d70;
+      color: white;
+      box-shadow: 0 5px 20px rgba(255,157,112,0.4);
     }
 
     /* Main Layout */
@@ -286,8 +473,6 @@
 
     /* Sidebar */
     .sidebar {
-      position: sticky;
-      top: 100px;
       height: fit-content;
     }
 
@@ -316,6 +501,7 @@
     .sidebar-list li {
       padding: 0.5rem 0;
       border-bottom: 1px solid #e0e0e0;
+      font-size: 1.05rem;
     }
 
     .sidebar-list li:last-child {
@@ -338,8 +524,15 @@
       background: white;
       padding: 3rem;
       margin-bottom: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-radius: 20px;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .content-section:hover {
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      transform: translateY(-2px);
     }
 
     .section-title {
@@ -348,14 +541,31 @@
       margin-bottom: 2rem;
       color: #1a1a2e;
       padding-bottom: 1rem;
-      border-bottom: 3px solid #ff9d70;
+      border-bottom: 4px solid transparent;
+      border-image: linear-gradient(90deg, #ff9d70 0%, #ff6b3d 50%, #ff9d70 100%);
+      border-image-slice: 1;
+      letter-spacing: -0.03em;
+      position: relative;
+    }
+
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #ff9d70, #ff6b3d);
+      border-radius: 2px;
     }
 
     .section-text {
-      font-size: 1.1rem;
-      line-height: 1.9;
-      color: #555;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #4a5568;
       margin-bottom: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
     }
 
     /* Photo Grid */
@@ -384,6 +594,15 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      animation: floating 6s ease-in-out infinite;
+    }
+
+    .photo-item:nth-child(1) img {
+      animation-delay: 0.5s;
+    }
+
+    .photo-item:nth-child(2) img {
+      animation-delay: 1s;
     }
 
     /* Topics/Expertise */
@@ -392,21 +611,33 @@
     }
 
     .topics-list li {
-      padding: 1rem 0;
-      border-bottom: 1px solid #e0e0e0;
-      font-size: 1.1rem;
-      color: #333;
+      padding: 1.2rem 1rem 1.2rem 3rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      font-size: 1.05rem;
+      color: #444;
       position: relative;
-      padding-left: 2rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      margin-bottom: 0.5rem;
+    }
+
+    .topics-list li:hover {
+      background: linear-gradient(135deg, rgba(255,157,112,0.05) 0%, rgba(255,157,112,0.02) 100%);
+      transform: translateX(5px);
+      border-left: 3px solid #ff9d70;
     }
 
     .topics-list li::before {
-      content: '▸';
+      content: '';
       position: absolute;
-      left: 0;
-      color: #ff9d70;
-      font-weight: bold;
-      font-size: 1.3rem;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(135deg, #ff9d70, #ff6b3d);
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(255,157,112,0.4);
     }
 
     .topics-list li:last-child {
@@ -415,21 +646,39 @@
 
     /* Contact Section */
     .contact-box {
-      background: linear-gradient(135deg, #ff9d70 0%, #ff6b3d 100%);
+      background: linear-gradient(135deg, rgba(255,157,112,0.05) 0%, rgba(255,157,112,0.02) 100%);
       padding: 3rem;
-      border-radius: 15px;
-      color: white;
+      border-radius: 20px;
+      border: 3px solid transparent;
+      background-clip: padding-box;
+      color: #333;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(255,157,112,0.15);
+    }
+
+    .contact-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      padding: 3px;
+      background: linear-gradient(135deg, #ff9d70, #ff6b3d, #ff9d70);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
     }
 
     .contact-box h3 {
       font-size: 1.8rem;
       margin-bottom: 1.5rem;
+      color: #1a1a2e;
     }
 
     .contact-box p {
       font-size: 1.1rem;
       margin-bottom: 1.5rem;
-      opacity: 0.95;
+      color: #555;
     }
 
     .contact-links {
@@ -441,8 +690,8 @@
     .contact-link {
       display: inline-block;
       padding: 0.8rem 1.5rem;
-      background: white;
-      color: #ff9d70;
+      background: #ff9d70;
+      color: white;
       text-decoration: none;
       border-radius: 5px;
       font-weight: 600;
@@ -451,15 +700,35 @@
 
     .contact-link:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 5px 15px rgba(255,157,112,0.4);
+      background: #ff6b3d;
     }
 
     /* Footer */
     .footer {
-      background: #1a1a2e;
+      background: linear-gradient(135deg, #1a1a2e 0%, #2c3e50 100%);
       color: white;
       padding: 4rem 2rem 2rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ff9d70, #3b82f6, #22c55e, #ff9d70);
+      background-size: 200% 100%;
+      animation: gradientMove 3s linear infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
     }
 
     .footer-logo {
@@ -498,6 +767,7 @@
       text-decoration: none;
       transition: color 0.3s ease;
       font-size: 0.95rem;
+      font-weight: 600;
     }
 
     .footer-link:hover {
@@ -846,7 +1116,7 @@
       }
     }
 
-    /* Animation */
+    /* Animations */
     .fade-in {
       animation: fadeInUp 0.8s ease-out;
     }
@@ -860,6 +1130,250 @@
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    /* Scroll Animations */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .scroll-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .scroll-reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .scroll-reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .scroll-reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Gradient Animation for Hero */
+    .hero-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, 
+        rgba(255, 157, 112, 0.1) 0%, 
+        rgba(181, 108, 234, 0.1) 25%, 
+        rgba(255, 94, 105, 0.1) 50%, 
+        rgba(255, 157, 112, 0.1) 75%, 
+        rgba(181, 108, 234, 0.1) 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-content > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Badge Animation */
+    .hero-badge {
+      animation: badgePop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) backwards;
+    }
+
+    .hero-badge:nth-child(1) { animation-delay: 0.2s; }
+    .hero-badge:nth-child(2) { animation-delay: 0.3s; }
+    .hero-badge:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes badgePop {
+      0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-5deg);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    /* Floating Animation */
+    .hero-image {
+      animation: floating 6s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Pulse Animation for Buttons */
+    .cta-button, .cta-button-secondary {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button::before, .cta-button-secondary::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .cta-button:hover::before, .cta-button-secondary:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    /* Shimmer Effect on Article Cards */
+    .article-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .article-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(45deg);
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+
+    /* Section Title Animation */
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: #ff9d70;
+      transition: width 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .section-title.active::after {
+      width: 100%;
+    }
+
+    /* Number Counter Animation */
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Photo Grid Item Animation */
+    .photo-item {
+      animation: scaleIn 0.6s cubic-bezier(0.77, 0, 0.175, 1) backwards;
+    }
+
+    .photo-item:nth-child(1) { animation-delay: 0.1s; }
+    .photo-item:nth-child(2) { animation-delay: 0.2s; }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Topics List Animation */
+    .topics-list li {
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .topics-list li.animate {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Sidebar Slide In */
+    .sidebar-section {
+      transform: translateX(50px);
+      opacity: 0;
+      transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .sidebar-section.visible {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    /* Contact Box Pulse */
+    .contact-box {
+      animation: subtlePulse 3s ease-in-out infinite;
+    }
+
+    @keyframes subtlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    /* Typing Effect */
+    .typing-effect {
+      overflow: hidden;
+      border-right: 3px solid #ff9d70;
+      white-space: nowrap;
+      animation: typing 3.5s steps(40) 1s 1 normal both, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
     }
   </style>
 </head>
@@ -887,8 +1401,8 @@
     </div>
     <ul class="nav-links">
       <li class="nav-item"><a href="#accueil" class="nav-link">Accueil</a></li>
-      <li class="nav-item"><a href="#expertise" class="nav-link">Expertise</a></li>
       <li class="nav-item"><a href="#apropos" class="nav-link">A propos</a></li>
+      <li class="nav-item"><a href="#expertise" class="nav-link">Expertise</a></li>
       <li class="nav-item dropdown">
         <span class="nav-link dropdown-toggle">Publications & Réflexions</span>
         <ul class="dropdown-menu">
@@ -903,19 +1417,38 @@
 
   <!-- Hero Section -->
   <section id="accueil" class="hero-section" style="opacity:0">
-    <div class="hero-overlay"></div>
+    <!-- Floating Data & Analytics Symbols Background -->
+    <div class="floating-globes">
+      <div class="globe" data-symbol="Σ">Σ</div>
+      <div class="globe" data-symbol="π">π</div>
+      <div class="globe" data-symbol="%">%</div>
+      <div class="globe" data-symbol="√">√</div>
+      <div class="globe" data-symbol="∞">∞</div>
+      <div class="globe" data-symbol="≈">≈</div>
+      <div class="globe" data-symbol="∫">∫</div>
+      <div class="globe" data-symbol="±">±</div>
+    </div>
+    
+    <div class="hero-image-container">
+      <img src="images/profile-1080.jpeg" alt="Djeny Mainvil" class="hero-image">
+    </div>
     <div class="hero-content fade-in">
+      <div style="background: rgba(255,255,255,0.95); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: 1px solid rgba(255,157,112,0.2);">
+        <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem; color: #1a1a2e; background: linear-gradient(135deg, #ff9d70 0%, #ff6b3d 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Djeny Mainvil MSc.</h2>
+        <p style="font-size: 1.15rem; color: #555; margin-bottom: 0.3rem; font-weight: 600;">Conseillère en solutions technologiques</p>
+        <p style="font-size: 1rem; color: #777; margin-bottom: 2rem; font-style: italic;">Solutions data pour la performance et la croissance</p>
+      </div>
+      
       <div class="hero-badges">
-        <span class="hero-badge">Conseillère en solutions technologiques</span>
         <span class="hero-badge">Makila AI | HEC</span>
         <span class="hero-badge">BI • Analytics • Stratégie</span>
         <span class="hero-badge">Français • Anglais (bilingue)</span>
       </div>
-      <h1 class="hero-title">Donner du sens aux données pour mieux décider</h1>
-      <p class="hero-subtitle" style="margin-bottom: 1rem;">Solutions data pour la performance et la croissance</p>
-      <p class="hero-subtitle">Analyses et réflexions en économie et en intelligence des affaires pour aider les organisations à clarifier leurs décisions, structurer leur réflexion et mieux utiliser leurs données.</p>
+      
+      <h3 class="hero-title">Donner du sens aux données pour mieux décider</h3>
+      
       <div class="cta-buttons">
-        <a href="#articles" class="cta-button">Explorer les publications</a>
+        <a href="#articles" class="cta-button cta-button-secondary">Explorer les publications</a>
         <a href="#contact" class="cta-button cta-button-secondary">Me Contacter</a>
       </div>
     </div>
@@ -926,6 +1459,41 @@
     <!-- Main Column -->
     <main class="main-content">
       
+      <!-- A Propos Section -->
+      <section id="apropos" class="content-section fade-in">
+        <h2 class="section-title">À Propos</h2>
+        <p class="section-text">
+          Conseillère en solutions technologiques spécialisée en données et intelligence d'affaires, j'accompagne les organisations dans la transformation de leurs données en décisions stratégiques. Mon parcours combine une <strong>double formation de niveau maîtrise en économie (Université de Montreal) et en intelligence d'affaires (HEC Montréal)</strong>, ainsi que plus de <strong>cinq années d'expérience</strong> dans des fonctions analytiques et décisionnelles.
+        </p>
+        <p class="section-text">
+          Au fil de mes expériences professionnelles et de mes échanges avec des dirigeants, recruteurs et professionnels, j'ai développé un intérêt marqué pour la manière dont les organisations analysent l'information, structurent leur réflexion et prennent des décisions dans des contextes économiques complexes et incertains. J'ai constaté que les difficultés rencontrées ne tiennent pas uniquement à un manque d'outils ou de données, mais très souvent à un <strong>manque de clarté sur les enjeux, les priorités décisionnelles et l'usage réel de l'information</strong>.
+        </p>
+        <p class="section-text">
+          À travers mon travail, mes publications et ce site, je propose une approche analytique, structurée et accessible, orientée impact. Mon objectif est d'aider les organisations à mieux comprendre leur situation, à poser les bonnes questions et à avancer de manière cohérente, en alignant données, stratégie et besoins réels.
+        </p>
+        
+        <!-- Photos Grid -->
+        <div class="photo-grid">
+          <div class="photo-item">
+            <img src="images/Djeny 2222.jpg" alt="Djeny Mainvil">
+          </div>
+          <div class="photo-item">
+            <img src="images/dm.jpg" alt="Djeny Mainvil">
+          </div>
+        </div>
+      </section>
+
+      <!-- Expertise Section -->
+      <section id="expertise" class="content-section fade-in">
+        <h2 class="section-title">Expertise</h2>
+        <ul class="topics-list">
+          <li>Aide à la décision basée sur l'analyse des données</li>
+          <li>Business Intelligence et tableaux de bord décisionnels (Power BI, KPIs)</li>
+          <li>Analyse de données pour enjeux stratégiques et opérationnels</li>
+          <li>Conseil en solutions technologiques et analytiques</li>
+        </ul>
+      </section>
+
       <!-- Pourquoi ce site Section -->
       <section class="content-section fade-in">
         <h2 class="section-title">Pourquoi ce site</h2>
@@ -949,101 +1517,85 @@
           <li>Une approche humaine et pragmatique, adaptée aux réalités des PME et des environnements en croissance</li>
         </ul>
       </section>
-      
-      <!-- A Propos Section -->
-      <section id="apropos" class="content-section fade-in">
-        <h2 class="section-title">À Propos</h2>
-        <p class="section-text">
-          Conseillère en solutions technologiques spécialisée en données et intelligence d'affaires, j'accompagne les organisations dans la transformation de leurs données en décisions stratégiques. Mon parcours combine une <strong>double formation de niveau maîtrise en économie (Université de Montreal) et en intelligence d'affaires (HEC Montréal)</strong>, ainsi que plus de <strong>cinq années d'expérience</strong> dans des fonctions analytiques et décisionnelles.
-        </p>
-        <p class="section-text">
-          Au fil de mes expériences professionnelles et de mes échanges avec des dirigeants, recruteurs et professionnels, j'ai développé un intérêt marqué pour la manière dont les organisations analysent l'information, structurent leur réflexion et prennent des décisions dans des contextes économiques complexes et incertains. J'ai constaté que les difficultés rencontrées ne tiennent pas uniquement à un manque d'outils ou de données, mais très souvent à un <strong>manque de clarté sur les enjeux, les priorités décisionnelles et l'usage réel de l'information</strong>.
-        </p>
-        <p class="section-text">
-          À travers mon travail, mes publications et ce site, je propose une approche analytique, structurée et accessible, orientée impact. Mon objectif est d'aider les organisations à mieux comprendre leur situation, à poser les bonnes questions et à avancer de manière cohérente, en alignant données, stratégie et besoins réels.
+
+      <!-- Publications & Réflexions Section -->
+      <section id="publications" class="content-section fade-in">
+        <h2 class="section-title">Publications & Réflexions</h2>
+        <p class="section-text" style="margin-bottom: 3rem;">
+          Retrouvez ici mes analyses, réflexions et contributions dans les domaines de l'économie, de l'intelligence des affaires et de l'analyse de données.
         </p>
         
-        <!-- Photos Grid -->
-        <div class="photo-grid">
-          <div class="photo-item">
-            <img src="images/sofa.jpeg" alt="Djeny Mainvil">
+        <!-- Articles & Analyses Subsection -->
+        <div id="articles" style="background: linear-gradient(135deg, #fff8f3 0%, #ffffff 100%); padding: 2.5rem; border-radius: 15px; margin-bottom: 3rem; border: 1px solid rgba(255,157,112,0.1); box-shadow: 0 5px 20px rgba(255,157,112,0.08);">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="background: linear-gradient(135deg, #ff9d70 0%, #ff6b3d 100%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(255,157,112,0.3);">📊</div>
+            <h3 style="font-size: 1.9rem; font-weight: 700; color: #1a1a2e; margin: 0;">Articles & Analyses</h3>
           </div>
-          <div class="photo-item">
-            <img src="images/dm.jpg" alt="Djeny Mainvil">
+          <p class="section-text" style="margin-bottom: 2rem;">
+            Les articles publiés ici abordent des enjeux liés à l'économie, à l'intelligence des affaires, aux données et à la prise de décision. Ils s'adressent aux organisations et aux professionnels qui souhaitent dépasser les approches purement techniques pour adopter une réflexion plus structurée, plus cohérente et mieux adaptée à leur contexte.
+          </p>
+          
+          <div style="display: grid; gap: 1.5rem;">
+            <a href="article1.html" style="text-decoration: none;">
+              <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #ff9d70; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255,157,112,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
+                <h4 style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">📊 Scientifique des données, analyste de données et analyste en intelligence d'affaires</h4>
+                <p style="color: #666; line-height: 1.7; font-size: 1rem;">Une analyse claire des différents rôles analytiques et de leurs contributions spécifiques aux organisations.</p>
+              </div>
+            </a>
+            
+            <a href="article2.html" style="text-decoration: none;">
+              <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #ff9d70; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255,157,112,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
+                <h4 style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">🔧 ERP, BI et intelligence artificielle</h4>
+                <p style="color: #666; line-height: 1.7; font-size: 1rem;">Comment les outils technologiques s'intègrent dans une démarche analytique cohérente.</p>
+              </div>
+            </a>
+            
+            <a href="article3.html" style="text-decoration: none;">
+              <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #ff9d70; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255,157,112,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
+                <h4 style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">💭 « Nous avons des données… mais nous ne savons pas quoi en faire »</h4>
+                <p style="color: #666; line-height: 1.7; font-size: 1rem;">Réflexion sur les défis de la valorisation des données dans les organisations.</p>
+              </div>
+            </a>
           </div>
         </div>
-      </section>
 
-      <!-- Expertise Section -->
-      <section id="expertise" class="content-section fade-in">
-        <h2 class="section-title">Expertise</h2>
-        <ul class="topics-list">
-          <li>Aide à la décision basée sur l'analyse des données</li>
-          <li>Business Intelligence et tableaux de bord décisionnels (Power BI, KPIs)</li>
-          <li>Analyse de données pour enjeux stratégiques et opérationnels</li>
-          <li>Conseil en solutions technologiques et analytiques</li>
-        </ul>
-      </section>
-
-      <!-- Articles & Analyses Section -->
-      <section id="articles" class="content-section fade-in">
-        <h2 class="section-title">Articles & Analyses</h2>
-        <p class="section-text">
-          Les articles publiés ici abordent des enjeux liés à l'économie, à l'intelligence des affaires, aux données et à la prise de décision. Ils s'adressent aux organisations et aux professionnels qui souhaitent dépasser les approches purement techniques pour adopter une réflexion plus structurée, plus cohérente et mieux adaptée à leur contexte.
-        </p>
-        
-        <div style="margin-top: 2rem;">
-          <a href="article1.html" style="text-decoration: none;">
-            <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-bottom: 1.5rem; border-left: 4px solid #ff9d70; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
-              <h3 style="color: #ff9d70; margin-bottom: 0.5rem; font-size: 1.3rem;">📊 Scientifique des données, analyste de données et analyste en intelligence d'affaires : comprendre les différences</h3>
-              <p style="color: #666; line-height: 1.7;">Une analyse claire des différents rôles analytiques et de leurs contributions spécifiques aux organisations.</p>
-            </div>
-          </a>
+        <!-- Podcast Subsection -->
+        <div id="podcast" style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); padding: 2.5rem; border-radius: 15px; margin-bottom: 3rem; border: 1px solid rgba(59,130,246,0.1); box-shadow: 0 5px 20px rgba(59,130,246,0.08);">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(59,130,246,0.3);">🎙️</div>
+            <h3 style="font-size: 1.9rem; font-weight: 700; color: #1a1a2e; margin: 0;">Podcast</h3>
+          </div>
+          <p class="section-text" style="margin-bottom: 2rem;">
+            Écoutez mes interventions et discussions sur des sujets liés à l'analytique, aux données et aux stratégies numériques.
+          </p>
           
-          <a href="article2.html" style="text-decoration: none;">
-            <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-bottom: 1.5rem; border-left: 4px solid #ff9d70; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
-              <h3 style="color: #ff9d70; margin-bottom: 0.5rem; font-size: 1.3rem;">🔧 ERP, BI et intelligence artificielle : comprendre le rôle des outils dans l'analytique</h3>
-              <p style="color: #666; line-height: 1.7;">Comment les outils technologiques s'intègrent dans une démarche analytique cohérente.</p>
-            </div>
-          </a>
+          <div style="display: grid; gap: 1.5rem;">
+            <a href="https://digital.hec.ca/blog/comment-les-entreprises-captent-lattention-sur-tiktok-et-instagram-reels-et-utilisent-lanalytique-pour-maximiser-leur-visibilite-et-leur-chiffre-daffaires/" target="_blank" style="text-decoration: none;">
+              <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #3b82f6; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(59,130,246,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
+                <h4 style="color: #3b82f6; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">🎙️ Comment les entreprises captent l'attention sur TikTok et Instagram Reels</h4>
+                <p style="color: #666; line-height: 1.7; font-size: 1rem;">Comment les entreprises utilisent l'analytique pour maximiser leur visibilité et leur chiffre d'affaires sur les réseaux sociaux.</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Recherches académiques Subsection -->
+        <div id="recherches" style="background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%); padding: 2.5rem; border-radius: 15px; border: 1px solid rgba(34,197,94,0.1); box-shadow: 0 5px 20px rgba(34,197,94,0.08);">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(34,197,94,0.3);">📚</div>
+            <h3 style="font-size: 1.9rem; font-weight: 700; color: #1a1a2e; margin: 0;">Recherches académiques</h3>
+          </div>
+          <p class="section-text" style="margin-bottom: 2rem;">
+            Retrouvez ici mes travaux de recherche et contributions académiques dans le domaine de l'économie, de l'intelligence des affaires et de l'analyse de données.
+          </p>
           
-          <a href="article3.html" style="text-decoration: none;">
-            <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; border-left: 4px solid #ff9d70; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
-              <h3 style="color: #ff9d70; margin-bottom: 0.5rem; font-size: 1.3rem;">💭 « Nous avons des données… mais nous ne savons pas quoi en faire »</h3>
-              <p style="color: #666; line-height: 1.7;">Réflexion sur les défis de la valorisation des données dans les organisations.</p>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- Podcast Section -->
-      <section id="podcast" class="content-section fade-in">
-        <h2 class="section-title">Podcast</h2>
-        <p class="section-text">
-          Écoutez mes interventions et discussions sur des sujets liés à l'analytique, aux données et aux stratégies numériques.
-        </p>
-        
-        <div style="margin-top: 2rem;">
-          <a href="https://digital.hec.ca/blog/comment-les-entreprises-captent-lattention-sur-tiktok-et-instagram-reels-et-utilisent-lanalytique-pour-maximiser-leur-visibilite-et-leur-chiffre-daffaires/" target="_blank" style="text-decoration: none;">
-            <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; border-left: 4px solid #ff9d70; transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateX(5px)'" onmouseout="this.style.transform='translateX(0)'">
-              <h3 style="color: #ff9d70; margin-bottom: 0.5rem; font-size: 1.3rem;">🎙️ Comment les entreprises captent l'attention sur TikTok et Instagram Reels</h3>
-              <p style="color: #666; line-height: 1.7;">Comment les entreprises utilisent l'analytique pour maximiser leur visibilité et leur chiffre d'affaires sur les réseaux sociaux.</p>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- Recherches académiques Section -->
-      <section id="recherches" class="content-section fade-in">
-        <h2 class="section-title">Recherches académiques</h2>
-        <p class="section-text">
-          Retrouvez ici mes travaux de recherche et contributions académiques dans le domaine de l'économie, de l'intelligence des affaires et de l'analyse de données.
-        </p>
-        
-        <div style="margin-top: 2rem;">
-          <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; border-left: 4px solid #ff9d70; margin-bottom: 1.5rem;">
-            <h3 style="color: #ff9d70; margin-bottom: 0.5rem; font-size: 1.3rem;">📚 Travaux académiques</h3>
-            <p style="color: #666; line-height: 1.7;">Section en cours de développement. Mes publications académiques seront bientôt disponibles ici.</p>
+          <div style="display: grid; gap: 1.5rem;">
+            <a href="recherches.html" style="text-decoration: none;">
+              <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #22c55e; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(34,197,94,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
+                <h4 style="color: #22c55e; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">📚 Travaux académiques</h4>
+                <p style="color: #666; line-height: 1.7; font-size: 1rem;">Découvrez mes trois principaux travaux de recherche : un rapport de stage HEC sur l'optimisation de la performance par Power BI, un rapport de recherche UdeM sur la réallocation de l'emploi durant la COVID-19, et un mémoire sur les investissements directs étrangers dans les télécommunications en Haïti.</p>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -1063,37 +1615,36 @@
 
     <!-- Sidebar -->
     <aside class="sidebar">
-      <div class="sidebar-section fade-in">
-        <h3 class="sidebar-title">Domaines</h3>
+      <div class="sidebar-section scroll-reveal-right" style="background: linear-gradient(135deg, #fff8f3 0%, #ffffff 100%); border: 2px solid rgba(255,157,112,0.1);">
+        <img src="images/Djeny Mainvil Photo.jpg" alt="Djeny Mainvil" style="width: 100%; border-radius: 15px; margin-bottom: 1rem; animation: floating 6s ease-in-out infinite; animation-delay: 0.3s; box-shadow: 0 8px 25px rgba(0,0,0,0.1); border: 3px solid white;">
+        <h3 class="sidebar-title" style="color: #ff9d70; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;"><span style="font-size: 1.3rem;">🎓</span> Domaines</h3>
         <ul class="sidebar-list">
-          <li><a href="#expertise">Économie</a></li>
-          <li><a href="#expertise">Intelligence des Affaires</a></li>
-          <li><a href="#expertise">Analyse de Données</a></li>
-          <li><a href="#expertise">Prise de Décision</a></li>
-          <li><a href="#articles">Articles & Analyses</a></li>
-          <li><a href="#podcast">Podcast</a></li>
-          <li><a href="#recherches">Recherches académiques</a></li>
+          <li style="background: white; margin-bottom: 0.5rem; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #ff9d70;"><a href="#expertise">Maîtrise en Intelligence des Affaires (HEC)</a></li>
+          <li style="background: white; margin-bottom: 0.5rem; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #ff9d70;"><a href="#expertise">Maîtrise en sciences économiques (Université de Montréal)</a></li>
+          <li style="background: white; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #ff9d70;"><a href="#expertise">Baccalauréat en sciences économiques (Quisqueya)</a></li>
         </ul>
       </div>
 
-      <div class="sidebar-section fade-in">
-        <h3 class="sidebar-title">À qui s'adresse ce site</h3>
-        <ul class="sidebar-list">
-          <li>Dirigeants et entrepreneurs</li>
-          <li>PME et organisations en structuration</li>
-          <li>Recruteurs et gestionnaires</li>
-          <li>Professionnels et équipes en intelligence des affaires</li>
-        </ul>
+      <div class="sidebar-section scroll-reveal-right" style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); border: 2px solid rgba(59,130,246,0.1);">
+        <h3 class="sidebar-title" style="color: #3b82f6; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;"><span style="font-size: 1.3rem;">💻</span> Outils & Compétences</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1);">Power BI</span>
+          <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1);">Python</span>
+          <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1);">R</span>
+          <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1);">SAS</span>
+          <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1);">SQL</span>
+          <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1);">Excel Avancé</span>
+          <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1);">CRM & ERP</span>
+        </div>
       </div>
 
-      <div class="sidebar-section fade-in">
-        <h3 class="sidebar-title">Outils & Compétences</h3>
-        <ul class="sidebar-list">
-          <li>Power BI</li>
-          <li>R & SAS</li>
-          <li>SQL</li>
-          <li>Excel Avancé</li>
-          <li>CRM & ERP</li>
+      <div class="sidebar-section scroll-reveal-right" style="background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%); border: 2px solid rgba(34,197,94,0.1);">
+        <h3 class="sidebar-title" style="color: #22c55e; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem;"><span style="font-size: 1.3rem;">👥</span> À qui s'adresse ce site</h3>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="background: white; margin-bottom: 0.5rem; padding: 0.8rem 0.8rem 0.8rem 2.5rem; border-radius: 8px; border-left: 3px solid #22c55e; position: relative; font-size: 0.9rem; color: #444;"><span style="position: absolute; left: 0.8rem; top: 50%; transform: translateY(-50%); font-size: 1rem;">👔</span> Dirigeants et entrepreneurs</li>
+          <li style="background: white; margin-bottom: 0.5rem; padding: 0.8rem 0.8rem 0.8rem 2.5rem; border-radius: 8px; border-left: 3px solid #22c55e; position: relative; font-size: 0.9rem; color: #444;"><span style="position: absolute; left: 0.8rem; top: 50%; transform: translateY(-50%); font-size: 1rem;">🏢</span> PME et organisations en structuration</li>
+          <li style="background: white; margin-bottom: 0.5rem; padding: 0.8rem 0.8rem 0.8rem 2.5rem; border-radius: 8px; border-left: 3px solid #22c55e; position: relative; font-size: 0.9rem; color: #444;"><span style="position: absolute; left: 0.8rem; top: 50%; transform: translateY(-50%); font-size: 1rem;">🎯</span> Recruteurs et gestionnaires</li>
+          <li style="background: white; padding: 0.8rem 0.8rem 0.8rem 2.5rem; border-radius: 8px; border-left: 3px solid #22c55e; position: relative; font-size: 0.9rem; color: #444;"><span style="position: absolute; left: 0.8rem; top: 50%; transform: translateY(-50%); font-size: 1rem;">📊</span> Professionnels et équipes en intelligence des affaires</li>
         </ul>
       </div>
     </aside>
@@ -1111,9 +1662,7 @@
       <a href="#accueil" class="footer-link">Accueil</a>
       <a href="#apropos" class="footer-link">A propos</a>
       <a href="#expertise" class="footer-link">Expertise</a>
-      <a href="#articles" class="footer-link">Articles & Analyses</a>
-      <a href="#podcast" class="footer-link">Podcast</a>
-      <a href="#recherches" class="footer-link">Recherches académiques</a>
+      <a href="#articles" class="footer-link">Publications & Réflexions</a>
       <a href="#contact" class="footer-link">Contact</a>
     </div>
     
@@ -1242,6 +1791,71 @@
       if (!dropdown.contains(e.target)) {
         dropdown.classList.remove('active');
       }
+    });
+
+    // Scroll Reveal Animation
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          
+          // Animate section title underline
+          if (entry.target.classList.contains('section-title')) {
+            entry.target.classList.add('active');
+          }
+          
+          // Animate topics list items
+          if (entry.target.classList.contains('topics-list')) {
+            const items = entry.target.querySelectorAll('li');
+            items.forEach((item, index) => {
+              setTimeout(() => {
+                item.classList.add('animate');
+              }, index * 100);
+            });
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements
+    document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .section-title, .topics-list').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Sidebar animation
+    const sidebarObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.sidebar-section').forEach(section => {
+      sidebarObserver.observe(section);
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          const navHeight = document.querySelector('.nav').offsetHeight;
+          const targetPosition = target.offsetTop - navHeight - 20;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
     });
   </script>
 </body>
