@@ -155,7 +155,7 @@
 
     /* Language Toggle Button */
     .language-toggle {
-      background: linear-gradient(135deg, #ff9d70 0%, #ff6b3d 100%);
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
       color: white;
       border: none;
       padding: 0.6rem 1.2rem;
@@ -255,98 +255,215 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: rgba(255, 157, 112, 0.6);
       animation: float-up linear infinite;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
     }
 
-    .globe::before {
-      content: attr(data-symbol);
-      position: absolute;
-      font-family: 'Arial', sans-serif;
+    .globe:hover {
+      opacity: 1;
+    }
+
+    /* Horizontal Statistical Charts Styles */
+    .globe.trend-line-horizontal {
+      width: 280px;
+      height: 70px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      padding: 8px 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      border: 1px solid rgba(102, 126, 234, 0.15);
+    }
+
+    .globe.trend-line-horizontal svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    /* Grid lines */
+    .globe.trend-line-horizontal .grid-line {
+      stroke: rgba(0, 0, 0, 0.08);
+      stroke-width: 0.5;
+      stroke-dasharray: 3, 3;
+    }
+
+    /* Trend path */
+    .globe.trend-line-horizontal .trend-path {
+      fill: none;
+      stroke: #ff9d70;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 2px 3px rgba(34, 197, 94, 0.3));
+    }
+
+    .globe.trend-line-horizontal .trend-path.down {
+      stroke: #ef4444;
+      filter: drop-shadow(0 2px 3px rgba(239, 68, 68, 0.3));
+    }
+
+    .globe.trend-line-horizontal .trend-path.secondary {
+      stroke: #667eea;
+      stroke-width: 2;
+    }
+
+    /* Data points */
+    .globe.trend-line-horizontal .data-point {
+      fill: #ff9d70;
+      stroke: white;
+      stroke-width: 1.5;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+    }
+
+    .globe.trend-line-horizontal .data-point.down {
+      fill: #ef4444;
+    }
+
+    /* Mini bars */
+    .globe.trend-line-horizontal .mini-bar {
+      fill: rgba(102, 126, 234, 0.2);
+      stroke: rgba(102, 126, 234, 0.4);
+      stroke-width: 0.5;
+    }
+
+    /* Area fill */
+    .globe.trend-line-horizontal .area-fill {
+      fill: rgba(102, 126, 234, 0.1);
+    }
+
+    /* Statistical value labels */
+    .globe.trend-line-horizontal .stat-value {
+      font-size: 9px;
+      font-weight: 700;
+      font-family: 'Inter', monospace;
+      letter-spacing: 0.5px;
+    }
+
+    /* Hover effects */
+    .globe.trend-line-horizontal:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .globe.trend-line-horizontal:hover .trend-path {
+      stroke-width: 3;
+    }
+
+    .globe.trend-line-horizontal:hover .data-point {
+      r: 3.5;
+    }
+
+    /* Animation paths */
+    @keyframes slideRight {
+      0% {
+        transform: translateX(-120%);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateX(120%);
+        opacity: 0;
+      }
+    }
+
+    @keyframes slideLeft {
+      0% {
+        transform: translateX(120%);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateX(-120%);
+        opacity: 0;
+      }
     }
 
     /* Different financial symbols and animations */
     .globe:nth-child(1) {
-      width: 80px;
-      height: 80px;
-      left: 10%;
-      animation-duration: 15s;
+      width: 280px;
+      height: 70px;
+      top: 15%;
+      left: 0;
+      animation: slideRight 12s linear infinite;
       animation-delay: 0s;
-      font-size: 3rem;
-      color: rgba(34, 197, 94, 0.5);
     }
 
     .globe:nth-child(2) {
-      width: 100px;
-      height: 100px;
-      left: 25%;
-      animation-duration: 20s;
-      animation-delay: 3s;
-      font-size: 2.5rem;
-      color: rgba(59, 130, 246, 0.5);
+      width: 280px;
+      height: 70px;
+      top: 30%;
+      right: 0;
+      animation: slideLeft 15s linear infinite;
+      animation-delay: 2s;
     }
 
     .globe:nth-child(3) {
-      width: 70px;
+      width: 280px;
       height: 70px;
-      left: 50%;
-      animation-duration: 18s;
-      animation-delay: 7s;
-      font-size: 2rem;
-      color: rgba(255, 157, 112, 0.5);
+      top: 45%;
+      left: 0;
+      animation: slideRight 18s linear infinite;
+      animation-delay: 5s;
     }
 
     .globe:nth-child(4) {
-      width: 90px;
-      height: 90px;
-      left: 70%;
-      animation-duration: 22s;
-      animation-delay: 2s;
-      font-size: 2.8rem;
-      color: rgba(168, 85, 247, 0.5);
+      width: 280px;
+      height: 70px;
+      top: 60%;
+      right: 0;
+      animation: slideLeft 14s linear infinite;
+      animation-delay: 7s;
     }
 
     .globe:nth-child(5) {
-      width: 75px;
-      height: 75px;
-      left: 85%;
-      animation-duration: 17s;
-      animation-delay: 5s;
-      font-size: 2.3rem;
-      color: rgba(34, 197, 94, 0.5);
+      width: 280px;
+      height: 70px;
+      top: 75%;
+      left: 0;
+      animation: slideRight 16s linear infinite;
+      animation-delay: 3s;
     }
 
     .globe:nth-child(6) {
-      width: 85px;
-      height: 85px;
-      left: 40%;
-      animation-duration: 19s;
+      width: 280px;
+      height: 70px;
+      top: 22%;
+      right: 0;
+      animation: slideLeft 13s linear infinite;
       animation-delay: 9s;
-      font-size: 2.6rem;
-      color: rgba(239, 68, 68, 0.5);
     }
 
     .globe:nth-child(7) {
-      width: 65px;
-      height: 65px;
-      left: 15%;
-      animation-duration: 16s;
-      animation-delay: 4s;
-      font-size: 2rem;
-      color: rgba(59, 130, 246, 0.5);
+      width: 280px;
+      height: 70px;
+      top: 52%;
+      left: 0;
+      animation: slideRight 17s linear infinite;
+      animation-delay: 6s;
     }
 
     .globe:nth-child(8) {
-      width: 95px;
-      height: 95px;
-      left: 65%;
-      animation-duration: 21s;
-      animation-delay: 8s;
-      font-size: 3rem;
-      color: rgba(255, 157, 112, 0.5);
+      width: 280px;
+      height: 70px;
+      top: 38%;
+      right: 0;
+      animation: slideLeft 19s linear infinite;
+      animation-delay: 4s;
     }
 
     @keyframes float-up {
@@ -380,13 +497,42 @@
       z-index: 1;
     }
 
+    .hero-image-container::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to left,
+        transparent 30%,
+        rgba(243, 247, 252, 0.3) 60%,
+        rgba(243, 247, 252, 0.8) 90%,
+        #f3f7fc 100%
+      );
+      pointer-events: none;
+      z-index: 2;
+    }
+
     .hero-image {
       width: 100%;
       max-height: 100%;
       object-fit: contain;
       display: block;
-      border-radius: 10px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      border-radius: 0;
+      box-shadow: none;
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 15%,
+        black 85%,
+        transparent 100%
+      );
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 15%,
+        black 85%,
+        transparent 100%
+      );
     }
 
     .hero-overlay {
@@ -413,27 +559,21 @@
     }
 
     .hero-badge {
-      background: linear-gradient(135deg, rgba(255,157,112,0.1) 0%, rgba(255,157,112,0.05) 100%);
+      background: white;
       padding: 0.7rem 1.4rem;
       border-radius: 25px;
       font-size: 0.9rem;
       font-weight: 600;
-      border: 2px solid rgba(255,157,112,0.3);
-      color: #333;
-      box-shadow: 0 4px 15px rgba(255,157,112,0.1);
+      border: 1px solid rgba(177, 108, 234, 0.15);
+      color: #b16cea;
+      box-shadow: 0 4px 15px rgba(177, 108, 234, 0.08);
       transition: all 0.3s ease;
     }
 
     .hero-badge:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(255,157,112,0.2);
-      border-color: rgba(255,157,112,0.5);
-    }
-
-    .hero-badge::before {
-      content: '✦ ';
-      color: #ff9d70;
-      font-weight: bold;
+      box-shadow: 0 6px 20px rgba(177, 108, 234, 0.15);
+      border-color: rgba(177, 108, 234, 0.3);
     }
 
     .hero-title {
@@ -448,58 +588,252 @@
     /* Animated Data Visualization */
     .data-viz {
       margin: 2rem 0;
-      padding: 1.5rem;
-      background: rgba(255, 157, 112, 0.05);
-      border-radius: 12px;
-      border: 1px solid rgba(255, 157, 112, 0.15);
+      padding: 2rem;
+      background: white;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 157, 112, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
     }
 
     .data-viz-title {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #ff6b3d;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #b16cea;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 1rem;
-      opacity: 0.8;
-    }
-
-    .chart-container {
+      letter-spacing: 1.5px;
+      margin-bottom: 1.5rem;
       display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      height: 80px;
-      gap: 8px;
-      padding: 0 10px;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .chart-bar {
-      flex: 1;
-      background: linear-gradient(180deg, #ff9d70 0%, #ff6b3d 100%);
-      border-radius: 4px 4px 0 0;
-      transition: height 1.5s cubic-bezier(0.45, 0, 0.55, 1);
-      box-shadow: 0 2px 8px rgba(255, 157, 112, 0.3);
+    .data-viz-title::before {
+      content: '■';
+      color: #ff9d70;
+      font-size: 1rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* Conteneur de graphiques multiples */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Graphique en barres animé */
+    .chart-container {
+      background: white;
+      padding: 1.2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
       position: relative;
-      min-width: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 157, 112, 0.08);
     }
 
-    .chart-bar::before {
+    .chart-container::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
-      right: 0;
-      height: 30%;
-      background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 100%);
-      border-radius: 4px 4px 0 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
     }
 
-    .data-labels {
+    .chart-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .bar-chart {
       display: flex;
+      align-items: flex-end;
       justify-content: space-between;
-      margin-top: 0.5rem;
+      height: 100px;
+      gap: 6px;
+    }
+
+    .chart-bar {
+      flex: 1;
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
+      border-radius: 4px 4px 0 0;
+      transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+      position: relative;
+      min-width: 8px;
+    }
+
+    .chart-bar:hover {
+      transform: translateY(-5px);
+      filter: brightness(1.1);
+    }
+
+    /* Graphique en ligne */
+    .line-chart {
+      height: 100px;
+      position: relative;
+    }
+
+    .line-chart svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .line-path {
+      fill: none;
+      stroke: #ff9d70;
+      stroke-width: 3;
+      stroke-linecap: round;
+      transition: d 1s ease;
+    }
+
+    .line-area {
+      fill: url(#gradient);
+      transition: d 1s ease;
+    }
+
+    /* Graphique en secteurs (donut) */
+    .donut-chart {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .donut-chart svg {
+      transform: rotate(-90deg);
+    }
+
+    .donut-segment {
+      transition: all 0.8s ease;
+      cursor: pointer;
+    }
+
+    .donut-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .donut-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #b16cea;
+      transition: all 0.5s ease;
+    }
+
+    .donut-label {
       font-size: 0.65rem;
-      color: #666;
+      color: #64748b;
+    }
+
+    /* Jauge circulaire */
+    .gauge-chart {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .gauge-chart svg {
+      transform: rotate(-90deg);
+    }
+
+    .gauge-bg {
+      fill: none;
+      stroke: #e2e8f0;
+      stroke-width: 10;
+    }
+
+    .gauge-fill {
+      fill: none;
+      stroke: #ff9d70;
+      stroke-width: 10;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1s ease;
+    }
+
+    .gauge-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .gauge-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ff9d70;
+    }
+
+    .gauge-label {
+      font-size: 0.7rem;
+      color: #64748b;
+    }
+
+    /* Indicateurs KPI */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .kpi-card {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+      border-left: 3px solid;
+      transition: all 0.3s ease;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .kpi-card.primary { border-color: #b16cea; }
+    .kpi-card.success { border-color: #ff9d70; }
+    .kpi-card.warning { border-color: #ffc08a; }
+
+    .kpi-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 0.3rem;
+      transition: all 0.5s ease;
+    }
+
+    .kpi-label {
+      font-size: 0.7rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .kpi-trend {
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 0.3rem;
+      transition: all 0.5s ease;
+    }
+
+    .kpi-trend.up { color: #ff9d70; }
+    .kpi-trend.down { color: #64748b; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
     }
 
     /* Sidebar Hover Effects */
@@ -512,6 +846,8 @@
       transform: translateX(8px) scale(1.02);
       box-shadow: 0 4px 15px rgba(255, 157, 112, 0.25) !important;
       border-left-width: 4px !important;
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%) !important;
+      color: white !important;
     }
 
     .sidebar-section ul li {
@@ -521,8 +857,10 @@
 
     .sidebar-section ul li:hover {
       transform: translateX(8px) scale(1.02);
-      box-shadow: 0 4px 15px rgba(34, 197, 94, 0.25) !important;
+      box-shadow: 0 4px 15px rgba(255, 157, 112, 0.25) !important;
       border-left-width: 4px !important;
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%) !important;
+      color: white !important;
     }
 
     .sidebar-section span {
@@ -532,8 +870,10 @@
 
     .sidebar-section span:hover {
       transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3) !important;
-      filter: brightness(1.05);
+      box-shadow: 0 6px 20px rgba(255, 157, 112, 0.3) !important;
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%) !important;
+      color: white !important;
+      border-color: transparent !important;
     }
 
     .hero-subtitle {
@@ -553,7 +893,7 @@
     .cta-button {
       display: inline-block;
       padding: 1rem 2rem;
-      background: #ff9d70;
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
       color: white;
       text-decoration: none;
       border-radius: 5px;
@@ -565,19 +905,21 @@
 
     .cta-button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(255,157,112,0.4);
+      box-shadow: 0 5px 20px rgba(255, 157, 112, 0.5);
+      background: linear-gradient(108deg, #a053d9 8%, #ff4458 40%, #ff8c5f 77%, #ff973a 91%);
     }
 
     .cta-button-secondary {
       background: transparent;
-      border: 2px solid #ff9d70;
+      border: 2px solid transparent;
+      border-image: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%) 1;
       color: #ff9d70;
     }
 
     .cta-button-secondary:hover {
-      background: #ff9d70;
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
       color: white;
-      box-shadow: 0 5px 20px rgba(255,157,112,0.4);
+      box-shadow: 0 5px 20px rgba(255, 157, 112, 0.5);
     }
 
     /* Main Layout */
@@ -662,7 +1004,7 @@
     }
 
     .sidebar-list a:hover {
-      color: #ff6b3d;
+      color: white;
     }
 
     /* Section Styles */
@@ -836,7 +1178,7 @@
     .contact-link {
       display: inline-block;
       padding: 0.8rem 1.5rem;
-      background: #ff9d70;
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
       color: white;
       text-decoration: none;
       border-radius: 5px;
@@ -846,8 +1188,8 @@
 
     .contact-link:hover {
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(255,157,112,0.4);
-      background: #ff6b3d;
+      box-shadow: 0 5px 20px rgba(255,157,112,0.5);
+      background: linear-gradient(108deg, #a053d9 8%, #ff4458 40%, #ff8c5f 77%, #ff973a 91%);
     }
 
     /* Footer */
@@ -933,7 +1275,7 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, #ff9d70, #3b82f6, #22c55e, #ff9d70);
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
       background-size: 200% 100%;
       animation: gradientMove 3s linear infinite;
       z-index: 2;
@@ -1020,13 +1362,13 @@
       padding: 0.7rem 1.5rem;
       background: rgba(255,255,255,0.6);
       border-radius: 25px;
-      border: 1px solid rgba(59,130,246,0.2);
+      border: 1px solid rgba(255,157,112,0.2);
       backdrop-filter: blur(10px);
     }
 
     .footer-link:hover {
       color: white;
-      background: linear-gradient(135deg, #ff9d70, #ff6b3d);
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
       border-color: transparent;
       transform: translateY(-3px);
       box-shadow: 0 5px 20px rgba(255,157,112,0.4);
@@ -1042,7 +1384,7 @@
     .social-icon {
       width: 50px;
       height: 50px;
-      background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(255,157,112,0.1));
+      background: linear-gradient(135deg, rgba(255,157,112,0.1), rgba(255,157,112,0.05));
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -1051,7 +1393,7 @@
       color: #2c3e50;
       text-decoration: none;
       font-size: 1.3rem;
-      border: 2px solid rgba(59,130,246,0.2);
+      border: 2px solid rgba(255,157,112,0.2);
       backdrop-filter: blur(10px);
       position: relative;
     }
@@ -1062,7 +1404,7 @@
       inset: -2px;
       border-radius: 50%;
       padding: 2px;
-      background: linear-gradient(135deg, #ff9d70, #3b82f6, #22c55e);
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
@@ -1147,7 +1489,7 @@
     }
 
     .text-gradient {
-      background-image: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffa84b 91%);
+      background-image: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
       background-clip: text;
@@ -1952,54 +2294,92 @@
 
   <!-- Hero Section -->
   <section id="accueil" class="hero-section" style="opacity:0">
-    <!-- Floating Data & Analytics Symbols Background -->
-    <div class="floating-globes">
-      <div class="globe" data-translate="float-powerbi">POWER BI</div>
-      <div class="globe" data-translate="float-python">PYTHON</div>
-      <div class="globe" data-translate="float-sql">SQL</div>
-      <div class="globe" data-translate="float-data">DATA</div>
-      <div class="globe" data-translate="float-dashboard">DASHBOARD</div>
-      <div class="globe" data-translate="float-analytics">ANALYTICS</div>
-      <div class="globe" data-translate="float-kpi">KPI</div>
-      <div class="globe" data-translate="float-excel">EXCEL</div>
-    </div>
     
     <div class="hero-image-container">
       <img src="images/profile-1080.jpeg" alt="Djeny Mainvil" class="hero-image">
     </div>
     <div class="hero-content fade-in">
       <h2 style="font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #1a1a2e;">Djeny Mainvil <span style="color: #ff9d70; font-weight: 600;">MSc.</span></h2>
-      <p data-translate="hero-subtitle1" style="font-size: 1.2rem; color: #333; margin-bottom: 0.5rem; font-weight: 600;">Conseillère en solutions technologiques</p>
+      <p data-translate="hero-subtitle1" style="font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 600; background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Conseillère en solutions technologiques</p>
       <p data-translate="hero-subtitle2" style="font-size: 1.05rem; color: #555; margin-bottom: 2.5rem; font-style: italic;">Solutions data pour la performance et la croissance</p>
       
       <div class="hero-badges">
-        <span class="hero-badge">Makila AI | HEC</span>
+        <span class="hero-badge">Makila AI</span>
+        <span class="hero-badge">HEC</span>
         <span data-translate="hero-badge2" class="hero-badge">BI • Analytics • Stratégie</span>
         <span data-translate="hero-badge3" class="hero-badge">Français • Anglais (bilingue)</span>
       </div>
       
-      <!-- Animated Data Visualization -->
+      <!-- Visualisation de données avancée -->
       <div class="data-viz">
-        <div class="data-viz-title" data-translate="viz-title">Performance Analytics • Live Data</div>
-        <div class="chart-container">
-          <div class="chart-bar" style="height: 45%;"></div>
-          <div class="chart-bar" style="height: 70%;"></div>
-          <div class="chart-bar" style="height: 55%;"></div>
-          <div class="chart-bar" style="height: 85%;"></div>
-          <div class="chart-bar" style="height: 62%;"></div>
-          <div class="chart-bar" style="height: 78%;"></div>
-          <div class="chart-bar" style="height: 50%;"></div>
-          <div class="chart-bar" style="height: 90%;"></div>
+        <div class="data-viz-title" data-translate="viz-title">Dashboard Analytics en Temps Réel</div>
+        
+        <!-- Grille de graphiques -->
+        <div class="charts-grid">
+          <!-- Graphique en barres -->
+          <div class="chart-container">
+            <div class="chart-title" data-translate="chart-bars">Croissance Mensuelle</div>
+            <div class="bar-chart" id="barChart">
+              <div class="chart-bar" style="height: 55%;"></div>
+              <div class="chart-bar" style="height: 70%;"></div>
+              <div class="chart-bar" style="height: 45%;"></div>
+              <div class="chart-bar" style="height: 85%;"></div>
+              <div class="chart-bar" style="height: 65%;"></div>
+              <div class="chart-bar" style="height: 92%;"></div>
+            </div>
+          </div>
+
+          <!-- Graphique en ligne -->
+          <div class="chart-container">
+            <div class="chart-title" data-translate="chart-line">Tendance Performance</div>
+            <div class="line-chart">
+              <svg viewBox="0 0 200 100" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#ff9d70;stop-opacity:0.3" />
+                    <stop offset="100%" style="stop-color:#ff9d70;stop-opacity:0" />
+                  </linearGradient>
+                </defs>
+                <path id="lineArea" class="line-area" d="M 0 80 L 33 60 L 66 70 L 100 45 L 133 50 L 166 30 L 200 25 L 200 100 L 0 100 Z" />
+                <path id="linePath" class="line-path" d="M 0 80 L 33 60 L 66 70 L 100 45 L 133 50 L 166 30 L 200 25" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Jauge circulaire -->
+          <div class="chart-container">
+            <div class="chart-title" data-translate="chart-gauge">Taux d'Atteinte</div>
+            <div class="gauge-chart">
+              <svg width="100" height="100">
+                <circle class="gauge-bg" cx="50" cy="50" r="40"></circle>
+                <circle id="gaugeFill" class="gauge-fill" cx="50" cy="50" r="40" 
+                        stroke-dasharray="251.2" stroke-dashoffset="75.36"></circle>
+              </svg>
+              <div class="gauge-center">
+                <div id="gaugeValue" class="gauge-value">72%</div>
+                <div class="gauge-label" data-translate="gauge-label">Objectif</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="data-labels">
-          <span>Jan</span>
-          <span>Fév</span>
-          <span>Mar</span>
-          <span>Avr</span>
-          <span>Mai</span>
-          <span>Juin</span>
-          <span>Juil</span>
-          <span>Août</span>
+
+        <!-- Indicateurs KPI -->
+        <div class="kpi-grid">
+          <div class="kpi-card primary">
+            <div id="kpi1" class="kpi-value">2.4M</div>
+            <div class="kpi-label" data-translate="kpi-revenue">Revenus</div>
+            <div id="trend1" class="kpi-trend up">▲ 18.2%</div>
+          </div>
+          <div class="kpi-card success">
+            <div id="kpi2" class="kpi-value">95%</div>
+            <div class="kpi-label" data-translate="kpi-satisfaction">Satisfaction</div>
+            <div id="trend2" class="kpi-trend up">▲ 5.3%</div>
+          </div>
+          <div class="kpi-card warning">
+            <div id="kpi3" class="kpi-value">1.8K</div>
+            <div class="kpi-label" data-translate="kpi-clients">Clients</div>
+            <div id="trend3" class="kpi-trend up">▲ 12.4%</div>
+          </div>
         </div>
       </div>
       
@@ -2086,7 +2466,7 @@
         <!-- Articles & Analyses Subsection -->
         <div id="articles" style="background: linear-gradient(135deg, #fff8f3 0%, #ffffff 100%); padding: 2.5rem; border-radius: 15px; margin-bottom: 3rem; border: 1px solid rgba(255,157,112,0.1); box-shadow: 0 5px 20px rgba(255,157,112,0.08);">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-            <div class="icon-box" style="background: linear-gradient(135deg, #ff9d70 0%, #ff6b3d 100%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(255,157,112,0.3);"></div>
+            <div class="icon-box" style="background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(255,157,112,0.3);"></div>
             <h3 data-translate="articles-title" style="font-size: 1.9rem; font-weight: 700; color: #1a1a2e; margin: 0;">Articles & Analyses</h3>
           </div>
           <p data-translate="articles-desc" class="section-text" style="margin-bottom: 2rem;">
@@ -2118,9 +2498,9 @@
         </div>
 
         <!-- Podcast Subsection -->
-        <div id="podcast" style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); padding: 2.5rem; border-radius: 15px; margin-bottom: 3rem; border: 1px solid rgba(59,130,246,0.1); box-shadow: 0 5px 20px rgba(59,130,246,0.08);">
+        <div id="podcast" style="background: linear-gradient(135deg, #fff5f0 0%, #ffffff 100%); padding: 2.5rem; border-radius: 15px; margin-bottom: 3rem; border: 1px solid rgba(255,157,112,0.1); box-shadow: 0 5px 20px rgba(255,157,112,0.08);">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-            <div class="icon-box icon-box-podcast" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(59,130,246,0.3);"></div>
+            <div class="icon-box icon-box-podcast" style="background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(255,157,112,0.3);"></div>
             <h3 data-translate="podcast-title" style="font-size: 1.9rem; font-weight: 700; color: #1a1a2e; margin: 0;">Podcast</h3>
           </div>
           <p data-translate="podcast-desc" class="section-text" style="margin-bottom: 2rem;">
@@ -2129,8 +2509,8 @@
           
           <div style="display: grid; gap: 1.5rem;">
             <a href="https://digital.hec.ca/blog/comment-les-entreprises-captent-lattention-sur-tiktok-et-instagram-reels-et-utilisent-lanalytique-pour-maximiser-leur-visibilite-et-leur-chiffre-daffaires/" target="_blank" style="text-decoration: none;">
-              <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #3b82f6; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(59,130,246,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
-                <h4 data-translate="podcast1-title" style="color: #3b82f6; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">Comment les entreprises captent l'attention sur TikTok et Instagram Reels</h4>
+              <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #ff9d70; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255,157,112,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
+                <h4 data-translate="podcast1-title" style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">Comment les entreprises captent l'attention sur TikTok et Instagram Reels</h4>
                 <p data-translate="podcast1-desc" style="color: #666; line-height: 1.7; font-size: 1rem;">Comment les entreprises utilisent l'analytique pour maximiser leur visibilité et leur chiffre d'affaires sur les réseaux sociaux.</p>
               </div>
             </a>
@@ -2138,9 +2518,9 @@
         </div>
 
         <!-- Recherches académiques Subsection -->
-        <div id="recherches" style="background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%); padding: 2.5rem; border-radius: 15px; border: 1px solid rgba(34,197,94,0.1); box-shadow: 0 5px 20px rgba(34,197,94,0.08);">
+        <div id="recherches" style="background: linear-gradient(135deg, #fff5f0 0%, #ffffff 100%); padding: 2.5rem; border-radius: 15px; border: 1px solid rgba(255,157,112,0.1); box-shadow: 0 5px 20px rgba(255,157,112,0.08);">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-            <div class="icon-box icon-box-recherche" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(34,197,94,0.3);"></div>
+            <div class="icon-box icon-box-recherche" style="background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%); width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(255,157,112,0.3);"></div>
             <h3 data-translate="recherches-title" style="font-size: 1.9rem; font-weight: 700; color: #1a1a2e; margin: 0;">Recherches académiques</h3>
           </div>
           <p data-translate="recherches-desc" class="section-text" style="margin-bottom: 2rem;">
@@ -2149,22 +2529,22 @@
           
           <div style="display: grid; gap: 1.5rem;">
             <a href="recherches.html#hec" style="text-decoration: none;">
-              <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #22c55e; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(34,197,94,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
-                <h4 data-translate="recherches-hec-title" style="color: #22c55e; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">HEC Montréal - Rapport de Stage</h4>
+              <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #ff9d70; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255,157,112,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
+                <h4 data-translate="recherches-hec-title" style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">HEC Montréal - Rapport de Stage</h4>
                 <p data-translate="recherches-hec-work" style="color: #666; line-height: 1.7; font-size: 1rem;">Optimisation de la performance marketing et commerciale dans une PME industrielle par l'intelligence d'affaires : intégration de données multi-sources et développement de tableaux de bord Power BI</p>
               </div>
             </a>
             
             <a href="recherches.html#udem" style="text-decoration: none;">
-              <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #22c55e; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(34,197,94,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
-                <h4 data-translate="recherches-udem-title" style="color: #22c55e; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">Université de Montréal - Rapport de Recherche</h4>
+              <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #ff9d70; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255,157,112,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
+                <h4 data-translate="recherches-udem-title" style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">Université de Montréal - Rapport de Recherche</h4>
                 <p data-translate="recherches-udem-work" style="color: #666; line-height: 1.7; font-size: 1rem;">Crise de la Covid-19 et réallocation de l'emploi aux États-Unis et au Canada</p>
               </div>
             </a>
             
             <a href="recherches.html#quisqueya" style="text-decoration: none;">
-              <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #22c55e; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(34,197,94,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
-                <h4 data-translate="recherches-memoire-title" style="color: #22c55e; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">Université Quisqueya - Mémoire</h4>
+              <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #ff9d70; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255,157,112,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
+                <h4 data-translate="recherches-memoire-title" style="color: #ff9d70; margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">Université Quisqueya - Mémoire</h4>
                 <p data-translate="recherches-memoire-work" style="color: #666; line-height: 1.7; font-size: 1rem;">Investissements directs étrangers (IDE) dans le secteur de la télécommunication et demande de formation technique en Haïti : le cas des étudiants de Canado Technique (2014-2019)</p>
               </div>
             </a>
@@ -2197,26 +2577,26 @@
         </ul>
       </div>
 
-      <div class="sidebar-section scroll-reveal-right" style="background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%); border: 2px solid rgba(59,130,246,0.1);">
-        <h3 data-translate="sidebar-outils" class="sidebar-title" style="color: #3b82f6; font-size: 1rem;">Outils & Compétences</h3>
+      <div class="sidebar-section scroll-reveal-right" style="background: linear-gradient(135deg, #fff5f0 0%, #ffffff 100%); border: 2px solid rgba(255,157,112,0.1);">
+        <h3 data-translate="sidebar-outils" class="sidebar-title" style="color: #ff9d70; font-size: 1rem;">Outils & Compétences</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-          <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1); transition: all 0.3s ease; cursor: pointer;">Power BI</span>
-          <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1); transition: all 0.3s ease; cursor: pointer;">Python</span>
-          <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1); transition: all 0.3s ease; cursor: pointer;">R</span>
-          <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1); transition: all 0.3s ease; cursor: pointer;">SAS</span>
-          <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1); transition: all 0.3s ease; cursor: pointer;">SQL</span>
-          <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1); transition: all 0.3s ease; cursor: pointer;">Excel Avancé</span>
-          <span style="background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(59,130,246,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #3b82f6; border: 2px solid rgba(59,130,246,0.2); box-shadow: 0 2px 8px rgba(59,130,246,0.1); transition: all 0.3s ease; cursor: pointer;">CRM & ERP</span>
+          <span style="background: linear-gradient(135deg, rgba(255,157,112,0.1), rgba(255,157,112,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #ff9d70; border: 2px solid rgba(255,157,112,0.2); box-shadow: 0 2px 8px rgba(255,157,112,0.1); transition: all 0.3s ease; cursor: pointer;">Power BI</span>
+          <span style="background: linear-gradient(135deg, rgba(255,157,112,0.1), rgba(255,157,112,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #ff9d70; border: 2px solid rgba(255,157,112,0.2); box-shadow: 0 2px 8px rgba(255,157,112,0.1); transition: all 0.3s ease; cursor: pointer;">Python</span>
+          <span style="background: linear-gradient(135deg, rgba(255,157,112,0.1), rgba(255,157,112,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #ff9d70; border: 2px solid rgba(255,157,112,0.2); box-shadow: 0 2px 8px rgba(255,157,112,0.1); transition: all 0.3s ease; cursor: pointer;">R</span>
+          <span style="background: linear-gradient(135deg, rgba(255,157,112,0.1), rgba(255,157,112,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #ff9d70; border: 2px solid rgba(255,157,112,0.2); box-shadow: 0 2px 8px rgba(255,157,112,0.1); transition: all 0.3s ease; cursor: pointer;">SAS</span>
+          <span style="background: linear-gradient(135deg, rgba(255,157,112,0.1), rgba(255,157,112,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #ff9d70; border: 2px solid rgba(255,157,112,0.2); box-shadow: 0 2px 8px rgba(255,157,112,0.1); transition: all 0.3s ease; cursor: pointer;">SQL</span>
+          <span style="background: linear-gradient(135deg, rgba(255,157,112,0.1), rgba(255,157,112,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #ff9d70; border: 2px solid rgba(255,157,112,0.2); box-shadow: 0 2px 8px rgba(255,157,112,0.1); transition: all 0.3s ease; cursor: pointer;">Excel Avancé</span>
+          <span style="background: linear-gradient(135deg, rgba(255,157,112,0.1), rgba(255,157,112,0.05)); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: #ff9d70; border: 2px solid rgba(255,157,112,0.2); box-shadow: 0 2px 8px rgba(255,157,112,0.1); transition: all 0.3s ease; cursor: pointer;">CRM & ERP</span>
         </div>
       </div>
 
-      <div class="sidebar-section scroll-reveal-right" style="background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%); border: 2px solid rgba(34,197,94,0.1);">
-        <h3 data-translate="sidebar-audience" class="sidebar-title" style="color: #22c55e; font-size: 1rem;">À qui s'adresse ce site</h3>
+      <div class="sidebar-section scroll-reveal-right" style="background: linear-gradient(135deg, #fff5f0 0%, #ffffff 100%); border: 2px solid rgba(255,157,112,0.1);">
+        <h3 data-translate="sidebar-audience" class="sidebar-title" style="color: #ff9d70; font-size: 1rem;">À qui s'adresse ce site</h3>
         <ul style="list-style: none; padding: 0; margin: 0;">
-          <li data-translate="audience-1" style="background: white; margin-bottom: 0.5rem; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #22c55e; font-size: 0.9rem; color: #444; transition: all 0.3s ease; cursor: pointer;">Dirigeants et entrepreneurs</li>
-          <li data-translate="audience-2" style="background: white; margin-bottom: 0.5rem; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #22c55e; font-size: 0.9rem; color: #444; transition: all 0.3s ease; cursor: pointer;">PME et organisations en structuration</li>
-          <li data-translate="audience-3" style="background: white; margin-bottom: 0.5rem; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #22c55e; font-size: 0.9rem; color: #444; transition: all 0.3s ease; cursor: pointer;">Recruteurs et gestionnaires</li>
-          <li data-translate="audience-4" style="background: white; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #22c55e; font-size: 0.9rem; color: #444; transition: all 0.3s ease; cursor: pointer;">Professionnels et équipes en intelligence des affaires</li>
+          <li data-translate="audience-1" style="background: white; margin-bottom: 0.5rem; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #ff9d70; font-size: 0.9rem; color: #444; transition: all 0.3s ease; cursor: pointer;">Dirigeants et entrepreneurs</li>
+          <li data-translate="audience-2" style="background: white; margin-bottom: 0.5rem; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #ff9d70; font-size: 0.9rem; color: #444; transition: all 0.3s ease; cursor: pointer;">PME et organisations en structuration</li>
+          <li data-translate="audience-3" style="background: white; margin-bottom: 0.5rem; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #ff9d70; font-size: 0.9rem; color: #444; transition: all 0.3s ease; cursor: pointer;">Recruteurs et gestionnaires</li>
+          <li data-translate="audience-4" style="background: white; padding: 0.8rem; border-radius: 8px; border-left: 3px solid #ff9d70; font-size: 0.9rem; color: #444; transition: all 0.3s ease; cursor: pointer;">Professionnels et équipes en intelligence des affaires</li>
         </ul>
       </div>
     </aside>
@@ -2224,17 +2604,6 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <!-- Floating Data & Analytics Keywords Background -->
-    <div class="floating-globes">
-      <div class="globe" data-translate="float-data">DATA</div>
-      <div class="globe" data-translate="float-bi">BI</div>
-      <div class="globe" data-translate="float-analytics">ANALYTICS</div>
-      <div class="globe" data-translate="float-powerbi">POWER BI</div>
-      <div class="globe" data-translate="float-kpi">KPI</div>
-      <div class="globe" data-translate="float-insights">INSIGHTS</div>
-      <div class="globe" data-translate="float-dashboard">DASHBOARD</div>
-      <div class="globe" data-translate="float-sql">SQL</div>
-    </div>
     
     <div class="footer-logo">
       <img src="images/logo-white.jpg" alt="Djeny Mainvil">
@@ -2337,6 +2706,13 @@
         'float-sql': 'SQL',
         'float-data': 'DONNÉES',
         'float-dashboard': 'TABLEAU DE BORD',
+        'chart-bars': 'Croissance Mensuelle',
+        'chart-line': 'Tendance Performance',
+        'chart-gauge': 'Taux d\'Atteinte',
+        'gauge-label': 'Objectif',
+        'kpi-revenue': 'Revenus',
+        'kpi-satisfaction': 'Satisfaction',
+        'kpi-clients': 'Clients',
         'float-analytics': 'ANALYTIQUE',
         'float-kpi': 'KPI',
         'float-excel': 'EXCEL',
@@ -2415,6 +2791,13 @@
         'float-sql': 'SQL',
         'float-data': 'DATA',
         'float-dashboard': 'DASHBOARD',
+        'chart-bars': 'Monthly Growth',
+        'chart-line': 'Performance Trend',
+        'chart-gauge': 'Achievement Rate',
+        'gauge-label': 'Target',
+        'kpi-revenue': 'Revenue',
+        'kpi-satisfaction': 'Satisfaction',
+        'kpi-clients': 'Clients',
         'float-analytics': 'ANALYTICS',
         'float-kpi': 'KPI',
         'float-excel': 'EXCEL',
@@ -2446,7 +2829,10 @@
       document.querySelectorAll('[data-translate]').forEach(element => {
         const key = element.getAttribute('data-translate');
         if (lang[key]) {
-          element.textContent = lang[key];
+          // Ne pas écraser le contenu des éléments avec des IDs (valeurs dynamiques)
+          if (!element.id || element.id === '') {
+            element.textContent = lang[key];
+          }
         }
       });
     }
@@ -2651,6 +3037,131 @@
           });
         }
       });
+    });
+  </script>
+
+  <!-- Script pour l'animation continue des graphiques -->
+  <script>
+    // Animation continue des barres du graphique
+    function animateBarChart() {
+      const bars = document.querySelectorAll('#barChart .chart-bar');
+      if (!bars.length) return;
+      
+      setInterval(() => {
+        bars.forEach(bar => {
+          const newHeight = Math.floor(Math.random() * 60) + 30; // Entre 30% et 90%
+          bar.style.height = newHeight + '%';
+        });
+      }, 3000);
+    }
+
+    // Animation continue de la courbe
+    function animateLineChart() {
+      const linePath = document.getElementById('linePath');
+      const lineArea = document.getElementById('lineArea');
+      if (!linePath || !lineArea) return;
+      
+      const pathVariations = [
+        'M 0 80 L 33 60 L 66 70 L 100 45 L 133 50 L 166 30 L 200 25',
+        'M 0 75 L 33 55 L 66 65 L 100 40 L 133 55 L 166 35 L 200 30',
+        'M 0 70 L 33 65 L 66 60 L 100 50 L 133 45 L 166 40 L 200 35',
+        'M 0 85 L 33 70 L 66 75 L 100 55 L 133 60 L 166 45 L 200 40',
+        'M 0 65 L 33 50 L 66 55 L 100 35 L 133 40 L 166 25 L 200 20'
+      ];
+      
+      let currentIndex = 0;
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % pathVariations.length;
+        const newPath = pathVariations[currentIndex];
+        linePath.setAttribute('d', newPath);
+        
+        // Mettre à jour l'aire sous la courbe
+        const areaPath = newPath + ' L 200 100 L 0 100 Z';
+        lineArea.setAttribute('d', areaPath);
+      }, 3500);
+    }
+
+    // Animation de la jauge
+    function animateGauge() {
+      const gaugeFill = document.getElementById('gaugeFill');
+      const gaugeValue = document.getElementById('gaugeValue');
+      if (!gaugeFill || !gaugeValue) return;
+      
+      const circumference = 251.2;
+      
+      setInterval(() => {
+        const percentage = Math.floor(Math.random() * 30) + 65; // Entre 65% et 95%
+        const offset = circumference - (percentage / 100) * circumference;
+        gaugeFill.style.strokeDashoffset = offset;
+        
+        // Animer le changement de valeur
+        let currentValue = parseInt(gaugeValue.textContent);
+        const step = percentage > currentValue ? 1 : -1;
+        const interval = setInterval(() => {
+          currentValue += step;
+          gaugeValue.textContent = currentValue + '%';
+          if ((step > 0 && currentValue >= percentage) || (step < 0 && currentValue <= percentage)) {
+            clearInterval(interval);
+          }
+        }, 30);
+        
+        // Changer la couleur selon le pourcentage
+        if (percentage >= 80) {
+          gaugeFill.style.stroke = '#ff9d70'; // Orange
+          gaugeValue.style.color = '#ff9d70';
+        } else if (percentage >= 60) {
+          gaugeFill.style.stroke = '#ff9d70'; // Orange
+          gaugeValue.style.color = '#ff9d70';
+        } else {
+          gaugeFill.style.stroke = '#ef4444'; // Rouge
+          gaugeValue.style.color = '#ef4444';
+        }
+      }, 4000);
+    }
+
+    // Animation des KPI
+    function animateKPIs() {
+      const kpiData = [
+        { id: 'kpi1', baseValue: 2.4, label: 'M', trendId: 'trend1', variance: 0.3 },
+        { id: 'kpi2', baseValue: 95, label: '%', trendId: 'trend2', variance: 5 },
+        { id: 'kpi3', baseValue: 1.8, label: 'K', trendId: 'trend3', variance: 0.2 }
+      ];
+      
+      setInterval(() => {
+        kpiData.forEach(kpi => {
+          const element = document.getElementById(kpi.id);
+          const trendElement = document.getElementById(kpi.trendId);
+          if (!element || !trendElement) return;
+          
+          // Calculer une nouvelle valeur
+          const variance = (Math.random() * kpi.variance * 2) - kpi.variance;
+          const newValue = kpi.baseValue + variance;
+          const displayValue = kpi.label === '%' ? Math.round(newValue) : newValue.toFixed(1);
+          
+          // Animer le changement
+          element.style.transform = 'scale(1.1)';
+          setTimeout(() => {
+            element.textContent = displayValue + kpi.label;
+            element.style.transform = 'scale(1)';
+          }, 200);
+          
+          // Mettre à jour la tendance
+          const trendValue = (Math.random() * 15 + 5).toFixed(1);
+          const isUp = Math.random() > 0.3; // 70% de chance d'être positif
+          trendElement.className = 'kpi-trend ' + (isUp ? 'up' : 'down');
+          trendElement.textContent = (isUp ? '▲ ' : '▼ ') + trendValue + '%';
+        });
+      }, 3500);
+    }
+
+    // Démarrer toutes les animations après le chargement
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        animateBarChart();
+        animateLineChart();
+        animateGauge();
+        animateKPIs();
+      }, 2000); // Attendre que les animations initiales se terminent
     });
   </script>
 </body>
