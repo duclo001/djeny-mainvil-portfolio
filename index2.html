@@ -555,6 +555,14 @@
       border-color: rgba(177, 108, 234, 0.3);
     }
 
+    .makila-role {
+      font-size: 0.9rem;
+      color: #4b5563;
+      max-width: 520px;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+
     .hero-title {
       font-size: 1.6rem;
       font-weight: 300;
@@ -635,7 +643,7 @@
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      height: 100px;
+      height: 130px;
       gap: 6px;
     }
 
@@ -655,7 +663,7 @@
 
     /* Graphique en ligne */
     .line-chart {
-      height: 100px;
+      height: 130px;
       position: relative;
     }
 
@@ -822,6 +830,32 @@
 
     .kpi-trend.up { color: #ff9d70; }
     .kpi-trend.down { color: #64748b; }
+
+    /* Schémas conceptuels en lieu des KPI chiffrés */
+    .schema-steps {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      align-items: center;
+    }
+
+    .schema-steps span {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      white-space: nowrap;
+    }
+
+    .schema-steps .arrow {
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: #94a3b8;
+    }
 
     @keyframes pulse {
       0%, 100% { opacity: 1; }
@@ -1054,6 +1088,7 @@
       grid-template-columns: 1fr;
       gap: 2rem;
       margin: 2rem 0;
+      justify-items: center;
     }
 
     .photo-item {
@@ -1066,9 +1101,18 @@
       max-width: 100%;
     }
 
-    .photo-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    @media (min-width: 900px) {
+      .expertise-layout {
+        display: grid;
+        grid-template-columns: 1fr 1.6fr;
+        gap: 2rem;
+        align-items: start;
+      }
+
+      #expertise .photo-item {
+        width: 100%;
+        max-width: 100%;
+      }
     }
 
     .photo-item img {
@@ -1645,6 +1689,12 @@
         opacity: 1;
         visibility: visible;
         padding: 0.5rem 0;
+      }
+
+      /* Afficher les sous-sections sous le titre sur mobile */
+      .nav-item.dropdown {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
       .dropdown-menu a {
@@ -3018,12 +3068,12 @@
     </div>
     <div class="hero-content fade-in">
       <h2 style="font-size: 2.4rem; font-weight: 700; margin-bottom: 1rem; color: #1a1a2e;">Djeny Mainvil <span style="color: #ff9d70; font-weight: 600;">MSc.</span></h2>
-      <p data-translate="hero-subtitle1" style="font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 600; background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Conseillère en solutions technologiques</p>
-      <p data-translate="hero-subtitle2" style="font-size: 1.05rem; color: #555; margin-bottom: 2.5rem; font-style: italic;">Solutions data pour la performance et la croissance</p>
+      <p data-translate="hero-subtitle1" style="font-size: 1.35rem; margin-bottom: 0.5rem; font-weight: 600; background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Conseillère en solutions technologiques</p>
+      <p data-translate="hero-subtitle2" style="font-size: 1.15rem; color: #555; margin-bottom: 2.5rem; font-style: italic;">Solutions data pour la performance et la croissance</p>
       
       <div class="hero-badges">
-        <span class="hero-badge">Makila AI</span>
-        <span class="hero-badge">HEC</span>
+        <span class="hero-badge" data-translate="hero-badge-makila">Makila AI — Membre</span>
+        <span class="hero-badge" data-translate="hero-badge-hec">HEC Montréal — Maîtrise BI</span>
         <span data-translate="hero-badge2" class="hero-badge">BI • Analytics • Stratégie</span>
         <span data-translate="hero-badge3" class="hero-badge">Français • Anglais (bilingue)</span>
       </div>
@@ -3036,7 +3086,7 @@
         <div class="charts-grid">
           <!-- Graphique en barres -->
           <div class="chart-container">
-            <div class="chart-title" data-translate="chart-bars">Croissance Mensuelle</div>
+            <div class="chart-title"></div>
             <div class="bar-chart" id="barChart">
               <div class="chart-bar" style="height: 55%;"></div>
               <div class="chart-bar" style="height: 70%;"></div>
@@ -3049,7 +3099,7 @@
 
           <!-- Graphique en ligne -->
           <div class="chart-container">
-            <div class="chart-title" data-translate="chart-line">Tendance Performance</div>
+            <div class="chart-title"></div>
             <div class="line-chart">
               <svg viewBox="0 0 200 100" preserveAspectRatio="none">
                 <defs>
@@ -3066,7 +3116,7 @@
 
           <!-- Jauge circulaire -->
           <div class="chart-container">
-            <div class="chart-title" data-translate="chart-gauge">Taux d'Atteinte</div>
+            <div class="chart-title"></div>
             <div class="gauge-chart">
               <svg width="100" height="100">
                 <circle class="gauge-bg" cx="50" cy="50" r="40"></circle>
@@ -3081,24 +3131,7 @@
           </div>
         </div>
 
-        <!-- Indicateurs KPI -->
-        <div class="kpi-grid">
-          <div class="kpi-card primary">
-            <div id="kpi1" class="kpi-value">2.4M</div>
-            <div class="kpi-label" data-translate="kpi-revenue">Revenus</div>
-            <div id="trend1" class="kpi-trend up">▲ 18.2%</div>
-          </div>
-          <div class="kpi-card success">
-            <div id="kpi2" class="kpi-value">95%</div>
-            <div class="kpi-label" data-translate="kpi-satisfaction">Satisfaction</div>
-            <div id="trend2" class="kpi-trend up">▲ 5.3%</div>
-          </div>
-          <div class="kpi-card warning">
-            <div id="kpi3" class="kpi-value">1.8K</div>
-            <div class="kpi-label" data-translate="kpi-clients">Clients</div>
-            <div id="trend3" class="kpi-trend up">▲ 12.4%</div>
-          </div>
-        </div>
+        <!-- Schémas conceptuels : cartes retirées selon demande -->
       </div>
       
       <h3 data-translate="hero-main" class="hero-title">Donner du sens aux données pour mieux décider</h3>
@@ -3127,24 +3160,24 @@
         <p data-translate="apropos-p3" class="section-text">
           À travers mon travail, mes publications et ce site, je propose une approche analytique, structurée et accessible, orientée impact. Mon objectif est d'aider les organisations à mieux comprendre leur situation, à poser les bonnes questions et à avancer de manière cohérente, en alignant données, stratégie et besoins réels.
         </p>
-        
-        <!-- Photos Grid -->
-        <div class="photo-grid">
-          <div class="photo-item">
-            <img src="images/Djeny 2222.jpg" alt="Djeny Mainvil">
-          </div>
-        </div>
       </section>
 
       <!-- Expertise Section -->
       <section id="expertise" class="content-section fade-in">
-        <h2 data-translate="section-expertise" class="section-title">Expertise</h2>
-        <ul class="topics-list">
-          <li data-translate="expertise-1">Aide à la décision basée sur l'analyse des données</li>
-          <li data-translate="expertise-2">Business Intelligence et tableaux de bord décisionnels (Power BI, KPIs)</li>
-          <li data-translate="expertise-3">Analyse de données pour enjeux stratégiques et opérationnels</li>
-          <li data-translate="expertise-4">Conseil en solutions technologiques et analytiques</li>
-        </ul>
+        <div class="expertise-layout">
+          <div class="photo-item">
+            <img src="images/Djeny 2222.jpg" alt="Djeny Mainvil">
+          </div>
+          <div>
+            <h2 data-translate="section-expertise" class="section-title">Expertise</h2>
+            <ul class="topics-list">
+              <li data-translate="expertise-1">Aide à la décision basée sur l'analyse des données</li>
+              <li data-translate="expertise-2">Business Intelligence et tableaux de bord décisionnels (Power BI, KPIs)</li>
+              <li data-translate="expertise-3">Analyse de données pour enjeux stratégiques et opérationnels</li>
+              <li data-translate="expertise-4">Conseil en solutions technologiques et analytiques</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <!-- Pourquoi ce site Section -->
@@ -3361,6 +3394,8 @@
         'nav-contact': 'Contact',
         'hero-subtitle1': 'Conseillère en solutions technologiques',
         'hero-subtitle2': 'Solutions data pour la performance et la croissance',
+        'hero-badge-makila': 'Makila AI — Membre',
+        'hero-badge-hec': 'HEC Montréal — Maîtrise BI',
         'hero-badge2': 'BI • Analytics • Stratégie',
         'hero-badge3': 'Français • Anglais (bilingue)',
         'hero-main': 'Donner du sens aux données pour mieux décider',
@@ -3446,6 +3481,8 @@
         'nav-contact': 'Contact',
         'hero-subtitle1': 'Technology Solutions Consultant',
         'hero-subtitle2': 'Data solutions for performance and growth',
+        'hero-badge-makila': 'Makila AI — Member',
+        'hero-badge-hec': 'HEC Montréal — BI Master\'s',
         'hero-badge2': 'BI • Analytics • Strategy',
         'hero-badge3': 'French • English (bilingual)',
         'hero-main': 'Making sense of data for better decisions',
@@ -3559,14 +3596,35 @@
   </script>
   
   <script>
-    // Animation du preloader
+    // Animation du preloader (une seule fois par session)
     document.addEventListener('DOMContentLoaded', function() {
       var preloader = document.querySelector('.preloader');
       var leftText = document.querySelector('.preloader-text.left');
       var rightText = document.querySelector('.preloader-text.right');
       var leftDiv = document.querySelector('.preloader-left-div');
       var rightDiv = document.querySelector('.preloader-right-div');
-      
+      var nav = document.querySelector('.nav');
+      var hero = document.querySelector('.hero-section');
+      var mainContainer = document.querySelector('.main-container');
+
+      var hasPlayed = sessionStorage.getItem('preloaderPlayed') === 'true';
+
+      // Si l'animation a déjà été jouée dans cette session, on affiche directement la page
+      if (hasPlayed) {
+        if (preloader) preloader.style.display = 'none';
+        if (nav) {
+          nav.style.opacity = '1';
+          nav.style.transform = 'translate3d(0, 0, 0)';
+        }
+        if (hero) {
+          hero.style.opacity = '1';
+        }
+        if (mainContainer) {
+          mainContainer.style.opacity = '1';
+        }
+        return;
+      }
+
       // Anime l'apparition des textes
       setTimeout(function() {
         leftText.style.transition = 'all 0.6s cubic-bezier(0.77, 0, 0.175, 1)';
@@ -3605,10 +3663,6 @@
       
       // Anime l'apparition du contenu de la page
       setTimeout(function() {
-        var nav = document.querySelector('.nav');
-        var hero = document.querySelector('.hero-section');
-        var mainContainer = document.querySelector('.main-container');
-        
         // Nav apparaît en premier
         nav.style.transition = 'all 0.8s cubic-bezier(0.77, 0, 0.175, 1)';
         nav.style.opacity = '1';
@@ -3624,6 +3678,9 @@
         setTimeout(function() {
           mainContainer.style.transition = 'opacity 1s cubic-bezier(0.77, 0, 0.175, 1)';
           mainContainer.style.opacity = '1';
+
+          // Marquer l'animation comme jouée pour cette session
+          sessionStorage.setItem('preloaderPlayed', 'true');
         }, 300);
       }, 1400);
     });
