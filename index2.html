@@ -541,19 +541,21 @@
     }
 
     .hero-image-container::after {
-      display: none;
+      content: none;
     }
 
     .hero-image {
       width: 100%;
       max-width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center bottom;
       display: block;
       border-radius: 0;
       box-shadow: none;
-      mask-image: none;
       -webkit-mask-image: none;
+      mask-image: none;
+      filter: saturate(1.02) contrast(1.03);
     }
 
     .hero-overlay {
@@ -1246,6 +1248,7 @@
       padding: 3px;
       background: linear-gradient(135deg, #ff9d70, #ff6b3d, #ff9d70);
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       pointer-events: none;
@@ -1504,6 +1507,7 @@
       padding: 2px;
       background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       opacity: 0;
@@ -1828,7 +1832,7 @@
       .hero-content {
         padding: 1.5rem;
         order: 2;
-        background: white;
+        background: transparent;
       }
 
       .hero-content h2 {
@@ -2799,22 +2803,7 @@
 
     /* Gradient Animation for Hero */
     .hero-content::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(45deg, 
-        rgba(255, 157, 112, 0.1) 0%, 
-        rgba(181, 108, 234, 0.1) 25%, 
-        rgba(255, 94, 105, 0.1) 50%, 
-        rgba(255, 157, 112, 0.1) 75%, 
-        rgba(181, 108, 234, 0.1) 100%);
-      background-size: 400% 400%;
-      animation: gradientShift 15s ease infinite;
-      pointer-events: none;
-      z-index: 0;
+      display: none;
     }
 
     .hero-content > * {
@@ -3336,8 +3325,8 @@
             
             <a href="article3.html" style="text-decoration: none;">
               <div class="article-card scroll-reveal" style="background: white; padding: 2rem; border-radius: 12px; border-left: 5px solid #ff9d70; transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1); cursor: pointer; box-shadow: 0 3px 15px rgba(0,0,0,0.06);" onmouseover="this.style.transform='translateX(10px) translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(255,157,112,0.25)'; this.style.borderLeftWidth='8px'" onmouseout="this.style.transform='translateX(0) translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.06)'; this.style.borderLeftWidth='5px'">
-                <h4 data-translate="article3-title" class="gradient-text" style="margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">« Nous avons des données… mais nous ne savons pas quoi en faire »</h4>
-                <p data-translate="article3-desc" style="color: #666; line-height: 1.7; font-size: 1rem;">Réflexion sur les défis de la valorisation des données dans les organisations.</p>
+                <h4 data-translate="article3-title" class="gradient-text" style="margin-bottom: 0.7rem; font-size: 1.2rem; font-weight: 700;">Vous ne savez pas quoi faire avec vos données? Voici le guide simple qui vous montre exactement par où commencer.</h4>
+                <p data-translate="article3-desc" style="color: #666; line-height: 1.7; font-size: 1rem;">Guide simple en 7 étapes pour aider une PME à centraliser, nettoyer, analyser et utiliser ses données pour mieux décider.</p>
               </div>
             </a>
           </div>

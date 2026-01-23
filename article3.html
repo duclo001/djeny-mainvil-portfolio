@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Nous avons des données… mais nous ne savons pas quoi en faire - Djeny Mainvil</title>
-  <meta name="description" content="Réflexion sur les défis de la valorisation des données dans les organisations.">
+  <title>Guide simple pour commencer avec vos données - Djeny Mainvil</title>
+  <meta name="description" content="Guide simple en 7 étapes pour aider une PME à centraliser, nettoyer, analyser et utiliser ses données pour prendre de meilleures décisions.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
@@ -12,19 +12,22 @@
   <style>
     * {
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
     
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #fff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.7;
+      color: #2d3748;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
     }
     
     .article-container {
-      max-width: 800px;
+      max-width: 780px;
       margin: 0 auto;
-      padding: 2rem 1.5rem;
+      padding: 3rem 2rem;
       min-height: 100vh;
     }
 
@@ -93,44 +96,80 @@
     }
     
     .article-header {
-      margin-bottom: 3rem;
-      padding-bottom: 2rem;
-      border-bottom: 2px solid #f0f0f0;
+      margin-bottom: 4rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid #e2e8f0;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     
     .article-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin-bottom: 1rem;
-      line-height: 1.2;
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: #1a202c;
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
     }
     
     .article-meta {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
-      color: #666;
-      font-size: 0.95rem;
+      align-items: center;
+      color: #718096;
+      font-size: 0.925rem;
       margin-top: 1rem;
+      font-weight: 500;
     }
     
     .article-content {
       font-size: 1.1rem;
       line-height: 1.8;
-      color: #444;
+      color: #374151;
+      animation: fadeIn 0.8s ease-out 0.2s both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     
     .article-content h2 {
-      font-size: 1.8rem;
-      color: #ff9d70;
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
+      font-size: 2rem;
+      color: #1a202c;
+      margin-top: 3.5rem;
+      margin-bottom: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+
+    .article-content h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #ff9d70, #ff6b3d);
+      border-radius: 2px;
     }
     
     .article-content h3 {
       font-size: 1.4rem;
-      color: #333;
+      color: #2d3748;
       margin-top: 2rem;
       margin-bottom: 0.8rem;
       font-weight: 600;
@@ -138,6 +177,7 @@
     
     .article-content p {
       margin-bottom: 1.5rem;
+      text-align: justify;
     }
     
     .article-content ul, .article-content ol {
@@ -157,9 +197,10 @@
     .highlight-box {
       background: linear-gradient(135deg, rgba(255, 157, 112, 0.1) 0%, rgba(255, 107, 61, 0.1) 100%);
       border-left: 4px solid #ff9d70;
-      padding: 1.5rem;
-      margin: 2rem 0;
-      border-radius: 8px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
     }
     
     .quote-box {
@@ -173,15 +214,15 @@
     
     @media (max-width: 768px) {
       .article-title {
-        font-size: 1.8rem;
+        font-size: 1.875rem;
       }
       
       .article-content {
-        font-size: 1rem;
+        font-size: 1.0625rem;
       }
       
       .article-content h2 {
-        font-size: 1.5rem;
+        font-size: 1.625rem;
       }
     }
   </style>
@@ -193,8 +234,106 @@
   </button>
 
   <div class="article-container">
+    <article>
+      <header class="article-header">
+        <h1 data-translate="article3-title" class="article-title">Vous ne savez pas quoi faire avec vos données? Voici le guide simple qui vous montre exactement par où commencer.</h1>
+        <div class="article-meta">
+          <span data-translate="article3-date">23 janvier 2026</span>
+          <span>•</span>
+          <span data-translate="article3-reading-time">⏱️ 12 min de lecture</span>
+          <span>•</span>
+          <span data-translate="article3-author">Djeny Mainvil MSc.</span>
+        </div>
+      </header>
+
+      <div style="width: 100%; margin: 2rem 0 3rem 0; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);">
+        <img src="images/article3.png" data-translate-alt="article3-img-alt" alt="Guide simple pour commencer avec ses données" style="width: 100%; height: auto; display: block; object-fit: cover;">
+      </div>
+
+      <div class="article-content">
+        <div class="highlight-box">
+          <p data-translate="article3-highlight-quote"><strong>« Nous avons des données… mais nous ne savons pas quoi en faire. »</strong></p>
+          <p data-translate="article3-highlight-sub">Ce guide simple vous montre par où commencer, étape par étape, sans jargon technique et sans investissement démesuré.</p>
+        </div>
+
+        <p data-translate="article3-p1">De nos jours, beaucoup de petites et moyennes entreprises se retrouvent dans la même situation : elles possèdent une quantité importante d’informations… mais ne savent pas comment les utiliser. Les fichiers s’accumulent, les logiciels ne communiquent pas entre eux, les équipes travaillent chacun avec leurs propres chiffres, et les décisions reposent trop souvent sur l’intuition plutôt que sur des faits. Pourtant, tirer parti de ses données n’est ni réservé aux grandes organisations ni aussi complexe qu’on l’imagine.</p>
+
+        <p data-translate="article3-p2">Ce guide a été conçu pour accompagner les PME qui souhaitent commencer simplement, étape par étape, sans jargon technique et sans investissement démesuré. L’objectif est clair : vous montrer comment structurer vos données, comprendre votre réalité opérationnelle, et transformer progressivement ces informations en décisions concrètes et éclairées. Que vous soyez dirigeant, gestionnaire ou employé curieux, vous trouverez ici un chemin accessible pour passer de la confusion… à la clarté. Au fil de ces sept étapes, vous découvrirez comment centraliser vos données, identifier vos besoins, nettoyer l’essentiel, choisir les bons indicateurs et mettre en place des tableaux de bord utiles, jusqu’à instaurer une culture d’amélioration continue. Ce serait ici votre nouvelle façon de piloter votre entreprise, plus agile, plus précise et surtout plus performante.</p>
+
+        <h2 data-translate="article3-h2-1">Étape 1 : Centraliser ses données dans un seul endroit (Progiciel de Gestion Intégré (PGI) ou équivalent)</h2>
+
+        <p data-translate="article3-s1-p1">Pour la majorité des PME, les données existent déjà… mais elles sont souvent dispersées dans différents logiciels, fichiers Excel ou même dans des courriels. Cette dispersion crée un problème simple : chacun travaille avec sa propre version de la vérité. Avant même de penser à l’analyse ou aux tableaux de bord, une entreprise doit d’abord centraliser ses informations dans un seul endroit. C’est ce qu’on appelle un progiciel de gestion intégrés (PGI ou ERP en anglais) ou un système équivalent. L’objectif n’est pas d’avoir un outil complexe, mais un espace unique où les ventes, les stocks, la comptabilité et parfois même les ressources humaines peuvent cohabiter proprement.</p>
+
+        <p data-translate="article3-s1-p2">Centraliser ses données ne signifie pas toujours investir immédiatement dans une plateforme coûteuse. Pour certaines PME, un CRM bien structuré ou une combinaison simple d’outils existants peut suffire pour débuter. L’important est que les informations soient cohérentes, faciles d’accès et surtout mises à jour au même endroit. À cette étape, le rôle le plus crucial n’est pas la technologie, mais la personne responsable de maintenir la qualité des données : quelqu’un qui s’assure que les entrées sont complètes, que les fichiers ne se multiplient pas et que les chiffres reflètent réellement la réalité de l’entreprise.</p>
+
+        <p data-translate="article3-s1-p3">Lorsque la centralisation est en place, tout change : les équipes parlent enfin le même langage, les erreurs diminuent et les décisions deviennent plus claires. C’est un peu comme passer d’un tiroir rempli de papiers éparpillés à un classeur bien rangé. C’est aussi cette base solide qui rend ensuite possible l’analyse automatique, la visualisation dans Power BI et la création d’indicateurs fiables. En résumé, centraliser ses données, c’est poser la première pierre d’une démarche data durable et accessible, même pour une petite entreprise qui débute.</p>
+
+        <h3 data-translate="article3-h3-1">Toutefois, qui peut s’occuper de la centralisation des données dans une PME ?</h3>
+
+        <p data-translate="article3-s1-p4">Dans une PME, la centralisation des données peut être prise en charge par plusieurs profils, selon la taille et la maturité de l’entreprise. Pour les petites organisations, ce rôle est souvent assuré par une personne interne qui connaît bien les opérations, par exemple un coordonnateur administratif, un responsable des ventes, ou même le gestionnaire TI. L’important n’est pas d’être un expert en analyse, mais d’avoir une bonne compréhension des processus internes et une rigueur dans la gestion de l’information. Cette personne devient le “gardien” des données : elle vérifie que les informations sont bien saisies, complètes et toujours au bon endroit.</p>
+
+        <p data-translate="article3-s1-p5">Cependant, dans certaines situations, faire appel à un spécialiste externe devient un véritable accélérateur. Les consultants en ERP, analystes de données ou intégrateurs technologiques peuvent aider à structurer, nettoyer et unifier les données plus rapidement que si l’entreprise le fait seule. Ils apportent un regard neutre, connaissent les outils adaptés au budget de la PME et évitent de nombreuses erreurs qui coûtent du temps par la suite. Ce soutien est particulièrement utile si l’entreprise souhaite implanter un système plus robuste comme un ERP ou un CRM. Cela dit, même si un expert externe peut mettre en place la structure et les connexions nécessaires, la centralisation devient ensuite une responsabilité interne. La PME doit désigner quelqu’un qui s’assurera du respect des règles d’entrée, de la mise à jour régulière et de la cohérence des données.</p>
+
+        <h2 data-translate="article3-h2-2">Étape 2 : Faire un inventaire simple des données disponibles</h2>
+
+        <p data-translate="article3-s2-p1">Une fois que l’entreprise a centralisé ses outils, la deuxième étape consiste à faire l’inventaire des données déjà existantes. Cette étape est très accessible, même pour une PME qui débute, et pourtant elle est essentielle. Il s’agit simplement de comprendre ce que l’entreprise possède : quelles informations elle collecte, dans quels formats et à quelle fréquence. Cet inventaire ressemble un peu à ouvrir les tiroirs d’une maison : on découvre parfois des données très utiles qui dormaient dans des fichiers Excel oubliés, des rapports PDF, ou des logiciels sous-utilisés.</p>
+
+        <p data-translate="article3-s2-p2">Cet exercice est important parce qu'il permet de voir rapidement les forces et les faiblesses. Certaines données seront complètes et bien structurées (ex. comptabilité), alors que d’autres seront très partielles ou incohérentes (ex. liste clients, inventaire, dossiers RH). En les répertoriant, une PME comprend non seulement ce qu’elle a, mais aussi ce qui lui manque pour répondre à ses questions d’affaires. Par exemple : « Pouvons-nous réellement analyser nos ventes par type de client si on ne note jamais ce type dans le CRM ? » L’inventaire révèle ainsi les premiers “trous” à combler.</p>
+
+        <p data-translate="article3-s2-p3">Enfin, cet inventaire aide énormément à planifier la suite : choisir les bons indicateurs, savoir quels fichiers nettoyer, et déterminer si certains processus doivent être améliorés. Cette étape guide toutes les prochaines décisions. Elle ne demande grande expertise technique : juste une personne curieuse, organisée et qui connaît bien les opérations. En une ou deux heures, une PME peut déjà obtenir une vue claire de son patrimoine informationnel. Et c’est cette clarté qui prépare un terrain solide pour une analyse fiable et des décisions basées sur des données réelles.</p>
+
+        <h2 data-translate="article3-h2-3">Étape 3 : Nettoyer et organiser les données (l’étape la plus importante)</h2>
+
+        <p data-translate="article3-s3-p1">Une fois que l’entreprise sait quelles données elle possède, il faut passer à l’étape la plus sous‑estimée : le nettoyage. En effet, c’est ici que beaucoup de PME se rendent compte que leurs informations ne sont ni complètes ni cohérentes. Un même client écrit de trois façons différentes, des dates incorrectes, des produits sans code, des champs vides… Ce n’est pas un échec : c’est la réalité de presque toutes les organisations. Nettoyer, c’est comme ranger un entrepôt avant d’essayer d’y trouver quelque chose. Tant que les données sont en désordre, aucune analyse ne pourra être fiable, même avec les meilleurs outils.</p>
+
+        <p data-translate="article3-s3-p2">De plus, une analyste de données serait bien placée pour faire le nettoyage et appliquer les bonnes méthodes. Cela consiste à uniformiser les noms, corriger les erreurs, compléter les informations manquantes, et parfois fusionner plusieurs fichiers pour n’en faire qu’un. Des outils simples comme Excel, Power Query (intégré dans Excel), ou Power BI permettent déjà de transformer des données « brutes » en données solides. À ce stade, la PME commence à voir ses informations sous un angle beaucoup plus clair : les fichiers deviennent structurés, les colonnes sont standardisées, et les doublons disparaissent.</p>
+
+        <p data-translate="article3-s3-p3">Ce travail peut paraître invisible, mais c’est lui qui détermine le succès de tout le reste. Des données bien nettoyées permettent ensuite de créer des tableaux de bord précis, d’automatiser la mise à jour et d’obtenir des indicateurs fiables pour les décisions stratégiques. À l’inverse, sauter cette étape mène à des erreurs d’interprétation et à des décisions basées sur des données fausses. En résumé, le nettoyage est la colonne vertébrale d’un projet data : ce n’est pas l’étape la plus glamour, mais c’est celle qui transforme réellement un amas d’informations en un actif précieux pour l’entreprise.</p>
+
+        <h2 data-translate="article3-h2-4">Étape 4 : Choisir les indicateurs qu’on veut suivre (KPI)</h2>
+
+        <p data-translate="article3-s4-p1">Après avoir nettoyé les données, il est temps de décider ce que l’on veut réellement mesurer. C’est une étape clé, car beaucoup de PME se sentent submergées : elles ont l’impression qu’il faut tout analyser, tout suivre, tout mesurer. En réalité, commencer petit est la meilleure stratégie. Un bon indicateur (KPI) n’est pas un chiffre compliqué ; c’est un nombre simple qui répond à une question importante : Que devons-nous savoir pour gérer l’entreprise plus efficacement ? En choisissant seulement quelques indicateurs essentiels, on évite de se perdre dans des informations inutiles.</p>
+
+        <p data-translate="article3-s4-p2">Pour une PME, les KPI doivent être directement liés aux objectifs concrets de l’entreprise. Par exemple : Si le défi principal est d’augmenter les ventes, on suivra par exemple le chiffre d’affaires mensuel, la performance des produits ou le taux de clients récurrents. Si le défi se situe dans les opérations, les indicateurs seront plutôt le niveau de stock, les délais de livraison ou le taux de commandes en retard. Dans les RH, on suivra la rotation du personnel, l’absentéisme ou la répartition par ancienneté. L’important est que chaque KPI raconte quelque chose de pertinent pour « votre réalité » !</p>
+
+        <p data-translate="article3-s4-p3">Lorsque les bons indicateurs sont choisis, ils deviennent un véritable tableau de bord mental pour l’équipe. Ils permettent de prendre des décisions plus rapides, de détecter les tendances plus tôt et de réagir avant que les problèmes ne deviennent coûteux. Surtout, ces indicateurs créent une culture commune : tout le monde parle des mêmes chiffres, comprend les mêmes signaux et se mobilise autour des mêmes priorités. Choisir les bons KPI, c’est comme choisir ses instruments dans un cockpit : vous n’avez pas besoin de tout surveiller, seulement ce qui vous permet de piloter l’entreprise avec confiance.</p>
+
+        <h2 data-translate="article3-h2-5">Étape 5 : Construire ses premiers tableaux de bord</h2>
+
+        <p data-translate="article3-s5-p1">Une fois les indicateurs définis, il est temps de donner vie aux données en les transformant en tableaux de bord visuels. C’est souvent ici que les dirigeants commencent réellement à « voir » ce que les données racontent. Construire un tableau de bord: c’est créer un espace visuel où l’information la plus importante est présentée de manière claire, intuitive et facile à comprendre. Des outils comme Power BI, Looker Studio ou Tableau permettent aujourd’hui à n’importe quelle PME de créer des graphiques interactifs sans avoir besoin d’un expert en programmation mais une analyste d’affaires.</p>
+
+        <p data-translate="article3-s5-p2">L’objectif d’un tableau de bord n’est pas d’impressionner, mais de simplifier la prise de décision. Un bon tableau de bord montre immédiatement si un indicateur va bien ou mal, si une tendance s’améliore ou se détériore, ou si un problème se répète. Par exemple, une courbe qui illustre le chiffre d’affaires mensuel permet de voir les saisons fortes et les périodes plus faibles. Une carte qui montre les ventes par région aide à identifier où concentrer les efforts. Un graphique sur la rotation du personnel donne un signal clair sur la stabilité des équipes. Plus les visuels sont simples, plus ils sont utiles.</p>
+
+        <p data-translate="article3-s5-p3">En construisant ces premiers tableaux, quelque chose d’important se produit : l’entreprise change sa manière de réfléchir. Les décisions deviennent plus factuelles, les discussions plus concrètes, et les priorités s’alignent sur la réalité plutôt que sur des impressions. Les tableaux de bord deviennent alors un outil quotidien non pas pour produire de beaux graphiques, mais pour guider l’action. C’est souvent à cette étape que la PME réalise que la donnée n’est pas un luxe réservé aux grandes entreprises : c’est un levier accessible, puissant et transformateur pour toute organisation, même la plus petite.</p>
+
+        <h2 data-translate="article3-h2-6">Étape 6: Interpréter les résultats</h2>
+
+        <p data-translate="article3-s6-p1">Construire des tableaux de bord est une grande avancée, mais la vraie valeur apparaît au moment où l’analyste d’affaires prend le temps d’interpréter les résultats. Trop souvent, les PME regardent leurs graphiques sans vraiment s’arrêter pour poser les bonnes questions. Interpréter, c’est comprendre pourquoi un chiffre monte ou descend, ce que cela signifie pour l’entreprise et comment réagir. Cette étape transforme les données en insights : des explications, des causes, des signaux faibles. C’est un moment d’analyse partagé, où chacun apporte son contexte terrain pour donner du sens aux chiffres.</p>
+
+        <p data-translate="article3-s6-p2">Interpréter les tableaux de bord doit devenir une routine simple, accessible et surtout collaborative. Il peut s’agir d’une rencontre mensuelle où l’on passe en revue les indicateurs clés : les ventes, la productivité, les opérations, ou les ressources humaines selon les priorités de l’entreprise. Les questions les plus puissantes sont les plus simples : Qu’est-ce qui surprend ? Qu’est-ce qui s’améliore ? Qu’est-ce qui se détériore ? En croisant les données avec la réalité du terrain, l’équipe identifie les tendances à surveiller, les points urgents à corriger et les opportunités à saisir. L’objectif n’est pas d’avoir raison, mais de comprendre vite.</p>
+
+        <p data-translate="article3-s6-p3">Cette étape est aussi celle où se prennent les décisions concrètes. Une fois le problème identifié, l’équipe décide d’une action : ajuster les horaires, revoir un processus, optimiser les stocks, reformuler un produit, ou renforcer le suivi client. Interpréter les données ne signifie pas faire de longues analyses : c’est décider rapidement de petits changements qui améliorent l’entreprise en continu. Et plus la PME répète cet exercice, plus elle développe une culture où les décisions reposent sur des faits, pas sur des intuitions.</p>
+
+        <h2 data-translate="article3-h2-7">Étape 7: Automatiser et améliorer continuellement</h2>
+
+        <p data-translate="article3-s7-p1">Une fois que les tableaux de bord sont en place et que les décisions commencent à s’appuyer sur les données, la prochaine étape est de rendre ce processus fluide, automatique et durable. Au début, beaucoup de PME mettent à jour leurs données manuellement, exportent des fichiers Excel ou rafraîchissent leurs rapports à la main. C’est normal pour démarrer, mais ce n’est pas viable à long terme. Automatiser, c’est connecter vos systèmes (ERP, CRM, comptabilité, fichiers propres) à votre outil d’analyse de façon à ce que les tableaux de bord se mettent à jour tout seuls sans intervention humaine. Cela fait gagner du temps, évite les erreurs et garantit que tout le monde travaille toujours avec les informations les plus récentes.</p>
+
+        <p data-translate="article3-s7-p2">Automatiser ne signifie pas installer une grande solution technologique du premier coup. Il s’agit plutôt d’un ensemble de petites améliorations progressives. Cela peut commencer par des connexions simples entre votre ERP et Power BI, ou par l’utilisation de Power Query pour rafraîchir automatiquement des fichiers récurrents. Plus les données circulent de manière fluide, moins l’équipe perd du temps à manipuler des fichiers, et plus elle peut se concentrer sur l’analyse et la prise de décision. Cette automatisation aide aussi à repérer plus rapidement les anomalies, un KPI qui chute, un stock qui augmente soudainement, un taux d’absentéisme qui dérape car les mises à jour sont en temps réel.</p>
+
+        <p data-translate="article3-s7-p3">Enfin, adopter une logique d’amélioration continue, c’est comprendre que la donnée n’est pas un projet ponctuel, mais un cycle de progression. Chaque mois, l’entreprise peut revenir sur ses processus, améliorer la qualité des données, ajouter de nouveaux indicateurs ou simplifier ceux qui ne sont plus utiles. Au fil des mois, la culture interne évolue : les employés développent une meilleure discipline dans l’entrée de données, les gestionnaires prennent des décisions plus rapidement, et l’entreprise gagne en maturité. Ce n’est pas la taille de la PME qui détermine sa transformation, mais sa constance. Avec des automatismes simples et un rythme régulier d’amélioration, la donnée devient un véritable moteur de croissance stable, fiable et accessible à tous.</p>
+
+        <h2 data-translate="article3-h2-8">Conclusion</h2>
+
+        <p data-translate="article3-c-p1">Commencer à utiliser ses données n’est pas une transformation technologique : c’est une transformation progressive, humaine et accessible. En suivant ces étapes simples : centraliser, inventorier, nettoyer, choisir, visualiser, interpréter et automatiser, une PME peut passer d’un environnement dispersé à une gestion claire, structurée et guidée par des faits. Chaque étape renforce la suivante, et chacune crée une nouvelle habitude qui rend l’entreprise plus mature et plus performante.</p>
+
+        <p data-translate="article3-c-p2">Ce parcours ne demande pas de devenir expert, ni d’investir dans des outils complexes. Il demande surtout de la constance, de la curiosité et une volonté d’améliorer les pratiques existantes. Avec le temps, la donnée devient plus qu’un actif : elle devient un avantage compétitif. Elle permet de voir les tendances avant les autres, de détecter les problèmes plus rapidement et de prendre des décisions avec confiance.</p>
+
+        <p data-translate="article3-c-p3">En fin de compte, la vraie question n’est plus : “Que faire avec nos données ?” Mais plutôt : “Que pourrions‑nous accomplir si nous les utilisions pleinement ?” Et la bonne nouvelle, c’est que tout commence par un premier pas simple, concret et à votre portée. À long terme, selon vos besoins, l’entreprise pourra même aller plus loin en développant des prévisions ou en gérant des données plus complexes, un travail qui peut être pris en charge par une scientifique des données.</p>
+      </div>
+    </article>
+
     <div style="text-align: center;">
-      <a href="index2.html#articles" data-translate="btn-back" class="back-button">
+      <a href="index2.html#articles" data-translate="btn-back-articles" class="back-button">
         ← Retour aux articles
       </a>
     </div>
