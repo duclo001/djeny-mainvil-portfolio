@@ -21,7 +21,7 @@ const translations = {
     // Page d'accueil (index2.html) - Hero section
     'hero-subtitle1': 'Conseillère en solutions technologiques',
     'hero-subtitle2': 'Solutions data pour la performance et la croissance',
-    'hero-badge-makila': 'Makila AI — Membre',
+    'hero-badge-makila': 'Makila AI',
     'hero-badge2': 'BI • Analytics • Stratégie',
     'hero-badge3': 'Français • Anglais (bilingue)',
     'viz-title': 'Dashboard Analytics en Temps Réel',
@@ -91,6 +91,7 @@ const translations = {
     // Footer
     'footer-tagline': 'Analyser. Clarifier. Décider.',
     'footer-subtitle': 'Économiste & Analyste des Affaires',
+    'footer-location': 'Montreal, Canada',
     'footer-copyright': '&copy; 2026 Djeny Mainvil. Tous droits réservés.',
     
     // Page recherches.html
@@ -261,7 +262,7 @@ const translations = {
     // Home page (index2.html) - Hero section
     'hero-subtitle1': 'Technology Solutions Advisor',
     'hero-subtitle2': 'Data solutions for performance and growth',
-    'hero-badge-makila': 'Makila AI — Member',
+    'hero-badge-makila': 'Makila AI',
     'hero-badge2': 'BI • Analytics • Strategy',
     'hero-badge3': 'French • English (bilingual)',
     'viz-title': 'Real-Time Analytics Dashboard',
@@ -331,6 +332,7 @@ const translations = {
     // Footer
     'footer-tagline': 'Analyze. Clarify. Decide.',
     'footer-subtitle': 'Economist & Business Analyst',
+    'footer-location': 'Montreal, Canada',
     'footer-copyright': '&copy; 2026 Djeny Mainvil. All rights reserved.',
     
     // Page recherches.html
