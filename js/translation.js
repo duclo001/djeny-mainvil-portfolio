@@ -96,6 +96,7 @@ const translations = {
     // Page recherches.html
     'recherches-page-title': 'Recherches Académiques',
     'recherches-page-subtitle': 'Retrouvez ici mes travaux de recherche et contributions académiques dans le domaine de l\'économie, de l\'intelligence des affaires et de l\'analyse de données.',
+    'recherches-cta-text': 'Pour consulter les documents complets,',
     'recherches-hec-title': 'HEC Montréal - Rapport de Stage',
     'recherches-hec-work': 'Optimisation de la performance marketing et commerciale dans une PME industrielle par l\'intelligence d\'affaires : intégration de données multi-sources et développement de tableaux de bord Power BI',
     'recherches-hec-context': 'Résumé :',
@@ -335,6 +336,7 @@ const translations = {
     // Page recherches.html
     'recherches-page-title': 'Academic Research',
     'recherches-page-subtitle': 'Find here my research work and academic contributions in the field of economics, business intelligence, and data analysis.',
+    'recherches-cta-text': 'To access the full documents,',
     'recherches-hec-title': 'HEC Montreal - Internship Report',
     'recherches-hec-work': 'Optimization of marketing and sales performance in an industrial SME through business intelligence: integration of multi-source data and development of Power BI dashboards',
     'recherches-hec-context': 'Summary:',
@@ -493,9 +495,9 @@ function updateLanguageButton() {
   const langButton = document.getElementById('current-lang');
   if (langButton) {
     if (currentLang === 'fr') {
-      langButton.innerHTML = '🇬🇧 EN';
+      langButton.textContent = 'EN';
     } else {
-      langButton.innerHTML = '🇫🇷 FR';
+      langButton.textContent = 'FR';
     }
   }
 }
