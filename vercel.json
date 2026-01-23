@@ -24,6 +24,27 @@
   ],
   "routes": [
     {
+      "src": "/index\\.html$",
+      "status": 301,
+      "headers": {
+        "Location": "/"
+      }
+    },
+    {
+      "src": "/index2_backup\\.html$",
+      "status": 301,
+      "headers": {
+        "Location": "/"
+      }
+    },
+    {
+      "src": "/contact\\.html$",
+      "status": 301,
+      "headers": {
+        "Location": "/#contact"
+      }
+    },
+    {
       "src": "/",
       "dest": "/index2.html"
     },
