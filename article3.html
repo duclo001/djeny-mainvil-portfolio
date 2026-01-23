@@ -27,22 +27,69 @@
       padding: 2rem 1.5rem;
       min-height: 100vh;
     }
+
+    .language-toggle {
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(255,157,112,0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .language-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255,157,112,0.5);
+    }
+
+    .language-toggle:active {
+      transform: translateY(0);
+    }
+
+    .language-toggle span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .language-toggle.floating {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      z-index: 1000;
+    }
     
     .back-button {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: #ff9d70;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 25px;
       font-weight: 600;
       transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(255,157,112,0.3);
       margin-top: 2rem;
     }
     
     .back-button:hover {
+      color: white;
       transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(255,157,112,0.4);
+      box-shadow: 0 4px 15px rgba(255,157,112,0.5);
+    }
+
+    .back-button:active {
+      transform: translateY(0);
     }
     
     .article-header {
@@ -141,7 +188,7 @@
 </head>
 <body>
   <!-- Bouton de langue flottant -->
-  <button class="language-toggle" onclick="toggleLanguage()" style="position: fixed; top: 2rem; right: 2rem; z-index: 1000; background: linear-gradient(135deg, #ff9d70 0%, #ff6b3d 100%); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255,157,112,0.25);">
+  <button class="language-toggle floating" onclick="toggleLanguage()">
     <span id="current-lang">🇬🇧 EN</span>
   </button>
 

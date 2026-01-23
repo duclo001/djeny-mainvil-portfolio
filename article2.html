@@ -30,22 +30,69 @@
       padding: 3rem 2rem;
       min-height: 100vh;
     }
+
+    .language-toggle {
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(255,157,112,0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .language-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255,157,112,0.5);
+    }
+
+    .language-toggle:active {
+      transform: translateY(0);
+    }
+
+    .language-toggle span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .language-toggle.floating {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      z-index: 1000;
+    }
     
     .back-button {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: #ff9d70;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 25px;
       font-weight: 600;
       transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(255,157,112,0.3);
       margin-top: 2rem;
     }
     
     .back-button:hover {
+      color: white;
       transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(255,157,112,0.4);
+      box-shadow: 0 4px 15px rgba(255,157,112,0.5);
+    }
+
+    .back-button:active {
+      transform: translateY(0);
     }
     
     .article-header {
@@ -226,20 +273,20 @@
 </head>
 <body>
   <!-- Bouton de langue flottant -->
-  <button class="language-toggle" onclick="toggleLanguage()" style="position: fixed; top: 2rem; right: 2rem; z-index: 1000; background: linear-gradient(135deg, #ff9d70 0%, #ff6b3d 100%); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255,157,112,0.25);">
+  <button class="language-toggle floating" onclick="toggleLanguage()">
     <span id="current-lang">🇬🇧 EN</span>
   </button>
 
   <div class="article-container">
     <article>
       <header class="article-header">
-        <h1 class="article-title">Power BI, Progiciels de Gestion Intégrés (PGI) et outils d'intelligence artificielle : comprendre le rôle des logiciels dans l'analytique</h1>
+        <h1 class="article-title" data-translate="article2-title">Power BI, Progiciels de Gestion Intégrés (PGI) et outils d'intelligence artificielle : comprendre le rôle des logiciels dans l'analytique</h1>
         <div class="article-meta">
-          <span>22 décembre 2025</span>
+          <span data-translate="article2-date">22 décembre 2025</span>
           <span>•</span>
-          <span>⏱️ 10 min de lecture</span>
+          <span data-translate="article2-reading-time">⏱️ 10 min de lecture</span>
           <span>•</span>
-          <span>Djeny Mainvil MSc.</span>
+          <span data-translate="article2-author">Djeny Mainvil MSc.</span>
         </div>
       </header>
       
@@ -249,54 +296,54 @@
       
       <div class="article-content">
         <div class="highlight-box">
-          <p><strong>« Nous avons Power BI, mais il est peu utilisé. »</strong></p>
-          <p><strong>« Les données sont là, mais elles sont dispersées. »</strong></p>
-          <p><strong>« L'ERP est en place, pourtant les décisions restent complexes. »</strong></p>
+          <p data-translate="article2-highlight1"><strong>« Nous avons Power BI, mais il est peu utilisé. »</strong></p>
+          <p data-translate="article2-highlight2"><strong>« Les données sont là, mais elles sont dispersées. »</strong></p>
+          <p data-translate="article2-highlight3"><strong>« L'ERP est en place, pourtant les décisions restent complexes. »</strong></p>
         </div>
         
-        <p>Ces phrases, souvent prononcées par des entrepreneurs ou des dirigeants de PME, sont devenues familières pour celles et ceux qui travaillent en analytique ou en transformation organisationnelle. Cependant, elles ne traduisent pas un manque de technologie ni un retard en matière d'outils. Elles révèlent plutôt un décalage entre les solutions déployées et la manière dont les décisions sont concrètement formulées et arbitrées au sein des organisations. Autrement dit, dans un contexte où les solutions analytiques, les progiciels de gestion intégrés et les technologies d'intelligence artificielle sont de plus en plus accessibles, la question n'est plus celle de la disponibilité des outils, mais bien celle de leur rôle réel dans la dynamique décisionnelle.</p>
+        <p data-translate="article2-intro">Ces phrases, souvent prononcées par des entrepreneurs ou des dirigeants de PME, sont devenues familières pour celles et ceux qui travaillent en analytique ou en transformation organisationnelle. Cependant, elles ne traduisent pas un manque de technologie ni un retard en matière d'outils. Elles révèlent plutôt un décalage entre les solutions déployées et la manière dont les décisions sont concrètement formulées et arbitrées au sein des organisations. Autrement dit, dans un contexte où les solutions analytiques, les progiciels de gestion intégrés et les technologies d'intelligence artificielle sont de plus en plus accessibles, la question n'est plus celle de la disponibilité des outils, mais bien celle de leur rôle réel dans la dynamique décisionnelle.</p>
         
-        <p>Dans cette perspective, de nombreuses entreprises continuent d'aborder les logiciels comme des solutions autonomes, supposées créer de la valeur dès leur implantation. Or, cette approche conduit fréquemment à des environnements technologiques riches, mais insuffisamment structurés sur le plan décisionnel : les données sont collectées, visualisées ou automatisées, sans que soit clairement précisé l'usage auquel elles doivent répondre. Le problème ne réside alors pas dans un manque d'information, mais dans la difficulté à transformer cette information en repères stables et véritablement actionnables. Il est donc vraiment important de comprendre que les logiciels ne créent de valeur que lorsqu'ils prolongent une fonction clairement identifiée : un progiciel de gestion intégré structure l'exécution, un outil de business intelligence soutient le pilotage, et les technologies d'intelligence artificielle permettent, dans certains contextes, d'anticiper ou d'optimiser des décisions répétitives.</p>
+        <p data-translate="article2-p1">Dans cette perspective, de nombreuses entreprises continuent d'aborder les logiciels comme des solutions autonomes, supposées créer de la valeur dès leur implantation. Or, cette approche conduit fréquemment à des environnements technologiques riches, mais insuffisamment structurés sur le plan décisionnel : les données sont collectées, visualisées ou automatisées, sans que soit clairement précisé l'usage auquel elles doivent répondre. Le problème ne réside alors pas dans un manque d'information, mais dans la difficulté à transformer cette information en repères stables et véritablement actionnables. Il est donc vraiment important de comprendre que les logiciels ne créent de valeur que lorsqu'ils prolongent une fonction clairement identifiée : un progiciel de gestion intégré structure l'exécution, un outil de business intelligence soutient le pilotage, et les technologies d'intelligence artificielle permettent, dans certains contextes, d'anticiper ou d'optimiser des décisions répétitives.</p>
         
-        <p>Encore faut-il interroger la manière dont cette réflexion est généralement amorcée dans les organisations ? Avant d'examiner le rôle spécifique de chaque catégorie de logiciels, il convient donc de s'arrêter sur la façon dont la question des outils est le plus souvent posée ainsi que les limites que cette approche comporte.</p>
+        <p data-translate="article2-p2" data-translate="article2-p2">Encore faut-il interroger la manière dont cette réflexion est généralement amorcée dans les organisations ? Avant d'examiner le rôle spécifique de chaque catégorie de logiciels, il convient donc de s'arrêter sur la façon dont la question des outils est le plus souvent posée ainsi que les limites que cette approche comporte.</p>
         
-        <h2>Pourquoi la question des outils est souvent mal posée?</h2>
+        <h2 data-translate="article2-h2-1">Pourquoi la question des outils est souvent mal posée?</h2>
         
-        <p>Dans de nombreuses organisations, la réflexion sur les outils analytiques débute presque systématiquement par une question technologique : quel logiciel adopter ? Cette démarche, bien qu'intuitive, inverse l'ordre logique du raisonnement. Elle repose sur l'hypothèse implicite que la valeur découlera de l'outil lui-même, alors qu'en pratique, un logiciel ne fait que matérialiser une intention décisionnelle déjà définie. Cette logique est renforcée par la manière dont les technologies sont présentées, chacune étant associée à un bénéfice précis. Pris séparément, ces arguments sont pertinents lorsqu'ils ne sont pas rattachés à des décisions concrètes, ils aboutissent à des usages dispersés et peu structurés.</p>
+        <p data-translate="article2-p3">Dans de nombreuses organisations, la réflexion sur les outils analytiques débute presque systématiquement par une question technologique : quel logiciel adopter ? Cette démarche, bien qu'intuitive, inverse l'ordre logique du raisonnement. Elle repose sur l'hypothèse implicite que la valeur découlera de l'outil lui-même, alors qu'en pratique, un logiciel ne fait que matérialiser une intention décisionnelle déjà définie. Cette logique est renforcée par la manière dont les technologies sont présentées, chacune étant associée à un bénéfice précis. Pris séparément, ces arguments sont pertinents lorsqu'ils ne sont pas rattachés à des décisions concrètes, ils aboutissent à des usages dispersés et peu structurés.</p>
         
-        <p>À cela s'ajoute une assimilation fréquente entre données, information et décision. En effet, collecter des données, produire des tableaux de bord ou automatiser certaines analyses ne garantit pas, en soi, une meilleure prise de décision. Sans clarification préalable de ce qui doit être décidé, à quelle fréquence et par qui, les outils demeurent périphériques au processus décisionnel. Ils produisent de l'information, parfois en abondance, sans pour autant créer des repères suffisamment stables pour orienter l'action. Ainsi, poser la question des logiciels avant celle de leur fonction revient à confondre le moyen et la finalité : ce n'est qu'en identifiant d'abord le type de décision à soutenir que le rôle des outils devient réellement intelligible.</p>
+        <p data-translate="article2-p4" data-translate="article2-p4">À cela s'ajoute une assimilation fréquente entre données, information et décision. En effet, collecter des données, produire des tableaux de bord ou automatiser certaines analyses ne garantit pas, en soi, une meilleure prise de décision. Sans clarification préalable de ce qui doit être décidé, à quelle fréquence et par qui, les outils demeurent périphériques au processus décisionnel. Ils produisent de l'information, parfois en abondance, sans pour autant créer des repères suffisamment stables pour orienter l'action. Ainsi, poser la question des logiciels avant celle de leur fonction revient à confondre le moyen et la finalité : ce n'est qu'en identifiant d'abord le type de décision à soutenir que le rôle des outils devient réellement intelligible.</p>
         
-        <h2>Le rôle des progiciels de gestion intégrés (PGI) : structurer l'exécution avant la décision</h2>
+        <h2 data-translate="article2-h2-2">Le rôle des progiciels de gestion intégrés (PGI) : structurer l'exécution avant la décision</h2>
         
-        <p>Dans la manière dont une organisation gère et structure son information, les progiciels de gestion intégrés (PGI) ou ERP en anglais jouent un rôle fondamental, mais parfois mal compris. Un PGI regroupe et articule l'ensemble des logiciels qui soutiennent les activités opérationnelles internes de l'entreprise : ventes, achats, finances, ressources humaines, opérations ou logistique. Dans cette même logique, les systèmes de gestion de la relation client (CRM) occupent une place comparable, avec un périmètre orienté vers les activités commerciales et relationnelles. PGI et CRM partagent ainsi une fonction essentielle : structurer l'exécution, capter les événements au moment où ils se produisent et assurer la cohérence de l'information à l'échelle de l'organisation. Leur vocation première n'est pas l'aide directe à la décision, mais l'intégration des processus et la fiabilisation des données opérationnelles sur lesquelles reposent les usages ultérieurs.</p>
+        <p data-translate="article2-p5">Dans la manière dont une organisation gère et structure son information, les progiciels de gestion intégrés (PGI) ou ERP en anglais jouent un rôle fondamental, mais parfois mal compris. Un PGI regroupe et articule l'ensemble des logiciels qui soutiennent les activités opérationnelles internes de l'entreprise : ventes, achats, finances, ressources humaines, opérations ou logistique. Dans cette même logique, les systèmes de gestion de la relation client (CRM) occupent une place comparable, avec un périmètre orienté vers les activités commerciales et relationnelles. PGI et CRM partagent ainsi une fonction essentielle : structurer l'exécution, capter les événements au moment où ils se produisent et assurer la cohérence de l'information à l'échelle de l'organisation. Leur vocation première n'est pas l'aide directe à la décision, mais l'intégration des processus et la fiabilisation des données opérationnelles sur lesquelles reposent les usages ultérieurs.</p>
         
-        <p>C'est précisément à ce niveau que se situe leur valeur réelle. En centralisant les données et en réduisant les silos, les PGI ainsi que le CRM qui est destiné aux activités orientées client, rendent l'information traçable, comparable et exploitable dans le temps. Les attentes deviennent problématiques lorsque ces systèmes sont perçus comme des outils décisionnels à part entière. Les fonctions qu'ils proposent sont utiles pour le suivi opérationnel, mais demeurent limitées pour soutenir des arbitrages managériaux plus complexes. Ainsi, dans une lecture fonctionnelle et managériale, PGI et CRM sécurisent non seulement les processus mais créent également les conditions nécessaires à un pilotage fiable. Ce n'est qu'une fois cette base opérationnelle solidement établie que d'autres outils peuvent intervenir pour structurer, analyser et mettre en perspective l'information issue de l'exécution.</p>
+        <p data-translate="article2-p6" data-translate="article2-p6">C'est précisément à ce niveau que se situe leur valeur réelle. En centralisant les données et en réduisant les silos, les PGI ainsi que le CRM qui est destiné aux activités orientées client, rendent l'information traçable, comparable et exploitable dans le temps. Les attentes deviennent problématiques lorsque ces systèmes sont perçus comme des outils décisionnels à part entière. Les fonctions qu'ils proposent sont utiles pour le suivi opérationnel, mais demeurent limitées pour soutenir des arbitrages managériaux plus complexes. Ainsi, dans une lecture fonctionnelle et managériale, PGI et CRM sécurisent non seulement les processus mais créent également les conditions nécessaires à un pilotage fiable. Ce n'est qu'une fois cette base opérationnelle solidement établie que d'autres outils peuvent intervenir pour structurer, analyser et mettre en perspective l'information issue de l'exécution.</p>
         
-        <h2>Le rôle des outils de BI : structurer le pilotage et créer des repères décisionnels</h2>
+        <h2 data-translate="article2-h2-3">Le rôle des outils de BI : structurer le pilotage et créer des repères décisionnels</h2>
         
-        <p>Dans la continuité des PGI, les outils de business intelligence (BI) interviennent à une étape distincte du processus décisionnel : celle du pilotage. Leur rôle n'est pas de produire la donnée, mais de mettre en forme l'information issue des systèmes opérationnels afin de la rendre lisible, comparable et exploitable dans le temps. Des solutions largement répandues comme Power BI ou Tableau permettent ainsi de transformer des données transactionnelles en indicateurs structurés, organisés autour d'axes de performance pertinents pour l'organisation. Contrairement aux analyses ponctuelles, le pilotage s'inscrit dans une logique récurrente : il vise à suivre l'évolution des résultats, à identifier des écarts et à soutenir des décisions prises de manière régulière.</p>
+        <p data-translate="article2-p7">Dans la continuité des PGI, les outils de business intelligence (BI) interviennent à une étape distincte du processus décisionnel : celle du pilotage. Leur rôle n'est pas de produire la donnée, mais de mettre en forme l'information issue des systèmes opérationnels afin de la rendre lisible, comparable et exploitable dans le temps. Des solutions largement répandues comme Power BI ou Tableau permettent ainsi de transformer des données transactionnelles en indicateurs structurés, organisés autour d'axes de performance pertinents pour l'organisation. Contrairement aux analyses ponctuelles, le pilotage s'inscrit dans une logique récurrente : il vise à suivre l'évolution des résultats, à identifier des écarts et à soutenir des décisions prises de manière régulière.</p>
         
-        <p>L'enjeu central des outils de BI n'est donc pas la visualisation en elle-même, mais la capacité à créer des repères décisionnels partagés. En structurant l'information autour de tableaux de bord communs, ils favorisent une lecture homogène de la performance entre les équipes et les niveaux de management, et ancrent les discussions sur une base factuelle commune. Toutefois, les limites apparaissent lorsque ces outils sont déployés sans clarification préalable des indicateurs à suivre ou des décisions à soutenir : les tableaux de bord se multiplient alors sans réel impact. Dans cette approche, la BI occupe ainsi une position intermédiaire essentielle : elle transforme l'information opérationnelle en support de pilotage, sans se substituer ni à l'analyse approfondie ni à l'anticipation. C'est cette stabilité du pilotage qui conditionne ensuite l'utilisation pertinente de technologies plus avancées, notamment les outils d'intelligence artificielle.</p>
+        <p data-translate="article2-p8" data-translate="article2-p8">L'enjeu central des outils de BI n'est donc pas la visualisation en elle-même, mais la capacité à créer des repères décisionnels partagés. En structurant l'information autour de tableaux de bord communs, ils favorisent une lecture homogène de la performance entre les équipes et les niveaux de management, et ancrent les discussions sur une base factuelle commune. Toutefois, les limites apparaissent lorsque ces outils sont déployés sans clarification préalable des indicateurs à suivre ou des décisions à soutenir : les tableaux de bord se multiplient alors sans réel impact. Dans cette approche, la BI occupe ainsi une position intermédiaire essentielle : elle transforme l'information opérationnelle en support de pilotage, sans se substituer ni à l'analyse approfondie ni à l'anticipation. C'est cette stabilité du pilotage qui conditionne ensuite l'utilisation pertinente de technologies plus avancées, notamment les outils d'intelligence artificielle.</p>
         
-        <h2>Le rôle des outils d'intelligence artificielle : anticiper, optimiser et gagner en efficacité</h2>
+        <h2 data-translate="article2-h2-4">Le rôle des outils d'intelligence artificielle : anticiper, optimiser et gagner en efficacité</h2>
         
-        <p>Les outils d'intelligence artificielle interviennent à un stade plus avancé du processus décisionnel, mais leur rôle ne peut être compris qu'à la lumière de l'objectif qu'ils servent. Contrairement aux PGI, qui structurent l'exécution, et aux outils de business intelligence, qui organisent le pilotage, les technologies d'IA sont mobilisées lorsque l'organisation cherche à anticiper des évolutions, optimiser des choix ou améliorer l'efficacité de certaines activités. Selon le contexte, il peut s'agir d'exploiter des données pour formuler des prévisions, de détecter des situations atypiques, de recommander des actions sous contraintes, ou encore d'automatiser des tâches et des interactions à l'aide d'agents intelligents. Leur apport ne réside donc pas uniquement dans l'analyse des données existantes, mais aussi dans leur capacité à soutenir le travail humain en accélérant, en simplifiant ou en fiabilisant certaines décisions ou opérations.</p>
+        <p data-translate="article2-p9">Les outils d'intelligence artificielle interviennent à un stade plus avancé du processus décisionnel, mais leur rôle ne peut être compris qu'à la lumière de l'objectif qu'ils servent. Contrairement aux PGI, qui structurent l'exécution, et aux outils de business intelligence, qui organisent le pilotage, les technologies d'IA sont mobilisées lorsque l'organisation cherche à anticiper des évolutions, optimiser des choix ou améliorer l'efficacité de certaines activités. Selon le contexte, il peut s'agir d'exploiter des données pour formuler des prévisions, de détecter des situations atypiques, de recommander des actions sous contraintes, ou encore d'automatiser des tâches et des interactions à l'aide d'agents intelligents. Leur apport ne réside donc pas uniquement dans l'analyse des données existantes, mais aussi dans leur capacité à soutenir le travail humain en accélérant, en simplifiant ou en fiabilisant certaines décisions ou opérations.</p>
         
-        <p>Cette diversité d'usages explique pourquoi la valeur de l'IA est étroitement liée à la maturité de l'organisation. Lorsque les données issues des PGI sont fiables et que les repères de pilotage sont stabilisés par les outils de BI, certaines applications de l'IA peuvent produire un impact décisionnel significatif. À l'inverse, dans des contextes où les données sont moins structurées, l'IA est parfois mobilisée avant tout comme un levier d'efficacité opérationnelle, par exemple pour automatiser des tâches, assister les équipes ou fluidifier des processus. Dans ce cadre de réflexion, l'intelligence artificielle ne constitue donc ni un point de départ ni une solution universelle. Elle prolonge un processus organisationnel déjà clarifié, en apportant des capacités d'anticipation, d'optimisation ou de soutien opérationnel là où les objectifs sont suffisamment définis. Son rôle n'est pas de remplacer le jugement humain, mais de l'appuyer différemment selon la nature des décisions et des activités à soutenir.</p>
+        <p data-translate="article2-p10" data-translate="article2-p10">Cette diversité d'usages explique pourquoi la valeur de l'IA est étroitement liée à la maturité de l'organisation. Lorsque les données issues des PGI sont fiables et que les repères de pilotage sont stabilisés par les outils de BI, certaines applications de l'IA peuvent produire un impact décisionnel significatif. À l'inverse, dans des contextes où les données sont moins structurées, l'IA est parfois mobilisée avant tout comme un levier d'efficacité opérationnelle, par exemple pour automatiser des tâches, assister les équipes ou fluidifier des processus. Dans ce cadre de réflexion, l'intelligence artificielle ne constitue donc ni un point de départ ni une solution universelle. Elle prolonge un processus organisationnel déjà clarifié, en apportant des capacités d'anticipation, d'optimisation ou de soutien opérationnel là où les objectifs sont suffisamment définis. Son rôle n'est pas de remplacer le jugement humain, mais de l'appuyer différemment selon la nature des décisions et des activités à soutenir.</p>
         
-        <h2>Choisir ses outils : une question de trajectoire décisionnelle</h2>
+        <h2 data-translate="article2-h2-5">Choisir ses outils : une question de trajectoire décisionnelle</h2>
         
-        <p>Lorsqu'il s'agit de structurer l'environnement technologique, de nombreux dirigeants se demandent jusqu'où aller : faut-il investir simultanément dans un PGI, des outils de BI et des solutions d'intelligence artificielle pour espérer tirer de la valeur des données ? Il est important de prendre en compte que la cohérence d'un environnement analytique repose moins sur l'étendue des outils que sur leur capacité à répondre à des besoins décisionnels clairement identifiés. En effet, certaines organisations doivent avant tout sécuriser l'exécution et fiabiliser leurs données, un objectif principalement soutenu par un PGI. D'autres cherchent surtout à structurer leur pilotage et à suivre leur performance dans le temps, ce qui rend les outils de BI prioritaires. Les technologies d'intelligence artificielle, quant à elles, prennent tout leur sens lorsque les décisions à optimiser ou à anticiper sont déjà suffisamment cadrées.</p>
+        <p data-translate="article2-p11">Lorsqu'il s'agit de structurer l'environnement technologique, de nombreux dirigeants se demandent jusqu'où aller : faut-il investir simultanément dans un PGI, des outils de BI et des solutions d'intelligence artificielle pour espérer tirer de la valeur des données ? Il est important de prendre en compte que la cohérence d'un environnement analytique repose moins sur l'étendue des outils que sur leur capacité à répondre à des besoins décisionnels clairement identifiés. En effet, certaines organisations doivent avant tout sécuriser l'exécution et fiabiliser leurs données, un objectif principalement soutenu par un PGI. D'autres cherchent surtout à structurer leur pilotage et à suivre leur performance dans le temps, ce qui rend les outils de BI prioritaires. Les technologies d'intelligence artificielle, quant à elles, prennent tout leur sens lorsque les décisions à optimiser ou à anticiper sont déjà suffisamment cadrées.</p>
         
-        <p>Cette diversité de situations explique pourquoi il n'existe pas de modèle technologique standard. Les fonctions couvertes par les outils peuvent se compléter, se recouvrir ou évoluer avec le temps. Une entreprise peut disposer d'un PGI et d'outils de BI sans être prête à mobiliser l'IA de manière pertinente, tandis qu'une autre, plus spécialisée, peut tirer un avantage concret d'approches avancées sans infrastructure lourde. L'enjeu n'est donc pas de viser une configuration idéale, mais de construire une trajectoire cohérente. Plutôt que de se demander quels outils adopter, il devient alors plus utile de s'interroger sur les décisions que l'organisation cherche à mieux maîtriser aujourd'hui, et sur les fonctions analytiques nécessaires pour y parvenir. C'est donc ce raisonnement qui permet aux outils de s'inscrire durablement dans la stratégie, sans dépendre d'effets de mode.</p>
+        <p data-translate="article2-p12" data-translate="article2-p12">Cette diversité de situations explique pourquoi il n'existe pas de modèle technologique standard. Les fonctions couvertes par les outils peuvent se compléter, se recouvrir ou évoluer avec le temps. Une entreprise peut disposer d'un PGI et d'outils de BI sans être prête à mobiliser l'IA de manière pertinente, tandis qu'une autre, plus spécialisée, peut tirer un avantage concret d'approches avancées sans infrastructure lourde. L'enjeu n'est donc pas de viser une configuration idéale, mais de construire une trajectoire cohérente. Plutôt que de se demander quels outils adopter, il devient alors plus utile de s'interroger sur les décisions que l'organisation cherche à mieux maîtriser aujourd'hui, et sur les fonctions analytiques nécessaires pour y parvenir. C'est donc ce raisonnement qui permet aux outils de s'inscrire durablement dans la stratégie, sans dépendre d'effets de mode.</p>
         
-        <h2>Conclusion</h2>
+        <h2 data-translate="article2-h2-6">Conclusion</h2>
         
-        <p>Au fil de cet article, une idée revient de manière récurrente : les logiciels, aussi performants soient-ils, ne créent pas de valeur par eux-mêmes. Les progiciels de gestion intégrés et les outils CRM organisent le quotidien de l'entreprise et fiabilisent l'information opérationnelle. Les outils de business intelligence permettent de suivre la performance et de donner des repères clairs pour le pilotage. Les technologies d'intelligence artificielle, quant à elles, peuvent aider à anticiper, à optimiser ou à gagner en efficacité, lorsque les conditions sont réunies. Chacun joue un rôle précis, à condition d'être utilisé pour ce qu'il est réellement conçu à faire.</p>
+        <p data-translate="article2-p13">Au fil de cet article, une idée revient de manière récurrente : les logiciels, aussi performants soient-ils, ne créent pas de valeur par eux-mêmes. Les progiciels de gestion intégrés et les outils CRM organisent le quotidien de l'entreprise et fiabilisent l'information opérationnelle. Les outils de business intelligence permettent de suivre la performance et de donner des repères clairs pour le pilotage. Les technologies d'intelligence artificielle, quant à elles, peuvent aider à anticiper, à optimiser ou à gagner en efficacité, lorsque les conditions sont réunies. Chacun joue un rôle précis, à condition d'être utilisé pour ce qu'il est réellement conçu à faire.</p>
         
-        <p>Cette lecture invite à changer la manière dont les décisions technologiques sont souvent abordées. Plutôt que de partir des outils disponibles ou des promesses associées aux nouvelles solutions, il devient plus utile de commencer par les questions que l'organisation cherche à mieux gérer au quotidien. Quelles décisions doivent être prises plus sereinement ? Quelles activités gagneraient à être mieux structurées, mieux suivies ou partiellement automatisées ? C'est en partant de ces besoins concrets que les choix technologiques prennent tout leur sens.</p>
+        <p data-translate="article2-p14">Cette lecture invite à changer la manière dont les décisions technologiques sont souvent abordées. Plutôt que de partir des outils disponibles ou des promesses associées aux nouvelles solutions, il devient plus utile de commencer par les questions que l'organisation cherche à mieux gérer au quotidien. Quelles décisions doivent être prises plus sereinement ? Quelles activités gagneraient à être mieux structurées, mieux suivies ou partiellement automatisées ? C'est en partant de ces besoins concrets que les choix technologiques prennent tout leur sens.</p>
         
-        <p>Clarifier le rôle des PGI, des outils de BI et des solutions d'intelligence artificielle revient donc à mieux comprendre comment ces outils peuvent s'articuler dans la durée. Lorsqu'ils sont pensés comme des appuis au service de décisions clairement identifiées, les logiciels cessent d'être des investissements abstraits pour devenir de véritables leviers de pilotage, d'anticipation et d'efficacité au sein de l'organisation.</p>
+        <p data-translate="article2-p15">Clarifier le rôle des PGI, des outils de BI et des solutions d'intelligence artificielle revient donc à mieux comprendre comment ces outils peuvent s'articuler dans la durée. Lorsqu'ils sont pensés comme des appuis au service de décisions clairement identifiées, les logiciels cessent d'être des investissements abstraits pour devenir de véritables leviers de pilotage, d'anticipation et d'efficacité au sein de l'organisation.</p>
       </div>
     </article>
     

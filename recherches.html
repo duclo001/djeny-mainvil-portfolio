@@ -58,6 +58,37 @@
       color: #ff9d70;
     }
 
+    .language-toggle {
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(255,157,112,0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .language-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(255,157,112,0.5);
+    }
+
+    .language-toggle:active {
+      transform: translateY(0);
+    }
+
+    .language-toggle span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -128,20 +159,35 @@
     }
 
     .back-button {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: #ff9d70;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 25px;
       font-weight: 600;
       transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(255,157,112,0.3);
       margin-top: 2rem;
     }
 
     .back-button:hover {
+      color: white;
       transform: translateY(-2px);
-      box-shadow: 0 5px 20px rgba(255,157,112,0.4);
+      box-shadow: 0 4px 15px rgba(255,157,112,0.5);
+    }
+
+    .back-button:active {
+      transform: translateY(0);
+    }
+
+    .back-button--small {
+      margin-top: 0;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
     }
 
     .footer {
@@ -192,10 +238,9 @@
       <img src="images/logo.jpg" alt="Djeny Mainvil">
     </a>
     <div style="display: flex; align-items: center; gap: 1rem;">
-      <button class="language-toggle" onclick="toggleLanguage()" style="background: linear-gradient(135deg, #ff9d70 0%, #ff6b3d 100%); color: white; border: none; padding: 0.5rem 1rem; border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(255,157,112,0.25);">
+      <button class="language-toggle" onclick="toggleLanguage()">
         <span id="current-lang">🇬🇧 EN</span>
       </button>
-      <a href="index2.html#recherches" data-translate="btn-back" class="nav-link">← Retour</a>
     </div>
   </nav>
 

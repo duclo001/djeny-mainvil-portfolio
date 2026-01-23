@@ -572,6 +572,17 @@
       z-index: 1;
     }
 
+    .hero-content p[data-translate="hero-subtitle1"],
+    .hero-content p[data-translate="hero-subtitle2"] {
+      max-width: 100%;
+      white-space: normal !important;
+      overflow: visible !important;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      line-height: 1.25 !important;
+      padding-bottom: 0.12em;
+    }
+
     .hero-badges {
       display: flex;
       gap: 1.2rem;
@@ -717,13 +728,14 @@
     .line-path {
       fill: none;
       stroke: #ff9d70;
+      stroke: url(#strokeGradient);
       stroke-width: 3;
       stroke-linecap: round;
       transition: d 1s ease;
     }
 
     .line-area {
-      fill: url(#gradient);
+      fill: url(#areaGradient);
       transition: d 1s ease;
     }
 
@@ -793,6 +805,7 @@
     .gauge-fill {
       fill: none;
       stroke: #ff9d70;
+      stroke: url(#gaugeGradient);
       stroke-width: 10;
       stroke-linecap: round;
       transition: stroke-dashoffset 1s ease;
@@ -1394,6 +1407,10 @@
       font-weight: 700;
       letter-spacing: 2px;
       margin-bottom: 0.5rem;
+      line-height: 1.25;
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      word-break: break-word;
       background: linear-gradient(90deg, #2c3e50 0%, #ff9d70 50%, #2c3e50 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -2082,6 +2099,7 @@
 
       .footer-tagline {
         font-size: 1.2rem;
+        letter-spacing: 1px;
       }
 
       .footer-links {
@@ -2446,6 +2464,7 @@
       .footer-tagline {
         font-size: 1.1rem;
         margin-bottom: 0.4rem;
+        letter-spacing: 0.5px;
       }
 
       .footer-subtitle {
@@ -3136,7 +3155,6 @@
       
       <div class="hero-badges">
         <span class="hero-badge" data-translate="hero-badge-makila">Makila AI — Membre</span>
-        <span class="hero-badge" data-translate="hero-badge-hec">HEC Montréal — Maîtrise BI</span>
         <span data-translate="hero-badge2" class="hero-badge">BI • Analytics • Stratégie</span>
         <span data-translate="hero-badge3" class="hero-badge">Français • Anglais (bilingue)</span>
       </div>
@@ -3166,9 +3184,18 @@
             <div class="line-chart">
               <svg viewBox="0 0 200 100" preserveAspectRatio="none">
                 <defs>
-                  <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" style="stop-color:#ff9d70;stop-opacity:0.3" />
-                    <stop offset="100%" style="stop-color:#ff9d70;stop-opacity:0" />
+                  <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#b16cea;stop-opacity:0.25" />
+                    <stop offset="40%" style="stop-color:#ff5e69;stop-opacity:0.20" />
+                    <stop offset="77%" style="stop-color:#ff9d70;stop-opacity:0.15" />
+                    <stop offset="100%" style="stop-color:#ffc08a;stop-opacity:0" />
+                  </linearGradient>
+
+                  <linearGradient id="strokeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="8%" style="stop-color:#b16cea;stop-opacity:1" />
+                    <stop offset="40%" style="stop-color:#ff5e69;stop-opacity:1" />
+                    <stop offset="77%" style="stop-color:#ff9d70;stop-opacity:1" />
+                    <stop offset="91%" style="stop-color:#ffc08a;stop-opacity:1" />
                   </linearGradient>
                 </defs>
                 <path id="lineArea" class="line-area" d="M 0 80 L 33 60 L 66 70 L 100 45 L 133 50 L 166 30 L 200 25 L 200 100 L 0 100 Z" />
@@ -3181,14 +3208,22 @@
           <div class="chart-container">
             <div class="chart-title"></div>
             <div class="gauge-chart">
-              <svg width="100" height="100">
+              <svg width="100" height="100" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                  <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="8%" style="stop-color:#b16cea;stop-opacity:1" />
+                    <stop offset="40%" style="stop-color:#ff5e69;stop-opacity:1" />
+                    <stop offset="77%" style="stop-color:#ff9d70;stop-opacity:1" />
+                    <stop offset="91%" style="stop-color:#ffc08a;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
                 <circle class="gauge-bg" cx="50" cy="50" r="40"></circle>
                 <circle id="gaugeFill" class="gauge-fill" cx="50" cy="50" r="40" 
                         stroke-dasharray="251.2" stroke-dashoffset="75.36"></circle>
               </svg>
               <div class="gauge-center">
                 <div id="gaugeValue" class="gauge-value">72%</div>
-                <div class="gauge-label" data-translate="gauge-label">Objectif</div>
+                
               </div>
             </div>
           </div>
@@ -3439,7 +3474,9 @@
 
   <button class="back-to-top" aria-label="Remonter en haut" type="button">↑</button>
 
+  <script src="js/translation.js" type="text/javascript"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
+  
   
   <script>
     // Bouton retour en haut
@@ -3459,221 +3496,6 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
-
-    // Système de traduction bilingue
-    let currentLang = localStorage.getItem('language') || 'fr';
-
-    const translations = {
-      fr: {
-        'nav-accueil': 'Accueil',
-        'nav-apropos': 'A propos',
-        'nav-expertise': 'Expertise',
-        'nav-publications': 'Publications & Réflexions',
-        'nav-articles': 'Articles & Analyses',
-        'nav-podcast': 'Podcast',
-        'nav-recherches': 'Recherches académiques',
-        'nav-contact': 'Contact',
-        'hero-subtitle1': 'Conseillère en solutions technologiques',
-        'hero-subtitle2': 'Solutions data pour la performance et la croissance',
-        'hero-badge-makila': 'Makila AI — Membre',
-        'hero-badge-hec': 'HEC Montréal — Maîtrise BI',
-        'hero-badge2': 'BI • Analytics • Stratégie',
-        'hero-badge3': 'Français • Anglais (bilingue)',
-        'hero-main': 'Donner du sens aux données pour mieux décider',
-        'hero-cta1': 'Explorer les publications',
-        'hero-cta2': 'Me Contacter',
-        'section-apropos': 'À Propos',
-        'apropos-p1': 'Conseillère en solutions technologiques spécialisée en données et intelligence d\'affaires, j\'accompagne les organisations dans la transformation de leurs données en décisions stratégiques. Mon parcours combine une double formation de niveau maîtrise en économie (Université de Montreal) et en intelligence d\'affaires (HEC Montréal), ainsi que plus de cinq années d\'expérience dans des fonctions analytiques et décisionnelles.',
-        'apropos-p2': 'Au fil de mes expériences professionnelles et de mes échanges avec des dirigeants, recruteurs et professionnels, j\'ai développé un intérêt marqué pour la manière dont les organisations analysent l\'information, structurent leur réflexion et prennent des décisions dans des contextes économiques complexes et incertains. J\'ai constaté que les difficultés rencontrées ne tiennent pas uniquement à un manque d\'outils ou de données, mais très souvent à un manque de clarté sur les enjeux, les priorités décisionnelles et l\'usage réel de l\'information.',
-        'apropos-p3': 'À travers mon travail, mes publications et ce site, je propose une approche analytique, structurée et accessible, orientée impact. Mon objectif est d\'aider les organisations à mieux comprendre leur situation, à poser les bonnes questions et à avancer de manière cohérente, en alignant données, stratégie et besoins réels.',
-        'section-expertise': 'Expertise',
-        'expertise-1': 'Aide à la décision basée sur l\'analyse des données',
-        'expertise-2': 'Business Intelligence et tableaux de bord décisionnels (Power BI, KPIs)',
-        'expertise-3': 'Analyse de données pour enjeux stratégiques et opérationnels',
-        'expertise-4': 'Conseil en solutions technologiques et analytiques',
-        'section-pourquoi': 'Pourquoi ce site',
-        'pourquoi-p1': 'Les organisations évoluent aujourd\'hui dans des environnements économiques et informationnels de plus en plus complexes. Les données sont disponibles, les outils sont nombreux, mais les décisions restent souvent difficiles à structurer et à arbitrer au quotidien.',
-        'pourquoi-p2': 'Ce site a été créé pour proposer un espace de réflexion clair et accessible, à la croisée de l\'économie et de l\'intelligence des affaires. J\'y partage des analyses et des observations visant à mieux comprendre les enjeux organisationnels, à clarifier les priorités décisionnelles et à donner du sens à l\'information existante.',
-        'pourquoi-p3': 'Ces réflexions s\'adressent autant aux dirigeants et entrepreneurs qu\'aux organisations à la recherche de profils capables d\'analyser des situations complexes, de structurer la réflexion et de contribuer à des décisions éclairées.',
-        'section-trouverez': 'Ce que vous trouverez ici',
-        'trouverez-1': 'Une analyse structurée des enjeux économiques et organisationnels',
-        'trouverez-2': 'Une lecture claire du rôle des données, des outils et des fonctions analytiques',
-        'trouverez-3': 'Une approche humaine et pragmatique, adaptée aux réalités des PME et des environnements en croissance',
-        'section-publications': 'Publications & Réflexions',
-        'publications-intro': 'Retrouvez ici mes analyses, réflexions et contributions dans les domaines de l\'économie, de l\'intelligence des affaires et de l\'analyse de données.',
-        'articles-title': 'Articles & Analyses',
-        'articles-desc': 'Les articles publiés ici abordent des enjeux liés à l\'économie, à l\'intelligence des affaires, aux données et à la prise de décision. Ils s\'adressent aux organisations et aux professionnels qui souhaitent dépasser les approches purement techniques pour adopter une réflexion plus structurée, plus cohérente et mieux adaptée à leur contexte.',
-        'article1-title': 'Scientifique des données, analyste de données et analyste en intelligence d\'affaires',
-        'article1-desc': 'Une analyse claire des différents rôles analytiques et de leurs contributions spécifiques aux organisations.',
-        'article2-title': 'ERP, BI et intelligence artificielle',
-        'article2-desc': 'Comment les outils technologiques s\'intègrent dans une démarche analytique cohérente.',
-        'article3-title': '« Nous avons des données… mais nous ne savons pas quoi en faire »',
-        'article3-desc': 'Réflexion sur les défis de la valorisation des données dans les organisations.',
-        'podcast-title': 'Podcast',
-        'podcast-desc': 'Écoutez mes interventions et discussions sur des sujets liés à l\'analytique, aux données et aux stratégies numériques.',
-        'podcast1-title': 'Comment les entreprises captent l\'attention sur TikTok et Instagram Reels',
-        'podcast1-desc': 'Comment les entreprises utilisent l\'analytique pour maximiser leur visibilité et leur chiffre d\'affaires sur les réseaux sociaux.',
-        'recherches-title': 'Recherches académiques',
-        'recherches-desc': 'Retrouvez ici mes travaux de recherche et contributions académiques dans le domaine de l\'économie, de l\'intelligence des affaires et de l\'analyse de données.',
-        'recherche1-title': 'Travaux académiques',
-        'recherche1-desc': 'Découvrez mes trois principaux travaux de recherche : un rapport de stage HEC sur l\'optimisation de la performance par Power BI, un rapport de recherche UdeM sur la réallocation de l\'emploi durant la COVID-19, et un mémoire sur les investissements directs étrangers dans les télécommunications en Haïti.',
-        'section-contact': 'Contact',
-        'contact-subtitle': 'Échanger autour d\'enjeux liés aux données, à la BI ou aux solutions technologiques.',
-        'sidebar-etudes': 'Études',
-        'domaine-1': 'Maîtrise en Intelligence des Affaires (HEC)',
-        'domaine-2': 'Maîtrise en sciences économiques (Université de Montréal)',
-        'domaine-3': 'Baccalauréat en sciences économiques (Université Quisqueya)',
-        'sidebar-outils': 'Outils & Compétences',
-        'sidebar-audience': 'À qui s\'adresse ce site',
-        'audience-1': 'Dirigeants et entrepreneurs',
-        'audience-2': 'PME et organisations en structuration',
-        'audience-3': 'Recruteurs et gestionnaires',
-        'audience-4': 'Professionnels et équipes en intelligence des affaires',
-        'footer-tagline': 'Analyser. Clarifier. Décider.',
-        'footer-subtitle': 'Économiste & Analyste des Affaires',
-        'footer-copyright': '© 2026 Djeny Mainvil. Tous droits réservés.',
-        'float-powerbi': 'POWER BI',
-        'float-python': 'PYTHON',
-        'float-sql': 'SQL',
-        'float-data': 'DONNÉES',
-        'float-dashboard': 'TABLEAU DE BORD',
-        'chart-bars': 'Croissance Mensuelle',
-        'chart-line': 'Tendance Performance',
-        'chart-gauge': 'Taux d\'Atteinte',
-        'gauge-label': 'Objectif',
-        'kpi-revenue': 'Revenus',
-        'kpi-satisfaction': 'Satisfaction',
-        'kpi-clients': 'Clients',
-        'float-analytics': 'ANALYTIQUE',
-        'float-kpi': 'KPI',
-        'float-excel': 'EXCEL',
-        'float-bi': 'BI',
-        'float-insights': 'PERSPECTIVES',
-        'viz-title': 'Analytique de Performance • Données en Temps Réel'
-      },
-      en: {
-        'nav-accueil': 'Home',
-        'nav-apropos': 'About',
-        'nav-expertise': 'Expertise',
-        'nav-publications': 'Publications & Insights',
-        'nav-articles': 'Articles & Analysis',
-        'nav-podcast': 'Podcast',
-        'nav-recherches': 'Academic Research',
-        'nav-contact': 'Contact',
-        'hero-subtitle1': 'Technology Solutions Consultant',
-        'hero-subtitle2': 'Data solutions for performance and growth',
-        'hero-badge-makila': 'Makila AI — Member',
-        'hero-badge-hec': 'HEC Montréal — BI Master\'s',
-        'hero-badge2': 'BI • Analytics • Strategy',
-        'hero-badge3': 'French • English (bilingual)',
-        'hero-main': 'Making sense of data for better decisions',
-        'hero-cta1': 'Explore publications',
-        'hero-cta2': 'Contact Me',
-        'section-apropos': 'About',
-        'apropos-p1': 'As a technology solutions consultant specializing in data and business intelligence, I help organizations transform their data into strategic decisions. My background combines a dual master\'s degree in economics (Université de Montréal) and business intelligence (HEC Montréal), along with over five years of experience in analytical and decision-making roles.',
-        'apropos-p2': 'Through my professional experiences and exchanges with executives, recruiters, and professionals, I have developed a keen interest in how organizations analyze information, structure their thinking, and make decisions in complex and uncertain economic contexts. I have found that the difficulties encountered are not only due to a lack of tools or data, but very often to a lack of clarity on the issues, decision-making priorities, and the actual use of information.',
-        'apropos-p3': 'Through my work, publications, and this site, I offer an analytical, structured, and accessible approach focused on impact. My goal is to help organizations better understand their situation, ask the right questions, and move forward consistently, aligning data, strategy, and real needs.',
-        'section-expertise': 'Expertise',
-        'expertise-1': 'Data-driven decision support',
-        'expertise-2': 'Business Intelligence and decision dashboards (Power BI, KPIs)',
-        'expertise-3': 'Data analysis for strategic and operational challenges',
-        'expertise-4': 'Consulting in technological and analytical solutions',
-        'section-pourquoi': 'Why This Site',
-        'pourquoi-p1': 'Organizations today operate in increasingly complex economic and information environments. Data is available, tools are numerous, but decisions often remain difficult to structure and prioritize on a daily basis.',
-        'pourquoi-p2': 'This site was created to provide a clear and accessible space for reflection at the intersection of economics and business intelligence. I share analyses and observations aimed at better understanding organizational issues, clarifying decision-making priorities, and making sense of existing information.',
-        'pourquoi-p3': 'These reflections are addressed to executives and entrepreneurs as well as organizations looking for profiles capable of analyzing complex situations, structuring thinking, and contributing to informed decisions.',
-        'section-trouverez': 'What You Will Find Here',
-        'trouverez-1': 'A structured analysis of economic and organizational issues',
-        'trouverez-2': 'A clear understanding of the role of data, tools, and analytical functions',
-        'trouverez-3': 'A human and pragmatic approach, adapted to the realities of SMEs and growing environments',
-        'section-publications': 'Publications & Insights',
-        'publications-intro': 'Find here my analyses, reflections, and contributions in the fields of economics, business intelligence, and data analysis.',
-        'articles-title': 'Articles & Analysis',
-        'articles-desc': 'The articles published here address issues related to economics, business intelligence, data, and decision-making. They are aimed at organizations and professionals who wish to go beyond purely technical approaches to adopt a more structured, coherent, and context-appropriate reflection.',
-        'article1-title': 'Data Scientist, Data Analyst, and Business Intelligence Analyst',
-        'article1-desc': 'A clear analysis of different analytical roles and their specific contributions to organizations.',
-        'article2-title': 'ERP, BI, and Artificial Intelligence',
-        'article2-desc': 'How technological tools integrate into a coherent analytical approach.',
-        'article3-title': '"We have data... but we don\'t know what to do with it"',
-        'article3-desc': 'Reflection on the challenges of data valorization in organizations.',
-        'podcast-title': 'Podcast',
-        'podcast-desc': 'Listen to my interventions and discussions on topics related to analytics, data, and digital strategies.',
-        'podcast1-title': 'How companies capture attention on TikTok and Instagram Reels',
-        'podcast1-desc': 'How companies use analytics to maximize their visibility and revenue on social networks.',
-        'recherches-title': 'Academic Research',
-        'recherches-desc': 'Find here my research work and academic contributions in the field of economics, business intelligence, and data analysis.',
-        'recherche1-title': 'Academic Work',
-        'recherche1-desc': 'Discover my three main research works: an HEC internship report on performance optimization through Power BI, a UdeM research report on employment reallocation during COVID-19, and a thesis on foreign direct investments in telecommunications in Haiti.',
-        'section-contact': 'Contact',
-        'contact-subtitle': 'Discuss issues related to data, BI, or technological solutions.',
-        'sidebar-etudes': 'Education',
-        'domaine-1': 'Master\'s in Business Intelligence (HEC)',
-        'domaine-2': 'Master\'s in Economics (University of Montreal)',
-        'domaine-3': 'Bachelor\'s in Economics (Quisqueya University)',
-        'sidebar-outils': 'Tools & Skills',
-        'sidebar-audience': 'Who This Site Is For',
-        'audience-1': 'Executives and entrepreneurs',
-        'audience-2': 'SMEs and organizations in structuring',
-        'audience-3': 'Recruiters and managers',
-        'audience-4': 'Professionals and business intelligence teams',
-        'footer-tagline': 'Analyze. Clarify. Decide.',
-        'footer-subtitle': 'Economist & Business Analyst',
-        'footer-copyright': '© 2026 Djeny Mainvil. All rights reserved.',
-        'float-powerbi': 'POWER BI',
-        'float-python': 'PYTHON',
-        'float-sql': 'SQL',
-        'float-data': 'DATA',
-        'float-dashboard': 'DASHBOARD',
-        'chart-bars': 'Monthly Growth',
-        'chart-line': 'Performance Trend',
-        'chart-gauge': 'Achievement Rate',
-        'gauge-label': 'Target',
-        'kpi-revenue': 'Revenue',
-        'kpi-satisfaction': 'Satisfaction',
-        'kpi-clients': 'Clients',
-        'float-analytics': 'ANALYTICS',
-        'float-kpi': 'KPI',
-        'float-excel': 'EXCEL',
-        'float-bi': 'BI',
-        'float-insights': 'INSIGHTS',
-        'viz-title': 'Performance Analytics • Live Data'
-      }
-    };
-
-    function toggleLanguage() {
-      currentLang = currentLang === 'fr' ? 'en' : 'fr';
-      localStorage.setItem('language', currentLang);
-      updateContent();
-      updateLanguageButton();
-    }
-
-    function updateLanguageButton() {
-      const langButton = document.getElementById('current-lang');
-      if (currentLang === 'fr') {
-        langButton.innerHTML = '🇬🇧 EN';
-      } else {
-        langButton.innerHTML = '🇫🇷 FR';
-      }
-    }
-
-    function updateContent() {
-      const lang = translations[currentLang];
-      
-      document.querySelectorAll('[data-translate]').forEach(element => {
-        const key = element.getAttribute('data-translate');
-        if (lang[key]) {
-          // Ne pas écraser le contenu des éléments avec des IDs (valeurs dynamiques)
-          if (!element.id || element.id === '') {
-            element.textContent = lang[key];
-          }
-        }
-      });
-    }
-
-    window.addEventListener('DOMContentLoaded', function() {
-      updateContent();
-      updateLanguageButton();
-    });
   </script>
   
   <script>
@@ -3774,6 +3596,12 @@
     const dropdownToggle = document.querySelector('.dropdown-toggle');
     const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
 
+    function closeMobileMenu() {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+      if (dropdown) dropdown.classList.remove('active');
+    }
+
     hamburger.addEventListener('click', function() {
       hamburger.classList.toggle('active');
       navLinks.classList.toggle('active');
@@ -3791,18 +3619,25 @@
     // Fermer le menu quand on clique sur un lien (sauf dropdown-toggle)
     navLinkItems.forEach(link => {
       link.addEventListener('click', function() {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
+        closeMobileMenu();
       });
     });
 
     // Fermer le menu mobile quand on clique sur un lien du dropdown
     dropdownLinks.forEach(link => {
       link.addEventListener('click', function() {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        dropdown.classList.remove('active');
+        closeMobileMenu();
       });
+    });
+
+    // Fermer le menu mobile quand on clique en dehors du menu
+    document.addEventListener('click', function(e) {
+      if (!navLinks.classList.contains('active')) return;
+
+      // Si on clique dans le menu (liste) ou sur le hamburger, ne pas fermer ici
+      if (navLinks.contains(e.target) || hamburger.contains(e.target)) return;
+
+      closeMobileMenu();
     });
 
     // Fermer le dropdown si on clique ailleurs
@@ -3939,6 +3774,9 @@
       const gaugeFill = document.getElementById('gaugeFill');
       const gaugeValue = document.getElementById('gaugeValue');
       if (!gaugeFill || !gaugeValue) return;
+
+      // Garder le dégradé sur la jauge (ne pas écraser via JS)
+      gaugeFill.style.stroke = 'url(#gaugeGradient)';
       
       const circumference = 251.2;
       
@@ -3958,15 +3796,12 @@
           }
         }, 30);
         
-        // Changer la couleur selon le pourcentage
+        // Garder une couleur lisible pour le % (la jauge reste en dégradé)
         if (percentage >= 80) {
-          gaugeFill.style.stroke = '#ff9d70'; // Orange
           gaugeValue.style.color = '#ff9d70';
         } else if (percentage >= 60) {
-          gaugeFill.style.stroke = '#ff9d70'; // Orange
           gaugeValue.style.color = '#ff9d70';
         } else {
-          gaugeFill.style.stroke = '#ef4444'; // Rouge
           gaugeValue.style.color = '#ef4444';
         }
       }, 4000);
