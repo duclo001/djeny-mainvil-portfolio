@@ -53,6 +53,13 @@
       }
     },
     {
+      "src": "/maintenance\\.html$",
+      "status": 301,
+      "headers": {
+        "Location": "/"
+      }
+    },
+    {
       "src": "/",
       "dest": "/index2.html"
     },
