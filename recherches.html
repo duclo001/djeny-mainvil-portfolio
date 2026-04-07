@@ -18,6 +18,8 @@
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/john-sterlins-fresh-site.webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/index2.css" rel="stylesheet" type="text/css">
+  <link href="css/professional.css?v=20260329_3" rel="stylesheet" type="text/css">
   <link href="images/favicon.jpg" rel="shortcut icon" type="image/x-icon">
   <link href="images/favicon.jpg" rel="apple-touch-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,68 +39,6 @@
       line-height: 1.6;
     }
 
-    .nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      background: rgba(255,255,255,0.98);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .nav-logo img {
-      height: 50px;
-      width: auto;
-    }
-
-    .nav-link {
-      color: #2c3e50;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      font-size: 0.95rem;
-    }
-
-    .nav-link:hover {
-      color: #ff9d70;
-    }
-
-    .language-toggle {
-      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
-      color: white;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 25px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 10px rgba(255,157,112,0.3);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .language-toggle:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(255,157,112,0.5);
-    }
-
-    .language-toggle:active {
-      transform: translateY(0);
-    }
-
-    .language-toggle span {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -113,7 +53,7 @@
     .page-title {
       font-size: 2.5rem;
       font-weight: 700;
-      color: #1a1a2e;
+      color: #002244;
       margin-bottom: 1rem;
     }
 
@@ -129,18 +69,35 @@
       padding: 3rem;
       border-radius: 10px;
       margin-bottom: 3rem;
-      border-left: 4px solid #ff9d70;
+      border-left: 4px solid #7b8cde;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       transition: all 0.3s ease;
     }
 
+    .research-hero {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto 1.75rem;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.10);
+    }
+
+    .research-hero-image {
+      width: 100%;
+      max-height: 380px;
+      display: block;
+      object-fit: cover;
+      object-position: top center;
+    }
+
     .research-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(255,157,112,0.2);
+      box-shadow: 0 10px 30px rgba(0, 34, 68, 0.12);
     }
 
     .research-institution {
-      color: #ff9d70;
+      color: #7b8cde;
       font-size: 1.4rem;
       font-weight: 600;
       margin-bottom: 1rem;
@@ -155,7 +112,7 @@
     }
 
     .research-label {
-      color: #1a1a2e;
+      color: #002244;
       font-weight: 600;
       margin-bottom: 0.5rem;
       font-size: 1.1rem;
@@ -174,20 +131,21 @@
       justify-content: center;
       gap: 0.4rem;
       padding: 0.75rem 1.5rem;
-      background: linear-gradient(108deg, #b16cea 8%, #ff5e69 40%, #ff9d70 77%, #ffc08a 91%);
+      background: #002244;
       color: white;
       text-decoration: none;
       border-radius: 25px;
       font-weight: 600;
       transition: all 0.3s ease;
-      box-shadow: 0 2px 10px rgba(255,157,112,0.3);
+      box-shadow: 0 2px 10px rgba(0, 34, 68, 0.25);
       margin-top: 2rem;
     }
 
     .back-button:hover {
       color: white;
+      background: #0a3366;
       transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(255,157,112,0.5);
+      box-shadow: 0 4px 15px rgba(0, 34, 68, 0.35);
     }
 
     .back-button:active {
@@ -197,19 +155,6 @@
     .back-button--small {
       margin-top: 0;
       padding: 0.5rem 1rem;
-      font-size: 0.9rem;
-    }
-
-    .footer {
-      background: #1a1a2e;
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    .footer-text {
-      opacity: 0.8;
       font-size: 0.9rem;
     }
 
@@ -242,16 +187,35 @@
 </head>
 <body>
 
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <span class="preloader-name">DJENY MAINVIL</span>
+      <span class="preloader-subtitle">&Eacute;CONOMISTE &amp; ANALYSTE DES AFFAIRES</span>
+    </div>
+  </div>
+
   <!-- Navigation -->
-  <nav class="nav">
-    <a href="index2.html" class="nav-logo">
+  <nav class="nav" style="opacity:1;transform:translate3d(0, 0, 0)">
+    <a href="professional.html" class="nav-logo">
       <img src="images/logo.jpg" alt="Djeny Mainvil">
     </a>
-    <div style="display: flex; align-items: center; gap: 1rem;">
-      <button class="language-toggle" onclick="toggleLanguage()">
-        <span id="current-lang">EN</span>
-      </button>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="professional.html#hero" class="nav-link">Accueil</a></li>
+      <li class="nav-item"><a href="professional.html#publications" class="nav-link">Publications</a></li>
+      <li class="nav-item"><a href="professional.html#approche" class="nav-link">Services</a></li>
+      <li class="nav-item"><a href="professional.html#positionnement" class="nav-link">&Agrave; propos</a></li>
+      <li class="nav-item"><a href="professional.html#mandats" class="nav-link">Mandats</a></li>
+      <li class="nav-item"><a href="professional.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="language-toggle" type="button">
+      <span id="current-lang">EN</span>
+    </button>
   </nav>
 
   <!-- Main Content -->
@@ -263,6 +227,9 @@
 
     <!-- Research 1: HEC -->
     <div id="hec" class="research-card">
+      <div class="research-hero">
+        <img class="research-hero-image" src="images/image_processing20200129-19798-1k8ponz-7-min.png" alt="HEC Montréal — Rapport de stage" data-translate-alt="recherches-hec-img-alt" loading="lazy" decoding="async">
+      </div>
       <div data-translate="recherches-hec-title" class="research-institution">HEC Montréal - Rapport de Stage</div>
       <h2 data-translate="recherches-hec-work" class="research-title">Optimisation de la performance marketing et commerciale dans une PME industrielle par l'intelligence d'affaires : intégration de données multi-sources et développement de tableaux de bord Power BI</h2>
       
@@ -278,6 +245,9 @@
 
     <!-- Research 2: UdeM -->
     <div id="udem" class="research-card">
+      <div class="research-hero">
+        <img class="research-hero-image" src="images/image_processing20200129-19798-1k8ponz-11-min.png" alt="Université de Montréal — Rapport de recherche" data-translate-alt="recherches-udem-img-alt" loading="lazy" decoding="async">
+      </div>
       <div data-translate="recherches-udem-title" class="research-institution">Université de Montréal - Rapport de Recherche</div>
       <h2 data-translate="recherches-udem-work" class="research-title">Crise de la Covid-19 et réallocation de l'emploi aux États-Unis et au Canada</h2>
       
@@ -287,6 +257,9 @@
 
     <!-- Research 3: Quisqueya -->
     <div id="quisqueya" class="research-card">
+      <div class="research-hero">
+        <img class="research-hero-image" src="images/image_processing20200129-19798-1k8ponz-13-min.png" alt="Université Quisqueya — Mémoire" data-translate-alt="recherches-quisqueya-img-alt" loading="lazy" decoding="async">
+      </div>
       <div data-translate="recherches-memoire-title" class="research-institution">Université Quisqueya - Mémoire</div>
       <h2 data-translate="recherches-memoire-work" class="research-title">Investissements directs étrangers (IDE) dans le secteur de la télécommunication et demande de formation technique en Haïti : le cas des étudiants de Canado Technique (2014-2019)</h2>
       
@@ -300,17 +273,41 @@
     </div>
 
     <div style="text-align: center;">
-      <a href="index2.html#recherches" data-translate="btn-back-main" class="back-button">← Retour à la page principale</a>
+      <a href="professional.html#publications" data-translate="btn-back-main" class="back-button">← Retour à la page principale</a>
     </div>
   </div>
 
+
   <!-- Footer -->
   <footer class="footer">
-    <p class="footer-text">&copy; 2026 Djeny Mainvil. Tous droits réservés.</p>
+    <div class="footer-logo">
+      <img src="images/logo-white.jpg" alt="Djeny Mainvil">
+    </div>
+    <p data-translate="footer-tagline" class="footer-tagline">Analyser. Clarifier. D&eacute;cider.</p>
+    <p data-translate="footer-subtitle" class="footer-subtitle">&Eacute;conomiste &amp; Analyste des Affaires</p>
+    <p data-translate="footer-location" class="footer-location">Montreal, Canada</p>
+
+    <div class="footer-links">
+      <a href="professional.html#hero" class="footer-link">Accueil</a>
+      <a href="professional.html#publications" class="footer-link">Publications</a>
+      <a href="professional.html#approche" class="footer-link">Services</a>
+      <a href="professional.html#positionnement" class="footer-link">&Agrave; propos</a>
+      <a href="professional.html#mandats" class="footer-link">Mandats</a>
+      <a href="professional.html#contact" class="footer-link">Contact</a>
+    </div>
+
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/djeny-mainvil-msc-4a6a26189" target="_blank" class="social-icon">&#x1F4E7;</a>
+    </div>
+
+    <p data-translate="footer-copyright" class="footer-copyright">&copy; 2026 Djeny Mainvil. Tous droits r&eacute;serv&eacute;s.</p>
   </footer>
 
-  <!-- Script de traduction -->
-  <script src="js/translation.js"></script>
+  <button class="back-to-top" aria-label="Remonter en haut" type="button">&uarr;</button>
 
+  <script src="js/translation.js" type="text/javascript"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <script src="js/index2.js" type="text/javascript"></script>
+  <script src="js/professional.js?v=20260329_3" type="text/javascript"></script>
 </body>
 </html>

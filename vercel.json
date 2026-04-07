@@ -46,6 +46,13 @@
       }
     },
     {
+      "src": "/index2\\.html$",
+      "status": 301,
+      "headers": {
+        "Location": "/"
+      }
+    },
+    {
       "src": "/contact\\.html$",
       "status": 301,
       "headers": {
@@ -61,7 +68,14 @@
     },
     {
       "src": "/",
-      "dest": "/index2.html"
+      "dest": "/professional.html"
+    },
+    {
+      "src": "/professional\\.html$",
+      "status": 301,
+      "headers": {
+        "Location": "/"
+      }
     },
     {
       "handle": "filesystem"
