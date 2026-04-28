@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Rapport d'analyse de performance — Sales Dashboard - Djeny Mainvil</title>
+  <meta name="description" content="Rapport d'analyse de performance : tableau de bord des ventes (Sycodal). Indicateurs clés, Book-to-Bill, top produits et cartographie clients.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-14RSZEXZYW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-14RSZEXZYW');
+  </script>
+
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/john-sterlins-fresh-site.webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/index2.css" rel="stylesheet" type="text/css">
+  <link href="css/professional.css?v=20260329_3" rel="stylesheet" type="text/css">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <style>
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.7;
+      color: #2d3748;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .article-container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 7rem 2rem 3rem 2rem;
+      min-height: 100vh;
+    }
+
+    .article-hero {
+      width: 100%;
+      margin: 0 0 2rem 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.10);
+    }
+
+    .article-hero-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.75rem 1.5rem;
+      background: #002244;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0, 34, 68, 0.25);
+      margin-top: 2rem;
+    }
+
+    .back-button:hover {
+      color: white;
+      transform: translateY(-2px);
+      background: #0a3366;
+      box-shadow: 0 4px 15px rgba(0, 34, 68, 0.35);
+    }
+
+    .back-button:active {
+      transform: translateY(0);
+    }
+
+    .article-header {
+      margin-bottom: 4rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid #e2e8f0;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .article-eyebrow {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7b8cde;
+      margin-bottom: 1rem;
+    }
+
+    .article-title {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: #1a202c;
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: center;
+      color: #718096;
+      font-size: 0.925rem;
+      margin-top: 1.5rem;
+      font-weight: 500;
+    }
+
+    .article-content {
+      font-size: 1.125rem;
+      line-height: 1.85;
+      color: #374151;
+      animation: fadeIn 0.8s ease-out 0.2s both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .article-content > p:first-of-type {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: #1f2937;
+      margin-bottom: 2rem;
+    }
+
+    .article-content h2 {
+      font-size: 2rem;
+      color: #1a202c;
+      margin-top: 3.5rem;
+      margin-bottom: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+
+    .article-content h2::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #7b8cde, rgba(123, 140, 222, 0.3));
+      border-radius: 2px;
+    }
+
+    .article-content p {
+      margin-bottom: 1.75rem;
+      text-align: justify;
+    }
+
+    .article-content strong {
+      color: #002244;
+      font-weight: 700;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(123, 140, 222, 0.08) 0%, rgba(123, 140, 222, 0.08) 100%);
+      border-left: 4px solid #7b8cde;
+      padding: 2rem;
+      margin: 2.5rem 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .highlight-box:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 20px rgba(123, 140, 222, 0.15);
+    }
+
+    .highlight-box p {
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Barre de progression de lecture */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, #7b8cde, #002244);
+      z-index: 9999;
+      transition: width 0.1s ease-out;
+    }
+
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in-section.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      .article-container { padding: 6rem 1.25rem 2rem 1.25rem; }
+      .article-title { font-size: 2rem; line-height: 1.2; }
+      .article-content { font-size: 1.05rem; }
+      .article-content > p:first-of-type { font-size: 1.15rem; }
+      .article-content h2 { font-size: 1.65rem; margin-top: 2.5rem; }
+      .highlight-box { padding: 1.5rem; margin: 2rem 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+  <script>
+    window.addEventListener('scroll', function() {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      let progressBar = document.querySelector('.reading-progress');
+      if (!progressBar) {
+        progressBar = document.createElement('div');
+        progressBar.className = 'reading-progress';
+        document.body.prepend(progressBar);
+      }
+      progressBar.style.width = scrolled + '%';
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('.article-content > *');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-section', 'is-visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      sections.forEach(section => {
+        section.classList.add('fade-in-section');
+        observer.observe(section);
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <span class="preloader-name">DJENY MAINVIL</span>
+      <span data-translate="preloader-subtitle" class="preloader-subtitle">&Eacute;CONOMISTE &amp; ANALYSTE DES AFFAIRES</span>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" style="opacity:1;transform:translate3d(0, 0, 0)">
+    <a href="professional.html" class="nav-logo">
+      <img src="images/logo.jpg" alt="Djeny Mainvil">
+    </a>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="professional.html#hero" data-translate="nav-home" class="nav-link">Accueil</a></li>
+      <li class="nav-item"><a href="professional.html#publications" data-translate="nav-publications-short" class="nav-link">Publications</a></li>
+      <li class="nav-item"><a href="professional.html#mandats" data-translate="nav-mandats" class="nav-link">Mandats</a></li>
+      <li class="nav-item"><a href="professional.html#approche" data-translate="nav-services" class="nav-link">Services</a></li>
+      <li class="nav-item"><a href="professional.html#positionnement" data-translate="nav-apropos-short" class="nav-link">&Agrave; propos</a></li>
+      <li class="nav-item"><a href="professional.html#contact" data-translate="nav-contact-short" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="language-toggle" type="button">
+      <span id="current-lang">EN</span>
+    </button>
+  </nav>
+
+  <div class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-hero">
+          <img class="article-hero-image" src="images/mandat1.png" data-translate-alt="mandat1-img-alt" alt="Tableau de bord des ventes — performance et analyse client">
+        </div>
+        <span data-translate="mandat1-eyebrow" class="article-eyebrow">Mandat &middot; Pilotage strat&eacute;gique</span>
+        <h1 data-translate="mandat1-title" class="article-title">Rapport d&rsquo;analyse de performance &mdash; Tableau de bord des ventes</h1>
+        <div class="article-meta">
+          <span data-translate="mandat1-meta1">Projet&nbsp;: Sycodal</span>
+          <span>&bull;</span>
+          <span data-translate="mandat1-meta2">Power BI &middot; Analyse commerciale</span>
+        </div>
+      </header>
+
+      <div class="article-content">
+        <p data-translate="mandat1-intro">Dans le cadre de ce projet de tableau de bord des ventes, j&rsquo;ai d&eacute;velopp&eacute; une analyse approfondie de la performance produit et de l&rsquo;acquisition client, avec un accent particulier sur la prise de d&eacute;cision strat&eacute;gique. Les donn&eacute;es ont &eacute;t&eacute; sp&eacute;cifiquement g&eacute;n&eacute;r&eacute;es et adapt&eacute;es pour r&eacute;pondre aux exigences du prototype demand&eacute;.</p>
+
+        <h2 data-translate="mandat1-h2-1">Adaptation et repr&eacute;sentation des donn&eacute;es</h2>
+
+        <p data-translate="mandat1-p1">Pour garantir la pertinence des donn&eacute;es, j&rsquo;ai int&eacute;gr&eacute; dans la base des indicateurs cl&eacute;s tels que les quantit&eacute;s factur&eacute;es et r&eacute;serv&eacute;es, ce qui permet le calcul du <strong>Book-to-Bill Rate</strong>. Cette m&eacute;trique est essentielle pour &eacute;valuer l&rsquo;efficacit&eacute; commerciale&nbsp;: un taux sup&eacute;rieur &agrave; 1 indique une forte demande pour les produits et met en &eacute;vidence des opportunit&eacute;s d&rsquo;optimiser les capacit&eacute;s de production et de livraison.</p>
+
+        <p data-translate="mandat1-p2">J&rsquo;ai &eacute;galement g&eacute;n&eacute;r&eacute; une date d&rsquo;adh&eacute;sion pour chaque client afin de faciliter le calcul des <strong>nouveaux clients par mois</strong>, enrichissant ainsi l&rsquo;analyse de l&rsquo;acquisition. Ces adaptations permettent au tableau de bord d&rsquo;offrir une vision instantan&eacute;e de la sant&eacute; financi&egrave;re de l&rsquo;entreprise.</p>
+
+        <h2 data-translate="mandat1-h2-2">Insights et prise de d&eacute;cision</h2>
+
+        <p data-translate="mandat1-p3">Les visualisations propos&eacute;es facilitent une analyse rapide et efficace de la performance produit. Par exemple, en identifiant les <strong>5 produits les plus contributeurs au chiffre d&rsquo;affaires</strong>, Sycodal peut orienter ses efforts marketing et ses strat&eacute;gies d&rsquo;inventaire vers les articles les plus rentables.</p>
+
+        <p data-translate="mandat1-p4">De plus, la comparaison des revenus mensuels avec les objectifs de vente permet d&rsquo;identifier rapidement les &eacute;carts et d&rsquo;ajuster en temps opportun les strat&eacute;gies d&rsquo;affaires. Cela favorise une r&eacute;ponse proactive aux fluctuations du march&eacute;.</p>
+
+        <h2 data-translate="mandat1-h2-3">Analyse g&eacute;ographique</h2>
+
+        <p data-translate="mandat1-p5">La carte g&eacute;ographique aide &agrave; rep&eacute;rer les zones &agrave; forte concentration de clients, ce qui est essentiel pour optimiser les visites commerciales et la distribution. En ciblant les r&eacute;gions &agrave; forte demande, Sycodal peut maximiser ses efforts de vente et am&eacute;liorer le service client en r&eacute;pondant rapidement aux besoins locaux.</p>
+
+        <h2 data-translate="mandat1-h2-4">Analyse de la satisfaction client</h2>
+
+        <p data-translate="mandat1-p6">Bien que le tableau de bord apporte d&eacute;j&agrave; des insights de valeur, l&rsquo;ajout d&rsquo;une analyse de la satisfaction client permettrait d&rsquo;enrichir davantage la compr&eacute;hension des pr&eacute;f&eacute;rences et des axes d&rsquo;am&eacute;lioration. Cela renforcerait la fid&eacute;lisation &agrave; long terme, un aspect crucial pour maximiser les profits dans un environnement concurrentiel.</p>
+
+        <div class="highlight-box">
+          <p data-translate="mandat1-highlight">Ce tableau de bord n&rsquo;est pas un simple outil de suivi&nbsp;: c&rsquo;est un <strong>instrument strat&eacute;gique</strong> qui permet &agrave; Sycodal de prendre des d&eacute;cisions &eacute;clair&eacute;es, d&rsquo;adapter ses op&eacute;rations et de maximiser son efficacit&eacute; dans un march&eacute; dynamique.</p>
+        </div>
+
+        <h2 data-translate="mandat1-h2-5">Conclusion</h2>
+
+        <p data-translate="mandat1-p7">Gr&acirc;ce &agrave; une analyse continue des donn&eacute;es, l&rsquo;entreprise peut anticiper les tendances et s&rsquo;assurer que ses efforts s&rsquo;alignent avec ses objectifs de croissance et de satisfaction client. Les donn&eacute;es ont &eacute;t&eacute; soigneusement adapt&eacute;es aux sp&eacute;cificit&eacute;s du prototype demand&eacute;, garantissant des insights pertinents et actionnables pour la strat&eacute;gie commerciale de Sycodal.</p>
+      </div>
+    </article>
+
+    <div style="text-align: center;">
+      <a href="professional.html#mandats" data-translate="btn-back-mandats" class="back-button">
+        &larr; Retour aux mandats
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="images/logo-white.jpg" alt="Djeny Mainvil">
+    </div>
+    <p data-translate="footer-tagline" class="footer-tagline">Analyser. Clarifier. D&eacute;cider.</p>
+    <p data-translate="footer-subtitle" class="footer-subtitle">&Eacute;conomiste &amp; Analyste des Affaires</p>
+    <p data-translate="footer-location" class="footer-location">Montreal, Canada</p>
+
+    <div class="footer-links">
+      <a href="professional.html#hero" data-translate="nav-home" class="footer-link">Accueil</a>
+      <a href="professional.html#publications" data-translate="nav-publications-short" class="footer-link">Publications</a>
+      <a href="professional.html#mandats" data-translate="nav-mandats" class="footer-link">Mandats</a>
+      <a href="professional.html#approche" data-translate="nav-services" class="footer-link">Services</a>
+      <a href="professional.html#positionnement" data-translate="nav-apropos-short" class="footer-link">&Agrave; propos</a>
+      <a href="professional.html#contact" data-translate="nav-contact-short" class="footer-link">Contact</a>
+    </div>
+
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/djeny-mainvil-msc-4a6a26189" target="_blank" class="social-icon">&#x1F4E7;</a>
+    </div>
+
+    <p data-translate="footer-copyright" class="footer-copyright">&copy; 2026 Djeny Mainvil. Tous droits r&eacute;serv&eacute;s.</p>
+  </footer>
+
+  <button class="back-to-top" aria-label="Remonter en haut" type="button">&uarr;</button>
+
+  <script src="js/translation.js" type="text/javascript"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <script src="js/index2.js" type="text/javascript"></script>
+  <script src="js/professional.js?v=20260329_3" type="text/javascript"></script>
+</body>
+</html>

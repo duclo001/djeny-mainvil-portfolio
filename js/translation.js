@@ -329,7 +329,150 @@ const translations = {
     'article3-h2-8': 'Conclusion',
     'article3-c-p1': 'Commencer à utiliser ses données n’est pas une transformation technologique : c’est une transformation progressive, humaine et accessible. En suivant ces étapes simples : centraliser, inventorier, nettoyer, choisir, visualiser, interpréter et automatiser, une PME peut passer d’un environnement dispersé à une gestion claire, structurée et guidée par des faits. Chaque étape renforce la suivante, et chacune crée une nouvelle habitude qui rend l’entreprise plus mature et plus performante.',
     'article3-c-p2': 'Ce parcours ne demande pas de devenir expert, ni d’investir dans des outils complexes. Il demande surtout de la constance, de la curiosité et une volonté d’améliorer les pratiques existantes. Avec le temps, la donnée devient plus qu’un actif : elle devient un avantage compétitif. Elle permet de voir les tendances avant les autres, de détecter les problèmes plus rapidement et de prendre des décisions avec confiance.',
-    'article3-c-p3': 'En fin de compte, la vraie question n’est plus : “Que faire avec nos données ?” Mais plutôt : “Que pourrions‑nous accomplir si nous les utilisions pleinement ?” Et la bonne nouvelle, c’est que tout commence par un premier pas simple, concret et à votre portée. À long terme, selon vos besoins, l’entreprise pourra même aller plus loin en développant des prévisions ou en gérant des données plus complexes, un travail qui peut être pris en charge par une scientifique des données.'
+    'article3-c-p3': 'En fin de compte, la vraie question n’est plus : “Que faire avec nos données ?” Mais plutôt : “Que pourrions‑nous accomplir si nous les utilisions pleinement ?” Et la bonne nouvelle, c’est que tout commence par un premier pas simple, concret et à votre portée. À long terme, selon vos besoins, l’entreprise pourra même aller plus loin en développant des prévisions ou en gérant des données plus complexes, un travail qui peut être pris en charge par une scientifique des données.',
+
+    // ============================================================
+    // Préloader & Navigation courte (toutes les pages)
+    // ============================================================
+    'preloader-subtitle': 'ÉCONOMISTE & ANALYSTE DES AFFAIRES',
+    'nav-home': 'Accueil',
+    'nav-publications-short': 'Publications',
+    'nav-mandats': 'Mandats',
+    'nav-services': 'Services',
+    'nav-apropos-short': 'À propos',
+    'nav-contact-short': 'Contact',
+    'btn-back-mandats': '← Retour aux mandats',
+
+    // ============================================================
+    // professional.html — page principale
+    // ============================================================
+    'pro-hero-title': 'Vous avez des données, mais sont-elles exploitables&nbsp;?',
+    'pro-hero-subtitle': 'Je suis Djeny et j’accompagne les startups et PME dans la structuration de leurs indicateurs clés et la création de tableaux de bord stratégiques, afin de transformer leurs données en décisions éclairées et mesurables.',
+    'pro-hero-credential': 'M.Sc. Intelligence d’affaires · Économie · Montréal',
+    'pro-hero-cta1': 'Planifier un échange stratégique',
+
+    'pro-section-publications': 'Publications',
+    'pro-section-publications-intro': 'Articles, analyses et recherches sur la performance, les KPI et la prise de décision.',
+    'pro-pub-counter-articles': '5 articles',
+    'pro-pub-counter-podcasts': '1 podcast',
+    'pro-pub-counter-recherches': '3 recherches',
+
+    'pro-section-approche-title': 'Ce que je propose',
+    'pro-section-approche-lead': 'J’interviens à titre indépendant pour transformer vos données en leviers de décision.',
+    'pro-service-1-title': 'Indicateurs stratégiques',
+    'pro-service-1-text': 'Clarifier vos indicateurs stratégiques pour une lecture immédiate de la performance.',
+    'pro-service-2-title': 'Structuration de KPI',
+    'pro-service-2-text': 'Structurer vos KPI en fonction de vos objectifs réels et de vos priorités d’affaires.',
+    'pro-service-3-title': 'Tableaux de bord',
+    'pro-service-3-text': 'Concevoir des tableaux de bord exécutifs clairs et actionnables.',
+    'pro-service-4-title': 'Interprétation',
+    'pro-service-4-text': 'Simplifier l’interprétation de vos données pour faciliter la prise de décision.',
+    'pro-service-5-title': 'Diagnostic',
+    'pro-service-5-text': 'Identifier les décisions clés, les angles morts et les indicateurs réellement utiles.',
+    'pro-audience-title': 'J’accompagne principalement',
+    'pro-audience-1-label': 'Startups',
+    'pro-audience-1-desc': 'En phase de structuration',
+    'pro-audience-2-label': 'PME',
+    'pro-audience-2-desc': 'En croissance',
+    'pro-audience-3-label': 'Dirigeants',
+    'pro-audience-3-desc': 'Vision consolidée de la performance',
+    'pro-audience-4-label': 'Équipes',
+    'pro-audience-4-desc': 'Cadre analytique clair',
+
+    'pro-section-positionnement-title': 'À propos',
+    'pro-about-p1': 'Prendre des décisions sans une lecture claire des données, c’est avancer sans visibilité. Aujourd’hui, en tant que conseillère en solutions technologiques chez Makila AI, j’accompagne les entreprises dans des contextes variés (RH, finance, marketing) en intervenant à chaque étape&nbsp;: de l’identification des besoins à la structuration des données, jusqu’à leur valorisation à travers des tableaux de bord, des analyses avancées et des modèles prédictifs. Mon approche vise toujours le même objectif&nbsp;: transformer les données en décisions utiles, concrètes et alignées avec les enjeux d’affaires.',
+    'pro-about-p2': 'Par ailleurs, mon parcours entre l’Université de Montréal et HEC Montréal m’a permis de développer une double expertise en économie et en intelligence d’affaires, que j’applique aujourd’hui dans des environnements réels et exigeants. Cette expérience, enrichie notamment par un mandat à l’international en Thaïlande, m’a permis de développer une vision à la fois analytique, adaptable et orientée résultats.',
+    'pro-about-p3': 'Aujourd’hui, je mets aussi cette expertise au service d’organisations, en particulier celles en croissance qui souhaitent structurer leurs données, améliorer leurs processus et prendre des décisions plus éclairées. Avec rigueur, curiosité et engagement, je poursuis un objectif simple&nbsp;: créer un impact réel à travers une utilisation intelligente des données.',
+    'pro-about-img-alt': 'Portrait professionnel de Djeny Mainvil',
+
+    'pro-section-mandats-title': 'Comment j’interviens concrètement.',
+    'pro-section-mandats-text': 'Trois types de mandats clés, adaptés à la réalité opérationnelle des dirigeants et des équipes analytiques.',
+    'pro-mandats-aside-title': 'Focus',
+    'pro-mandats-aside-text': 'Chaque mandat cible un besoin précis&nbsp;: clarifier, structurer ou gouverner l’information décisionnelle.',
+    'pro-feature-1-eyebrow': 'Pilotage stratégique',
+    'pro-feature-1-title': 'Rapport d’analyse de performance — tableau de bord des ventes.',
+    'pro-feature-1-text': 'Indicateurs clés (Book-to-Bill, top produits, cartographie clients) pour orienter la stratégie commerciale de Sycodal.',
+    'pro-feature-2-eyebrow': 'Gouvernance analytique',
+    'pro-feature-2-title': 'Analyse RH exploratoire à partir d’un système hérité.',
+    'pro-feature-2-text': 'Nettoyage, modélisation et indicateurs fiables (effectif, salaire moyen, ancienneté) dans le respect strict de la confidentialité.',
+    'pro-feature-3-eyebrow': 'Consultation internationale',
+    'pro-feature-3-title': 'Repenser l’impact — Projet SOS Kitchen Thaïlande.',
+    'pro-feature-3-text': 'Diagnostic opérationnel, engagement bénévole et modèles de financement durables au service d’une mission à fort impact social.',
+
+    'pro-cta-title': 'Clarifions votre performance.',
+    'pro-cta-text': 'Un échange stratégique permet d’identifier rapidement les leviers d’amélioration et les zones de manque de visibilité.',
+    'pro-cta-button': 'Réserver une conversation confidentielle',
+    'pro-cta-aside-title': 'Format',
+    'pro-cta-aside-text': 'Conversation confidentielle, cadrée, orientée décisions.',
+
+    // ============================================================
+    // mandat1.html — Tableau de bord des ventes
+    // ============================================================
+    'mandat1-title': 'Rapport d’analyse de performance — Tableau de bord des ventes',
+    'mandat1-eyebrow': 'Mandat · Pilotage stratégique',
+    'mandat1-meta1': 'Projet : Sycodal',
+    'mandat1-meta2': 'Power BI · Analyse commerciale',
+    'mandat1-img-alt': 'Tableau de bord des ventes — performance et analyse client',
+    'mandat1-intro': 'Dans le cadre de ce projet de tableau de bord des ventes, j’ai développé une analyse approfondie de la performance produit et de l’acquisition client, avec un accent particulier sur la prise de décision stratégique. Les données ont été spécifiquement générées et adaptées pour répondre aux exigences du prototype demandé.',
+    'mandat1-h2-1': 'Adaptation et représentation des données',
+    'mandat1-p1': 'Pour garantir la pertinence des données, j’ai intégré dans la base des indicateurs clés tels que les quantités facturées et réservées, ce qui permet le calcul du <strong>Book-to-Bill Rate</strong>. Cette métrique est essentielle pour évaluer l’efficacité commerciale : un taux supérieur à 1 indique une forte demande pour les produits et met en évidence des opportunités d’optimiser les capacités de production et de livraison.',
+    'mandat1-p2': 'J’ai également généré une date d’adhésion pour chaque client afin de faciliter le calcul des <strong>nouveaux clients par mois</strong>, enrichissant ainsi l’analyse de l’acquisition. Ces adaptations permettent au tableau de bord d’offrir une vision instantanée de la santé financière de l’entreprise.',
+    'mandat1-h2-2': 'Insights et prise de décision',
+    'mandat1-p3': 'Les visualisations proposées facilitent une analyse rapide et efficace de la performance produit. Par exemple, en identifiant les <strong>5 produits les plus contributeurs au chiffre d’affaires</strong>, Sycodal peut orienter ses efforts marketing et ses stratégies d’inventaire vers les articles les plus rentables.',
+    'mandat1-p4': 'De plus, la comparaison des revenus mensuels avec les objectifs de vente permet d’identifier rapidement les écarts et d’ajuster en temps opportun les stratégies d’affaires. Cela favorise une réponse proactive aux fluctuations du marché.',
+    'mandat1-h2-3': 'Analyse géographique',
+    'mandat1-p5': 'La carte géographique aide à repérer les zones à forte concentration de clients, ce qui est essentiel pour optimiser les visites commerciales et la distribution. En ciblant les régions à forte demande, Sycodal peut maximiser ses efforts de vente et améliorer le service client en répondant rapidement aux besoins locaux.',
+    'mandat1-h2-4': 'Analyse de la satisfaction client',
+    'mandat1-p6': 'Bien que le tableau de bord apporte déjà des insights de valeur, l’ajout d’une analyse de la satisfaction client permettrait d’enrichir davantage la compréhension des préférences et des axes d’amélioration. Cela renforcerait la fidélisation à long terme, un aspect crucial pour maximiser les profits dans un environnement concurrentiel.',
+    'mandat1-highlight': 'Ce tableau de bord n’est pas un simple outil de suivi : c’est un <strong>instrument stratégique</strong> qui permet à Sycodal de prendre des décisions éclairées, d’adapter ses opérations et de maximiser son efficacité dans un marché dynamique.',
+    'mandat1-h2-5': 'Conclusion',
+    'mandat1-p7': 'Grâce à une analyse continue des données, l’entreprise peut anticiper les tendances et s’assurer que ses efforts s’alignent avec ses objectifs de croissance et de satisfaction client. Les données ont été soigneusement adaptées aux spécificités du prototype demandé, garantissant des insights pertinents et actionnables pour la stratégie commerciale de Sycodal.',
+
+    // ============================================================
+    // mandat2.html — Analyse RH exploratoire
+    // ============================================================
+    'mandat2-title': 'Analyse RH exploratoire à partir d’un système hérité',
+    'mandat2-eyebrow': 'Mandat · Gouvernance analytique',
+    'mandat2-meta1': 'Données RH · Power BI',
+    'mandat2-meta2': 'Nettoyage, modélisation, indicateurs fiables',
+    'mandat2-img1-alt': 'Analyse RH exploratoire — aperçu du tableau de bord',
+    'mandat2-img2-alt': 'Modèle de données RH — relations entre tables',
+    'mandat2-h2-1': 'Contexte',
+    'mandat2-p1': 'Ce travail s’inscrit dans une analyse exploratoire visant à démontrer la valeur qu’une solution de Business Intelligence peut apporter à partir de données RH extraites d’un système hérité. Les données fournies représentent un échantillon de l’effectif de l’entreprise et incluent des informations relatives aux employés, aux départements et aux unités d’affaires.',
+    'mandat2-p2': 'L’objectif est d’analyser la structure et la qualité réelles des données, d’identifier ce qui est analytiquement fiable, et de produire des indicateurs concrets et actionnables, tout en respectant strictement les contraintes de confidentialité.',
+    'mandat2-h2-2': 'Importation et nettoyage des données',
+    'mandat2-p3': 'La première étape a consisté à nettoyer et préparer les données afin d’assurer leur cohérence et leur fiabilité pour l’analyse. Les types de données ont été standardisés, en particulier pour les identifiants, les dates et les montants financiers, et des contrôles ont été effectués pour identifier les lignes vides et les doublons exacts.',
+    'mandat2-p4': 'Les intitulés de poste ont été nettoyés et les incohérences typographiques corrigées (par exemple, en remplaçant «&nbsp;Sr. Manger&nbsp;» par «&nbsp;Sr. Manager&nbsp;»). Les noms de colonnes techniques ont été renommés pour améliorer la lisibilité du modèle, et les informations sensibles telles que les noms complets des employés ont été supprimées conformément aux bonnes pratiques de confidentialité des données.',
+    'mandat2-p5': 'Lors de l’analyse exploratoire, une attention particulière a été portée à la compréhension de la granularité des données. Il a été observé que différents employés peuvent partager le même <strong>EEID</strong>, ce qui signifie que cet identifiant ne représente pas un employé unique, mais plutôt un identifiant de niveau enregistrement.',
+    'mandat2-p6': 'Pour déterminer avec précision le nombre d’employés, une validation croisée des noms, de l’âge, du genre et des dates d’embauche a été réalisée. Cette analyse a révélé des cas où des employés portant des noms identiques présentaient des caractéristiques démographiques et temporelles incompatibles avec l’hypothèse qu’il s’agissait du même individu. Par exemple, des employés partageant le même nom pouvaient avoir des âges sensiblement différents et des années d’embauche très éloignées, ce qui exclut des scénarios tels que des réembauches ou des changements de poste internes.',
+    'mandat2-highlight': 'Sur la base de ces observations, il a été conclu que, dans le périmètre de cet ensemble de données, <strong>chaque ligne représente un employé distinct</strong>. Cette conclusion s’appuie sur des observations factuelles et constitue une hypothèse de travail explicite pour la suite de l’analyse.',
+    'mandat2-h2-3': 'Modélisation des données',
+    'mandat2-p7': 'Sur la base de cette compréhension, plusieurs colonnes calculées ont été créées pour enrichir l’ensemble de données sans introduire d’hypothèses risquées. Une colonne <strong>Statut</strong> a été ajoutée pour identifier si un employé est actif ou inactif, selon la présence d’une date de sortie. Une colonne <strong>Ancienneté (années)</strong> a également été calculée pour mesurer la durée d’emploi, permettant l’analyse de l’expérience globale de l’effectif.',
+    'mandat2-p8': 'De plus, une <strong>table de dates</strong> dédiée a été créée pour soutenir l’analyse temporelle. Les relations ont ensuite été établies de manière simple et cohérente, reliant la table principale des employés aux tables des départements, des unités d’affaires et des dates par leurs identifiants respectifs.',
+    'mandat2-p9': 'Ce modèle relationnel permet une navigation fluide entre les analyses et garantit que les indicateurs calculés peuvent être analysés de manière cohérente par département, unité d’affaires, pays ou toute autre dimension organisationnelle pertinente.',
+    'mandat2-p10': 'Du point de vue des calculs, seuls les indicateurs jugés fiables compte tenu des données disponibles ont été retenus. L’<strong>effectif total</strong> est calculé comme le nombre de lignes dans l’ensemble de données, conformément à l’hypothèse validée selon laquelle chaque ligne correspond à un employé distinct dans cet échantillon.',
+    'mandat2-p11': 'Des indicateurs agrégés tels que le <strong>salaire moyen</strong>, le <strong>pourcentage moyen de bonus</strong> et l’<strong>ancienneté moyenne</strong> ont été calculés pour offrir une vue concise et significative de la structure de rémunération et de l’expérience de l’effectif.',
+
+    // ============================================================
+    // mandat3.html — SOS Kitchen Thaïlande
+    // ============================================================
+    'mandat3-title': 'Repenser l’impact : Projet SOS Kitchen Thaïlande',
+    'mandat3-eyebrow': 'Mandat · Consultation internationale',
+    'mandat3-meta1': 'Bangkok, Thaïlande',
+    'mandat3-meta2': 'Juillet 2025',
+    'mandat3-meta3': 'Équipe multidisciplinaire',
+    'mandat3-img1-alt': 'Projet SOS Kitchen Thaïlande — consultation internationale',
+    'mandat3-img2-alt': 'Travail terrain — SOS Kitchen Thaïlande',
+    'mandat3-intro': 'Dans le cadre d’un mandat de consultation internationale, j’ai eu l’opportunité de faire partie d’une équipe multidisciplinaire visant à renforcer l’impact et l’efficacité opérationnelle de <strong>SOS Kitchen Thailand</strong>, une organisation engagée dans la récupération de surplus alimentaires et leur redistribution auprès des communautés dans le besoin.',
+    'mandat3-h2-1': 'Diagnostic opérationnel',
+    'mandat3-p1': 'En collaboration, nous avons réalisé une analyse approfondie des opérations, depuis l’approvisionnement jusqu’à la livraison finale, afin d’identifier les principales inefficacités et les leviers d’amélioration. Notre réflexion s’est articulée autour de trois axes stratégiques : le renforcement de la capacité opérationnelle, l’optimisation de l’engagement des bénévoles et le développement de modèles de financement plus durables.',
+    'mandat3-h2-2': 'Solutions proposées',
+    'mandat3-p2': 'En tant qu’équipe, nous avons proposé des solutions innovantes, notamment un <strong>modèle de partenariat corporatif en responsabilité sociale (CSR)</strong> pour répondre aux enjeux de main-d’œuvre, une <strong>plateforme digitale</strong> visant à mobiliser des bénévoles flexibles («&nbsp;Rescue Runners&nbsp;»), ainsi qu’un <strong>concept de financement</strong> transformant les achats du quotidien en impact social («&nbsp;Your snack, their meal&nbsp;»).',
+    'mandat3-h2-3': 'Apprentissages',
+    'mandat3-p3': 'Cette expérience m’a permis de contribuer à une initiative à fort impact social, tout en appliquant une approche stratégique et axée sur les données dans un contexte réel. Elle a renforcé mon engagement à utiliser la donnée, la collaboration et l’innovation pour bâtir des systèmes plus efficaces, inclusives et durables.',
+    'mandat3-credits-title': 'Projet réalisé en juillet 2025 sur le terrain en collaboration avec :',
+    'mandat3-souvenirs-title': 'Souvenirs du terrain',
+    'mandat3-souvenirs-text': 'Quelques moments capturés lors du mandat à Bangkok : cuisine, logistique de redistribution et échanges avec les équipes locales.'
   },
   en: {
     // Navigation
@@ -658,7 +801,150 @@ const translations = {
     'article3-h2-8': 'Conclusion',
     'article3-c-p1': 'Getting started with data isn’t a technological transformation—it’s a progressive, human, and accessible one. By following these simple steps—centralize, inventory, clean, choose, visualize, interpret, and automate—an SME can move from a scattered environment to clear, structured management guided by facts. Each step strengthens the next, and each one builds a new habit that makes the company more mature and more performant.',
     'article3-c-p2': 'This journey doesn’t require becoming an expert or investing in complex tools. It mainly requires consistency, curiosity, and the willingness to improve existing practices. Over time, data becomes more than an asset: it becomes a competitive advantage. It helps you spot trends earlier, detect problems faster, and make decisions with confidence.',
-    'article3-c-p3': 'Ultimately, the real question is no longer: “What should we do with our data?” But rather: “What could we achieve if we fully used it?” The good news is that it all starts with a first step that is simple, concrete, and within reach. In the long term, depending on your needs, the company can go further by building forecasts or managing more complex data—work that can be handled by a data scientist.'
+    'article3-c-p3': 'Ultimately, the real question is no longer: “What should we do with our data?” But rather: “What could we achieve if we fully used it?” The good news is that it all starts with a first step that is simple, concrete, and within reach. In the long term, depending on your needs, the company can go further by building forecasts or managing more complex data—work that can be handled by a data scientist.',
+
+    // ============================================================
+    // Preloader & Short navigation (all pages)
+    // ============================================================
+    'preloader-subtitle': 'ECONOMIST & BUSINESS ANALYST',
+    'nav-home': 'Home',
+    'nav-publications-short': 'Publications',
+    'nav-mandats': 'Mandates',
+    'nav-services': 'Services',
+    'nav-apropos-short': 'About',
+    'nav-contact-short': 'Contact',
+    'btn-back-mandats': '← Back to mandates',
+
+    // ============================================================
+    // professional.html — main page
+    // ============================================================
+    'pro-hero-title': 'You have the data — but is it actionable?',
+    'pro-hero-subtitle': 'I am Djeny, and I help startups and SMEs structure their key indicators and build strategic dashboards, turning their data into informed and measurable decisions.',
+    'pro-hero-credential': 'M.Sc. Business Intelligence · Economics · Montreal',
+    'pro-hero-cta1': 'Schedule a strategic conversation',
+
+    'pro-section-publications': 'Publications',
+    'pro-section-publications-intro': 'Articles, analyses and research on performance, KPIs and decision-making.',
+    'pro-pub-counter-articles': '5 articles',
+    'pro-pub-counter-podcasts': '1 podcast',
+    'pro-pub-counter-recherches': '3 research papers',
+
+    'pro-section-approche-title': 'What I offer',
+    'pro-section-approche-lead': 'I work independently to turn your data into decision levers.',
+    'pro-service-1-title': 'Strategic indicators',
+    'pro-service-1-text': 'Clarify your strategic indicators for an immediate read on performance.',
+    'pro-service-2-title': 'KPI structuring',
+    'pro-service-2-text': 'Structure your KPIs around your real objectives and business priorities.',
+    'pro-service-3-title': 'Dashboards',
+    'pro-service-3-text': 'Design clear and actionable executive dashboards.',
+    'pro-service-4-title': 'Interpretation',
+    'pro-service-4-text': 'Simplify the interpretation of your data to support decision-making.',
+    'pro-service-5-title': 'Diagnostic',
+    'pro-service-5-text': 'Identify key decisions, blind spots and the indicators that truly matter.',
+    'pro-audience-title': 'I primarily work with',
+    'pro-audience-1-label': 'Startups',
+    'pro-audience-1-desc': 'In their structuring phase',
+    'pro-audience-2-label': 'SMEs',
+    'pro-audience-2-desc': 'In growth mode',
+    'pro-audience-3-label': 'Executives',
+    'pro-audience-3-desc': 'A consolidated view of performance',
+    'pro-audience-4-label': 'Teams',
+    'pro-audience-4-desc': 'A clear analytical framework',
+
+    'pro-section-positionnement-title': 'About',
+    'pro-about-p1': 'Making decisions without a clear read of the data means moving forward with no visibility. Today, as a technology solutions advisor at Makila AI, I support companies across diverse contexts (HR, finance, marketing) at every step: from identifying needs to structuring data, all the way to delivering value through dashboards, advanced analytics and predictive models. My approach always pursues the same goal: turning data into useful, concrete decisions aligned with business priorities.',
+    'pro-about-p2': 'In addition, my journey between Université de Montréal and HEC Montréal allowed me to build a dual expertise in economics and business intelligence, which I now apply in real and demanding environments. This experience, enriched by an international mandate in Thailand, has shaped a vision that is at once analytical, adaptable and results-oriented.',
+    'pro-about-p3': 'Today, I bring this expertise to organizations — particularly growing ones that want to structure their data, improve their processes and make more informed decisions. With rigor, curiosity and commitment, I pursue a simple goal: create real impact through the intelligent use of data.',
+    'pro-about-img-alt': 'Professional portrait of Djeny Mainvil',
+
+    'pro-section-mandats-title': 'How I work in practice.',
+    'pro-section-mandats-text': 'Three core types of mandates, tailored to the operational reality of leaders and analytical teams.',
+    'pro-mandats-aside-title': 'Focus',
+    'pro-mandats-aside-text': 'Each mandate addresses a specific need: clarify, structure or govern decision-making information.',
+    'pro-feature-1-eyebrow': 'Strategic steering',
+    'pro-feature-1-title': 'Performance analysis report — sales dashboard.',
+    'pro-feature-1-text': 'Key indicators (Book-to-Bill, top products, customer mapping) to guide Sycodal’s commercial strategy.',
+    'pro-feature-2-eyebrow': 'Analytical governance',
+    'pro-feature-2-title': 'Exploratory HR analysis from a legacy system.',
+    'pro-feature-2-text': 'Cleaning, modeling and reliable indicators (headcount, average salary, tenure) with strict respect for confidentiality.',
+    'pro-feature-3-eyebrow': 'International consulting',
+    'pro-feature-3-title': 'Rethinking impact — SOS Kitchen Thailand project.',
+    'pro-feature-3-text': 'Operational diagnostic, volunteer engagement and sustainable funding models in service of a high-impact social mission.',
+
+    'pro-cta-title': 'Let us clarify your performance.',
+    'pro-cta-text': 'A strategic conversation quickly surfaces the levers for improvement and the blind spots that limit visibility.',
+    'pro-cta-button': 'Book a confidential conversation',
+    'pro-cta-aside-title': 'Format',
+    'pro-cta-aside-text': 'A confidential, focused conversation, oriented toward decisions.',
+
+    // ============================================================
+    // mandat1.html — Sales dashboard performance report
+    // ============================================================
+    'mandat1-title': 'Performance analysis report — Sales dashboard',
+    'mandat1-eyebrow': 'Mandate · Strategic steering',
+    'mandat1-meta1': 'Project: Sycodal',
+    'mandat1-meta2': 'Power BI · Commercial analysis',
+    'mandat1-img-alt': 'Sales dashboard — performance and customer analysis',
+    'mandat1-intro': 'As part of this sales dashboard project, I developed an in-depth analysis of product performance and customer acquisition, with a particular focus on strategic decision-making. The data was specifically generated and adapted to meet the requirements of the requested prototype.',
+    'mandat1-h2-1': 'Data adaptation and representation',
+    'mandat1-p1': 'To ensure the relevance of the data, I integrated key indicators into the database such as billed and reserved quantities, which allows the calculation of the <strong>Book-to-Bill Rate</strong>. This metric is essential to assess commercial efficiency: a rate above 1 indicates strong product demand and highlights opportunities to optimize production and delivery capacity.',
+    'mandat1-p2': 'I also generated a join date for each customer to facilitate the calculation of <strong>new customers per month</strong>, enriching acquisition analysis. These adaptations enable the dashboard to provide an instant view of the company\'s financial health.',
+    'mandat1-h2-2': 'Insights and decision-making',
+    'mandat1-p3': 'The visualizations facilitate quick and effective analysis of product performance. For example, by identifying the <strong>top 5 revenue-contributing products</strong>, Sycodal can direct its marketing efforts and inventory strategies toward the most profitable items.',
+    'mandat1-p4': 'In addition, comparing monthly revenue against sales targets makes it possible to quickly spot gaps and adjust business strategies in a timely manner. This fosters a proactive response to market fluctuations.',
+    'mandat1-h2-3': 'Geographic analysis',
+    'mandat1-p5': 'The geographic map helps identify areas with high customer concentration, which is essential to optimize sales visits and distribution. By targeting high-demand regions, Sycodal can maximize its sales efforts and improve customer service by responding quickly to local needs.',
+    'mandat1-h2-4': 'Customer satisfaction analysis',
+    'mandat1-p6': 'While the dashboard already delivers valuable insights, adding customer satisfaction analysis would further enrich the understanding of preferences and improvement areas. This would strengthen long-term loyalty, a crucial aspect for maximizing profits in a competitive environment.',
+    'mandat1-highlight': 'This dashboard isn\'t a simple tracking tool: it\'s a <strong>strategic instrument</strong> that allows Sycodal to make informed decisions, adapt operations and maximize efficiency in a dynamic market.',
+    'mandat1-h2-5': 'Conclusion',
+    'mandat1-p7': 'Through continuous data analysis, the company can anticipate trends and ensure its efforts align with growth and customer satisfaction objectives. The data was carefully adapted to the requested prototype, ensuring relevant and actionable insights for Sycodal\'s commercial strategy.',
+
+    // ============================================================
+    // mandat2.html — HR exploratory analysis
+    // ============================================================
+    'mandat2-title': 'HR exploratory analysis from a legacy system',
+    'mandat2-eyebrow': 'Mandate · Analytical governance',
+    'mandat2-meta1': 'HR data · Power BI',
+    'mandat2-meta2': 'Cleaning, modeling, reliable indicators',
+    'mandat2-img1-alt': 'HR exploratory analysis — dashboard preview',
+    'mandat2-img2-alt': 'HR data model — relationships between tables',
+    'mandat2-h2-1': 'Context',
+    'mandat2-p1': 'This work is part of an exploratory analysis aimed at demonstrating the value that a Business Intelligence solution can bring from HR data extracted from a legacy system. The data provided represents a sample of the company\'s workforce and includes information on employees, departments and business units.',
+    'mandat2-p2': 'The objective is to analyze the actual structure and quality of the data, identify what is analytically reliable, and produce concrete and actionable indicators, while strictly respecting confidentiality constraints.',
+    'mandat2-h2-2': 'Data import and cleaning',
+    'mandat2-p3': 'The first step was to clean and prepare the data to ensure its consistency and reliability for analysis. Data types were standardized, particularly for IDs, dates and financial amounts, and checks were performed to identify empty rows and exact duplicates.',
+    'mandat2-p4': 'Job titles were cleaned and typographical inconsistencies corrected (for example, replacing "Sr. Manger" with "Sr. Manager"). Technical column names were renamed to improve model readability, and sensitive information such as employee full names was removed in line with data privacy best practices.',
+    'mandat2-p5': 'During exploratory analysis, particular attention was paid to understanding data granularity. It was observed that different employees can share the same <strong>EEID</strong>, meaning this identifier does not represent a unique employee but rather a record-level identifier.',
+    'mandat2-p6': 'To accurately determine the number of employees, a cross-validation of names, age, gender and hire dates was carried out. This analysis revealed cases where employees with identical names had demographic and temporal characteristics incompatible with the assumption that they were the same individual. For example, employees sharing the same name could have significantly different ages and very distant hire years, which rules out scenarios such as rehires or internal role changes.',
+    'mandat2-highlight': 'Based on these observations, it was concluded that, within the scope of this dataset, <strong>each row represents a distinct employee</strong>. This conclusion is supported by factual observations and constitutes an explicit working hypothesis for the rest of the analysis.',
+    'mandat2-h2-3': 'Data modeling',
+    'mandat2-p7': 'Building on this understanding, several calculated columns were created to enrich the dataset without introducing risky assumptions. A <strong>Status</strong> column was added to identify whether an employee is active or inactive, based on the presence of an exit date. A <strong>Tenure (years)</strong> column was also calculated to measure the length of employment, enabling analysis of overall workforce experience.',
+    'mandat2-p8': 'In addition, a dedicated <strong>date table</strong> was created to support time-based analysis. Relationships were then established in a simple and consistent way, linking the main employee table to the department, business unit and date tables through their respective identifiers.',
+    'mandat2-p9': 'This relational model enables smooth navigation between analyses and ensures that calculated indicators can be analyzed consistently by department, business unit, country or any other relevant organizational dimension.',
+    'mandat2-p10': 'From a calculation standpoint, only indicators considered reliable given the available data were retained. <strong>Total headcount</strong> is calculated as the number of rows in the dataset, in line with the validated assumption that each row corresponds to a distinct employee in this sample.',
+    'mandat2-p11': 'Aggregated indicators such as <strong>average salary</strong>, <strong>average bonus percentage</strong> and <strong>average tenure</strong> were calculated to provide a concise and meaningful view of the compensation structure and workforce experience.',
+
+    // ============================================================
+    // mandat3.html — SOS Kitchen Thailand
+    // ============================================================
+    'mandat3-title': 'Rethinking impact: SOS Kitchen Thailand project',
+    'mandat3-eyebrow': 'Mandate · International consulting',
+    'mandat3-meta1': 'Bangkok, Thailand',
+    'mandat3-meta2': 'July 2025',
+    'mandat3-meta3': 'Multidisciplinary team',
+    'mandat3-img1-alt': 'SOS Kitchen Thailand project — international consulting',
+    'mandat3-img2-alt': 'Field work — SOS Kitchen Thailand',
+    'mandat3-intro': 'As part of an international consulting mandate, I had the opportunity to be part of a multidisciplinary team aimed at strengthening the impact and operational effectiveness of <strong>SOS Kitchen Thailand</strong>, an organization committed to recovering food surplus and redistributing it to communities in need.',
+    'mandat3-h2-1': 'Operational diagnosis',
+    'mandat3-p1': 'Together, we conducted an in-depth analysis of operations, from sourcing to final delivery, in order to identify the main inefficiencies and improvement levers. Our thinking revolved around three strategic axes: strengthening operational capacity, optimizing volunteer engagement, and developing more sustainable funding models.',
+    'mandat3-h2-2': 'Proposed solutions',
+    'mandat3-p2': 'As a team, we proposed innovative solutions, including a <strong>corporate social responsibility (CSR) partnership model</strong> to address workforce challenges, a <strong>digital platform</strong> aimed at mobilizing flexible volunteers ("Rescue Runners"), and a <strong>funding concept</strong> turning everyday purchases into social impact ("Your snack, their meal").',
+    'mandat3-h2-3': 'Takeaways',
+    'mandat3-p3': 'This experience allowed me to contribute to a high social impact initiative while applying a strategic, data-driven approach in a real-world context. It strengthened my commitment to using data, collaboration and innovation to build more efficient, inclusive and sustainable systems.',
+    'mandat3-credits-title': 'Project carried out in July 2025 in the field in collaboration with:',
+    'mandat3-souvenirs-title': 'Field memories',
+    'mandat3-souvenirs-text': 'A few moments captured during the mandate in Bangkok: cooking, redistribution logistics and exchanges with local teams.'
   }
 };
 

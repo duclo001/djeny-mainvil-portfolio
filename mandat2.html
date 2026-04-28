@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Analyse RH exploratoire &mdash; Donn&eacute;es h&eacute;rit&eacute;es - Djeny Mainvil</title>
+  <meta name="description" content="Analyse exploratoire RH : nettoyage, mod&eacute;lisation et indicateurs fiables &agrave; partir d'un syst&egrave;me h&eacute;rit&eacute;.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-14RSZEXZYW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-14RSZEXZYW');
+  </script>
+
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/john-sterlins-fresh-site.webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/index2.css" rel="stylesheet" type="text/css">
+  <link href="css/professional.css?v=20260329_3" rel="stylesheet" type="text/css">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <style>
+    * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7; color: #2d3748; background: #ffffff; margin: 0; padding: 0;
+    }
+    .article-container {
+      max-width: 780px; margin: 0 auto; padding: 7rem 2rem 3rem 2rem; min-height: 100vh;
+    }
+    .article-hero {
+      width: 100%; margin: 0 0 2rem 0; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.10);
+    }
+    .article-hero-image {
+      width: 100%; height: auto; display: block; object-fit: cover;
+    }
+    .article-extra-image {
+      width: 100%; height: auto; display: block; border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.10); margin: 2.5rem 0;
+    }
+    .back-button {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 0.4rem; padding: 0.75rem 1.5rem; background: #002244; color: white;
+      text-decoration: none; border-radius: 25px; font-weight: 600;
+      transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0, 34, 68, 0.25);
+      margin-top: 2rem;
+    }
+    .back-button:hover {
+      color: white; transform: translateY(-2px); background: #0a3366;
+      box-shadow: 0 4px 15px rgba(0, 34, 68, 0.35);
+    }
+    .article-header {
+      margin-bottom: 4rem; padding-bottom: 2.5rem; border-bottom: 1px solid #e2e8f0;
+      animation: fadeInUp 0.6s ease-out;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .article-eyebrow {
+      display: inline-block; font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: #7b8cde;
+      margin-bottom: 1rem;
+    }
+    .article-title {
+      font-size: 2.75rem; font-weight: 800; color: #1a202c;
+      margin-bottom: 1.5rem; line-height: 1.15; letter-spacing: -0.02em;
+    }
+    .article-meta {
+      display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center;
+      color: #718096; font-size: 0.925rem; margin-top: 1.5rem; font-weight: 500;
+    }
+    .article-content {
+      font-size: 1.125rem; line-height: 1.85; color: #374151;
+      animation: fadeIn 0.8s ease-out 0.2s both;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .article-content > p:first-of-type {
+      font-size: 1.25rem; line-height: 1.8; color: #1f2937; margin-bottom: 2rem;
+    }
+    .article-content h2 {
+      font-size: 2rem; color: #1a202c; margin-top: 3.5rem; margin-bottom: 1.25rem;
+      font-weight: 700; letter-spacing: -0.01em; position: relative; padding-bottom: 0.75rem;
+    }
+    .article-content h2::after {
+      content: ''; position: absolute; left: 0; bottom: 0; width: 60px; height: 4px;
+      background: linear-gradient(90deg, #7b8cde, rgba(123, 140, 222, 0.3));
+      border-radius: 2px;
+    }
+    .article-content p { margin-bottom: 1.75rem; text-align: justify; }
+    .article-content strong { color: #002244; font-weight: 700; }
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(123, 140, 222, 0.08) 0%, rgba(123, 140, 222, 0.08) 100%);
+      border-left: 4px solid #7b8cde; padding: 2rem; margin: 2.5rem 0;
+      border-radius: 12px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+    .highlight-box p { margin-bottom: 0.5rem; }
+    .highlight-box p:last-child { margin-bottom: 0; }
+    .reading-progress {
+      position: fixed; top: 0; left: 0; width: 0%; height: 4px;
+      background: linear-gradient(90deg, #7b8cde, #002244);
+      z-index: 9999; transition: width 0.1s ease-out;
+    }
+    .fade-in-section {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 768px) {
+      .article-container { padding: 6rem 1.25rem 2rem 1.25rem; }
+      .article-title { font-size: 2rem; line-height: 1.2; }
+      .article-content { font-size: 1.05rem; }
+      .article-content > p:first-of-type { font-size: 1.15rem; }
+      .article-content h2 { font-size: 1.65rem; margin-top: 2.5rem; }
+      .highlight-box { padding: 1.5rem; margin: 2rem 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+  <script>
+    window.addEventListener('scroll', function() {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      let progressBar = document.querySelector('.reading-progress');
+      if (!progressBar) {
+        progressBar = document.createElement('div');
+        progressBar.className = 'reading-progress';
+        document.body.prepend(progressBar);
+      }
+      progressBar.style.width = scrolled + '%';
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('.article-content > *');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-section', 'is-visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      sections.forEach(section => {
+        section.classList.add('fade-in-section');
+        observer.observe(section);
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <span class="preloader-name">DJENY MAINVIL</span>
+      <span data-translate="preloader-subtitle" class="preloader-subtitle">&Eacute;CONOMISTE &amp; ANALYSTE DES AFFAIRES</span>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" style="opacity:1;transform:translate3d(0, 0, 0)">
+    <a href="professional.html" class="nav-logo">
+      <img src="images/logo.jpg" alt="Djeny Mainvil">
+    </a>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="professional.html#hero" data-translate="nav-home" class="nav-link">Accueil</a></li>
+      <li class="nav-item"><a href="professional.html#publications" data-translate="nav-publications-short" class="nav-link">Publications</a></li>
+      <li class="nav-item"><a href="professional.html#mandats" data-translate="nav-mandats" class="nav-link">Mandats</a></li>
+      <li class="nav-item"><a href="professional.html#approche" data-translate="nav-services" class="nav-link">Services</a></li>
+      <li class="nav-item"><a href="professional.html#positionnement" data-translate="nav-apropos-short" class="nav-link">&Agrave; propos</a></li>
+      <li class="nav-item"><a href="professional.html#contact" data-translate="nav-contact-short" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="language-toggle" type="button">
+      <span id="current-lang">EN</span>
+    </button>
+  </nav>
+
+  <div class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-hero">
+          <img class="article-hero-image" src="images/mandat2-1.png" data-translate-alt="mandat2-img1-alt" alt="Analyse RH exploratoire &mdash; aper&ccedil;u du tableau de bord">
+        </div>
+        <span data-translate="mandat2-eyebrow" class="article-eyebrow">Mandat &middot; Gouvernance analytique</span>
+        <h1 data-translate="mandat2-title" class="article-title">Analyse RH exploratoire &agrave; partir d&rsquo;un syst&egrave;me h&eacute;rit&eacute;</h1>
+        <div class="article-meta">
+          <span data-translate="mandat2-meta1">Donn&eacute;es RH &middot; Power BI</span>
+          <span>&bull;</span>
+          <span data-translate="mandat2-meta2">Nettoyage, mod&eacute;lisation, indicateurs fiables</span>
+        </div>
+      </header>
+
+      <div class="article-content">
+        <h2 data-translate="mandat2-h2-1">Contexte</h2>
+
+        <p data-translate="mandat2-p1">Ce travail s&rsquo;inscrit dans une analyse exploratoire visant &agrave; d&eacute;montrer la valeur qu&rsquo;une solution de Business Intelligence peut apporter &agrave; partir de donn&eacute;es RH extraites d&rsquo;un syst&egrave;me h&eacute;rit&eacute;. Les donn&eacute;es fournies repr&eacute;sentent un &eacute;chantillon de l&rsquo;effectif de l&rsquo;entreprise et incluent des informations relatives aux employ&eacute;s, aux d&eacute;partements et aux unit&eacute;s d&rsquo;affaires.</p>
+
+        <p data-translate="mandat2-p2">L&rsquo;objectif est d&rsquo;analyser la structure et la qualit&eacute; r&eacute;elles des donn&eacute;es, d&rsquo;identifier ce qui est analytiquement fiable, et de produire des indicateurs concrets et actionnables, tout en respectant strictement les contraintes de confidentialit&eacute;.</p>
+
+        <h2 data-translate="mandat2-h2-2">Importation et nettoyage des donn&eacute;es</h2>
+
+        <p data-translate="mandat2-p3">La premi&egrave;re &eacute;tape a consist&eacute; &agrave; nettoyer et pr&eacute;parer les donn&eacute;es afin d&rsquo;assurer leur coh&eacute;rence et leur fiabilit&eacute; pour l&rsquo;analyse. Les types de donn&eacute;es ont &eacute;t&eacute; standardis&eacute;s, en particulier pour les identifiants, les dates et les montants financiers, et des contr&ocirc;les ont &eacute;t&eacute; effectu&eacute;s pour identifier les lignes vides et les doublons exacts.</p>
+
+        <p data-translate="mandat2-p4">Les intitul&eacute;s de poste ont &eacute;t&eacute; nettoy&eacute;s et les incoh&eacute;rences typographiques corrig&eacute;es (par exemple, en rempla&ccedil;ant &laquo;&nbsp;Sr. Manger&nbsp;&raquo; par &laquo;&nbsp;Sr. Manager&nbsp;&raquo;). Les noms de colonnes techniques ont &eacute;t&eacute; renomm&eacute;s pour am&eacute;liorer la lisibilit&eacute; du mod&egrave;le, et les informations sensibles telles que les noms complets des employ&eacute;s ont &eacute;t&eacute; supprim&eacute;es conform&eacute;ment aux bonnes pratiques de confidentialit&eacute; des donn&eacute;es.</p>
+
+        <p data-translate="mandat2-p5">Lors de l&rsquo;analyse exploratoire, une attention particuli&egrave;re a &eacute;t&eacute; port&eacute;e &agrave; la compr&eacute;hension de la granularit&eacute; des donn&eacute;es. Il a &eacute;t&eacute; observ&eacute; que diff&eacute;rents employ&eacute;s peuvent partager le m&ecirc;me <strong>EEID</strong>, ce qui signifie que cet identifiant ne repr&eacute;sente pas un employ&eacute; unique, mais plut&ocirc;t un identifiant de niveau enregistrement.</p>
+
+        <p data-translate="mandat2-p6">Pour d&eacute;terminer avec pr&eacute;cision le nombre d&rsquo;employ&eacute;s, une validation crois&eacute;e des noms, de l&rsquo;&acirc;ge, du genre et des dates d&rsquo;embauche a &eacute;t&eacute; r&eacute;alis&eacute;e. Cette analyse a r&eacute;v&eacute;l&eacute; des cas o&ugrave; des employ&eacute;s portant des noms identiques pr&eacute;sentaient des caract&eacute;ristiques d&eacute;mographiques et temporelles incompatibles avec l&rsquo;hypoth&egrave;se qu&rsquo;il s&rsquo;agissait du m&ecirc;me individu. Par exemple, des employ&eacute;s partageant le m&ecirc;me nom pouvaient avoir des &acirc;ges sensiblement diff&eacute;rents et des ann&eacute;es d&rsquo;embauche tr&egrave;s &eacute;loign&eacute;es, ce qui exclut des sc&eacute;narios tels que des r&eacute;embauches ou des changements de poste internes.</p>
+
+        <div class="highlight-box">
+          <p data-translate="mandat2-highlight">Sur la base de ces observations, il a &eacute;t&eacute; conclu que, dans le p&eacute;rim&egrave;tre de cet ensemble de donn&eacute;es, <strong>chaque ligne repr&eacute;sente un employ&eacute; distinct</strong>. Cette conclusion s&rsquo;appuie sur des observations factuelles et constitue une hypoth&egrave;se de travail explicite pour la suite de l&rsquo;analyse.</p>
+        </div>
+
+        <img class="article-extra-image" src="images/mandat2-2.png" data-translate-alt="mandat2-img2-alt" alt="Mod&egrave;le de donn&eacute;es RH &mdash; relations entre tables">
+
+        <h2 data-translate="mandat2-h2-3">Mod&eacute;lisation des donn&eacute;es</h2>
+
+        <p data-translate="mandat2-p7">Sur la base de cette compr&eacute;hension, plusieurs colonnes calcul&eacute;es ont &eacute;t&eacute; cr&eacute;&eacute;es pour enrichir l&rsquo;ensemble de donn&eacute;es sans introduire d&rsquo;hypoth&egrave;ses risqu&eacute;es. Une colonne <strong>Statut</strong> a &eacute;t&eacute; ajout&eacute;e pour identifier si un employ&eacute; est actif ou inactif, selon la pr&eacute;sence d&rsquo;une date de sortie. Une colonne <strong>Anciennet&eacute; (ann&eacute;es)</strong> a &eacute;galement &eacute;t&eacute; calcul&eacute;e pour mesurer la dur&eacute;e d&rsquo;emploi, permettant l&rsquo;analyse de l&rsquo;exp&eacute;rience globale de l&rsquo;effectif.</p>
+
+        <p data-translate="mandat2-p8">De plus, une <strong>table de dates</strong> d&eacute;di&eacute;e a &eacute;t&eacute; cr&eacute;&eacute;e pour soutenir l&rsquo;analyse temporelle. Les relations ont ensuite &eacute;t&eacute; &eacute;tablies de mani&egrave;re simple et coh&eacute;rente, reliant la table principale des employ&eacute;s aux tables des d&eacute;partements, des unit&eacute;s d&rsquo;affaires et des dates par leurs identifiants respectifs.</p>
+
+        <p data-translate="mandat2-p9">Ce mod&egrave;le relationnel permet une navigation fluide entre les analyses et garantit que les indicateurs calcul&eacute;s peuvent &ecirc;tre analys&eacute;s de mani&egrave;re coh&eacute;rente par d&eacute;partement, unit&eacute; d&rsquo;affaires, pays ou toute autre dimension organisationnelle pertinente.</p>
+
+        <p data-translate="mandat2-p10">Du point de vue des calculs, seuls les indicateurs jug&eacute;s fiables compte tenu des donn&eacute;es disponibles ont &eacute;t&eacute; retenus. L&rsquo;<strong>effectif total</strong> est calcul&eacute; comme le nombre de lignes dans l&rsquo;ensemble de donn&eacute;es, conform&eacute;ment &agrave; l&rsquo;hypoth&egrave;se valid&eacute;e selon laquelle chaque ligne correspond &agrave; un employ&eacute; distinct dans cet &eacute;chantillon.</p>
+
+        <p data-translate="mandat2-p11">Des indicateurs agr&eacute;g&eacute;s tels que le <strong>salaire moyen</strong>, le <strong>pourcentage moyen de bonus</strong> et l&rsquo;<strong>anciennet&eacute; moyenne</strong> ont &eacute;t&eacute; calcul&eacute;s pour offrir une vue concise et significative de la structure de r&eacute;mun&eacute;ration et de l&rsquo;exp&eacute;rience de l&rsquo;effectif.</p>
+      </div>
+    </article>
+
+    <div style="text-align: center;">
+      <a href="professional.html#mandats" data-translate="btn-back-mandats" class="back-button">
+        &larr; Retour aux mandats
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="images/logo-white.jpg" alt="Djeny Mainvil">
+    </div>
+    <p data-translate="footer-tagline" class="footer-tagline">Analyser. Clarifier. D&eacute;cider.</p>
+    <p data-translate="footer-subtitle" class="footer-subtitle">&Eacute;conomiste &amp; Analyste des Affaires</p>
+    <p data-translate="footer-location" class="footer-location">Montreal, Canada</p>
+
+    <div class="footer-links">
+      <a href="professional.html#hero" data-translate="nav-home" class="footer-link">Accueil</a>
+      <a href="professional.html#publications" data-translate="nav-publications-short" class="footer-link">Publications</a>
+      <a href="professional.html#mandats" data-translate="nav-mandats" class="footer-link">Mandats</a>
+      <a href="professional.html#approche" data-translate="nav-services" class="footer-link">Services</a>
+      <a href="professional.html#positionnement" data-translate="nav-apropos-short" class="footer-link">&Agrave; propos</a>
+      <a href="professional.html#contact" data-translate="nav-contact-short" class="footer-link">Contact</a>
+    </div>
+
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/djeny-mainvil-msc-4a6a26189" target="_blank" class="social-icon">&#x1F4E7;</a>
+    </div>
+
+    <p data-translate="footer-copyright" class="footer-copyright">&copy; 2026 Djeny Mainvil. Tous droits r&eacute;serv&eacute;s.</p>
+  </footer>
+
+  <button class="back-to-top" aria-label="Remonter en haut" type="button">&uarr;</button>
+
+  <script src="js/translation.js" type="text/javascript"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <script src="js/index2.js" type="text/javascript"></script>
+  <script src="js/professional.js?v=20260329_3" type="text/javascript"></script>
+</body>
+</html>

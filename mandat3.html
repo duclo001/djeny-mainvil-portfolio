@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Repenser l&rsquo;impact &mdash; Projet SOS Kitchen Tha&iuml;lande - Djeny Mainvil</title>
+  <meta name="description" content="Mandat de consultation internationale pour SOS Kitchen Tha&iuml;lande : analyse op&eacute;rationnelle, engagement b&eacute;n&eacute;vole et mod&egrave;les de financement durables.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-14RSZEXZYW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-14RSZEXZYW');
+  </script>
+
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/john-sterlins-fresh-site.webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/index2.css" rel="stylesheet" type="text/css">
+  <link href="css/professional.css?v=20260329_3" rel="stylesheet" type="text/css">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <style>
+    * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7; color: #2d3748; background: #ffffff; margin: 0; padding: 0;
+    }
+    .article-container {
+      max-width: 780px; margin: 0 auto; padding: 7rem 2rem 3rem 2rem; min-height: 100vh;
+    }
+    .article-hero {
+      width: 100%; margin: 0 0 2rem 0; border-radius: 16px; overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.10);
+    }
+    .article-hero-image {
+      width: 100%; height: auto; display: block; object-fit: cover;
+    }
+    .article-extra-image {
+      width: 100%; height: auto; display: block; border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.10); margin: 2.5rem 0;
+    }
+    .back-button {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 0.4rem; padding: 0.75rem 1.5rem; background: #002244; color: white;
+      text-decoration: none; border-radius: 25px; font-weight: 600;
+      transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0, 34, 68, 0.25);
+      margin-top: 2rem;
+    }
+    .back-button:hover {
+      color: white; transform: translateY(-2px); background: #0a3366;
+      box-shadow: 0 4px 15px rgba(0, 34, 68, 0.35);
+    }
+    .article-header {
+      margin-bottom: 4rem; padding-bottom: 2.5rem; border-bottom: 1px solid #e2e8f0;
+      animation: fadeInUp 0.6s ease-out;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .article-eyebrow {
+      display: inline-block; font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; color: #7b8cde;
+      margin-bottom: 1rem;
+    }
+    .article-title {
+      font-size: 2.75rem; font-weight: 800; color: #1a202c;
+      margin-bottom: 1.5rem; line-height: 1.15; letter-spacing: -0.02em;
+    }
+    .article-meta {
+      display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center;
+      color: #718096; font-size: 0.925rem; margin-top: 1.5rem; font-weight: 500;
+    }
+    .article-content {
+      font-size: 1.125rem; line-height: 1.85; color: #374151;
+      animation: fadeIn 0.8s ease-out 0.2s both;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .article-content > p:first-of-type {
+      font-size: 1.25rem; line-height: 1.8; color: #1f2937; margin-bottom: 2rem;
+    }
+    .article-content h2 {
+      font-size: 2rem; color: #1a202c; margin-top: 3.5rem; margin-bottom: 1.25rem;
+      font-weight: 700; letter-spacing: -0.01em; position: relative; padding-bottom: 0.75rem;
+    }
+    .article-content h2::after {
+      content: ''; position: absolute; left: 0; bottom: 0; width: 60px; height: 4px;
+      background: linear-gradient(90deg, #7b8cde, rgba(123, 140, 222, 0.3));
+      border-radius: 2px;
+    }
+    .article-content p { margin-bottom: 1.75rem; text-align: justify; }
+    .article-content strong { color: #002244; font-weight: 700; }
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(123, 140, 222, 0.08) 0%, rgba(123, 140, 222, 0.08) 100%);
+      border-left: 4px solid #7b8cde; padding: 2rem; margin: 2.5rem 0;
+      border-radius: 12px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+    .highlight-box p { margin-bottom: 0.5rem; }
+    .highlight-box p:last-child { margin-bottom: 0; }
+    .credits-list {
+      list-style: none; padding: 0; margin: 0.5rem 0 0 0;
+    }
+    .credits-list li {
+      padding: 0.35rem 0; color: #002244; font-weight: 600;
+    }
+    .souvenir-gallery {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem; margin: 2rem 0 0 0;
+    }
+    .souvenir-gallery img {
+      width: 100%; height: 180px; object-fit: cover;
+      border-radius: 12px; display: block;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+    .souvenir-gallery img:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 10px 28px rgba(0, 34, 68, 0.20);
+    }
+    @media (max-width: 768px) {
+      .souvenir-gallery { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+      .souvenir-gallery img { height: 140px; }
+    }
+    /* Lightbox */
+    .lightbox {
+      position: fixed; inset: 0; background: rgba(0, 16, 34, 0.92);
+      display: none; align-items: center; justify-content: center;
+      z-index: 10000; padding: 2rem; cursor: zoom-out;
+    }
+    .lightbox.is-open { display: flex; animation: fadeIn 0.25s ease-out; }
+    .lightbox img {
+      max-width: 92vw; max-height: 90vh; border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    .reading-progress {
+      position: fixed; top: 0; left: 0; width: 0%; height: 4px;
+      background: linear-gradient(90deg, #7b8cde, #002244);
+      z-index: 9999; transition: width 0.1s ease-out;
+    }
+    .fade-in-section {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in-section.is-visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 768px) {
+      .article-container { padding: 6rem 1.25rem 2rem 1.25rem; }
+      .article-title { font-size: 2rem; line-height: 1.2; }
+      .article-content { font-size: 1.05rem; }
+      .article-content > p:first-of-type { font-size: 1.15rem; }
+      .article-content h2 { font-size: 1.65rem; margin-top: 2.5rem; }
+      .highlight-box { padding: 1.5rem; margin: 2rem 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+  <script>
+    window.addEventListener('scroll', function() {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      let progressBar = document.querySelector('.reading-progress');
+      if (!progressBar) {
+        progressBar = document.createElement('div');
+        progressBar.className = 'reading-progress';
+        document.body.prepend(progressBar);
+      }
+      progressBar.style.width = scrolled + '%';
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('.article-content > *');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-section', 'is-visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      sections.forEach(section => {
+        section.classList.add('fade-in-section');
+        observer.observe(section);
+      });
+
+      // Lightbox for souvenir gallery
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      document.querySelectorAll('.souvenir-gallery img').forEach(img => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      if (lightbox) {
+        lightbox.addEventListener('click', () => {
+          lightbox.classList.remove('is-open');
+          document.body.style.overflow = '';
+        });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            lightbox.classList.remove('is-open');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <span class="preloader-name">DJENY MAINVIL</span>
+      <span data-translate="preloader-subtitle" class="preloader-subtitle">&Eacute;CONOMISTE &amp; ANALYSTE DES AFFAIRES</span>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" style="opacity:1;transform:translate3d(0, 0, 0)">
+    <a href="professional.html" class="nav-logo">
+      <img src="images/logo.jpg" alt="Djeny Mainvil">
+    </a>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links">
+      <li class="nav-item"><a href="professional.html#hero" data-translate="nav-home" class="nav-link">Accueil</a></li>
+      <li class="nav-item"><a href="professional.html#publications" data-translate="nav-publications-short" class="nav-link">Publications</a></li>
+      <li class="nav-item"><a href="professional.html#mandats" data-translate="nav-mandats" class="nav-link">Mandats</a></li>
+      <li class="nav-item"><a href="professional.html#approche" data-translate="nav-services" class="nav-link">Services</a></li>
+      <li class="nav-item"><a href="professional.html#positionnement" data-translate="nav-apropos-short" class="nav-link">&Agrave; propos</a></li>
+      <li class="nav-item"><a href="professional.html#contact" data-translate="nav-contact-short" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="language-toggle" type="button">
+      <span id="current-lang">EN</span>
+    </button>
+  </nav>
+
+  <div class="article-container">
+    <article>
+      <header class="article-header">
+        <div class="article-hero">
+          <img class="article-hero-image" src="images/mandat3-1.png" data-translate-alt="mandat3-img1-alt" alt="Projet SOS Kitchen Tha&iuml;lande &mdash; consultation internationale">
+        </div>
+        <span data-translate="mandat3-eyebrow" class="article-eyebrow">Mandat &middot; Consultation internationale</span>
+        <h1 data-translate="mandat3-title" class="article-title">Repenser l&rsquo;impact : Projet SOS Kitchen Tha&iuml;lande</h1>
+        <div class="article-meta">
+          <span data-translate="mandat3-meta1">Bangkok, Tha&iuml;lande</span>
+          <span>&bull;</span>
+          <span data-translate="mandat3-meta2">Juillet 2025</span>
+          <span>&bull;</span>
+          <span data-translate="mandat3-meta3">&Eacute;quipe multidisciplinaire</span>
+        </div>
+      </header>
+
+      <div class="article-content">
+        <p data-translate="mandat3-intro">Dans le cadre d&rsquo;un mandat de consultation internationale, j&rsquo;ai eu l&rsquo;opportunit&eacute; de faire partie d&rsquo;une &eacute;quipe multidisciplinaire visant &agrave; renforcer l&rsquo;impact et l&rsquo;efficacit&eacute; op&eacute;rationnelle de <strong>SOS Kitchen Thailand</strong>, une organisation engag&eacute;e dans la r&eacute;cup&eacute;ration de surplus alimentaires et leur redistribution aupr&egrave;s des communaut&eacute;s dans le besoin.</p>
+
+        <h2 data-translate="mandat3-h2-1">Diagnostic op&eacute;rationnel</h2>
+
+        <p data-translate="mandat3-p1">En collaboration, nous avons r&eacute;alis&eacute; une analyse approfondie des op&eacute;rations, depuis l&rsquo;approvisionnement jusqu&rsquo;&agrave; la livraison finale, afin d&rsquo;identifier les principales inefficacit&eacute;s et les leviers d&rsquo;am&eacute;lioration. Notre r&eacute;flexion s&rsquo;est articul&eacute;e autour de trois axes strat&eacute;giques : le renforcement de la capacit&eacute; op&eacute;rationnelle, l&rsquo;optimisation de l&rsquo;engagement des b&eacute;n&eacute;voles et le d&eacute;veloppement de mod&egrave;les de financement plus durables.</p>
+
+        <img class="article-extra-image" src="images/mandat3-2.png" data-translate-alt="mandat3-img2-alt" alt="Travail terrain &mdash; SOS Kitchen Tha&iuml;lande">
+
+        <h2 data-translate="mandat3-h2-2">Solutions propos&eacute;es</h2>
+
+        <p data-translate="mandat3-p2">En tant qu&rsquo;&eacute;quipe, nous avons propos&eacute; des solutions innovantes, notamment un <strong>mod&egrave;le de partenariat corporatif en responsabilit&eacute; sociale (CSR)</strong> pour r&eacute;pondre aux enjeux de main-d&rsquo;&oelig;uvre, une <strong>plateforme digitale</strong> visant &agrave; mobiliser des b&eacute;n&eacute;voles flexibles (&laquo;&nbsp;Rescue Runners&nbsp;&raquo;), ainsi qu&rsquo;un <strong>concept de financement</strong> transformant les achats du quotidien en impact social (&laquo;&nbsp;Your snack, their meal&nbsp;&raquo;).</p>
+
+        <h2 data-translate="mandat3-h2-3">Apprentissages</h2>
+
+        <p data-translate="mandat3-p3">Cette exp&eacute;rience m&rsquo;a permis de contribuer &agrave; une initiative &agrave; fort impact social, tout en appliquant une approche strat&eacute;gique et ax&eacute;e sur les donn&eacute;es dans un contexte r&eacute;el. Elle a renforc&eacute; mon engagement &agrave; utiliser la donn&eacute;e, la collaboration et l&rsquo;innovation pour b&acirc;tir des syst&egrave;mes plus efficaces, inclusifs et durables.</p>
+
+        <div class="highlight-box">
+          <p><strong data-translate="mandat3-credits-title">Projet r&eacute;alis&eacute; en juillet 2025 sur le terrain en collaboration avec :</strong></p>
+          <ul class="credits-list">
+            <li>Imogen Gardner</li>
+            <li>Yvette Ingrid Mejo Mobam</li>
+            <li>Cindy Rios</li>
+            <li>Florence Benoit</li>
+            <li>Lison Herlant</li>
+          </ul>
+        </div>
+
+        <h2 data-translate="mandat3-souvenirs-title">Souvenirs du terrain</h2>
+        <p data-translate="mandat3-souvenirs-text">Quelques moments captur&eacute;s lors du mandat &agrave; Bangkok : cuisine, logistique de redistribution et &eacute;changes avec les &eacute;quipes locales.</p>
+        <div class="souvenir-gallery">
+          <img src="images/preuve1.jpg" alt="Souvenir du mandat SOS Kitchen Tha&iuml;lande &mdash; 1" loading="lazy">
+          <img src="images/preuve2.jpg" alt="Souvenir du mandat SOS Kitchen Tha&iuml;lande &mdash; 2" loading="lazy">
+          <img src="images/preuve3.jpg" alt="Souvenir du mandat SOS Kitchen Tha&iuml;lande &mdash; 3" loading="lazy">
+          <img src="images/preuve4.jpg" alt="Souvenir du mandat SOS Kitchen Tha&iuml;lande &mdash; 4" loading="lazy">
+          <img src="images/preuve5.jpg" alt="Souvenir du mandat SOS Kitchen Tha&iuml;lande &mdash; 5" loading="lazy">
+          <img src="images/preuve6.jpg" alt="Souvenir du mandat SOS Kitchen Tha&iuml;lande &mdash; 6" loading="lazy">
+          <img src="images/preuve7.jpg" alt="Souvenir du mandat SOS Kitchen Tha&iuml;lande &mdash; 7" loading="lazy">
+          <img src="images/preuve8.jpg" alt="Souvenir du mandat SOS Kitchen Tha&iuml;lande &mdash; 8" loading="lazy">
+        </div>
+      </div>
+    </article>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Aper&ccedil;u photo">
+      <img id="lightbox-img" src="" alt="">
+    </div>
+
+    <div style="text-align: center;">
+      <a href="professional.html#mandats" data-translate="btn-back-mandats" class="back-button">
+        &larr; Retour aux mandats
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <img src="images/logo-white.jpg" alt="Djeny Mainvil">
+    </div>
+    <p data-translate="footer-tagline" class="footer-tagline">Analyser. Clarifier. D&eacute;cider.</p>
+    <p data-translate="footer-subtitle" class="footer-subtitle">&Eacute;conomiste &amp; Analyste des Affaires</p>
+    <p data-translate="footer-location" class="footer-location">Montreal, Canada</p>
+
+    <div class="footer-links">
+      <a href="professional.html#hero" data-translate="nav-home" class="footer-link">Accueil</a>
+      <a href="professional.html#publications" data-translate="nav-publications-short" class="footer-link">Publications</a>
+      <a href="professional.html#mandats" data-translate="nav-mandats" class="footer-link">Mandats</a>
+      <a href="professional.html#approche" data-translate="nav-services" class="footer-link">Services</a>
+      <a href="professional.html#positionnement" data-translate="nav-apropos-short" class="footer-link">&Agrave; propos</a>
+      <a href="professional.html#contact" data-translate="nav-contact-short" class="footer-link">Contact</a>
+    </div>
+
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/djeny-mainvil-msc-4a6a26189" target="_blank" class="social-icon">&#x1F4E7;</a>
+    </div>
+
+    <p data-translate="footer-copyright" class="footer-copyright">&copy; 2026 Djeny Mainvil. Tous droits r&eacute;serv&eacute;s.</p>
+  </footer>
+
+  <button class="back-to-top" aria-label="Remonter en haut" type="button">&uarr;</button>
+
+  <script src="js/translation.js" type="text/javascript"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <script src="js/index2.js" type="text/javascript"></script>
+  <script src="js/professional.js?v=20260329_3" type="text/javascript"></script>
+</body>
+</html>
