@@ -31,7 +31,7 @@ const translations = {
     
     // À Propos section
     'section-apropos': 'À Propos',
-    'apropos-p1': 'Conseillère en solutions technologiques spécialisée en données et intelligence d\'affaires, j\'accompagne les organisations dans la transformation de leurs données en décisions stratégiques. Mon parcours combine une <strong>double formation de niveau maîtrise en économie (Université de Montreal) et en intelligence d\'affaires (HEC Montréal)</strong>, ainsi que plus de <strong>cinq années d\'expérience</strong> dans des fonctions analytiques et décisionnelles.',
+    'apropos-p1': 'Conseillère en solutions technologiques spécialisée en données et intelligence d\'affaires, j\'accompagne les organisations dans la transformation de leurs données en décisions stratégiques. Mon parcours combine une <strong>double formation de niveau maîtrise en économie (Université de Montréal) et en intelligence d\'affaires (HEC Montréal)</strong>, ainsi que plus de <strong>cinq années d\'expérience</strong> dans des fonctions analytiques et décisionnelles.',
     'apropos-p2': 'Au fil de mes expériences professionnelles et de mes échanges avec des dirigeants, recruteurs et professionnels, j\'ai développé un intérêt marqué pour la manière dont les organisations analysent l\'information, structurent leur réflexion et prennent des décisions dans des contextes économiques complexes et incertains. J\'ai constaté que les difficultés rencontrées ne tiennent pas uniquement à un manque d\'outils ou de données, mais très souvent à un <strong>manque de clarté sur les enjeux, les priorités décisionnelles et l\'usage réel de l\'information</strong>.',
     'apropos-p3': 'À travers mon travail, mes publications et ce site, je propose une approche analytique, structurée et accessible, orientée impact. Mon objectif est d\'aider les organisations à mieux comprendre leur situation, à poser les bonnes questions et à avancer de manière cohérente, en alignant données, stratégie et besoins réels.',
     
@@ -179,7 +179,7 @@ const translations = {
     // Footer
     'footer-tagline': 'Analyser. Clarifier. Décider.',
     'footer-subtitle': 'Économiste & Analyste des Affaires',
-    'footer-location': 'Montreal, Canada',
+    'footer-location': 'Montréal, Canada',
     'footer-copyright': '&copy; 2026 Djeny Mainvil. Tous droits réservés.',
     
     // Page recherches.html
@@ -346,7 +346,7 @@ const translations = {
     // ============================================================
     // professional.html — page principale
     // ============================================================
-    'pro-hero-title': 'Vous avez des données, mais sont-elles exploitables&nbsp;?',
+    'pro-hero-title': 'Vous avez des données, mais sont-elles exploitables ?',
     'pro-hero-subtitle': 'Je suis Djeny et j’accompagne les startups et PME dans la structuration de leurs indicateurs clés et la création de tableaux de bord stratégiques, afin de transformer leurs données en décisions éclairées et mesurables.',
     'pro-hero-credential': 'M.Sc. Intelligence d’affaires · Économie · Montréal',
     'pro-hero-cta1': 'Planifier un échange stratégique',
@@ -380,9 +380,9 @@ const translations = {
     'pro-audience-4-desc': 'Cadre analytique clair',
 
     'pro-section-positionnement-title': 'À propos',
-    'pro-about-p1': 'Prendre des décisions sans une lecture claire des données, c’est avancer sans visibilité. Aujourd’hui, en tant que conseillère en solutions technologiques chez Makila AI, j’accompagne les entreprises dans des contextes variés (RH, finance, marketing) en intervenant à chaque étape&nbsp;: de l’identification des besoins à la structuration des données, jusqu’à leur valorisation à travers des tableaux de bord, des analyses avancées et des modèles prédictifs. Mon approche vise toujours le même objectif&nbsp;: transformer les données en décisions utiles, concrètes et alignées avec les enjeux d’affaires.',
+    'pro-about-p1': 'Prendre des décisions sans une lecture claire des données, c’est avancer sans visibilité. Aujourd’hui, en tant que conseillère en solutions technologiques chez Makila AI, j’accompagne les entreprises dans des contextes variés (RH, finance, marketing) en intervenant à chaque étape : de l’identification des besoins à la structuration des données, jusqu’à leur valorisation à travers des tableaux de bord, des analyses avancées et des modèles prédictifs. Mon approche vise toujours le même objectif : transformer les données en décisions utiles, concrètes et alignées avec les enjeux d’affaires.',
     'pro-about-p2': 'Par ailleurs, mon parcours entre l’Université de Montréal et HEC Montréal m’a permis de développer une double expertise en économie et en intelligence d’affaires, que j’applique aujourd’hui dans des environnements réels et exigeants. Cette expérience, enrichie notamment par un mandat à l’international en Thaïlande, m’a permis de développer une vision à la fois analytique, adaptable et orientée résultats.',
-    'pro-about-p3': 'Aujourd’hui, je mets aussi cette expertise au service d’organisations, en particulier celles en croissance qui souhaitent structurer leurs données, améliorer leurs processus et prendre des décisions plus éclairées. Avec rigueur, curiosité et engagement, je poursuis un objectif simple&nbsp;: créer un impact réel à travers une utilisation intelligente des données.',
+    'pro-about-p3': 'Aujourd’hui, je mets aussi cette expertise au service d’organisations, en particulier celles en croissance qui souhaitent structurer leurs données, améliorer leurs processus et prendre des décisions plus éclairées. Avec rigueur, curiosité et engagement, je poursuis un objectif simple : créer un impact réel à travers une utilisation intelligente des données.',
     'pro-about-img-alt': 'Portrait professionnel de Djeny Mainvil',
 
     'pro-section-mandats-title': 'Comment j’interviens concrètement.',
@@ -442,7 +442,7 @@ const translations = {
     'mandat2-p2': 'L’objectif est d’analyser la structure et la qualité réelles des données, d’identifier ce qui est analytiquement fiable, et de produire des indicateurs concrets et actionnables, tout en respectant strictement les contraintes de confidentialité.',
     'mandat2-h2-2': 'Importation et nettoyage des données',
     'mandat2-p3': 'La première étape a consisté à nettoyer et préparer les données afin d’assurer leur cohérence et leur fiabilité pour l’analyse. Les types de données ont été standardisés, en particulier pour les identifiants, les dates et les montants financiers, et des contrôles ont été effectués pour identifier les lignes vides et les doublons exacts.',
-    'mandat2-p4': 'Les intitulés de poste ont été nettoyés et les incohérences typographiques corrigées (par exemple, en remplaçant «&nbsp;Sr. Manger&nbsp;» par «&nbsp;Sr. Manager&nbsp;»). Les noms de colonnes techniques ont été renommés pour améliorer la lisibilité du modèle, et les informations sensibles telles que les noms complets des employés ont été supprimées conformément aux bonnes pratiques de confidentialité des données.',
+    'mandat2-p4': 'Les intitulés de poste ont été nettoyés et les incohérences typographiques corrigées (par exemple, en remplaçant « Sr. Manger » par « Sr. Manager »). Les noms de colonnes techniques ont été renommés pour améliorer la lisibilité du modèle, et les informations sensibles telles que les noms complets des employés ont été supprimées conformément aux bonnes pratiques de confidentialité des données.',
     'mandat2-p5': 'Lors de l’analyse exploratoire, une attention particulière a été portée à la compréhension de la granularité des données. Il a été observé que différents employés peuvent partager le même <strong>EEID</strong>, ce qui signifie que cet identifiant ne représente pas un employé unique, mais plutôt un identifiant de niveau enregistrement.',
     'mandat2-p6': 'Pour déterminer avec précision le nombre d’employés, une validation croisée des noms, de l’âge, du genre et des dates d’embauche a été réalisée. Cette analyse a révélé des cas où des employés portant des noms identiques présentaient des caractéristiques démographiques et temporelles incompatibles avec l’hypothèse qu’il s’agissait du même individu. Par exemple, des employés partageant le même nom pouvaient avoir des âges sensiblement différents et des années d’embauche très éloignées, ce qui exclut des scénarios tels que des réembauches ou des changements de poste internes.',
     'mandat2-highlight': 'Sur la base de ces observations, il a été conclu que, dans le périmètre de cet ensemble de données, <strong>chaque ligne représente un employé distinct</strong>. Cette conclusion s’appuie sur des observations factuelles et constitue une hypothèse de travail explicite pour la suite de l’analyse.',
@@ -651,7 +651,7 @@ const translations = {
     // Footer
     'footer-tagline': 'Analyze. Clarify. Decide.',
     'footer-subtitle': 'Economist & Business Analyst',
-    'footer-location': 'Montreal, Canada',
+    'footer-location': 'Montréal, Canada',
     'footer-copyright': '&copy; 2026 Djeny Mainvil. All rights reserved.',
     
     // Page recherches.html

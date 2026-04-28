@@ -1,4 +1,21 @@
-﻿/* Premium palette – executive / confiance
+﻿/* ========== HARD OVERRIDE: Désactive tout hover/pointer sur Ce que je propose ========== */
+.services-grid .service-card,
+.services-grid .service-card:hover,
+.services-audience-grid .audience-item,
+.services-audience-grid .audience-item:hover {
+  cursor: default !important;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04) !important;
+  background: #fff !important;
+  border-color: rgba(0,34,68,0.06) !important;
+  transform: none !important;
+  transition: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+.services-grid .service-card:hover::before {
+  opacity: 0 !important;
+}
+/* Premium palette – executive / confiance
    White:      #ffffff  (page background)
    DeepNavy:   #002244  (headings, nav, dominant sections)
    Lavender:   #7b8cde  (modern accent)
@@ -404,10 +421,9 @@ body {
   border-radius: 18px;
   padding: 1.75rem 1.5rem 1.5rem;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
-  transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 280ms ease,
-              border-color 280ms ease;
   overflow: hidden;
+  cursor: default;
+  transition: none !important;
 }
 
 .service-card::before {
@@ -422,15 +438,7 @@ body {
   transition: opacity 280ms ease;
 }
 
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(0, 34, 68, 0.10);
-  border-color: rgba(123, 140, 222, 0.2);
-}
 
-.service-card:hover::before {
-  opacity: 1;
-}
 
 .service-icon {
   display: inline-flex;
@@ -494,14 +502,11 @@ body {
   border-radius: 14px;
   padding: 1rem 1.1rem;
   text-align: left;
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  cursor: default;
+  transition: none !important;
 }
 
-.audience-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
-  border-color: rgba(123, 140, 222, 0.25);
-}
+
 
 .audience-icon {
   font-size: 1.5rem;
@@ -1068,7 +1073,6 @@ body {
   border-radius: 50%;
   border: none;
   padding: 0;
-  cursor: pointer;
   background: rgba(0, 34, 68, 0.18);
   transition: background 200ms ease, transform 200ms ease, width 200ms ease;
 }
