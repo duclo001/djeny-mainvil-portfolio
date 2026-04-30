@@ -1,4 +1,15 @@
-﻿/* ========== HARD OVERRIDE: Désactive tout hover/pointer sur Ce que je propose ========== */
+﻿/* --- Correction swipe tactile carousel articles --- */
+.exec-swipe-track {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  scroll-snap-type: x mandatory !important;
+  touch-action: pan-x !important;
+  overscroll-behavior-x: contain;
+}
+.exec-swipe-card {
+  scroll-snap-align: center !important;
+}
+/* ========== HARD OVERRIDE: Désactive tout hover/pointer sur Ce que je propose ========== */
 .services-grid .service-card,
 .services-grid .service-card:hover,
 .services-audience-grid .audience-item,

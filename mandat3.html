@@ -241,7 +241,7 @@
   <!-- Navigation -->
   <nav class="nav" style="opacity:1;transform:translate3d(0, 0, 0)">
     <a href="professional.html" class="nav-logo">
-      <img src="images/logo.jpg" alt="Djeny Mainvil">
+      <img src="images/logo bon.png" alt="Djeny Mainvil">
     </a>
     <div class="hamburger">
       <span></span>
@@ -336,7 +336,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-logo">
-      <img src="images/logo-white.jpg" alt="Djeny Mainvil">
+      <img src="images/logo bon.png" alt="Djeny Mainvil">
     </div>
     <p data-translate="footer-tagline" class="footer-tagline">Analyser. Clarifier. D&eacute;cider.</p>
     <p data-translate="footer-subtitle" class="footer-subtitle">&Eacute;conomiste &amp; Analyste des Affaires</p>
@@ -366,18 +366,25 @@
   <script src="js/professional.js?v=20260329_3" type="text/javascript"></script>
 
   <script>
-    // Lightbox pour la galerie des souvenirs
+    // Lightbox swipeable pour la galerie des souvenirs
     (function () {
-      var gallery = document.querySelectorAll('.souvenir-gallery img');
+      var gallery = Array.from(document.querySelectorAll('.souvenir-gallery img'));
       var lightbox = document.getElementById('lightbox');
       var lightboxImg = document.getElementById('lightbox-img');
+      var currentIndex = 0;
       if (!lightbox || !lightboxImg || !gallery.length) return;
 
-      gallery.forEach(function (img) {
+      function showImage(idx) {
+        currentIndex = ((idx % gallery.length) + gallery.length) % gallery.length;
+        var img = gallery[currentIndex];
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || '';
+      }
+
+      gallery.forEach(function (img, idx) {
         img.style.cursor = 'zoom-in';
         img.addEventListener('click', function () {
-          lightboxImg.src = img.src;
-          lightboxImg.alt = img.alt || '';
+          showImage(idx);
           lightbox.classList.add('is-open');
           document.body.style.overflow = 'hidden';
         });
@@ -388,11 +395,52 @@
         document.body.style.overflow = '';
       }
 
-      lightbox.addEventListener('click', closeLightbox);
+      // Navigation clavier
       document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (e.key === 'Escape') {
           closeLightbox();
+        } else if (e.key === 'ArrowRight') {
+          showImage(currentIndex + 1);
+        } else if (e.key === 'ArrowLeft') {
+          showImage(currentIndex - 1);
         }
+      });
+
+      // Navigation swipe tactile
+      var startX = null;
+      lightboxImg.addEventListener('touchstart', function(e) {
+        if (e.touches.length === 1) startX = e.touches[0].clientX;
+      });
+      lightboxImg.addEventListener('touchend', function(e) {
+        if (startX === null) return;
+        var endX = e.changedTouches[0].clientX;
+        var dx = endX - startX;
+        if (Math.abs(dx) > 40) {
+          if (dx < 0) showImage(currentIndex + 1);
+          else showImage(currentIndex - 1);
+        }
+        startX = null;
+      });
+
+      // Navigation swipe souris (drag)
+      var dragStartX = null;
+      lightboxImg.addEventListener('mousedown', function(e) {
+        dragStartX = e.clientX;
+      });
+      lightboxImg.addEventListener('mouseup', function(e) {
+        if (dragStartX === null) return;
+        var dx = e.clientX - dragStartX;
+        if (Math.abs(dx) > 40) {
+          if (dx < 0) showImage(currentIndex + 1);
+          else showImage(currentIndex - 1);
+        }
+        dragStartX = null;
+      });
+
+      // Fermer la lightbox au clic en dehors de l'image
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) closeLightbox();
       });
     })();
   </script>

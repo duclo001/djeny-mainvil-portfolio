@@ -75,6 +75,32 @@ document.addEventListener('DOMContentLoaded', () => {
 	links.forEach((el, i) => {
 		el.style.setProperty('--delay', `${180 + i * 55}ms`);
 	});
+	// --- Ajout swipe tactile natif pour exec-swipe-track (carousel articles) ---
+	const swipeMenus = document.querySelectorAll('.exec-swipe-menu');
+	swipeMenus.forEach((swipeMenu) => {
+		const track = swipeMenu.querySelector('.exec-swipe-track');
+		if (!track) return;
+		let isTouching = false;
+		let touchStartX = 0;
+		let scrollStartX = 0;
+		track.addEventListener('touchstart', (e) => {
+			if (e.touches.length !== 1) return;
+			isTouching = true;
+			touchStartX = e.touches[0].clientX;
+			scrollStartX = track.scrollLeft;
+		}, { passive: true });
+		track.addEventListener('touchmove', (e) => {
+			if (!isTouching || e.touches.length !== 1) return;
+			const dx = e.touches[0].clientX - touchStartX;
+			track.scrollLeft = scrollStartX - dx;
+		}, { passive: true });
+		track.addEventListener('touchend', () => {
+			isTouching = false;
+		});
+		track.addEventListener('touchcancel', () => {
+			isTouching = false;
+		});
+	});
 
 	const observer = new IntersectionObserver(
 		(entries) => {

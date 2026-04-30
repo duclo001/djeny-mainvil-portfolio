@@ -390,13 +390,13 @@ const translations = {
     'pro-mandats-aside-title': 'Focus',
     'pro-mandats-aside-text': 'Chaque mandat cible un besoin précis&nbsp;: clarifier, structurer ou gouverner l’information décisionnelle.',
     'pro-feature-1-eyebrow': 'Pilotage stratégique',
-    'pro-feature-1-title': 'Rapport d’analyse de performance — tableau de bord des ventes.',
+    'pro-feature-1-title': 'Rapport d’analyse de performance, tableau de bord des ventes.',
     'pro-feature-1-text': 'Indicateurs clés (Book-to-Bill, top produits, cartographie clients) pour orienter la stratégie commerciale de Sycodal.',
     'pro-feature-2-eyebrow': 'Gouvernance analytique',
-    'pro-feature-2-title': 'Analyse RH exploratoire à partir d’un système hérité.',
+    'pro-feature-2-title': 'Tableau de bord des ventes, analyse stratégique.',
     'pro-feature-2-text': 'Nettoyage, modélisation et indicateurs fiables (effectif, salaire moyen, ancienneté) dans le respect strict de la confidentialité.',
     'pro-feature-3-eyebrow': 'Consultation internationale',
-    'pro-feature-3-title': 'Repenser l’impact — Projet SOS Kitchen Thaïlande.',
+    'pro-feature-3-title': 'Repenser l’impact, Projet SOS Kitchen Thaïlande.',
     'pro-feature-3-text': 'Diagnostic opérationnel, engagement bénévole et modèles de financement durables au service d’une mission à fort impact social.',
 
     'pro-cta-title': 'Clarifions votre performance.',
@@ -408,11 +408,11 @@ const translations = {
     // ============================================================
     // mandat1.html — Tableau de bord des ventes
     // ============================================================
-    'mandat1-title': 'Rapport d’analyse de performance — Tableau de bord des ventes',
+    'mandat1-title': 'Rapport d’analyse de performance, Tableau de bord des ventes',
     'mandat1-eyebrow': 'Mandat · Pilotage stratégique',
     'mandat1-meta1': 'Projet : Sycodal',
     'mandat1-meta2': 'Power BI · Analyse commerciale',
-    'mandat1-img-alt': 'Tableau de bord des ventes — performance et analyse client',
+    'mandat1-img-alt': 'Tableau de bord des ventes, performance et analyse client',
     'mandat1-intro': 'Dans le cadre de ce projet de tableau de bord des ventes, j’ai développé une analyse approfondie de la performance produit et de l’acquisition client, avec un accent particulier sur la prise de décision stratégique. Les données ont été spécifiquement générées et adaptées pour répondre aux exigences du prototype demandé.',
     'mandat1-h2-1': 'Adaptation et représentation des données',
     'mandat1-p1': 'Pour garantir la pertinence des données, j’ai intégré dans la base des indicateurs clés tels que les quantités facturées et réservées, ce qui permet le calcul du <strong>Book-to-Bill Rate</strong>. Cette métrique est essentielle pour évaluer l’efficacité commerciale : un taux supérieur à 1 indique une forte demande pour les produits et met en évidence des opportunités d’optimiser les capacités de production et de livraison.',
@@ -429,16 +429,16 @@ const translations = {
     'mandat1-p7': 'Grâce à une analyse continue des données, l’entreprise peut anticiper les tendances et s’assurer que ses efforts s’alignent avec ses objectifs de croissance et de satisfaction client. Les données ont été soigneusement adaptées aux spécificités du prototype demandé, garantissant des insights pertinents et actionnables pour la stratégie commerciale de Sycodal.',
 
     // ============================================================
-    // mandat2.html — Analyse RH exploratoire
+    // mandat2.html — Tableau de bord des ventes, analyse stratégique
     // ============================================================
-    'mandat2-title': 'Analyse RH exploratoire à partir d’un système hérité',
+    'mandat2-title': 'Tableau de bord des ventes, analyse stratégique',
     'mandat2-eyebrow': 'Mandat · Gouvernance analytique',
-    'mandat2-meta1': 'Données RH · Power BI',
+    'mandat2-meta1': 'Données commerciales · Power BI',
     'mandat2-meta2': 'Nettoyage, modélisation, indicateurs fiables',
-    'mandat2-img1-alt': 'Analyse RH exploratoire — aperçu du tableau de bord',
-    'mandat2-img2-alt': 'Modèle de données RH — relations entre tables',
+    'mandat2-img1-alt': 'Tableau de bord des ventes, aperçu du tableau de bord',
+    'mandat2-img2-alt': 'Modèle de données commerciales, relations entre tables',
     'mandat2-h2-1': 'Contexte',
-    'mandat2-p1': 'Ce travail s’inscrit dans une analyse exploratoire visant à démontrer la valeur qu’une solution de Business Intelligence peut apporter à partir de données RH extraites d’un système hérité. Les données fournies représentent un échantillon de l’effectif de l’entreprise et incluent des informations relatives aux employés, aux départements et aux unités d’affaires.',
+    'mandat2-p1': 'Ce travail s’inscrit dans une analyse approfondie de la performance produit et de l’acquisition client, avec un accent particulier sur la prise de décision stratégique. Les données commerciales ont été spécifiquement générées et adaptées pour répondre aux exigences du prototype demandé.',
     'mandat2-p2': 'L’objectif est d’analyser la structure et la qualité réelles des données, d’identifier ce qui est analytiquement fiable, et de produire des indicateurs concrets et actionnables, tout en respectant strictement les contraintes de confidentialité.',
     'mandat2-h2-2': 'Importation et nettoyage des données',
     'mandat2-p3': 'La première étape a consisté à nettoyer et préparer les données afin d’assurer leur cohérence et leur fiabilité pour l’analyse. Les types de données ont été standardisés, en particulier pour les identifiants, les dates et les montants financiers, et des contrôles ont été effectués pour identifier les lignes vides et les doublons exacts.',
@@ -461,8 +461,8 @@ const translations = {
     'mandat3-meta1': 'Bangkok, Thaïlande',
     'mandat3-meta2': 'Juillet 2025',
     'mandat3-meta3': 'Équipe multidisciplinaire',
-    'mandat3-img1-alt': 'Projet SOS Kitchen Thaïlande — consultation internationale',
-    'mandat3-img2-alt': 'Travail terrain — SOS Kitchen Thaïlande',
+    'mandat3-img1-alt': 'Projet SOS Kitchen Thaïlande, consultation internationale',
+    'mandat3-img2-alt': 'Travail terrain, SOS Kitchen Thaïlande',
     'mandat3-intro': 'Dans le cadre d’un mandat de consultation internationale, j’ai eu l’opportunité de faire partie d’une équipe multidisciplinaire visant à renforcer l’impact et l’efficacité opérationnelle de <strong>SOS Kitchen Thailand</strong>, une organisation engagée dans la récupération de surplus alimentaires et leur redistribution auprès des communautés dans le besoin.',
     'mandat3-h2-1': 'Diagnostic opérationnel',
     'mandat3-p1': 'En collaboration, nous avons réalisé une analyse approfondie des opérations, depuis l’approvisionnement jusqu’à la livraison finale, afin d’identifier les principales inefficacités et les leviers d’amélioration. Notre réflexion s’est articulée autour de trois axes stratégiques : le renforcement de la capacité opérationnelle, l’optimisation de l’engagement des bénévoles et le développement de modèles de financement plus durables.',
