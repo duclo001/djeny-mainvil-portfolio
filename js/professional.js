@@ -188,10 +188,16 @@ document.addEventListener('DOMContentLoaded', () => {
 	updateActiveFromScroll();
 	centerCard(0, 'auto');
 
+	// Synchronise les dots à chaque scroll et swipe tactile
 	track.addEventListener('scroll', () => {
 		if (rafId) return;
 		rafId = window.requestAnimationFrame(updateActiveFromScroll);
 	});
+	// Sur mobile, certains navigateurs ne déclenchent pas toujours scroll, donc on force aussi sur touchmove
+	track.addEventListener('touchmove', () => {
+		if (rafId) return;
+		rafId = window.requestAnimationFrame(updateActiveFromScroll);
+	}, {passive:true});
 
 	// Drag-to-scroll (desktop friendly). Native touch swipe already works.
 	let isDragging = false;

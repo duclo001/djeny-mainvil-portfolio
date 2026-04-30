@@ -3,6 +3,8 @@ let currentLang = localStorage.getItem('language') || 'fr';
 
 const translations = {
   fr: {
+    // Indicateur swipe publications
+    'pro-pub-swipe-indicator': '⟵ Glissez pour voir plus ⟶',
     // Navigation
     'nav-accueil': 'Accueil',
     'nav-apropos': 'A propos',
@@ -497,6 +499,8 @@ const translations = {
     'mandat3-souvenirs-text': 'Quelques moments capturés lors du mandat à Bangkok : cuisine, logistique de redistribution et échanges avec les équipes locales.'
   },
   en: {
+    // Publications swipe indicator
+    'pro-pub-swipe-indicator': '⟵ Swipe to see more ⟶',
     // Navigation
     'nav-accueil': 'Home',
     'nav-apropos': 'About',

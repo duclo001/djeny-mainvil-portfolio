@@ -1,4 +1,16 @@
-﻿/* --- Correction swipe tactile carousel articles --- */
+﻿@media (max-width: 900px) {
+  .exec-swipe-dots {
+    display: flex !important;
+    pointer-events: auto !important;
+    z-index: 10 !important;
+  }
+  .exec-swipe-dot {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    outline: none !important;
+  }
+}
+/* --- Correction swipe tactile carousel articles --- */
 .exec-swipe-track {
   overflow-x: auto !important;
   -webkit-overflow-scrolling: touch !important;
@@ -1071,12 +1083,17 @@ body {
 }
 
 /* Pagination dots */
+
 .exec-swipe-dots {
-  display: none;          /* hidden on desktop */
+  display: none; /* hidden on desktop */
   justify-content: center;
   gap: 0.45rem;
   margin-top: 0.85rem;
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
 }
+
 
 .exec-swipe-dot {
   width: 8px;
@@ -1086,6 +1103,10 @@ body {
   padding: 0;
   background: rgba(0, 34, 68, 0.18);
   transition: background 200ms ease, transform 200ms ease, width 200ms ease;
+  cursor: pointer;
+  pointer-events: auto;
+  outline: none;
+  margin-bottom: 0.2rem;
 }
 
 .exec-swipe-dot.is-active {
@@ -1097,6 +1118,9 @@ body {
 @media (max-width: 900px) {
   .exec-swipe-dots {
     display: flex;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0.5rem;
   }
 }
 
