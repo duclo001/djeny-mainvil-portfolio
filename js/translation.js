@@ -357,6 +357,28 @@ const translations = {
     'pro-pub-counter-podcasts': '1 podcast',
     'pro-pub-counter-recherches': '3 recherches',
 
+    // Section Publications — tags et titres dynamiques (grille & carousel)
+    'pro-pub-tag-article5': 'IA en entreprise',
+    'pro-pub-title-article5': 'Intelligence Artificielle (IA) en entreprise : comprendre les familles d’IA pour décider avec rigueur et gouvernance',
+    'pro-pub-tag-article1': 'Analytique',
+    'pro-pub-title-article1': 'Scientifique des données, analyste de données et analyste en intelligence d’affaires : quelles différences ?',
+    'pro-pub-tag-article2': 'Outils BI',
+    'pro-pub-title-article2': 'Power BI, PGI et outils d’IA : comprendre le rôle des logiciels dans l’analytique',
+    'pro-pub-tag-article3': 'Guide pratique',
+    'pro-pub-title-article3': 'Vous ne savez pas quoi faire avec vos données ? Voici par où commencer.',
+    'pro-pub-tag-article4': 'Femmes en données',
+    'pro-pub-title-article4': 'Femmes en données et IA : une perspective qui façonne l\'avenir',
+
+  // Section Publications — autres textes fixes
+  'pro-pub-kicker-articles': 'Articles & Analyses',
+  'pro-pub-intro': 'Des angles clairs et opérationnels pour mieux cadrer les rôles, les outils et les démarches analytiques.',
+  'pro-pub-kicker-podcast': 'Podcast',
+  'pro-pub-podcast-title': 'Comment les entreprises captent l\'attention sur TikTok et Instagram Reels',
+  'pro-pub-kicker-recherches': 'Recherches académiques',
+  'pro-pub-recherche-hec': 'HEC Montréal : Rapport de stage',
+  'pro-pub-recherche-udem': 'Université de Montréal : Rapport de recherche',
+  'pro-pub-recherche-quisqueya': 'Université Quisqueya : Mémoire',
+
     'pro-section-approche-title': 'Ce que je propose',
     'pro-section-approche-lead': 'J’interviens à titre indépendant pour transformer vos données en leviers de décision.',
     'pro-service-1-title': 'Indicateurs stratégiques',
@@ -484,6 +506,28 @@ const translations = {
     'nav-podcast': 'Podcast',
     'nav-recherches': 'Academic Research',
     'nav-contact': 'Contact',
+
+    // Publications section — dynamic tags & titles (grid & carousel)
+    'pro-pub-tag-article5': 'AI in Business',
+    'pro-pub-title-article5': 'Artificial Intelligence (AI) in Business: Understanding AI Families for Rigorous, Governed Decisions',
+    'pro-pub-tag-article1': 'Analytics',
+    'pro-pub-title-article1': 'Data Scientist, Data Analyst, and Business Intelligence Analyst: What Are the Differences?',
+    'pro-pub-tag-article2': 'BI Tools',
+    'pro-pub-title-article2': 'Power BI, ERP & AI Tools: Understanding the Role of Software in Analytics',
+    'pro-pub-tag-article3': 'Practical Guide',
+    'pro-pub-title-article3': 'Not Sure What to Do With Your Data? Here’s Where to Start.',
+    'pro-pub-tag-article4': 'Women in Data',
+    'pro-pub-title-article4': 'Women in Data & AI: A Perspective Shaping the Future',
+
+      // Publications section — other fixed texts
+      'pro-pub-kicker-articles': 'Articles & Analysis',
+      'pro-pub-intro': 'Clear, actionable insights to better frame roles, tools, and analytics approaches.',
+      'pro-pub-kicker-podcast': 'Podcast',
+      'pro-pub-podcast-title': 'How Companies Capture Attention on TikTok and Instagram Reels',
+      'pro-pub-kicker-recherches': 'Academic Research',
+      'pro-pub-recherche-hec': 'HEC Montréal: Internship Report',
+      'pro-pub-recherche-udem': 'Université de Montréal: Research Report',
+      'pro-pub-recherche-quisqueya': 'Université Quisqueya: Thesis',
     
     // Boutons communs
     'btn-back': '← Back to home',
