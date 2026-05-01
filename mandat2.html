@@ -206,38 +206,35 @@
     <article>
       <header class="article-header">
         <div class="article-hero">
-          <img class="article-hero-image" src="images/mandat2-1.png" data-translate-alt="mandat2-img1-alt" alt="Tableau de bord des ventes, aperçu du tableau de bord">
+          <img class="article-hero-image" src="images/mandat2-1.png" data-translate-alt="mandat2-img-alt" alt="Analyse exploratoire RH — Business Intelligence">
         </div>
-        <span data-translate="mandat2-eyebrow" class="article-eyebrow">Mandat &middot; Analyse stratégique</span>
-        <h1 data-translate="mandat2-title" class="article-title">Tableau de bord des ventes, analyse stratégique</h1>
+        <span data-translate="mandat2-eyebrow" class="article-eyebrow">Mandat &middot; Analyse RH & BI</span>
+        <h1 data-translate="mandat2-title" class="article-title">Analyse exploratoire RH et modélisation des effectifs</h1>
         <div class="article-meta">
-          <span data-translate="mandat2-meta1">Données commerciales &middot; Power BI</span>
+          <span data-translate="mandat2-meta1">Données RH &middot; Business Intelligence</span>
           <span>&bull;</span>
-          <span data-translate="mandat2-meta2">Indicateurs clés, analyse produit, acquisition client</span>
+          <span data-translate="mandat2-meta2">Nettoyage, structuration, indicateurs fiables, confidentialité</span>
         </div>
       </header>
 
       <div class="article-content">
-        <h2>Dans le cadre de ce projet de tableau de bord des ventes</h2>
-        <p>J’ai développé une analyse approfondie de la performance produit et de l’acquisition client, avec un accent particulier sur la prise de décision stratégique. Les données commerciales ont été spécifiquement générées et adaptées pour répondre aux exigences du prototype demandé.</p>
+        <h2 data-translate="mandat2-h2-1">CONTEXTE</h2>
+        <p data-translate="mandat2-p1">Ce travail s’inscrit dans le cadre d’une analyse exploratoire visant à démontrer la valeur qu’une solution de Business Intelligence peut apporter en utilisant des données RH extraites d’un système existant. Les données fournies représentent un échantillon de l’effectif de l’entreprise et incluent des informations relatives aux employés, aux départements et aux unités d’affaires.<br>
+        L’objectif est d’analyser la structure réelle et la qualité des données, d’identifier ce qui est fiable d’un point de vue analytique et de produire des indicateurs concrets et exploitables, tout en respectant strictement les contraintes de confidentialité des données.</p>
 
-        <h2>Adaptation et représentation des données</h2>
-        <p>Pour garantir la pertinence des données, j’ai intégré dans la base des indicateurs clés tels que les quantités facturées et réservées, permettant ainsi le calcul du Book-to-Bill Rate. Cette métrique est essentielle pour évaluer l’efficacité commerciale : un taux supérieur à 1 indique une forte demande pour les produits et met en évidence des opportunités d’optimisation des capacités de production et de livraison.</p>
-        <p>J’ai également généré une date d’adhésion pour chaque client afin de faciliter le calcul des nouveaux clients par mois, enrichissant ainsi l’analyse de l’acquisition. Ces adaptations permettent au tableau de bord d’offrir une vision instantanée de la santé financière de l’entreprise.</p>
+        <h2 data-translate="mandat2-h2-2">IMPORTATION ET NETTOYAGE DES DONNÉES</h2>
+        <p data-translate="mandat2-p2">La première étape a consisté à nettoyer et à préparer les données afin d’en garantir la cohérence et la fiabilité pour l’analyse. Les types de données ont été standardisés, notamment pour les identifiants, les dates et les montants financiers, et des vérifications ont été effectuées pour repérer les lignes vides et les doublons exacts.<br>
+        Les intitulés de poste ont été nettoyés et les incohérences typographiques ont été corrigées (par exemple, « Sr. Manger » a été remplacé par « Sr. Manager »). Les noms de colonnes techniques ont été renommés pour améliorer la lisibilité du modèle, et les informations sensibles telles que les noms complets des employés ont été supprimées conformément aux bonnes pratiques en matière de confidentialité des données.<br>
+        Lors de l’analyse exploratoire, une attention particulière a été portée à la compréhension de la granularité des données. Il a été observé que différents employés peuvent partager le même EEID, ce qui signifie que l’EEID ne représente pas un identifiant unique d’employé, mais plutôt un identifiant au niveau de l’enregistrement.<br>
+        Afin de déterminer précisément le nombre d’employés, une validation croisée des noms, de l’âge, du sexe et des dates d’embauche a été réalisée. Cette analyse a révélé des cas où des employés portant des noms identiques présentaient des caractéristiques démographiques et temporelles incompatibles avec l’hypothèse qu’il s’agissait de la même personne. Par exemple, des employés ayant le même nom pouvaient avoir des âges significativement différents et des années d’embauche très éloignées, ce qui exclut des scénarios tels que des réembauches ou des changements de poste internes.<br>
+        Sur la base de ces observations, il a été conclu que, dans le cadre de ce jeu de données, chaque ligne représente un employé distinct. Cette conclusion repose sur des observations factuelles des données et est explicitement énoncée comme une hypothèse de travail pour le reste de l’analyse.</p>
 
-        <h2>Insights et prise de décision</h2>
-        <p>Les visualisations proposées facilitent une analyse rapide et efficace de la performance produit. Par exemple, en identifiant les cinq produits les plus contributeurs au chiffre d’affaires, l’entreprise peut orienter ses efforts marketing et ses stratégies d’inventaire vers les articles les plus rentables.</p>
-        <p>De plus, la comparaison des revenus mensuels avec les objectifs de vente permet d’identifier rapidement les écarts et d’ajuster en temps opportun les stratégies d’affaires. Cela favorise une réponse proactive aux fluctuations du marché.</p>
-
-        <h2>Analyse géographique</h2>
-        <p>La carte géographique aide à repérer les zones à forte concentration de clients, ce qui est essentiel pour optimiser les visites commerciales et la distribution. En ciblant les régions à forte demande, l’entreprise peut maximiser ses efforts de vente et améliorer le service client en répondant rapidement aux besoins locaux.</p>
-
-        <h2>Analyse de la satisfaction client</h2>
-        <p>Bien que le tableau de bord apporte déjà des insights de valeur, l’ajout d’une analyse de la satisfaction client permettrait d’enrichir davantage la compréhension des préférences et des axes d’amélioration. Cela renforcerait la fidélisation à long terme, un levier crucial pour maximiser les performances dans un environnement concurrentiel.</p>
-
-        <h2>Conclusion</h2>
-        <p>Ce tableau de bord n’est pas un simple outil de suivi : c’est un instrument stratégique qui permet à l’entreprise de prendre des décisions éclairées, d’adapter ses opérations et de maximiser son efficacité dans un marché dynamique.</p>
-        <p>Grâce à une analyse continue des données, l’entreprise peut anticiper les tendances et s’assurer que ses actions s’alignent avec ses objectifs de croissance et de satisfaction client. Les données commerciales ont été soigneusement adaptées aux spécificités du prototype demandé, garantissant des insights pertinents et actionnables pour la stratégie commerciale.</p>
+        <h2 data-translate="mandat2-h2-3">MODÉLISATION DES DONNÉES</h2>
+        <p data-translate="mandat2-p3">Sur la base de cette compréhension, plusieurs colonnes calculées ont été créées afin d’enrichir le jeu de données sans introduire d’hypothèses risquées. Une colonne Statut a été ajoutée pour identifier si un employé est actif ou inactif, en fonction de la présence d’une date de départ. Une colonne Ancienneté (Années) a également été calculée pour mesurer la durée d’emploi, permettant ainsi d’analyser l’expérience globale de l’effectif.<br>
+        De plus, une table Date dédiée a été créée pour soutenir l’analyse temporelle. Des relations ont ensuite été établies de manière simple et cohérente, liant la table principale des employés aux tables des départements, des unités d’affaires et des dates par le biais de leurs identifiants respectifs.<br>
+        Ce modèle relationnel permet une navigation fluide entre les analyses et garantit que les indicateurs calculés peuvent être analysés de manière cohérente par département, unité d’affaires, pays ou toute autre dimension organisationnelle pertinente.<br>
+        Du point de vue des calculs, seuls les indicateurs jugés fiables compte tenu des données disponibles ont été retenus. L’effectif total est calculé comme le nombre de lignes du jeu de données, conformément à l’hypothèse validée selon laquelle chaque ligne correspond à un employé distinct dans cet échantillon.<br>
+        Des indicateurs agrégés tels que le salaire moyen, le pourcentage de prime moyen et l’ancienneté moyenne ont été calculés afin de fournir un aperçu concis et pertinent de la structure de rémunération de l’entreprise et de l’expérience de son effectif.</p>
       </div>
     </article>
 
@@ -267,7 +264,7 @@
     </div>
 
     <div class="social-icons">
-      <a href="https://www.linkedin.com/in/djeny-mainvil-msc-4a6a26189" target="_blank" class="social-icon">&#x1F4E7;</a>
+      <a href="https://outlook.office.com/bookwithme/user/53b2782baf6c46d496915f799221fceb@makila.ai?anonymous&amp;ismsaljsauthenabled&amp;ep=plink" target="_blank" class="social-icon">&#x1F4E7;</a>
     </div>
 
     <p data-translate="footer-copyright" class="footer-copyright">&copy; 2026 Djeny Mainvil. Tous droits r&eacute;serv&eacute;s.</p>
