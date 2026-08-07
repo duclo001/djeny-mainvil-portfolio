@@ -186,7 +186,7 @@ const translations = {
     'footer-tagline': 'Analyser. Clarifier. Décider.',
     'footer-subtitle': 'Économiste & Analyste des Affaires',
     'footer-location': 'Montréal, Canada',
-    'footer-copyright': '&copy; 2026 Djeny Mainvil. Tous droits réservés.',
+    'footer-copyright': '© 2026 Djeny Mainvil. Tous droits réservés.',
     
     // Page recherches.html
     'recherches-page-title': 'Recherches Académiques',
@@ -434,7 +434,7 @@ const translations = {
     'pro-section-mandats-title': 'Comment j’interviens concrètement.',
     'pro-section-mandats-text': 'Trois exemples de mandats clés, adaptés à la réalité opérationnelle des dirigeants et des équipes analytiques.',
     'pro-mandats-aside-title': 'Focus',
-    'pro-mandats-aside-text': 'Chaque mandat cible un besoin précis&nbsp;: clarifier, structurer ou gouverner l’information décisionnelle.',
+    'pro-mandats-aside-text': 'Chaque mandat cible un besoin précis : clarifier, structurer ou gouverner l’information décisionnelle.',
     'pro-feature-1-eyebrow': 'Pilotage stratégique',
     'pro-feature-1-title': 'Rapport d’analyse de performance, Tableau de bord des ventes.',
     'pro-feature-1-text': 'Indicateurs clés (Book-to-Bill, top produits, cartographie clients) pour orienter la stratégie commerciale.',
@@ -521,7 +521,7 @@ const translations = {
     'mandat3-h2-1': 'Diagnostic opérationnel',
     'mandat3-p1': 'En collaboration, nous avons réalisé une analyse approfondie des opérations, depuis l’approvisionnement jusqu’à la livraison finale, afin d’identifier les principales inefficacités et les leviers d’amélioration. Notre réflexion s’est articulée autour de trois axes stratégiques : le renforcement de la capacité opérationnelle, l’optimisation de l’engagement des bénévoles et le développement de modèles de financement plus durables.',
     'mandat3-h2-2': 'Solutions proposées',
-    'mandat3-p2': 'En tant qu’équipe, nous avons proposé des solutions innovantes, notamment un <strong>modèle de partenariat corporatif en responsabilité sociale (CSR)</strong> pour répondre aux enjeux de main-d’œuvre, une <strong>plateforme digitale</strong> visant à mobiliser des bénévoles flexibles («&nbsp;Rescue Runners&nbsp;»), ainsi qu’un <strong>concept de financement</strong> transformant les achats du quotidien en impact social («&nbsp;Your snack, their meal&nbsp;»).',
+    'mandat3-p2': 'En tant qu’équipe, nous avons proposé des solutions innovantes, notamment un <strong>modèle de partenariat corporatif en responsabilité sociale (CSR)</strong> pour répondre aux enjeux de main-d’œuvre, une <strong>plateforme digitale</strong> visant à mobiliser des bénévoles flexibles (« Rescue Runners »), ainsi qu’un <strong>concept de financement</strong> transformant les achats du quotidien en impact social (« Your snack, their meal »).',
     'mandat3-h2-3': 'Apprentissages',
     'mandat3-p3': 'Cette expérience m’a permis de contribuer à une initiative à fort impact social, tout en appliquant une approche stratégique et axée sur les données dans un contexte réel. Elle a renforcé mon engagement à utiliser la donnée, la collaboration et l’innovation pour bâtir des systèmes plus efficaces, inclusives et durables.',
     'mandat3-credits-title': 'Projet réalisé en juillet 2025 sur le terrain en collaboration avec :',
@@ -735,7 +735,7 @@ const translations = {
     'footer-tagline': 'Analyze. Clarify. Decide.',
     'footer-subtitle': 'Economist & Business Analyst',
     'footer-location': 'Montréal, Canada',
-    'footer-copyright': '&copy; 2026 Djeny Mainvil. All rights reserved.',
+    'footer-copyright': '© 2026 Djeny Mainvil. All rights reserved.',
     
     // Page recherches.html
     'recherches-page-title': 'Academic Research',

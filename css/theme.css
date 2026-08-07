@@ -1,0 +1,563 @@
+/* ═══════════════════════════════════════════════════════════
+   THEME — couche visuelle unifiée (2026)
+
+   Chargée en dernier. Elle possède l'apparence du site :
+   palette, typographie, rythme des sections, finitions.
+
+   Objectif : une seule couleur d'accent (lavande) sur une base
+   marine. Les gradients corail / rose / violet hérités du
+   template Webflow sont neutralisés ici, pas supprimés dans
+   index2.css, pour que la reprise reste réversible.
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* Encre */
+  --ink: #002244;
+  --ink-deep: #001730;
+  --ink-soft: rgba(0, 34, 68, 0.68);
+  --ink-faint: rgba(0, 34, 68, 0.45);
+
+  /* Accent unique */
+  --accent: #7b8cde;
+  --accent-deep: #5566bd;
+  --accent-wash: rgba(123, 140, 222, 0.10);
+  --accent-line: rgba(123, 140, 222, 0.28);
+
+  /* Surfaces */
+  --surface: #ffffff;
+  --surface-alt: #f6f7fc;
+  --line: rgba(0, 34, 68, 0.08);
+
+  /* Sur fond marine */
+  --on-dark: rgba(247, 248, 252, 0.92);
+  --on-dark-soft: rgba(247, 248, 252, 0.62);
+
+  --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+/* ═══ 1. Neutralisation des gradients chauds ════════════════ */
+
+/* Le liseré arc-en-ciel animé du pied de page. */
+.footer::before {
+  display: none !important;
+}
+
+/* Le dégradé animé sur la signature du pied de page. */
+.footer-tagline {
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: currentColor !important;
+  animation: none !important;
+}
+
+.footer-location::after {
+  background: var(--accent-line) !important;
+}
+
+/* ═══ 2. Typographie ════════════════════════════════════════ */
+
+.executive-hero .hero-title,
+.section-title,
+.footer-tagline {
+  font-family: var(--serif);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.executive-hero .hero-title {
+  font-size: 3.35rem;
+  line-height: 1.12;
+}
+
+/* Un filet court et lavande remplace le soulignement corail. */
+.section-title {
+  color: var(--ink) !important;
+  border-bottom: none !important;
+  border-image: none !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 1.15rem;
+}
+
+.section-title::before {
+  display: none !important;
+}
+
+/* index2.js pose la classe .active au défilement, ce qui étirait le
+   filet sur toute la largeur du titre — d'où des soulignements de
+   longueurs différentes selon la section déjà vue ou non. */
+.section-title::after,
+.section-title.active::after {
+  content: '';
+  display: block;
+  width: 54px !important;
+  height: 3px !important;
+  margin-top: 0.85rem;
+  border-radius: 2px;
+  background: var(--accent) !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* En-têtes centrés : le filet suit le texte. */
+.services-header .section-title::after,
+.pub-header .section-title::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pub-header .section-title::after {
+  margin-left: 0;
+}
+
+/* ═══ 3. Navigation ═════════════════════════════════════════ */
+
+.nav {
+  background: var(--ink) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-logo img {
+  max-height: 42px;
+  width: auto;
+}
+
+.nav-link:hover {
+  color: var(--accent) !important;
+}
+
+/* Le sélecteur de langue redevient une commande discrète. */
+.language-toggle {
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  box-shadow: none !important;
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 0.42rem 0.95rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+
+.language-toggle:hover {
+  background: rgba(255, 255, 255, 0.10) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ═══ 4. Boutons ════════════════════════════════════════════ */
+
+.cta-button,
+.executive-hero .cta-button {
+  background: var(--ink) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--ink) !important;
+  border-radius: 4px;
+  box-shadow: 0 8px 22px rgba(0, 34, 68, 0.16) !important;
+  transition: background 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.cta-button:hover,
+.executive-hero .cta-button:hover {
+  background: #0a3366 !important;
+  box-shadow: 0 12px 30px rgba(0, 34, 68, 0.26) !important;
+  transform: translateY(-2px);
+}
+
+.cta-button-secondary:hover {
+  background: var(--accent) !important;
+  border-color: transparent !important;
+}
+
+/* Bouton de remontée : sobre, il ne doit plus capter l'œil. */
+.back-to-top {
+  width: 44px !important;
+  height: 44px !important;
+  background: var(--ink) !important;
+  box-shadow: 0 8px 20px rgba(0, 34, 68, 0.22) !important;
+  opacity: 0.9;
+}
+
+.back-to-top:hover {
+  background: var(--accent-deep) !important;
+  opacity: 1;
+}
+
+/* ═══ 5. Hero ═══════════════════════════════════════════════ */
+
+/* Le fondu est incrusté dans le fichier image lui-même : la photo
+   n'a pas de bord franc. On retire donc le voile ajouté par-dessus,
+   ainsi que tout cadre — une ombre ou un rayon dessinerait un
+   rectangle là où l'œil ne voit aucun contour. */
+.executive-hero .hero-image-container::after {
+  display: none !important;
+}
+
+.executive-hero .hero-image {
+  border-radius: 0;
+  box-shadow: none;
+  filter: saturate(0.72);
+}
+
+.hero-role {
+  color: var(--accent-deep);
+  font-weight: 600;
+}
+
+/* La pastille de diplômes s'étirait sur toute la colonne : elle est
+   fille d'un conteneur flex, donc étirée par align-items: stretch. */
+.hero-credential {
+  display: inline-flex !important;
+  align-self: flex-start;
+  align-items: center;
+  width: auto !important;
+  max-width: 100%;
+  background: var(--accent-wash) !important;
+  border: 1px solid var(--accent-line) !important;
+  color: var(--ink-soft) !important;
+  font-size: 0.88rem;
+}
+
+.executive-hero .cta-buttons {
+  margin-top: 1.6rem;
+}
+
+/* ═══ 6. Rythme des sections ════════════════════════════════ */
+
+.services-section {
+  background: var(--surface-alt) !important;
+}
+
+.executive-feature-section {
+  background: var(--surface);
+}
+
+/* ═══ 7. Publications ═══════════════════════════════════════ */
+
+/* Les vignettes venaient de banques d'images très différentes.
+   Cadrage et traitement communs pour qu'elles fassent série. */
+.pub-article-card {
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  transition: box-shadow 240ms ease, transform 240ms ease;
+}
+
+.pub-article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0, 34, 68, 0.12);
+}
+
+.pub-article-img {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.04);
+  transition: filter 300ms ease;
+}
+
+.pub-article-card:hover .pub-article-img {
+  filter: saturate(1) contrast(1.04);
+}
+
+.pub-article-tag {
+  background: var(--accent-wash) !important;
+  border: 1px solid var(--accent-line) !important;
+  color: var(--accent-deep) !important;
+}
+
+.pub-counter {
+  border-color: var(--accent-line) !important;
+  color: var(--ink-soft) !important;
+}
+
+.executive-kicker {
+  color: var(--accent-deep) !important;
+}
+
+/* Vignettes de recherches : trop petites pour informer. */
+.pub-research-thumb {
+  width: 64px !important;
+  height: 64px !important;
+  border-radius: 10px;
+  object-fit: cover;
+  filter: saturate(0.82);
+}
+
+.pub-research-link:hover span {
+  color: var(--accent-deep);
+}
+
+/* ═══ 8. Services ═══════════════════════════════════════════ */
+
+/* Les cartes ne réagissent volontairement pas au survol : elles
+   ne sont pas cliquables. La lisibilité passe donc par le
+   contraste et la hiérarchie, pas par le mouvement. */
+.services-grid .service-card {
+  position: relative;
+  background: var(--surface) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0, 34, 68, 0.04) !important;
+  padding-top: 1.9rem;
+}
+
+.services-grid .service-card::before {
+  display: none !important;
+}
+
+.service-card .service-title {
+  font-size: 1.06rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 0;
+}
+
+/* Même filet lavande que les titres de section, en plus court. */
+.service-card .service-title::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin: 0.7rem 0 0.95rem;
+  border-radius: 2px;
+  background: var(--accent);
+  opacity: 0.6;
+}
+
+.service-list li {
+  color: var(--ink-soft);
+}
+
+.service-list li::before {
+  background: var(--accent);
+  opacity: 0.75;
+}
+
+.services-audience-title {
+  color: var(--accent-deep) !important;
+}
+
+.audience-item {
+  border-color: var(--line) !important;
+  border-radius: 12px;
+}
+
+/* ═══ 9. À propos ═══════════════════════════════════════════ */
+
+.section-lead {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.42rem;
+  line-height: 1.45;
+  color: var(--ink);
+  padding-left: 1.15rem;
+  border-left: 3px solid var(--accent);
+}
+
+.executive-aside-photo {
+  border-radius: 16px;
+  box-shadow: 0 24px 56px rgba(0, 34, 68, 0.16);
+}
+
+/* ═══ 10. Section contact ═══════════════════════════════════ */
+
+/* Elle occupait une grille à deux colonnes dont la seconde
+   était vide. Elle devient un bloc marine, centré, qui ferme
+   la page. */
+.executive-cta {
+  background: var(--ink);
+  border-radius: 22px;
+  padding: 3.6rem 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.executive-cta .executive-section-grid {
+  grid-template-columns: 1fr !important;
+  text-align: center;
+}
+
+.executive-cta .section-title {
+  color: #ffffff !important;
+}
+
+.executive-cta .section-title::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.executive-cta .section-text {
+  color: var(--on-dark) !important;
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.executive-cta .cta-buttons {
+  justify-content: center;
+  margin-top: 1.8rem;
+}
+
+.executive-cta .cta-button {
+  background: #ffffff !important;
+  color: var(--ink) !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22) !important;
+}
+
+.executive-cta .cta-button:hover {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #ffffff !important;
+}
+
+/* ═══ 11. Pied de page ══════════════════════════════════════ */
+
+.footer {
+  background: var(--ink-deep) !important;
+  padding-top: 3.5rem;
+}
+
+.footer-logo img {
+  max-height: 40px;
+  width: auto;
+  opacity: 0.92;
+}
+
+.footer-tagline {
+  color: #ffffff !important;
+  font-size: 1.5rem;
+  letter-spacing: 0 !important;
+}
+
+.footer-subtitle,
+.footer-location {
+  color: var(--on-dark-soft) !important;
+  font-weight: 400;
+}
+
+/* Les liens étaient des pilules grises qui semblaient
+   désactivées. Ils redeviennent des liens. */
+.footer-links {
+  gap: 0.35rem 2rem;
+}
+
+.footer-link {
+  background: transparent !important;
+  border: none !important;
+  backdrop-filter: none !important;
+  padding: 0.35rem 0 !important;
+  border-radius: 0 !important;
+  color: var(--on-dark-soft) !important;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 240ms ease;
+}
+
+.footer-link:hover {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+.footer-link:hover::after {
+  transform: scaleX(1);
+}
+
+.social-icon {
+  width: 44px !important;
+  height: 44px !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  color: var(--on-dark) !important;
+  backdrop-filter: none !important;
+  transition: background 220ms ease, border-color 220ms ease;
+}
+
+.social-icon::before {
+  display: none !important;
+}
+
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.social-icon:hover {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #ffffff !important;
+}
+
+.footer-copyright {
+  color: rgba(247, 248, 252, 0.42) !important;
+  font-size: 0.82rem;
+}
+
+/* ═══ 12. Preloader ═════════════════════════════════════════ */
+
+.preloader-subtitle {
+  color: var(--accent) !important;
+}
+
+.preloader-name {
+  font-family: var(--serif);
+}
+
+/* ═══ 13. Responsive ════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .executive-hero .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .section-lead {
+    font-size: 1.24rem;
+  }
+
+  .executive-cta {
+    padding: 2.75rem 1.6rem;
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .executive-hero .hero-title {
+    font-size: 2.05rem;
+  }
+
+  .section-lead {
+    font-size: 1.12rem;
+    padding-left: 0.9rem;
+  }
+
+  .section-title::after {
+    width: 44px;
+    margin-top: 0.7rem;
+  }
+
+  .executive-cta {
+    padding: 2.25rem 1.25rem;
+  }
+
+  .footer-links {
+    gap: 0.25rem 1.25rem;
+  }
+
+  .pub-research-thumb {
+    width: 54px !important;
+    height: 54px !important;
+  }
+}
