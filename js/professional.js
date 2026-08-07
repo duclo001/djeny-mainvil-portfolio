@@ -76,9 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		el.style.setProperty('--delay', `${180 + i * 55}ms`);
 	});
 	// --- Ajout swipe tactile natif pour exec-swipe-track (carousel articles) ---
-	const swipeMenus = document.querySelectorAll('.exec-swipe-menu');
-	swipeMenus.forEach((swipeMenu) => {
-		const track = swipeMenu.querySelector('.exec-swipe-track');
+	// Le CSS pose touch-action: pan-y sur la piste, donc le navigateur ne gère
+	// pas le défilement horizontal : on le pilote nous-mêmes au doigt.
+	swipeMenus.forEach((menu) => {
+		const track = menu.querySelector('.exec-swipe-track');
 		if (!track) return;
 		let isTouching = false;
 		let touchStartX = 0;
@@ -133,24 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
 	let rafId = 0;
 	let isPointerDown = false;
 
-	// Pagination dots
-	const dots = Array.from(swipeMenu.querySelectorAll('.exec-swipe-dot'));
-
 	const setActive = (index) => {
 		activeIndex = Math.max(0, Math.min(cards.length - 1, index));
 		cards.forEach((el, i) => el.classList.toggle('is-active', i === activeIndex));
 		captionTag.textContent = cards[activeIndex].dataset.tag || '';
 		captionTitle.textContent = cards[activeIndex].dataset.title || '';
-		dots.forEach((d, i) => d.classList.toggle('is-active', i === activeIndex));
 	};
-
-	// Click on a dot → scroll to that card
-	dots.forEach((dot, i) => {
-		dot.addEventListener('click', () => {
-			setActive(i);
-			centerCard(i);
-		});
-	});
 
 	const centerCard = (index, behavior = 'smooth') => {
 		const card = cards[index];

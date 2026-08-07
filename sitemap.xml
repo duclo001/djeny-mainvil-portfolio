@@ -2,31 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.djenymainvil.com/</loc>
-    <lastmod>2026-01-23</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://www.djenymainvil.com/blog.html</loc>
-    <lastmod>2026-01-23</lastmod>
+    <loc>https://www.djenymainvil.com/mandat1.html</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.djenymainvil.com/projects.html</loc>
-    <lastmod>2026-01-23</lastmod>
+    <loc>https://www.djenymainvil.com/mandat2.html</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://www.djenymainvil.com/mandat3.html</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://www.djenymainvil.com/recherches.html</loc>
-    <lastmod>2026-01-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.djenymainvil.com/contribution.html</loc>
     <lastmod>2026-01-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -50,43 +51,16 @@
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
-
   <url>
     <loc>https://www.djenymainvil.com/article4.html</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
-
   <url>
     <loc>https://www.djenymainvil.com/article5.html</loc>
     <lastmod>2026-02-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://www.djenymainvil.com/detail_blog.html</loc>
-    <lastmod>2026-01-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://www.djenymainvil.com/detail_projects.html</loc>
-    <lastmod>2026-01-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://www.djenymainvil.com/detail_project-role.html</loc>
-    <lastmod>2026-01-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://www.djenymainvil.com/detail_project-tags.html</loc>
-    <lastmod>2026-01-23</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
   </url>
 </urlset>

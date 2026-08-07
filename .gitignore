@@ -1,1 +1,10 @@
-.history
+# Éditeurs / OS
+.history/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Outils
+.vercel/
+node_modules/
+*.log

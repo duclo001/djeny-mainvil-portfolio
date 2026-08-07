@@ -19,6 +19,10 @@ const translations = {
     'btn-back': '← Retour à l\'accueil',
     'btn-back-articles': '← Retour aux articles',
     'btn-back-main': '← Retour à la page principale',
+
+    // Page 404
+    'notfound-title': 'Cette page n\'existe pas',
+    'notfound-text': 'Le lien est peut-être obsolète ou la page a été déplacée. Voici par où reprendre.',
     
     // Page d'accueil (index2.html) - Hero section
     'hero-subtitle1': 'Conseillère en solutions technologiques',
@@ -188,6 +192,9 @@ const translations = {
     'recherches-page-title': 'Recherches Académiques',
     'recherches-page-subtitle': 'Retrouvez ici mes travaux de recherche et contributions académiques dans le domaine de l\'économie, de l\'intelligence des affaires et de l\'analyse de données.',
     'recherches-cta-text': 'Pour consulter les documents complets,',
+    'recherches-hec-img-alt': 'HEC Montréal - Rapport de stage',
+    'recherches-udem-img-alt': 'Université de Montréal - Rapport de recherche',
+    'recherches-quisqueya-img-alt': 'Université Quisqueya - Mémoire',
     'recherches-hec-title': 'HEC Montréal (Master) - Rapport de Stage',
     'recherches-hec-work': 'Optimisation de la performance marketing et commerciale dans une PME industrielle par l\'intelligence d\'affaires : intégration de données multi-sources et développement de tableaux de bord Power BI',
     'recherches-hec-context': 'Résumé :',
@@ -548,6 +555,10 @@ const translations = {
     'btn-back': '← Back to home',
     'btn-back-articles': '← Back to articles',
     'btn-back-main': '← Back to main page',
+
+    // Page 404
+    'notfound-title': 'This page does not exist',
+    'notfound-text': 'The link may be outdated or the page has been moved. Here is where to pick up.',
     
     // Home page (index2.html) - Hero section
     'hero-subtitle1': 'Technology Solutions Advisor',
@@ -717,6 +728,9 @@ const translations = {
     'recherches-page-title': 'Academic Research',
     'recherches-page-subtitle': 'Find here my research work and academic contributions in the field of economics, business intelligence, and data analysis.',
     'recherches-cta-text': 'To access the full documents,',
+    'recherches-hec-img-alt': 'HEC Montreal - Internship report',
+    'recherches-udem-img-alt': 'Université de Montréal - Research report',
+    'recherches-quisqueya-img-alt': 'Quisqueya University - Thesis',
     'recherches-hec-title': 'HEC Montreal (Master) - Internship Report',
     'recherches-hec-work': 'Optimization of marketing and sales performance in an industrial SME through business intelligence: integration of multi-source data and development of Power BI dashboards',
     'recherches-hec-context': 'Summary:',

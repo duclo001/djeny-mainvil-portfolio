@@ -24,43 +24,18 @@
     {
       "src": "images/**",
       "use": "@vercel/static"
-    },
-    {
-      "src": "fonts/**",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/index\\.html$",
+      "src": "/(index|index2|index2_backup|contact|maintenance|blog|projects|contribution)\\.html$",
       "status": 301,
       "headers": {
         "Location": "/"
       }
     },
     {
-      "src": "/index2_backup\\.html$",
-      "status": 301,
-      "headers": {
-        "Location": "/"
-      }
-    },
-    {
-      "src": "/index2\\.html$",
-      "status": 301,
-      "headers": {
-        "Location": "/"
-      }
-    },
-    {
-      "src": "/contact\\.html$",
-      "status": 301,
-      "headers": {
-        "Location": "/#contact"
-      }
-    },
-    {
-      "src": "/maintenance\\.html$",
+      "src": "/detail_[a-z-]+\\.html$",
       "status": 301,
       "headers": {
         "Location": "/"
