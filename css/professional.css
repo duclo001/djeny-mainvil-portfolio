@@ -2377,3 +2377,125 @@ body.preloader-active .nav-logo {
   opacity: 0 !important;
 }
 
+
+/* ══════════════════════════════════════════════════════════
+   OFFRE DE SERVICES (2026)
+   Titre professionnel, listes de prestations, accroche À propos
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Titre professionnel, en tête du hero ───────────────── */
+.hero-role {
+  margin: 0 0 0.9rem;
+  max-width: 680px;
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #7b8cde;
+  letter-spacing: 0.01em;
+}
+
+/* ── Listes de prestations dans les cartes de service ───── */
+.service-icon {
+  font-size: 1.55rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.service-card .service-title {
+  margin-bottom: 0.9rem;
+  line-height: 1.35;
+}
+
+.service-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-list li {
+  position: relative;
+  margin: 0 0 0.5rem;
+  padding-left: 1.1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(0, 34, 68, 0.68);
+  border: none;
+}
+
+.service-list li::before {
+  content: '';
+  position: absolute;
+  top: 0.62em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #7b8cde;
+}
+
+.service-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Accroche d'ouverture de la section À propos ────────── */
+.section-lead {
+  margin: 0 0 1.35rem;
+  font-size: 1.28rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #002244;
+}
+
+/* Les cartes prennent la hauteur de leur contenu : une liste de 4 items
+   ne s'étire plus pour suivre une liste de 10. */
+.services-grid {
+  align-items: flex-start;
+}
+
+/* ── Grille des publics : s'adapte au nombre de cartes ──── */
+@media (min-width: 601px) {
+  .services-audience {
+    max-width: 1100px;
+  }
+
+  .services-audience-grid {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  }
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero-role {
+    font-size: 0.97rem;
+  }
+
+  .section-lead {
+    font-size: 1.18rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-role {
+    font-size: 0.92rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-lead {
+    font-size: 1.08rem;
+  }
+
+  .service-list li {
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .service-icon {
+    font-size: 1.35rem;
+  }
+
+  .service-list li {
+    font-size: 0.88rem;
+    padding-left: 1rem;
+  }
+}
