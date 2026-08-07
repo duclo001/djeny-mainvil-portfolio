@@ -2395,12 +2395,6 @@ body.preloader-active .nav-logo {
 }
 
 /* ── Listes de prestations dans les cartes de service ───── */
-.service-icon {
-  font-size: 1.55rem;
-  line-height: 1;
-  margin-bottom: 1rem;
-}
-
 .service-card .service-title {
   margin-bottom: 0.9rem;
   line-height: 1.35;
@@ -2490,10 +2484,6 @@ body.preloader-active .nav-logo {
 }
 
 @media (max-width: 360px) {
-  .service-icon {
-    font-size: 1.35rem;
-  }
-
   .service-list li {
     font-size: 0.88rem;
     padding-left: 1rem;
