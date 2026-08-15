@@ -1,120 +1,76 @@
 /* ═══════════════════════════════════════════════════════════
-   THEME — couche visuelle unifiée (2026)
+   THEME — habillage du site
 
-   Chargée en dernier. Elle possède l'apparence du site :
-   palette, typographie, rythme des sections, finitions.
+   Chargée après foundation.css et professional.css.
 
-   Objectif : une seule couleur d'accent (lavande) sur une base
-   marine. Les gradients corail / rose / violet hérités du
-   template Webflow sont neutralisés ici, pas supprimés dans
-   index2.css, pour que la reprise reste réversible.
+   Elle possède l'apparence : navigation, pied de page, boutons,
+   et les finitions de chaque section. Elle remplace index2.css
+   et _responsive-nav.css, dont 72 % des sélecteurs ne
+   correspondaient plus à aucun élément du site.
+
+   Aucun !important : la cascade est désormais cohérente, les
+   feuilles n'ont plus à se battre entre elles.
    ═══════════════════════════════════════════════════════════ */
 
-:root {
-  /* Encre */
-  --ink: #002244;
-  --ink-deep: #001730;
-  --ink-soft: rgba(0, 34, 68, 0.68);
-  --ink-faint: rgba(0, 34, 68, 0.45);
+/* ═══ 1. Preloader ══════════════════════════════════════════ */
 
-  /* Accent unique */
-  --accent: #7b8cde;
-  --accent-deep: #5566bd;
-  --accent-wash: rgba(123, 140, 222, 0.10);
-  --accent-line: rgba(123, 140, 222, 0.28);
-
-  /* Surfaces */
-  --surface: #ffffff;
-  --surface-alt: #f6f7fc;
-  --line: rgba(0, 34, 68, 0.08);
-
-  /* Sur fond marine */
-  --on-dark: rgba(247, 248, 252, 0.92);
-  --on-dark-soft: rgba(247, 248, 252, 0.62);
-
-  --serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--e-3);
+  background: var(--fond);
+  transition: opacity var(--transition-lente), visibility var(--transition-lente);
 }
 
-/* ═══ 1. Neutralisation des gradients chauds ════════════════ */
-
-/* Le liseré arc-en-ciel animé du pied de page. */
-.footer::before {
-  display: none !important;
+.preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
 }
 
-/* Le dégradé animé sur la signature du pied de page. */
-.footer-tagline {
-  background: none !important;
-  -webkit-background-clip: border-box !important;
-  background-clip: border-box !important;
-  -webkit-text-fill-color: currentColor !important;
-  animation: none !important;
-}
-
-.footer-location::after {
-  background: var(--accent-line) !important;
-}
-
-/* ═══ 2. Typographie ════════════════════════════════════════ */
-
-.executive-hero .hero-title,
-.section-title,
-.footer-tagline {
-  font-family: var(--serif);
+.preloader-name {
+  font-family: var(--police-titre);
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
   font-weight: 700;
-  letter-spacing: -0.015em;
+  letter-spacing: 0.06em;
+  color: var(--texte);
 }
 
-.executive-hero .hero-title {
-  font-size: 3.35rem;
-  line-height: 1.12;
+.preloader-subtitle {
+  font-size: var(--t-xs);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
-/* Un filet court et lavande remplace le soulignement corail. */
-.section-title {
-  color: var(--ink) !important;
-  border-bottom: none !important;
-  border-image: none !important;
-  padding-bottom: 0 !important;
-  margin-bottom: 1.15rem;
-}
-
-.section-title::before {
-  display: none !important;
-}
-
-/* index2.js pose la classe .active au défilement, ce qui étirait le
-   filet sur toute la largeur du titre — d'où des soulignements de
-   longueurs différentes selon la section déjà vue ou non. */
-.section-title::after,
-.section-title.active::after {
-  content: '';
-  display: block;
-  width: 54px !important;
-  height: 3px !important;
-  margin-top: 0.85rem;
-  border-radius: 2px;
-  background: var(--accent) !important;
-  animation: none !important;
-  transition: none !important;
-}
-
-/* En-têtes centrés : le filet suit le texte. */
-.services-header .section-title::after,
-.pub-header .section-title::after {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.pub-header .section-title::after {
-  margin-left: 0;
-}
-
-/* ═══ 3. Navigation ═════════════════════════════════════════ */
+/* ═══ 2. Navigation ═════════════════════════════════════════ */
 
 .nav {
-  background: var(--ink) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--hauteur-nav);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--e-4);
+  padding: 0 var(--e-6);
+  background: var(--marine-800);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex-shrink: 0;
 }
 
 .nav-logo img {
@@ -122,75 +78,121 @@
   width: auto;
 }
 
-.nav-link:hover {
-  color: var(--accent) !important;
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--e-6);
+  list-style: none;
 }
 
-/* Le sélecteur de langue redevient une commande discrète. */
-.language-toggle {
-  background: transparent !important;
-  border: 1px solid rgba(255, 255, 255, 0.28) !important;
-  box-shadow: none !important;
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: var(--hauteur-nav);
+  padding: 0 var(--e-1);
   color: #ffffff;
-  border-radius: 999px;
-  padding: 0.42rem 0.95rem;
-  font-size: 0.78rem;
+  font-size: var(--t-sm);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  position: relative;
+}
+
+/* Un trait qui se déploie sous le lien survolé, plutôt qu'un
+   changement de couleur : plus discret, plus net. */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.language-toggle {
+  flex-shrink: 0;
+  padding: var(--e-2) var(--e-4);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  border-radius: var(--arrondi-plein);
+  background: transparent;
+  color: #ffffff;
+  font-size: var(--t-xs);
   font-weight: 600;
   letter-spacing: 0.09em;
-  transition: background 200ms ease, border-color 200ms ease;
+  transition: background var(--transition), border-color var(--transition);
 }
 
 .language-toggle:hover {
-  background: rgba(255, 255, 255, 0.10) !important;
-  border-color: rgba(255, 255, 255, 0.5) !important;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.55);
 }
 
-/* ═══ 4. Boutons ════════════════════════════════════════════ */
-
-.cta-button,
-.executive-hero .cta-button {
-  background: var(--ink) !important;
-  color: #ffffff !important;
-  border: 1px solid var(--ink) !important;
-  border-radius: 4px;
-  box-shadow: 0 8px 22px rgba(0, 34, 68, 0.16) !important;
-  transition: background 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+/* Bouton du menu mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  z-index: 1001;
 }
 
-.cta-button:hover,
-.executive-hero .cta-button:hover {
-  background: #0a3366 !important;
-  box-shadow: 0 12px 30px rgba(0, 34, 68, 0.26) !important;
-  transform: translateY(-2px);
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: #ffffff;
+  transition: transform var(--transition), opacity var(--transition);
 }
 
-.cta-button-secondary:hover {
-  background: var(--accent) !important;
-  border-color: transparent !important;
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
-/* Bouton de remontée : sobre, il ne doit plus capter l'œil. */
-.back-to-top {
-  width: 44px !important;
-  height: 44px !important;
-  background: var(--ink) !important;
-  box-shadow: 0 8px 20px rgba(0, 34, 68, 0.22) !important;
-  opacity: 0.9;
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
 }
 
-.back-to-top:hover {
-  background: var(--accent-deep) !important;
-  opacity: 1;
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ═══ 5. Hero ═══════════════════════════════════════════════ */
+/* ═══ 3. Hero ═══════════════════════════════════════════════ */
 
-/* Le fondu est incrusté dans le fichier image lui-même : la photo
-   n'a pas de bord franc. On retire donc le voile ajouté par-dessus,
-   ainsi que tout cadre — une ombre ou un rayon dessinerait un
+.hero-section {
+  margin-top: var(--hauteur-nav);
+  display: flex;
+  align-items: center;
+  min-height: 70vh;
+  background: var(--fond);
+}
+
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Le fondu est incrusté dans le fichier image : la photo n'a pas
+   de bord franc. Ni cadre ni ombre, qui dessineraient un
    rectangle là où l'œil ne voit aucun contour. */
 .executive-hero .hero-image-container::after {
-  display: none !important;
+  display: none;
 }
 
 .executive-hero .hero-image {
@@ -199,187 +201,197 @@
   filter: saturate(0.72);
 }
 
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--e-8) var(--e-7) var(--e-8) var(--e-6);
+}
+
 .hero-role {
-  color: var(--accent-deep);
+  margin-bottom: var(--e-3);
+  max-width: 44ch;
+  color: var(--accent-fort);
+  font-size: var(--t-base);
   font-weight: 600;
+  line-height: 1.45;
 }
 
-/* La pastille de diplômes s'étirait sur toute la colonne : elle est
-   fille d'un conteneur flex, donc étirée par align-items: stretch. */
+.executive-hero .hero-title {
+  margin-bottom: var(--e-5);
+  font-family: var(--police-titre);
+  font-size: var(--t-3xl);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--texte);
+}
+
+.executive-hero .hero-subtitle {
+  max-width: 56ch;
+  margin-bottom: var(--e-5);
+  color: var(--texte-doux);
+  font-size: var(--t-lg);
+  line-height: var(--interligne-lache);
+}
+
 .hero-credential {
-  display: inline-flex !important;
-  align-self: flex-start;
+  display: inline-flex;
   align-items: center;
-  width: auto !important;
+  align-self: flex-start;
+  width: auto;
   max-width: 100%;
-  background: var(--accent-wash) !important;
-  border: 1px solid var(--accent-line) !important;
-  color: var(--ink-soft) !important;
-  font-size: 0.88rem;
+  padding: var(--e-2) var(--e-4);
+  border: 1px solid var(--accent-trait);
+  border-radius: var(--arrondi-plein);
+  background: var(--accent-voile);
+  color: var(--texte-doux);
+  font-size: var(--t-sm);
+  font-weight: 500;
 }
 
-.executive-hero .cta-buttons {
-  margin-top: 1.6rem;
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-4);
+  margin-top: var(--e-5);
 }
 
-/* ═══ 6. Rythme des sections ════════════════════════════════ */
+/* ═══ 4. Sections et titres ═════════════════════════════════ */
 
-.services-section {
-  background: var(--surface-alt) !important;
+.section-title {
+  margin-bottom: var(--e-4);
+  font-family: var(--police-titre);
+  font-size: var(--t-2xl);
+  font-weight: 700;
+  color: var(--texte);
+  letter-spacing: -0.015em;
 }
 
-.executive-feature-section {
-  background: var(--surface);
+.section-title::after {
+  content: '';
+  display: block;
+  width: 54px;
+  height: 3px;
+  margin-top: var(--e-3);
+  border-radius: 2px;
+  background: var(--accent);
 }
 
-/* ═══ 7. Publications ═══════════════════════════════════════ */
-
-/* Les vignettes venaient de banques d'images très différentes.
-   Cadrage et traitement communs pour qu'elles fassent série. */
-.pub-article-card {
-  overflow: hidden;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: var(--surface);
-  transition: box-shadow 240ms ease, transform 240ms ease;
+.services-header .section-title::after {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.pub-article-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(0, 34, 68, 0.12);
-}
-
-.pub-article-img {
-  aspect-ratio: 16 / 10;
-  width: 100%;
-  object-fit: cover;
-  filter: saturate(0.82) contrast(1.04);
-  transition: filter 300ms ease;
-}
-
-.pub-article-card:hover .pub-article-img {
-  filter: saturate(1) contrast(1.04);
-}
-
-.pub-article-tag {
-  background: var(--accent-wash) !important;
-  border: 1px solid var(--accent-line) !important;
-  color: var(--accent-deep) !important;
-}
-
-.pub-counter {
-  border-color: var(--accent-line) !important;
-  color: var(--ink-soft) !important;
+.section-text {
+  margin-bottom: var(--e-5);
+  color: var(--texte-doux);
+  font-size: var(--t-md);
+  line-height: var(--interligne-lache);
 }
 
 .executive-kicker {
-  color: var(--accent-deep) !important;
+  color: var(--accent-fort);
 }
 
-/* Vignettes de recherches : trop petites pour informer. */
-.pub-research-thumb {
-  width: 64px !important;
-  height: 64px !important;
-  border-radius: 10px;
-  object-fit: cover;
-  filter: saturate(0.82);
+/* ═══ 5. Boutons ════════════════════════════════════════════ */
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--e-4) var(--e-6);
+  border: 1px solid var(--marine-800);
+  border-radius: var(--arrondi-sm);
+  background: var(--marine-800);
+  color: #ffffff;
+  font-size: var(--t-base);
+  font-weight: 600;
+  line-height: 1.2;
+  box-shadow: var(--ombre-2);
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
-.pub-research-link:hover span {
-  color: var(--accent-deep);
+.cta-button:hover {
+  background: var(--marine-700);
+  border-color: var(--marine-700);
+  box-shadow: var(--ombre-3);
+  transform: translateY(-2px);
 }
 
-/* ═══ 8. Services ═══════════════════════════════════════════ */
-
-/* Les cartes ne réagissent volontairement pas au survol : elles
-   ne sont pas cliquables. La lisibilité passe donc par le
-   contraste et la hiérarchie, pas par le mouvement. */
-.services-grid .service-card {
-  position: relative;
-  background: var(--surface) !important;
-  border: 1px solid var(--line) !important;
-  border-radius: 16px;
-  box-shadow: 0 1px 3px rgba(0, 34, 68, 0.04) !important;
-  padding-top: 1.9rem;
+.cta-button:active {
+  transform: translateY(0);
 }
 
-.services-grid .service-card::before {
-  display: none !important;
+.executive-hero .cta-button {
+  padding: var(--e-4) var(--e-7);
+  font-size: var(--t-md);
 }
 
-.service-card .service-title {
-  font-size: 1.06rem;
-  letter-spacing: -0.01em;
-  color: var(--ink);
-  margin-bottom: 0;
+.cta-button-secondary {
+  background: transparent;
+  border-color: var(--trait-fort);
+  color: var(--texte);
+  box-shadow: none;
 }
 
-/* Même filet lavande que les titres de section, en plus court. */
-.service-card .service-title::after {
-  content: '';
-  display: block;
-  width: 30px;
-  height: 2px;
-  margin: 0.7rem 0 0.95rem;
-  border-radius: 2px;
+.cta-button-secondary:hover {
   background: var(--accent);
-  opacity: 0.6;
+  border-color: var(--accent);
+  color: #ffffff;
 }
 
-.service-list li {
-  color: var(--ink-soft);
+/* Remontée en haut de page */
+.back-to-top {
+  position: fixed;
+  right: var(--e-5);
+  bottom: var(--e-5);
+  z-index: 900;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--arrondi-plein);
+  background: var(--marine-800);
+  color: #ffffff;
+  box-shadow: var(--ombre-3);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity var(--transition), transform var(--transition), background var(--transition);
 }
 
-.service-list li::before {
-  background: var(--accent);
-  opacity: 0.75;
+.back-to-top.visible {
+  opacity: 0.92;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
-.services-audience-title {
-  color: var(--accent-deep) !important;
+.back-to-top:hover {
+  background: var(--accent-fort);
+  opacity: 1;
 }
 
-.audience-item {
-  border-color: var(--line) !important;
-  border-radius: 12px;
-}
+/* ═══ 6. Section de contact ═════════════════════════════════
+   Sa grille à deux colonnes laissait la moitié droite vide.
+   Elle devient un bloc marine centré qui ferme la page. */
 
-/* ═══ 9. À propos ═══════════════════════════════════════════ */
-
-.section-lead {
-  font-family: var(--serif);
-  font-weight: 700;
-  font-size: 1.42rem;
-  line-height: 1.45;
-  color: var(--ink);
-  padding-left: 1.15rem;
-  border-left: 3px solid var(--accent);
-}
-
-.executive-aside-photo {
-  border-radius: 16px;
-  box-shadow: 0 24px 56px rgba(0, 34, 68, 0.16);
-}
-
-/* ═══ 10. Section contact ═══════════════════════════════════ */
-
-/* Elle occupait une grille à deux colonnes dont la seconde
-   était vide. Elle devient un bloc marine, centré, qui ferme
-   la page. */
 .executive-cta {
-  background: var(--ink);
-  border-radius: 22px;
-  padding: 3.6rem 2.5rem;
-  margin-bottom: 1rem;
+  padding: var(--e-8) var(--e-6);
+  margin-bottom: var(--e-4);
+  border-radius: var(--arrondi-xl);
+  background: var(--marine-800);
 }
 
 .executive-cta .executive-section-grid {
-  grid-template-columns: 1fr !important;
+  grid-template-columns: 1fr;
   text-align: center;
 }
 
 .executive-cta .section-title {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 .executive-cta .section-title::after {
@@ -388,70 +400,95 @@
 }
 
 .executive-cta .section-text {
-  color: var(--on-dark) !important;
-  max-width: 620px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 62ch;
+  margin-inline: auto;
+  color: var(--sur-sombre);
 }
 
 .executive-cta .cta-buttons {
   justify-content: center;
-  margin-top: 1.8rem;
 }
 
 .executive-cta .cta-button {
-  background: #ffffff !important;
-  color: var(--ink) !important;
-  border-color: #ffffff !important;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22) !important;
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--marine-800);
 }
 
 .executive-cta .cta-button:hover {
-  background: var(--accent) !important;
-  border-color: var(--accent) !important;
-  color: #ffffff !important;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
 }
 
-/* ═══ 11. Pied de page ══════════════════════════════════════ */
+/* ═══ 7. Pied de page ═══════════════════════════════════════ */
 
 .footer {
-  background: var(--ink-deep) !important;
-  padding-top: 3.5rem;
+  padding: var(--e-8) var(--e-6) var(--e-6);
+  background: var(--marine-900);
+  color: var(--sur-sombre);
+  text-align: center;
+}
+
+.footer-logo {
+  margin-bottom: var(--e-5);
 }
 
 .footer-logo img {
   max-height: 40px;
   width: auto;
+  margin-inline: auto;
   opacity: 0.92;
 }
 
 .footer-tagline {
-  color: #ffffff !important;
-  font-size: 1.5rem;
-  letter-spacing: 0 !important;
+  margin-bottom: var(--e-2);
+  font-family: var(--police-titre);
+  font-size: var(--t-xl);
+  font-weight: 700;
+  color: #ffffff;
 }
 
-.footer-subtitle,
+.footer-subtitle {
+  margin-bottom: var(--e-1);
+  color: var(--sur-sombre-doux);
+  font-size: var(--t-sm);
+}
+
 .footer-location {
-  color: var(--on-dark-soft) !important;
-  font-weight: 400;
+  position: relative;
+  margin-bottom: var(--e-7);
+  padding-bottom: var(--e-6);
+  color: var(--sur-sombre-doux);
+  font-size: var(--t-sm);
 }
 
-/* Les liens étaient des pilules grises qui semblaient
-   désactivées. Ils redeviennent des liens. */
+.footer-location::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 56px;
+  height: 1px;
+  transform: translateX(-50%);
+  background: var(--trait-sombre);
+}
+
+/* Les liens étaient des pilules grises d'aspect désactivé. */
 .footer-links {
-  gap: 0.35rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--e-2) var(--e-6);
+  margin-bottom: var(--e-6);
 }
 
 .footer-link {
-  background: transparent !important;
-  border: none !important;
-  backdrop-filter: none !important;
-  padding: 0.35rem 0 !important;
-  border-radius: 0 !important;
-  color: var(--on-dark-soft) !important;
-  font-weight: 500;
   position: relative;
+  padding: var(--e-1) 0;
+  color: var(--sur-sombre-doux);
+  font-size: var(--t-sm);
+  font-weight: 500;
 }
 
 .footer-link::after {
@@ -464,30 +501,35 @@
   background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 240ms ease;
+  transition: transform var(--transition);
 }
 
 .footer-link:hover {
-  color: #ffffff !important;
-  background: transparent !important;
+  color: #ffffff;
 }
 
 .footer-link:hover::after {
   transform: scaleX(1);
 }
 
-.social-icon {
-  width: 44px !important;
-  height: 44px !important;
-  background: rgba(255, 255, 255, 0.06) !important;
-  border: 1px solid rgba(255, 255, 255, 0.16) !important;
-  color: var(--on-dark) !important;
-  backdrop-filter: none !important;
-  transition: background 220ms ease, border-color 220ms ease;
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--e-4);
+  margin-bottom: var(--e-6);
 }
 
-.social-icon::before {
-  display: none !important;
+.social-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--trait-sombre);
+  border-radius: var(--arrondi-plein);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--sur-sombre);
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
 }
 
 .social-icon svg {
@@ -496,68 +538,249 @@
 }
 
 .social-icon:hover {
-  background: var(--accent) !important;
-  border-color: var(--accent) !important;
-  color: #ffffff !important;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
 }
 
 .footer-copyright {
-  color: rgba(247, 248, 252, 0.42) !important;
-  font-size: 0.82rem;
+  padding-top: var(--e-5);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--sur-sombre-tenu);
+  font-size: var(--t-xs);
 }
 
-/* ═══ 12. Preloader ═════════════════════════════════════════ */
+/* ═══ 8. Finitions des sections d'accueil ═══════════════════ */
 
-.preloader-subtitle {
-  color: var(--accent) !important;
+.services-section {
+  background: var(--fond-doux);
 }
 
-.preloader-name {
-  font-family: var(--serif);
+/* Publications : les vignettes viennent de banques d'images très
+   différentes. Cadrage et traitement communs pour qu'elles
+   fassent série. */
+.pub-article-card {
+  overflow: hidden;
+  border: 1px solid var(--trait);
+  border-radius: var(--arrondi-lg);
+  background: var(--fond);
+  transition: box-shadow var(--transition), transform var(--transition);
 }
 
-/* ═══ 13. Responsive ════════════════════════════════════════ */
+.pub-article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--ombre-3);
+}
+
+.pub-article-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.04);
+  transition: filter var(--transition-lente);
+}
+
+.pub-article-card:hover .pub-article-img {
+  filter: saturate(1) contrast(1.04);
+}
+
+.pub-article-tag {
+  border: 1px solid var(--accent-trait);
+  background: var(--accent-voile);
+  color: var(--accent-fort);
+}
+
+.pub-counter {
+  border-color: var(--accent-trait);
+  color: var(--texte-doux);
+}
+
+.pub-research-thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--arrondi);
+  object-fit: cover;
+  filter: saturate(0.82);
+}
+
+/* Services : les cartes ne réagissent volontairement pas au
+   survol, elles ne sont pas cliquables. La lisibilité passe par
+   le contraste et la hiérarchie, pas par le mouvement. */
+.services-grid .service-card {
+  border: 1px solid var(--trait);
+  border-radius: var(--arrondi-lg);
+  background: var(--fond);
+  box-shadow: var(--ombre-1);
+}
+
+.service-card .service-title {
+  margin-bottom: 0;
+  font-family: var(--police-texte);
+  font-size: var(--t-md);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--texte);
+}
+
+.service-card .service-title::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin: var(--e-3) 0 var(--e-4);
+  border-radius: 2px;
+  background: var(--accent);
+  opacity: 0.6;
+}
+
+.service-list li {
+  color: var(--texte-doux);
+}
+
+.service-list li::before {
+  background: var(--accent);
+  opacity: 0.75;
+}
+
+.services-audience-title {
+  color: var(--accent-fort);
+}
+
+.audience-item {
+  border-color: var(--trait);
+  border-radius: var(--arrondi);
+}
+
+/* À propos */
+.section-lead {
+  margin-bottom: var(--e-5);
+  padding-left: var(--e-4);
+  border-left: 3px solid var(--accent);
+  font-family: var(--police-titre);
+  font-size: var(--t-xl);
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--texte);
+}
+
+.executive-aside-photo {
+  border-radius: var(--arrondi-lg);
+  box-shadow: var(--ombre-4);
+}
+
+/* ═══ 9. Responsive ═════════════════════════════════════════ */
 
 @media (max-width: 900px) {
-  .executive-hero .hero-title {
-    font-size: 2.5rem;
+  .nav {
+    padding: 0 var(--e-4);
   }
 
-  .section-lead {
-    font-size: 1.24rem;
+  .hamburger {
+    display: flex;
+    order: 2;
+  }
+
+  .language-toggle {
+    order: 3;
+    margin-left: auto;
+    margin-right: var(--e-3);
+  }
+
+  /* Le menu glisse depuis la gauche, sous la barre fixe. */
+  .nav-links {
+    position: fixed;
+    top: var(--hauteur-nav);
+    left: 0;
+    z-index: 999;
+    width: min(82vw, 380px);
+    height: calc(100vh - var(--hauteur-nav));
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: var(--e-6) var(--e-5);
+    background: var(--marine-800);
+    border-radius: 0 var(--arrondi-lg) var(--arrondi-lg) 0;
+    box-shadow: var(--ombre-4);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-12px);
+    transition: opacity var(--transition), transform var(--transition);
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-link {
+    width: 100%;
+    height: 54px;
+    font-size: var(--t-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .hero-section {
+    flex-direction: column;
+  }
+
+  .hero-content {
+    align-items: center;
+    padding: var(--e-6) var(--e-5) var(--e-7);
+    text-align: center;
+  }
+
+  .hero-role,
+  .executive-hero .hero-subtitle {
+    max-width: none;
+  }
+
+  .hero-credential {
+    align-self: center;
+  }
+
+  .cta-buttons {
+    justify-content: center;
   }
 
   .executive-cta {
-    padding: 2.75rem 1.6rem;
-    border-radius: 18px;
+    padding: var(--e-7) var(--e-5);
+    border-radius: var(--arrondi-lg);
   }
 }
 
 @media (max-width: 600px) {
-  .executive-hero .hero-title {
-    font-size: 2.05rem;
+  .footer {
+    padding: var(--e-7) var(--e-4) var(--e-5);
   }
 
-  .section-lead {
-    font-size: 1.12rem;
-    padding-left: 0.9rem;
+  .footer-links {
+    gap: var(--e-1) var(--e-4);
   }
 
   .section-title::after {
     width: 44px;
-    margin-top: 0.7rem;
   }
 
   .executive-cta {
-    padding: 2.25rem 1.25rem;
-  }
-
-  .footer-links {
-    gap: 0.25rem 1.25rem;
+    padding: var(--e-6) var(--e-4);
   }
 
   .pub-research-thumb {
-    width: 54px !important;
-    height: 54px !important;
+    width: 54px;
+    height: 54px;
+  }
+
+  .back-to-top {
+    right: var(--e-4);
+    bottom: var(--e-4);
   }
 }
