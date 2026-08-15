@@ -1,0 +1,496 @@
+/* ═══════════════════════════════════════════════════════════
+   PAGES — articles, mandats, recherches, 404
+
+   Chaque page interne embarquait sa propre copie de ces règles
+   dans une balise <style> : 44 Ko dupliqués sur dix fichiers,
+   avec la dérive qui va avec — article3 affichait son texte à
+   1,1rem et ses sous-titres à 1,4rem quand les quatre autres
+   étaient à 1,125rem et 1,5rem, sans que personne l'ait décidé.
+
+   Une seule source, alignée sur les jetons du socle.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ═══ 1. Coquille de lecture ════════════════════════════════ */
+
+.article-container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: calc(var(--hauteur-nav) + var(--e-8)) var(--e-6) var(--e-7);
+}
+
+.article-hero {
+  margin-bottom: var(--e-6);
+  border-radius: var(--arrondi-lg);
+  overflow: hidden;
+  box-shadow: var(--ombre-3);
+}
+
+.article-hero-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.article-extra-image {
+  width: 100%;
+  height: auto;
+  margin: var(--e-7) 0;
+  border-radius: var(--arrondi-lg);
+  box-shadow: var(--ombre-3);
+}
+
+/* ═══ 2. En-tête d'article ══════════════════════════════════ */
+
+.article-header {
+  margin-bottom: var(--e-8);
+  padding-bottom: var(--e-6);
+  border-bottom: 1px solid var(--trait);
+}
+
+.article-eyebrow {
+  display: inline-block;
+  margin-bottom: var(--e-4);
+  color: var(--accent-fort);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.article-title {
+  font-family: var(--police-titre);
+  font-size: var(--t-3xl);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--texte);
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--e-2) var(--e-5);
+  margin-top: var(--e-5);
+  color: var(--texte-tenu);
+  font-size: var(--t-sm);
+  font-weight: 500;
+}
+
+.article-meta span {
+  display: flex;
+  align-items: center;
+  gap: var(--e-1);
+}
+
+/* ═══ 3. Corps de l'article ═════════════════════════════════ */
+
+.article-content {
+  font-size: var(--t-md);
+  line-height: var(--interligne-lache);
+  color: var(--texte-doux);
+}
+
+/* Le chapeau : premier paragraphe, plus grand et plus sombre. */
+.article-content > p:first-of-type {
+  margin-bottom: var(--e-6);
+  color: var(--texte);
+  font-size: var(--t-lg);
+  line-height: 1.65;
+}
+
+.article-content h2 {
+  position: relative;
+  margin-top: var(--e-8);
+  margin-bottom: var(--e-4);
+  padding-bottom: var(--e-3);
+  font-family: var(--police-titre);
+  font-size: var(--t-2xl);
+  font-weight: 700;
+  color: var(--texte);
+}
+
+.article-content h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 54px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.article-content h3 {
+  margin-top: var(--e-7);
+  margin-bottom: var(--e-4);
+  font-family: var(--police-texte);
+  font-size: var(--t-lg);
+  font-weight: 700;
+  color: var(--texte);
+}
+
+/* Aligné à gauche, et non justifié. Sans césure, la
+   justification creuse des rivières blanches entre les mots :
+   c'est le défaut le plus visible du texte long sur écran. */
+.article-content p {
+  margin-bottom: var(--e-5);
+  text-align: left;
+}
+
+.article-content ul,
+.article-content ol {
+  margin-bottom: var(--e-6);
+  padding-left: var(--e-6);
+  line-height: var(--interligne-lache);
+}
+
+.article-content li {
+  margin-bottom: var(--e-3);
+  padding-left: var(--e-1);
+}
+
+.article-content ul li::marker {
+  color: var(--accent);
+  font-size: 1.2em;
+}
+
+.article-content strong {
+  color: var(--texte);
+  font-weight: 700;
+}
+
+.article-content a {
+  color: var(--accent-fort);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.article-content a:hover {
+  color: var(--marine-700);
+}
+
+/* ═══ 4. Encadré de mise en avant ═══════════════════════════ */
+
+.highlight-box,
+.quote-box {
+  margin: var(--e-7) 0;
+  padding: var(--e-6);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--arrondi);
+  background: var(--accent-voile);
+}
+
+.highlight-box p,
+.quote-box p {
+  margin-bottom: var(--e-2);
+}
+
+.highlight-box p:last-child,
+.quote-box p:last-child {
+  margin-bottom: 0;
+}
+
+.highlight-box strong {
+  display: block;
+  margin-bottom: var(--e-3);
+  font-size: var(--t-md);
+  color: var(--texte);
+}
+
+.highlight-box ul {
+  margin-top: var(--e-4);
+  margin-bottom: 0;
+}
+
+/* ═══ 5. Bouton de retour ═══════════════════════════════════ */
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-2);
+  margin-top: var(--e-6);
+  padding: var(--e-3) var(--e-5);
+  border-radius: var(--arrondi-plein);
+  background: var(--marine-800);
+  color: #ffffff;
+  font-size: var(--t-sm);
+  font-weight: 600;
+  box-shadow: var(--ombre-2);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.back-button:hover {
+  background: var(--marine-700);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: var(--ombre-3);
+}
+
+.back-button:active {
+  transform: translateY(0);
+}
+
+.back-button--small {
+  margin-top: 0;
+  padding: var(--e-2) var(--e-4);
+  font-size: var(--t-xs);
+}
+
+/* ═══ 6. Progression de lecture ═════════════════════════════ */
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--marine-800));
+}
+
+/* ═══ 7. Apparition au défilement ═══════════════════════════ */
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══ 8. Page Recherches ════════════════════════════════════ */
+
+.container {
+  max-width: var(--largeur-contenu);
+  margin: 0 auto;
+  padding: calc(var(--hauteur-nav) + var(--e-7)) var(--e-6) var(--e-8);
+}
+
+.page-header {
+  margin-bottom: var(--e-8);
+  text-align: center;
+}
+
+.page-title {
+  margin-bottom: var(--e-4);
+  font-family: var(--police-titre);
+  font-size: var(--t-3xl);
+  font-weight: 700;
+  color: var(--texte);
+}
+
+.page-subtitle {
+  max-width: 62ch;
+  margin: 0 auto;
+  color: var(--texte-doux);
+  font-size: var(--t-md);
+}
+
+.research-card {
+  margin-bottom: var(--e-7);
+  padding: var(--e-7);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--arrondi-lg);
+  background: var(--fond-doux);
+  box-shadow: var(--ombre-1);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.research-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--ombre-3);
+}
+
+.research-hero {
+  max-width: 700px;
+  margin: 0 auto var(--e-5);
+  border-radius: var(--arrondi);
+  overflow: hidden;
+  box-shadow: var(--ombre-3);
+}
+
+.research-hero-image {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.research-institution {
+  margin-bottom: var(--e-3);
+  color: var(--accent-fort);
+  font-size: var(--t-md);
+  font-weight: 700;
+}
+
+.research-title {
+  margin-bottom: var(--e-5);
+  font-family: var(--police-titre);
+  font-size: var(--t-xl);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--texte);
+}
+
+.research-label {
+  margin-bottom: var(--e-2);
+  color: var(--texte);
+  font-weight: 700;
+}
+
+.research-text {
+  margin-bottom: var(--e-4);
+  color: var(--texte-doux);
+  line-height: var(--interligne-lache);
+  text-align: left;
+}
+
+/* ═══ 9. Galerie et visionneuse (mandat 3) ══════════════════ */
+
+.credits-list {
+  list-style: none;
+  margin-top: var(--e-2);
+}
+
+.credits-list li {
+  padding: var(--e-1) 0;
+  color: var(--texte);
+  font-weight: 600;
+}
+
+.souvenir-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--e-3);
+  margin-top: var(--e-6);
+}
+
+.souvenir-gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: var(--arrondi);
+  box-shadow: var(--ombre-2);
+  cursor: zoom-in;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.souvenir-gallery img:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--ombre-3);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--e-6);
+  background: rgba(0, 16, 34, 0.94);
+  cursor: zoom-out;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 90vh;
+  border-radius: var(--arrondi);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  cursor: default;
+}
+
+/* ═══ 10. Page introuvable ══════════════════════════════════ */
+
+.notfound-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: calc(var(--hauteur-nav) + var(--e-9)) var(--e-5) var(--e-8);
+  text-align: center;
+}
+
+.notfound-code {
+  font-family: var(--police-titre);
+  font-size: clamp(4.5rem, 16vw, 8rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  opacity: 0.35;
+}
+
+.notfound-title {
+  margin-top: var(--e-4);
+  font-family: var(--police-titre);
+  font-size: var(--t-2xl);
+  font-weight: 700;
+  color: var(--texte);
+}
+
+.notfound-text {
+  max-width: 52ch;
+  margin: var(--e-4) auto var(--e-6);
+  color: var(--texte-doux);
+  font-size: var(--t-md);
+}
+
+.notfound-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--e-3) var(--e-5);
+}
+
+.notfound-links a {
+  color: var(--accent-fort);
+  font-weight: 600;
+}
+
+.notfound-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ═══ 11. Responsive ════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .article-container {
+    padding: calc(var(--hauteur-nav) + var(--e-5)) var(--e-4) var(--e-6);
+  }
+
+  .container {
+    padding: calc(var(--hauteur-nav) + var(--e-5)) var(--e-4) var(--e-6);
+  }
+
+  .article-content h2 {
+    margin-top: var(--e-7);
+  }
+
+  .highlight-box,
+  .quote-box {
+    padding: var(--e-5);
+    margin: var(--e-6) 0;
+  }
+
+  .research-card {
+    padding: var(--e-5);
+  }
+
+  .souvenir-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .souvenir-gallery img {
+    height: 140px;
+  }
+}
