@@ -90,10 +90,14 @@
   white-space: nowrap;
 }
 
+/* Le sous-titre retrecit avec l'ecran au lieu de disparaitre a un
+   seuil : le logo garde la meme identite d'un format a l'autre.
+   Il mesure 241 px a sa taille pleine et tient a partir de 480 px;
+   en dessous, la taille et l'interlettrage se resserrent. */
 .logo-role {
-  font-size: 0.56rem;
+  font-size: clamp(0.44rem, 0.36rem + 0.356vw, 0.56rem);
   font-weight: 600;
-  letter-spacing: 0.19em;
+  letter-spacing: clamp(0.3px, -0.633px + 0.259vw, 1.7px);
   text-transform: uppercase;
   color: var(--lavande-300);
   white-space: nowrap;
@@ -803,13 +807,15 @@
   }
 }
 
-/* Sur mobile, la barre est etroite : le sous-titre du logo cede la
-   place au nom, qui suffit a identifier le site. */
 @media (max-width: 600px) {
   .logo-nom {
     font-size: 1.12rem;
   }
+}
 
+/* Dernier recours, sous 340 px : une largeur qu'on ne rencontre
+   plus guere. Le nom seul suffit alors a identifier le site. */
+@media (max-width: 340px) {
   .nav-logo .logo-role {
     display: none;
   }
