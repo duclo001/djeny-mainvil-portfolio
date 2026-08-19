@@ -494,3 +494,35 @@
     height: 140px;
   }
 }
+
+/* ═══ 12. Encart d'accès aux documents ══════════════════════
+   Ce bloc portait ses couleurs dans un attribut style= en ligne,
+   hérité de l'ancienne charte : fond dégradé abricot et bordure
+   corail. C'est le seul endroit du site où ces teintes avaient
+   survécu à l'unification de la palette, précisément parce
+   qu'elles ne vivaient dans aucune feuille de style. */
+
+.acces-documents {
+  max-width: 780px;
+  margin: var(--e-7) auto var(--e-5);
+  padding: var(--e-6) var(--e-5);
+  border: 1px solid var(--accent-trait);
+  border-radius: var(--arrondi-lg);
+  background: var(--accent-voile);
+  text-align: center;
+}
+
+.acces-documents-texte {
+  margin: 0 0 var(--e-4);
+  color: var(--texte);
+  font-size: var(--t-md);
+  font-weight: 600;
+}
+
+.back-button--serre {
+  margin-top: 0;
+}
+
+.retour-centre {
+  text-align: center;
+}
