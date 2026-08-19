@@ -397,74 +397,6 @@ body {
   margin: 0;
 }
 
-.services-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.25rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.service-card {
-  flex: 0 1 calc(33.333% - 0.84rem);
-  min-width: 0;
-  position: relative;
-  background: #ffffff;
-  border: 1px solid rgba(0, 34, 68, 0.06);
-  border-radius: 18px;
-  padding: 1.75rem 1.5rem 1.5rem;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
-  overflow: hidden;
-  cursor: default;
-  transition: none !important;
-}
-
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #7b8cde, rgba(123, 140, 222, 0.3));
-  opacity: 0;
-  transition: opacity 280ms ease;
-}
-
-
-
-.service-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, rgba(123, 140, 222, 0.12), rgba(123, 140, 222, 0.04));
-  color: #7b8cde;
-  margin-bottom: 1.15rem;
-}
-
-.service-icon svg {
-  width: 24px;
-  height: 24px;
-}
-
-.service-title {
-  margin: 0 0 0.6rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #002244;
-}
-
-.service-text {
-  margin: 0;
-  font-size: 0.95rem;
-  color: rgba(0, 34, 68, 0.62);
-  line-height: 1.6;
-}
-
 /* Citation / Quote */
 .services-audience {
   max-width: 800px;
@@ -584,21 +516,9 @@ body {
 
 /* ── Services responsive ─ */
 @media (max-width: 900px) {
-  .service-card {
-    flex: 0 1 calc(50% - 0.625rem);
   }
-}
 
 @media (max-width: 600px) {
-  .service-card {
-    flex: 0 1 100%;
-    padding: 1.35rem 1.2rem 1.2rem;
-  }
-
-  .services-grid {
-    gap: 1rem;
-  }
-
   .services-header {
     margin-bottom: 2rem;
     text-align: left;
@@ -628,21 +548,6 @@ body {
 }
 
 @media (max-width: 360px) {
-  .service-card {
-    padding: 1.15rem 1rem;
-  }
-
-  .service-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 12px;
-  }
-
-  .service-icon svg {
-    width: 20px;
-    height: 20px;
-  }
-
   .services-quote blockquote {
     padding: 1rem 1.25rem;
     font-size: 0.9rem;
@@ -2313,11 +2218,6 @@ body.preloader-active .nav-logo {
 }
 
 /* ── Listes de prestations dans les cartes de service ───── */
-.service-card .service-title {
-  margin-bottom: 0.9rem;
-  line-height: 1.35;
-}
-
 .service-list {
   margin: 0;
   padding: 0;
@@ -2360,10 +2260,6 @@ body.preloader-active .nav-logo {
 
 /* Les cartes prennent la hauteur de leur contenu : une liste de 4 items
    ne s'étire plus pour suivre une liste de 10. */
-.services-grid {
-  align-items: flex-start;
-}
-
 /* ── Grille des publics : s'adapte au nombre de cartes ──── */
 @media (min-width: 601px) {
   .services-audience {

@@ -625,36 +625,6 @@
   filter: saturate(0.82);
 }
 
-/* Services : les cartes ne réagissent volontairement pas au
-   survol, elles ne sont pas cliquables. La lisibilité passe par
-   le contraste et la hiérarchie, pas par le mouvement. */
-.services-grid .service-card {
-  border: 1px solid var(--trait);
-  border-radius: var(--arrondi-lg);
-  background: var(--fond);
-  box-shadow: var(--ombre-1);
-}
-
-.service-card .service-title {
-  margin-bottom: 0;
-  font-family: var(--police-texte);
-  font-size: var(--t-md);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--texte);
-}
-
-.service-card .service-title::after {
-  content: '';
-  display: block;
-  width: 30px;
-  height: 2px;
-  margin: var(--e-3) 0 var(--e-4);
-  border-radius: 2px;
-  background: var(--accent);
-  opacity: 0.6;
-}
-
 .service-list li {
   color: var(--texte-doux);
 }
@@ -903,5 +873,142 @@
   /* Plus de photo à côté : on replie sur une hauteur de lecture. */
   .apropos-texte.est-replie {
     max-height: var(--apropos-hauteur, 340px);
+  }
+}
+
+/* ═══ 15. Services : accordéon ══════════════════════════════
+   Les huit domaines s'affichaient en cartes ouvertes : 47 puces
+   d'un même poids sur 1648 px de haut, sans hiérarchie, avec des
+   rangées en dents de scie et une dernière ligne bancale.
+
+   Seuls les titres restent visibles. Chacun s'ouvre à la demande.
+   Le repli est posé par le script : sans JavaScript, tout est
+   déplié et le contenu reste entièrement lisible. */
+
+.services-accordeon {
+  max-width: 860px;
+  margin: 0 auto;
+  border-top: 1px solid var(--trait);
+}
+
+.service-item {
+  border-bottom: 1px solid var(--trait);
+}
+
+.service-entete {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.service-bouton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--e-4);
+  padding: var(--e-5) var(--e-2);
+  text-align: left;
+  color: var(--texte);
+  transition: color var(--transition);
+}
+
+/* Le numéro donne un rythme et une prise à l'œil sur la liste. */
+.service-num {
+  flex-shrink: 0;
+  min-width: 2ch;
+  color: var(--accent);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  transition: color var(--transition);
+}
+
+.service-nom {
+  flex: 1;
+  font-family: var(--police-texte);
+  font-size: var(--t-md);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.service-chevron {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+  transition: transform var(--transition), color var(--transition);
+}
+
+.service-bouton:hover {
+  color: var(--accent-fort);
+}
+
+.service-bouton:hover .service-num,
+.service-bouton:hover .service-chevron {
+  color: var(--accent-fort);
+}
+
+.service-bouton[aria-expanded="true"] .service-chevron {
+  transform: rotate(180deg);
+}
+
+.service-bouton[aria-expanded="true"] .service-nom {
+  color: var(--accent-fort);
+}
+
+/* Panneau ─────────────────────────────────────────────────── */
+
+.service-panneau {
+  overflow: hidden;
+}
+
+.service-panneau[hidden] {
+  display: none;
+}
+
+.service-panneau .service-list {
+  /* Les listes vont de 3 à 10 items : deux colonnes évitent
+     qu'une longue liste ne s'étire en un mince ruban. */
+  columns: 2;
+  column-gap: var(--e-6);
+  margin: 0;
+  padding: 0 var(--e-2) var(--e-5) calc(2ch + var(--e-4));
+  list-style: none;
+}
+
+.service-panneau .service-list li {
+  break-inside: avoid;
+  position: relative;
+  margin: 0 0 var(--e-3);
+  padding-left: var(--e-4);
+  color: var(--texte-doux);
+  font-size: var(--t-sm);
+  line-height: 1.55;
+}
+
+.service-panneau .service-list li::before {
+  content: '';
+  position: absolute;
+  top: 0.62em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.7;
+}
+
+@media (max-width: 700px) {
+  .service-bouton {
+    gap: var(--e-3);
+    padding: var(--e-4) 0;
+  }
+
+  .service-panneau .service-list {
+    columns: 1;
+    padding-left: calc(2ch + var(--e-3));
+    padding-right: 0;
   }
 }

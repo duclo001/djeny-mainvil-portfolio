@@ -299,3 +299,85 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('load', mesurer);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(mesurer);
 })();
+
+/* ── Services : accordéon ──────────────────────────────────────
+   Les panneaux sont repliés ici, jamais dans le HTML : sans
+   JavaScript, les huit listes restent affichées et le visiteur ne
+   perd aucune information. */
+(function () {
+  'use strict';
+
+  var accordeon = document.querySelector('.services-accordeon');
+  if (!accordeon) return;
+
+  var items = Array.prototype.slice.call(accordeon.querySelectorAll('.service-item'));
+  if (!items.length) return;
+
+  var mouvementReduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function ouvrir(panneau, bouton) {
+    panneau.hidden = false;
+    bouton.setAttribute('aria-expanded', 'true');
+
+    if (mouvementReduit) return;
+    var cible = panneau.scrollHeight;
+    panneau.style.maxHeight = '0px';
+    panneau.style.transition = 'max-height 340ms cubic-bezier(0.4, 0, 0.2, 1)';
+    requestAnimationFrame(function () {
+      panneau.style.maxHeight = cible + 'px';
+    });
+    setTimeout(function () {
+      panneau.style.maxHeight = '';
+      panneau.style.transition = '';
+    }, 380);
+  }
+
+  function fermer(panneau, bouton) {
+    bouton.setAttribute('aria-expanded', 'false');
+
+    if (mouvementReduit) {
+      panneau.hidden = true;
+      return;
+    }
+    panneau.style.maxHeight = panneau.scrollHeight + 'px';
+    panneau.style.transition = 'max-height 280ms cubic-bezier(0.4, 0, 0.2, 1)';
+    requestAnimationFrame(function () {
+      panneau.style.maxHeight = '0px';
+    });
+    setTimeout(function () {
+      panneau.hidden = true;
+      panneau.style.maxHeight = '';
+      panneau.style.transition = '';
+    }, 300);
+  }
+
+  items.forEach(function (item) {
+    var bouton = item.querySelector('.service-bouton');
+    var panneau = item.querySelector('.service-panneau');
+    if (!bouton || !panneau) return;
+
+    panneau.hidden = true;
+    bouton.setAttribute('aria-expanded', 'false');
+
+    bouton.addEventListener('click', function () {
+      var ouvert = bouton.getAttribute('aria-expanded') === 'true';
+      if (ouvert) fermer(panneau, bouton);
+      else ouvrir(panneau, bouton);
+    });
+  });
+
+  /* Flèches haut et bas pour circuler d'un domaine à l'autre,
+     comportement attendu d'un ensemble d'en-têtes de ce type. */
+  var boutons = items.map(function (i) { return i.querySelector('.service-bouton'); });
+  boutons.forEach(function (b, i) {
+    if (!b) return;
+    b.addEventListener('keydown', function (e) {
+      var suivant = null;
+      if (e.key === 'ArrowDown') suivant = boutons[(i + 1) % boutons.length];
+      else if (e.key === 'ArrowUp') suivant = boutons[(i - 1 + boutons.length) % boutons.length];
+      else if (e.key === 'Home') suivant = boutons[0];
+      else if (e.key === 'End') suivant = boutons[boutons.length - 1];
+      if (suivant) { e.preventDefault(); suivant.focus(); }
+    });
+  });
+})();
