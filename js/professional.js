@@ -381,3 +381,105 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 })();
+
+/* ── Contact : envoi du formulaire ─────────────────────────────
+   L'envoi se fait sans quitter la page. Si le script échoue, le
+   formulaire reste un formulaire HTML classique qui s'envoie
+   normalement : le visiteur n'est jamais bloqué. */
+(function () {
+  'use strict';
+
+  var form = document.querySelector('.contact-form');
+  if (!form) return;
+
+  var retour = form.querySelector('.form-retour');
+  var envoi = form.querySelector('.contact-envoi');
+  var cle = form.querySelector('[name="access_key"]');
+  var envoiEnCours = false;
+
+  function texte(cle, defaut) {
+    return (window.i18nTexte && window.i18nTexte(cle)) || defaut;
+  }
+
+  function afficher(message, type) {
+    retour.textContent = message;
+    retour.classList.remove('est-succes', 'est-erreur');
+    if (type) retour.classList.add(type);
+  }
+
+  /* Les erreurs n'apparaissent qu'à l'envoi. Souligner en rouge un
+     champ qu'on est en train de remplir décourage sans aider. */
+  function nettoyer() {
+    form.querySelectorAll('.est-invalide').forEach(function (el) {
+      el.classList.remove('est-invalide');
+    });
+    form.querySelectorAll('.champ-erreur').forEach(function (el) { el.remove(); });
+  }
+
+  function marquer(champ, message) {
+    var bloc = champ.closest('.champ') || champ.closest('.champ-consentement');
+    if (!bloc) return;
+    bloc.classList.add('est-invalide');
+    if (bloc.querySelector('.champ-erreur')) return;
+    var p = document.createElement('p');
+    p.className = 'champ-erreur';
+    p.textContent = message;
+    bloc.appendChild(p);
+    champ.setAttribute('aria-describedby', (champ.id || 'champ') + '-erreur');
+    p.id = (champ.id || 'champ') + '-erreur';
+  }
+
+  function valider() {
+    nettoyer();
+    var premier = null;
+    form.querySelectorAll('[required]').forEach(function (champ) {
+      var vide = champ.type === 'checkbox' ? !champ.checked : !champ.value.trim();
+      var mauvais = !vide && !champ.checkValidity();
+      if (!vide && !mauvais) return;
+      marquer(champ, vide
+        ? texte('pro-form-requis', 'Ce champ est nécessaire.')
+        : texte('pro-form-courriel-invalide', 'Cette adresse ne semble pas valide.'));
+      if (!premier) premier = champ;
+    });
+    if (premier) premier.focus();
+    return !premier;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (envoiEnCours) return;
+    if (!valider()) return;
+
+    // Garde-fou : sans clé renseignée, l'envoi partirait dans le vide.
+    if (!cle || !cle.value || cle.value.indexOf('A_RENSEIGNER') !== -1) {
+      afficher(texte('pro-form-non-configure',
+        'Le formulaire n\u2019est pas encore relié. Écrivez-moi en attendant.'), 'est-erreur');
+      return;
+    }
+
+    envoiEnCours = true;
+    envoi.disabled = true;
+    afficher(texte('pro-form-envoi-cours', 'Envoi en cours\u2026'), null);
+
+    fetch(form.action, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: new FormData(form)
+    })
+      .then(function (r) { return r.json().catch(function () { return { success: r.ok }; }); })
+      .then(function (data) {
+        if (!data || !data.success) throw new Error('refus');
+        form.reset();
+        afficher(texte('pro-form-succes',
+          'Message envoyé. Je vous réponds sous deux jours ouvrables.'), 'est-succes');
+      })
+      .catch(function () {
+        afficher(texte('pro-form-erreur',
+          'L\u2019envoi n\u2019a pas abouti. Réessayez, ou réservez directement un échange.'), 'est-erreur');
+      })
+      .then(function () {
+        envoiEnCours = false;
+        envoi.disabled = false;
+      });
+  });
+})();

@@ -86,6 +86,14 @@
 
   global.i18nLangue = function () { return langue; };
 
+  /* Lecture d'un libellé depuis le script : les messages d'un
+     formulaire, par exemple, n'existent pas dans le HTML et doivent
+     tout de même suivre la langue choisie. */
+  global.i18nTexte = function (cle) {
+    var table = dictionnaire[langue] || {};
+    return table[cle];
+  };
+
   function demarrer() {
     appliquer();
     majBouton();

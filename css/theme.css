@@ -1012,3 +1012,176 @@
     padding-right: 0;
   }
 }
+
+/* ═══ 16. Contact : deux voies ══════════════════════════════
+   La page n'offrait qu'un seul point de contact, la réservation
+   d'un créneau. C'est un engagement fort : le visiteur qui veut
+   seulement poser une question n'avait aucune porte d'entrée.
+
+   Deux voies côte à côte, sur le même bloc marine : réserver
+   pour qui sait ce qu'il veut, écrire pour les autres. */
+
+.contact-deux-voies {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: var(--e-7);
+  align-items: start;
+  margin-top: var(--e-7);
+  text-align: left;
+}
+
+.contact-voie-titre {
+  margin: 0 0 var(--e-4);
+  color: var(--lavande-300);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-voie-rdv {
+  padding-right: var(--e-6);
+  border-right: 1px solid var(--trait-sombre);
+}
+
+.contact-voie-rdv .cta-buttons {
+  margin-top: 0;
+  justify-content: flex-start;
+}
+
+/* ── Champs ─────────────────────────────────────────────── */
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+  margin: 0 0 var(--e-4);
+}
+
+.champ label {
+  color: var(--sur-sombre);
+  font-size: var(--t-sm);
+  font-weight: 600;
+}
+
+.champ input,
+.champ textarea {
+  width: 100%;
+  padding: var(--e-3) var(--e-4);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--arrondi-sm);
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff;
+  font-size: var(--t-sm);
+  font-family: inherit;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.champ textarea {
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.55;
+}
+
+.champ input::placeholder,
+.champ textarea::placeholder {
+  color: var(--sur-sombre-tenu);
+}
+
+.champ input:focus,
+.champ textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Signalé au moment de l'envoi seulement, pas pendant la saisie :
+   souligner en rouge un champ qu'on est en train de remplir est
+   décourageant sans être utile. */
+.champ.est-invalide input,
+.champ.est-invalide textarea {
+  border-color: #ffb4a2;
+}
+
+.champ-erreur {
+  margin: 0;
+  color: #ffb4a2;
+  font-size: var(--t-xs);
+}
+
+.champ-consentement {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--e-3);
+  margin: 0 0 var(--e-5);
+}
+
+.champ-consentement input {
+  flex-shrink: 0;
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+  accent-color: var(--accent);
+}
+
+.champ-consentement label {
+  color: var(--sur-sombre-doux);
+  font-size: var(--t-xs);
+  line-height: 1.5;
+}
+
+.champ-consentement.est-invalide label {
+  color: #ffb4a2;
+}
+
+.contact-envoi {
+  width: 100%;
+}
+
+.contact-envoi[disabled] {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Le piège à robots doit rester dans le flux pour être rempli,
+   tout en étant invisible et hors du parcours au clavier. */
+.piege-robot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.form-retour {
+  margin: var(--e-4) 0 0;
+  font-size: var(--t-sm);
+  line-height: 1.5;
+  min-height: 1.2em;
+}
+
+.form-retour.est-succes {
+  color: #a7e8c4;
+}
+
+.form-retour.est-erreur {
+  color: #ffb4a2;
+}
+
+@media (max-width: 860px) {
+  .contact-deux-voies {
+    grid-template-columns: 1fr;
+    gap: var(--e-6);
+  }
+
+  .contact-voie-rdv {
+    padding-right: 0;
+    padding-bottom: var(--e-6);
+    border-right: none;
+    border-bottom: 1px solid var(--trait-sombre);
+  }
+
+  .contact-voie-rdv .cta-buttons {
+    justify-content: center;
+  }
+}
