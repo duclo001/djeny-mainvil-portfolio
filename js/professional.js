@@ -195,3 +195,107 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 });
+
+/* ── À propos : repli du texte ─────────────────────────────────
+   La colonne de texte dépasse largement la photo placée à sa
+   droite, ce qui laisse un vide sous celle-ci. On replie le texte
+   pour que les deux colonnes se terminent sur la même ligne.
+
+   Le repli est appliqué ici et non dans le HTML : sans
+   JavaScript, le texte reste entièrement lisible. */
+(function () {
+  'use strict';
+
+  var texte = document.getElementById('apropos-texte');
+  var bouton = document.querySelector('.apropos-bascule');
+  if (!texte || !bouton) return;
+
+  var aside = document.querySelector('#positionnement .executive-aside');
+  var mouvementReduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var deplie = false;
+
+  /* Hauteur de repli : le bas du texte doit tomber sur le bas de
+     la photo. En dessous de 900px la photo passe sous le texte,
+     on garde alors une hauteur de lecture fixe. */
+  function hauteurRepli() {
+    if (window.innerWidth <= 900 || !aside) return 340;
+    var ecart = aside.getBoundingClientRect().bottom - texte.getBoundingClientRect().top;
+    // Le bouton se place sous le texte : sa hauteur est retirée pour
+    // que la colonne entière se termine au bas de la photo.
+    var style = getComputedStyle(bouton);
+    var place = bouton.offsetHeight + (parseFloat(style.marginTop) || 0);
+    return Math.max(240, Math.round(ecart - place));
+  }
+
+  function mesurer() {
+    if (deplie) return;
+    texte.style.setProperty('--apropos-hauteur', hauteurRepli() + 'px');
+  }
+
+  /* Rien à replier si le texte tient déjà dans la hauteur visée. */
+  function utile() {
+    return texte.scrollHeight > hauteurRepli() + 60;
+  }
+
+  function replier() {
+    deplie = false;
+    mesurer();
+    texte.classList.add('est-replie');
+    texte.style.maxHeight = '';
+    bouton.setAttribute('aria-expanded', 'false');
+  }
+
+  function deplier() {
+    deplie = true;
+    var depart = texte.getBoundingClientRect().height;
+    texte.classList.remove('est-replie');
+    bouton.setAttribute('aria-expanded', 'true');
+
+    if (mouvementReduit) {
+      texte.style.maxHeight = '';
+      return;
+    }
+
+    // Animer vers une hauteur connue, puis la relâcher : une
+    // transition vers « auto » ne se joue pas.
+    var arrivee = texte.scrollHeight;
+    texte.style.maxHeight = depart + 'px';
+    texte.style.transition = 'max-height 480ms cubic-bezier(0.4, 0, 0.2, 1)';
+    requestAnimationFrame(function () {
+      texte.style.maxHeight = arrivee + 'px';
+    });
+    setTimeout(function () {
+      texte.style.maxHeight = '';
+      texte.style.transition = '';
+    }, 520);
+  }
+
+  if (!utile()) return;
+
+  bouton.classList.add('est-actif');
+  replier();
+
+  bouton.addEventListener('click', function () {
+    if (deplie) {
+      replier();
+      // Ne pas laisser le visiteur au milieu du texte disparu.
+      var haut = texte.getBoundingClientRect().top + window.scrollY - 110;
+      if (window.scrollY > haut) {
+        window.scrollTo({ top: haut, behavior: mouvementReduit ? 'auto' : 'smooth' });
+      }
+    } else {
+      deplier();
+    }
+  });
+
+  var attente;
+  window.addEventListener('resize', function () {
+    clearTimeout(attente);
+    attente = setTimeout(mesurer, 150);
+  });
+
+  // Les polices de caractères arrivent après le rendu initial et
+  // décalent les hauteurs : on remesure une fois tout chargé.
+  window.addEventListener('load', mesurer);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(mesurer);
+})();

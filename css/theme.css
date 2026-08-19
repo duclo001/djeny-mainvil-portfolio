@@ -814,3 +814,88 @@
     display: none;
   }
 }
+
+/* ═══ 14. À propos : texte repliable ════════════════════════
+   La colonne de texte faisait 1519 px contre 559 px pour la
+   photo, laissant 960 px de vide à sa droite. Le texte se
+   replie à la hauteur de la photo : les deux colonnes se
+   terminent sur la même ligne, et le visiteur choisit d'aller
+   plus loin.
+
+   Le repli est posé par le script, jamais dans le HTML : si le
+   JavaScript ne s'exécute pas, tout le texte reste lisible. */
+
+.apropos-texte {
+  position: relative;
+}
+
+.apropos-texte.est-replie {
+  overflow: hidden;
+  max-height: var(--apropos-hauteur, 420px);
+}
+
+/* Le fondu signale que le texte continue, sans le couper net. */
+.apropos-texte.est-replie::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.85) 55%,
+    var(--fond) 100%);
+}
+
+.apropos-bascule {
+  display: none;
+  align-items: center;
+  gap: var(--e-2);
+  margin-top: var(--e-4);
+  padding: var(--e-2) var(--e-4) var(--e-2) 0;
+  color: var(--accent-fort);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: color var(--transition);
+}
+
+/* Affiché seulement lorsque le script a replié le texte. */
+.apropos-bascule.est-actif {
+  display: inline-flex;
+}
+
+.apropos-bascule:hover {
+  color: var(--marine-700);
+}
+
+.bascule-chevron {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition);
+}
+
+.apropos-bascule[aria-expanded="true"] .bascule-chevron {
+  transform: rotate(180deg);
+}
+
+/* Un seul libellé à la fois. Les deux vivent dans le HTML pour
+   que la bascule de langue et l'état du bouton restent
+   indépendants l'un de l'autre. */
+.apropos-bascule .bascule-moins,
+.apropos-bascule[aria-expanded="true"] .bascule-plus {
+  display: none;
+}
+
+.apropos-bascule[aria-expanded="true"] .bascule-moins {
+  display: inline;
+}
+
+@media (max-width: 900px) {
+  /* Plus de photo à côté : on replie sur une hauteur de lecture. */
+  .apropos-texte.est-replie {
+    max-height: var(--apropos-hauteur, 340px);
+  }
+}
