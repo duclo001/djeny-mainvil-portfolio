@@ -1175,3 +1175,22 @@
     justify-content: center;
   }
 }
+
+/* La marque de confirmation sur la page de remerciement. */
+.merci-marque {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--e-5);
+  border: 1px solid var(--accent-trait);
+  border-radius: var(--arrondi-plein);
+  background: var(--accent-voile);
+  color: var(--accent-fort);
+}
+
+.merci-marque svg {
+  width: 28px;
+  height: 28px;
+}
