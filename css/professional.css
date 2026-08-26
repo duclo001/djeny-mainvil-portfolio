@@ -2207,16 +2207,6 @@ body.preloader-active .nav-logo {
    ══════════════════════════════════════════════════════════ */
 
 /* ── Titre professionnel, en tête du hero ───────────────── */
-.hero-role {
-  margin: 0 0 0.9rem;
-  max-width: 680px;
-  font-size: 1.02rem;
-  font-weight: 600;
-  line-height: 1.45;
-  color: #7b8cde;
-  letter-spacing: 0.01em;
-}
-
 /* ── Listes de prestations dans les cartes de service ───── */
 .service-list {
   margin: 0;
@@ -2273,21 +2263,12 @@ body.preloader-active .nav-logo {
 
 /* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .hero-role {
-    font-size: 0.97rem;
-  }
-
   .section-lead {
     font-size: 1.18rem;
   }
 }
 
 @media (max-width: 600px) {
-  .hero-role {
-    font-size: 0.92rem;
-    margin-bottom: 0.75rem;
-  }
-
   .section-lead {
     font-size: 1.08rem;
   }

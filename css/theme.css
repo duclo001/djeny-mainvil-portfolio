@@ -235,15 +235,6 @@
   padding: var(--e-8) var(--e-7) var(--e-8) var(--e-6);
 }
 
-.hero-role {
-  margin-bottom: var(--e-3);
-  max-width: 44ch;
-  color: var(--accent-fort);
-  font-size: var(--t-base);
-  font-weight: 600;
-  line-height: 1.45;
-}
-
 .executive-hero .hero-title {
   margin-bottom: var(--e-5);
   font-family: var(--police-titre);
@@ -730,7 +721,6 @@
     text-align: center;
   }
 
-  .hero-role,
   .executive-hero .hero-subtitle {
     max-width: none;
   }
