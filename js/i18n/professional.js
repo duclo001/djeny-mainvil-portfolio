@@ -3,6 +3,8 @@
 
 i18nAjouter({
   fr: {
+    "pro-pub-precedent": "Article précédent",
+    "pro-pub-suivant": "Article suivant",
     "pro-form-prenom": "Prénom",
     "pro-form-nom": "Nom",
     "pro-form-poste": "Titre du poste (facultatif)",
@@ -41,7 +43,6 @@ i18nAjouter({
     "pro-pub-title-article3": "Vous ne savez pas quoi faire avec vos données ? Voici par où commencer.",
     "pro-pub-tag-article4": "Femmes en données",
     "pro-pub-title-article4": "Femmes en données et IA : une perspective qui façonne l'avenir",
-    "pro-pub-swipe-indicator": "⟵ Glissez pour voir plus ⟶",
     "pro-pub-kicker-podcast": "Podcast",
     "pro-pub-podcast-title": "Comment les entreprises captent l'attention sur TikTok et Instagram Reels",
     "pro-pub-podcast-video": "▶ Voir la vidéo sur YouTube",
@@ -106,6 +107,8 @@ i18nAjouter({
     "pro-cta-button": "Réserver une conversation confidentielle"
   },
   en: {
+    "pro-pub-precedent": "Previous article",
+    "pro-pub-suivant": "Next article",
     "pro-form-prenom": "First name",
     "pro-form-nom": "Last name",
     "pro-form-poste": "Job title (optional)",
@@ -144,7 +147,6 @@ i18nAjouter({
     "pro-pub-title-article3": "Not Sure What to Do With Your Data? Here’s Where to Start.",
     "pro-pub-tag-article4": "Women in Data",
     "pro-pub-title-article4": "Women in Data & AI: A Perspective Shaping the Future",
-    "pro-pub-swipe-indicator": "⟵ Swipe to see more ⟶",
     "pro-pub-kicker-podcast": "Podcast",
     "pro-pub-podcast-title": "How Companies Capture Attention on TikTok and Instagram Reels",
     "pro-pub-podcast-video": "▶ Watch the video on YouTube",

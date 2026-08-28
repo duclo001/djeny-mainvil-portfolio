@@ -149,40 +149,36 @@
 
             <!-- Mobile carousel (hidden on desktop) -->
             <div class="pub-articles-carousel exec-swipe-menu" data-menu="articles" aria-label="Carousel articles">
-              <div class="exec-swipe-caption" aria-live="polite">
-                <div class="exec-swipe-caption-tag" data-translate="pro-pub-tag-article5">IA en entreprise</div>
-                <div class="exec-swipe-caption-title" data-translate="pro-pub-title-article5">Intelligence Artificielle (IA) en entreprise&nbsp;: comprendre les familles d&rsquo;IA pour d&eacute;cider avec rigueur et gouvernance</div>
-              </div>
               <div class="exec-swipe-track" role="list" aria-label="Glisser pour choisir">
-                <a class="exec-swipe-card is-active" role="listitem" href="article5.html" data-tag="IA en entreprise" data-title="Intelligence Artificielle (IA) en entreprise : comprendre les familles d'IA pour décider avec rigueur et gouvernance">
+                <a class="exec-swipe-card is-active" role="listitem" href="article5.html">
                   <img class="exec-swipe-thumb" src="images/article5.png" alt="" width="996" height="560" decoding="async" loading="lazy">
                   <div class="exec-swipe-meta">
                     <div class="exec-swipe-tag" data-translate="pro-pub-tag-article5">IA en entreprise</div>
                     <div class="exec-swipe-title" data-translate="pro-pub-title-article5">Intelligence Artificielle (IA) en entreprise&nbsp;: comprendre les familles d&rsquo;IA</div>
                   </div>
                 </a>
-                <a class="exec-swipe-card" role="listitem" href="article1.html" data-tag="Analytique" data-title="Scientifique des données, analyste de données et analyste en intelligence d'affaires : quelles différences ?">
+                <a class="exec-swipe-card" role="listitem" href="article1.html">
                   <img class="exec-swipe-thumb" src="images/articles1.png.png" alt="" width="552" height="310" decoding="async" loading="lazy">
                   <div class="exec-swipe-meta">
                     <div class="exec-swipe-tag" data-translate="pro-pub-tag-article1">Analytique</div>
                     <div class="exec-swipe-title" data-translate="pro-pub-title-article1">Scientifique des donn&eacute;es, analyste et analyste BI&nbsp;: quelles diff&eacute;rences&nbsp;?</div>
                   </div>
                 </a>
-                <a class="exec-swipe-card" role="listitem" href="article2.html" data-tag="Outils BI" data-title="Power BI, PGI et outils d'IA : comprendre le rôle des logiciels dans l'analytique">
+                <a class="exec-swipe-card" role="listitem" href="article2.html">
                   <img class="exec-swipe-thumb" src="images/articles2.png.png" alt="" width="684" height="384" decoding="async" loading="lazy">
                   <div class="exec-swipe-meta">
                     <div class="exec-swipe-tag" data-translate="pro-pub-tag-article2">Outils BI</div>
                     <div class="exec-swipe-title" data-translate="pro-pub-title-article2">Power BI, PGI et outils d&rsquo;IA&nbsp;: le r&ocirc;le des logiciels</div>
                   </div>
                 </a>
-                <a class="exec-swipe-card" role="listitem" href="article3.html" data-tag="Guide pratique" data-title="Vous ne savez pas quoi faire avec vos données ? Voici par où commencer.">
+                <a class="exec-swipe-card" role="listitem" href="article3.html">
                   <img class="exec-swipe-thumb" src="images/article3.png" alt="" width="661" height="372" decoding="async" loading="lazy">
                   <div class="exec-swipe-meta">
                     <div class="exec-swipe-tag" data-translate="pro-pub-tag-article3">Guide pratique</div>
                     <div class="exec-swipe-title" data-translate="pro-pub-title-article3">Vous ne savez pas quoi faire avec vos donn&eacute;es&nbsp;?</div>
                   </div>
                 </a>
-                <a class="exec-swipe-card" role="listitem" href="article4.html" data-tag="Femmes en données" data-title="Femmes en données et IA : une perspective qui façonne l'avenir">
+                <a class="exec-swipe-card" role="listitem" href="article4.html">
                   <img class="exec-swipe-thumb" src="images/article4enhaut.png" alt="" width="885" height="498" decoding="async" loading="lazy">
                   <div class="exec-swipe-meta">
                     <div class="exec-swipe-tag" data-translate="pro-pub-tag-article4">Femmes en données</div>
@@ -191,10 +187,14 @@
                 </a>
               </div>
               <!-- Pagination dots -->
-              <div class="exec-swipe-dots" aria-label="Position dans le carousel">
-                <div class="swipe-indicator" data-translate="pro-pub-swipe-indicator" style="text-align:center; color:#7b8cde; font-size:1.1rem; padding:0.7em 0 0.2em; user-select:none;">
-                  ⟵ Glissez pour voir plus ⟶
-                </div>
+              <div class="exec-swipe-commandes">
+                <button type="button" class="swipe-fleche" data-sens="-1" data-translate-aria="pro-pub-precedent" aria-label="Article précédent">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <span class="swipe-position" aria-live="polite">1 / 5</span>
+                <button type="button" class="swipe-fleche" data-sens="1" data-translate-aria="pro-pub-suivant" aria-label="Article suivant">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
               </div>
             </div>
           </div>

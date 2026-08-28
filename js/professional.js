@@ -32,34 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	links.forEach((el, i) => {
 		el.style.setProperty('--delay', `${180 + i * 55}ms`);
 	});
-	// --- Ajout swipe tactile natif pour exec-swipe-track (carousel articles) ---
-	// Le CSS pose touch-action: pan-y sur la piste, donc le navigateur ne gère
-	// pas le défilement horizontal : on le pilote nous-mêmes au doigt.
-	swipeMenus.forEach((menu) => {
-		const track = menu.querySelector('.exec-swipe-track');
-		if (!track) return;
-		let isTouching = false;
-		let touchStartX = 0;
-		let scrollStartX = 0;
-		track.addEventListener('touchstart', (e) => {
-			if (e.touches.length !== 1) return;
-			isTouching = true;
-			touchStartX = e.touches[0].clientX;
-			scrollStartX = track.scrollLeft;
-		}, { passive: true });
-		track.addEventListener('touchmove', (e) => {
-			if (!isTouching || e.touches.length !== 1) return;
-			const dx = e.touches[0].clientX - touchStartX;
-			track.scrollLeft = scrollStartX - dx;
-		}, { passive: true });
-		track.addEventListener('touchend', () => {
-			isTouching = false;
-		});
-		track.addEventListener('touchcancel', () => {
-			isTouching = false;
-		});
-	});
-
 	const observer = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry) => {
@@ -83,9 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const track = swipeMenu.querySelector('.exec-swipe-track');
 	const cards = Array.from(swipeMenu.querySelectorAll('.exec-swipe-card'));
-	const captionTag = swipeMenu.querySelector('.exec-swipe-caption-tag');
-	const captionTitle = swipeMenu.querySelector('.exec-swipe-caption-title');
-	if (!track || cards.length === 0 || !captionTag || !captionTitle) return;
+	if (!track || cards.length === 0) return;
 
 	let activeIndex = 0;
 	let rafId = 0;
@@ -94,8 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	const setActive = (index) => {
 		activeIndex = Math.max(0, Math.min(cards.length - 1, index));
 		cards.forEach((el, i) => el.classList.toggle('is-active', i === activeIndex));
-		captionTag.textContent = cards[activeIndex].dataset.tag || '';
-		captionTitle.textContent = cards[activeIndex].dataset.title || '';
 	};
 
 	const centerCard = (index, behavior = 'smooth') => {
@@ -152,6 +120,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const onPointerDown = (ev) => {
 		if (prefersReducedMotion) return;
+		// Uniquement à la souris. Au doigt, setPointerCapture aurait
+		// approprié le geste à la piste, et le navigateur n'aurait plus
+		// pu le rendre à la page : le défilement vertical se bloquait
+		// dès que le doigt partait d'une carte.
+		if (ev.pointerType && ev.pointerType !== 'mouse') return;
 		isPointerDown = true;
 		isDragging = true;
 		startX = ev.clientX;
@@ -177,6 +150,34 @@ document.addEventListener('DOMContentLoaded', () => {
 	track.addEventListener('pointermove', onPointerMove);
 	track.addEventListener('pointerup', onPointerUp);
 	track.addEventListener('pointercancel', onPointerUp);
+
+	// Flèches et compteur : parcourir sans avoir à glisser.
+	const commandes = swipeMenu.querySelector('.exec-swipe-commandes');
+	const position = swipeMenu.querySelector('.swipe-position');
+	const fleches = Array.from(swipeMenu.querySelectorAll('.swipe-fleche'));
+
+	const majCommandes = () => {
+		if (position) position.textContent = (activeIndex + 1) + ' / ' + cards.length;
+		fleches.forEach((b) => {
+			const sens = Number(b.dataset.sens);
+			const bout = sens < 0 ? activeIndex === 0 : activeIndex === cards.length - 1;
+			b.disabled = bout;
+		});
+	};
+
+	fleches.forEach((b) => {
+		b.addEventListener('click', () => {
+			const cible = activeIndex + Number(b.dataset.sens);
+			if (cible < 0 || cible >= cards.length) return;
+			setActive(cible);
+			centerCard(cible, prefersReducedMotion ? 'auto' : 'smooth');
+			majCommandes();
+		});
+	});
+
+	// Le compteur suit aussi le glissement au doigt.
+	track.addEventListener('scroll', majCommandes, { passive: true });
+	majCommandes();
 
 	// If user clicks a card without scrolling much, also mark it active immediately.
 	cards.forEach((card, i) => {

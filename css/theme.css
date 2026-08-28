@@ -1143,3 +1143,63 @@
   color: #ffb4a2;
 }
 
+
+/* ═══ 17. Carrousel des articles : commandes ════════════════
+   L'indication « ⟵ Glissez pour voir plus ⟶ » demandait un geste
+   sans en offrir l'alternative. Des flèches permettent de
+   parcourir sans glisser, et le compteur situe dans la série. */
+
+.exec-swipe-commandes {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-4);
+  margin-top: var(--e-4);
+}
+
+.swipe-fleche {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--accent-trait);
+  border-radius: var(--arrondi-plein);
+  background: var(--accent-voile);
+  color: var(--accent-fort);
+  transition: background var(--transition), border-color var(--transition), opacity var(--transition);
+}
+
+.swipe-fleche svg {
+  width: 18px;
+  height: 18px;
+}
+
+.swipe-fleche:hover:not([disabled]) {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+/* Une flèche inactive reste visible : la faire disparaître ferait
+   sauter la mise en page à chaque bout de série. */
+.swipe-fleche[disabled] {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.swipe-position {
+  min-width: 4ch;
+  text-align: center;
+  color: var(--texte-tenu);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Le carrousel n'existe que sous 900 px, ses commandes aussi. */
+@media (max-width: 900px) {
+  .exec-swipe-commandes {
+    display: flex;
+  }
+}

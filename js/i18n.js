@@ -62,6 +62,12 @@
       el.textContent = valeur;
     });
 
+    // Les libellés lus par les lecteurs d'écran suivent aussi la langue.
+    document.querySelectorAll('[data-translate-aria]').forEach(function (el) {
+      var valeur = table[el.getAttribute('data-translate-aria')];
+      if (valeur != null) el.setAttribute('aria-label', valeur);
+    });
+
     document.querySelectorAll('[data-translate-alt]').forEach(function (el) {
       var valeur = table[el.getAttribute('data-translate-alt')];
       if (valeur != null) el.setAttribute('alt', valeur);
