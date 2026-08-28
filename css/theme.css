@@ -1003,40 +1003,16 @@
   }
 }
 
-/* ═══ 16. Contact : deux voies ══════════════════════════════
-   La page n'offrait qu'un seul point de contact, la réservation
-   d'un créneau. C'est un engagement fort : le visiteur qui veut
-   seulement poser une question n'avait aucune porte d'entrée.
+/* ═══ 16. Contact : le formulaire ═══════════════════════════
+   La section proposait deux voies, dont la réservation d'un
+   créneau. Ce lien menait au calendrier d'un employeur, ce qui
+   brouillait le message pour une pratique indépendante. Il ne
+   reste que le formulaire, centré. */
 
-   Deux voies côte à côte, sur le même bloc marine : réserver
-   pour qui sait ce qu'il veut, écrire pour les autres. */
-
-.contact-deux-voies {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: var(--e-7);
-  align-items: start;
-  margin-top: var(--e-7);
+.contact-formulaire {
+  max-width: 560px;
+  margin: var(--e-7) auto 0;
   text-align: left;
-}
-
-.contact-voie-titre {
-  margin: 0 0 var(--e-4);
-  color: var(--lavande-300);
-  font-size: var(--t-xs);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.contact-voie-rdv {
-  padding-right: var(--e-6);
-  border-right: 1px solid var(--trait-sombre);
-}
-
-.contact-voie-rdv .cta-buttons {
-  margin-top: 0;
-  justify-content: flex-start;
 }
 
 /* ── Champs ─────────────────────────────────────────────── */
@@ -1073,11 +1049,6 @@
   line-height: 1.55;
 }
 
-.champ input::placeholder,
-.champ textarea::placeholder {
-  color: var(--sur-sombre-tenu);
-}
-
 .champ input:focus,
 .champ textarea:focus {
   outline: none;
@@ -1085,9 +1056,8 @@
   background: rgba(255, 255, 255, 0.12);
 }
 
-/* Signalé au moment de l'envoi seulement, pas pendant la saisie :
-   souligner en rouge un champ qu'on est en train de remplir est
-   décourageant sans être utile. */
+/* Signalé à l'envoi seulement, pas pendant la saisie : souligner en
+   rouge un champ qu'on est en train de remplir décourage sans aider. */
 .champ.est-invalide input,
 .champ.est-invalide textarea {
   border-color: #ffb4a2;
@@ -1133,8 +1103,8 @@
   cursor: default;
 }
 
-/* Le piège à robots doit rester dans le flux pour être rempli,
-   tout en étant invisible et hors du parcours au clavier. */
+/* Le piège à robots reste dans le flux pour être rempli, tout en
+   étant invisible et hors du parcours au clavier. */
 .piege-robot {
   position: absolute;
   left: -9999px;
@@ -1158,39 +1128,3 @@
   color: #ffb4a2;
 }
 
-@media (max-width: 860px) {
-  .contact-deux-voies {
-    grid-template-columns: 1fr;
-    gap: var(--e-6);
-  }
-
-  .contact-voie-rdv {
-    padding-right: 0;
-    padding-bottom: var(--e-6);
-    border-right: none;
-    border-bottom: 1px solid var(--trait-sombre);
-  }
-
-  .contact-voie-rdv .cta-buttons {
-    justify-content: center;
-  }
-}
-
-/* La marque de confirmation sur la page de remerciement. */
-.merci-marque {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px;
-  height: 64px;
-  margin: 0 auto var(--e-5);
-  border: 1px solid var(--accent-trait);
-  border-radius: var(--arrondi-plein);
-  background: var(--accent-voile);
-  color: var(--accent-fort);
-}
-
-.merci-marque svg {
-  width: 28px;
-  height: 28px;
-}

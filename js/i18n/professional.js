@@ -3,8 +3,6 @@
 
 i18nAjouter({
   fr: {
-    "pro-contact-rdv-titre": "Vous savez déjà ce dont vous avez besoin",
-    "pro-contact-form-titre": "Vous avez d’abord une question",
     "pro-form-nom": "Nom",
     "pro-form-courriel": "Courriel",
     "pro-form-message": "Message",
@@ -19,7 +17,7 @@ i18nAjouter({
     "pro-hero-title": "Vous avez des données, mais sont-elles exploitables ?",
     "pro-hero-subtitle": "Bonjour ! Je suis Djeny, consultante en intelligence d’affaires, transformation numérique et intelligence artificielle.<br>J’aide les PME et les organisations à transformer leurs données en décisions stratégiques grâce à l’analytique, l’automatisation et la transformation numérique.",
     "pro-hero-credential": "M.Sc. Intelligence d’affaires · Économie · Montréal",
-    "pro-hero-cta1": "Planifier un échange stratégique",
+    "pro-hero-cta1": "Parlons de votre projet",
     "pro-section-publications": "Publications",
     "pro-section-publications-intro": "Articles, analyses et recherches sur la performance, les KPI et la prise de décision.",
     "pro-pub-counter-articles": "5 articles",
@@ -102,8 +100,6 @@ i18nAjouter({
     "pro-cta-button": "Réserver une conversation confidentielle"
   },
   en: {
-    "pro-contact-rdv-titre": "You already know what you need",
-    "pro-contact-form-titre": "You have a question first",
     "pro-form-nom": "Name",
     "pro-form-courriel": "Email",
     "pro-form-message": "Message",
@@ -118,7 +114,7 @@ i18nAjouter({
     "pro-hero-title": "You have the data, but is it actionable?",
     "pro-hero-subtitle": "Hello! I’m Djeny, a consultant in business intelligence, digital transformation and artificial intelligence.<br>I help SMEs and organizations turn their data into strategic decisions through analytics, automation and digital transformation.",
     "pro-hero-credential": "M.Sc. Business Intelligence · Economics · Montreal",
-    "pro-hero-cta1": "Schedule a strategic conversation",
+    "pro-hero-cta1": "Let’s talk about your project",
     "pro-section-publications": "Publications",
     "pro-section-publications-intro": "Articles, analyses and research on performance, KPIs and decision-making.",
     "pro-pub-counter-articles": "5 articles",
