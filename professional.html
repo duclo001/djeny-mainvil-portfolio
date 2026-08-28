@@ -521,14 +521,42 @@
                 <!-- Champ piège : invisible pour une personne, rempli par les robots. -->
                 <input type="checkbox" name="botcheck" class="piege-robot" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-                <p class="champ">
-                  <label for="contact-nom" data-translate="pro-form-nom">Nom</label>
-                  <input id="contact-nom" name="name" type="text" required autocomplete="name" maxlength="120">
-                </p>
+                <div class="champ-duo">
+                  <p class="champ">
+                    <label for="contact-prenom" data-translate="pro-form-prenom">Prénom</label>
+                    <input id="contact-prenom" name="prenom" type="text" required autocomplete="given-name" maxlength="80">
+                  </p>
+                  <p class="champ">
+                    <label for="contact-nom" data-translate="pro-form-nom">Nom</label>
+                    <input id="contact-nom" name="nom" type="text" required autocomplete="family-name" maxlength="80">
+                  </p>
+                </div>
+
+                <div class="champ-duo">
+                  <p class="champ">
+                    <label for="contact-poste" data-translate="pro-form-poste">Titre du poste (facultatif)</label>
+                    <input id="contact-poste" name="poste" type="text" autocomplete="organization-title" maxlength="120">
+                  </p>
+                  <p class="champ">
+                    <label for="contact-entreprise" data-translate="pro-form-entreprise">Organisation (facultatif)</label>
+                    <input id="contact-entreprise" name="entreprise" type="text" autocomplete="organization" maxlength="120">
+                  </p>
+                </div>
+
+                <div class="champ-duo">
+                  <p class="champ">
+                    <label for="contact-courriel" data-translate="pro-form-courriel">Courriel</label>
+                    <input id="contact-courriel" name="email" type="email" required autocomplete="email" maxlength="180">
+                  </p>
+                  <p class="champ">
+                    <label for="contact-telephone" data-translate="pro-form-telephone">Téléphone (facultatif)</label>
+                    <input id="contact-telephone" name="telephone" type="tel" autocomplete="tel" maxlength="40">
+                  </p>
+                </div>
 
                 <p class="champ">
-                  <label for="contact-courriel" data-translate="pro-form-courriel">Courriel</label>
-                  <input id="contact-courriel" name="email" type="email" required autocomplete="email" maxlength="180">
+                  <label for="contact-dispo" data-translate="pro-form-dispo">Vos disponibilités et le meilleur moyen de vous joindre (facultatif)</label>
+                  <input id="contact-dispo" name="disponibilites" type="text" maxlength="200">
                 </p>
 
                 <p class="champ">

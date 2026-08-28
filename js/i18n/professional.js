@@ -3,6 +3,12 @@
 
 i18nAjouter({
   fr: {
+    "pro-form-prenom": "Prénom",
+    "pro-form-nom": "Nom",
+    "pro-form-poste": "Titre du poste (facultatif)",
+    "pro-form-entreprise": "Organisation (facultatif)",
+    "pro-form-telephone": "Téléphone (facultatif)",
+    "pro-form-dispo": "Vos disponibilités et le meilleur moyen de vous joindre (facultatif)",
     "pro-form-nom": "Nom",
     "pro-form-courriel": "Courriel",
     "pro-form-message": "Message",
@@ -100,6 +106,12 @@ i18nAjouter({
     "pro-cta-button": "Réserver une conversation confidentielle"
   },
   en: {
+    "pro-form-prenom": "First name",
+    "pro-form-nom": "Last name",
+    "pro-form-poste": "Job title (optional)",
+    "pro-form-entreprise": "Organization (optional)",
+    "pro-form-telephone": "Phone (optional)",
+    "pro-form-dispo": "Your availability and the best way to reach you (optional)",
     "pro-form-nom": "Name",
     "pro-form-courriel": "Email",
     "pro-form-message": "Message",

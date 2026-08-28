@@ -1010,12 +1010,27 @@
    reste que le formulaire, centré. */
 
 .contact-formulaire {
-  max-width: 560px;
+  max-width: 720px;
   margin: var(--e-7) auto 0;
   text-align: left;
 }
 
 /* ── Champs ─────────────────────────────────────────────── */
+/* Deux champs par ligne sur les écrans larges. En dessous de 600 px
+   ils s'empilent : côte à côte, ils deviennent trop étroits pour un
+   nom d'organisation ou une adresse. */
+.champ-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 var(--e-4);
+}
+
+@media (max-width: 600px) {
+  .champ-duo {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .champ {
   display: flex;
