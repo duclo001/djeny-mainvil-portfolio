@@ -213,22 +213,25 @@
   position: relative;
 }
 
-/* L'ancienne photo était un détourage au fondu incrusté, sans bord
-   franc : tout cadre y dessinait un rectangle fantôme, et une
-   dominante magenta traînait dans son dégradé. Le portrait d'origine
-   la remplace. Il a un bord net, donc un cadre et une ombre portée
-   l'ancrent dans la page. La désaturation qui masquait la dominante
-   n'a plus lieu d'être. */
+/* Le portrait est détouré : son fond a été retiré et le fichier porte
+   sa transparence. Le fondu hérité dessinerait un rectangle là où il
+   n'y a plus de bord, et un cadre ou une ombre encadreraient du vide
+   autour de la silhouette. La photo se pose donc à nu sur le blanc du
+   hero, à ses proportions propres. Seul le bas est adouci : le cadrage
+   y coupe le buste net, et cette ligne droite se verrait d'autant plus
+   que rien ne l'entoure. */
 .executive-hero .hero-image-container::after {
   display: none;
 }
 
 .executive-hero .hero-image {
   height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: var(--arrondi-lg);
-  box-shadow: var(--ombre-4);
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
 }
 
 .hero-content {
