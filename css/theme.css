@@ -1078,17 +1078,44 @@
   border-color: #ffb4a2;
 }
 
+/* Le message s'ajoute en dernier enfant du champ. Dans une ligne
+   flex — la case de consentement — il se plaçait à côté du texte et
+   se tassait dans la largeur restante. Il prend sa propre ligne. */
 .champ-erreur {
-  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--e-2);
+  width: 100%;
+  margin: var(--e-1) 0 0;
   color: #ffb4a2;
   font-size: var(--t-xs);
+  line-height: 1.45;
+}
+
+.champ-erreur::before {
+  content: '';
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: #ffb4a2;
+  /* Un point d'exclamation découpé dans la pastille. */
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1a7 7 0 100 14A7 7 0 008 1zm0 3.2a.9.9 0 01.9.95l-.2 3.4a.7.7 0 01-1.4 0l-.2-3.4A.9.9 0 018 4.2zm0 6.1a.95.95 0 110 1.9.95.95 0 010-1.9z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1a7 7 0 100 14A7 7 0 008 1zm0 3.2a.9.9 0 01.9.95l-.2 3.4a.7.7 0 01-1.4 0l-.2-3.4A.9.9 0 018 4.2zm0 6.1a.95.95 0 110 1.9.95.95 0 010-1.9z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .champ-consentement {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
   gap: var(--e-3);
   margin: 0 0 var(--e-5);
+}
+
+/* Aligné sous le texte du consentement, pas sous la case. */
+.champ-consentement .champ-erreur {
+  margin-left: calc(17px + var(--e-3));
 }
 
 .champ-consentement input {

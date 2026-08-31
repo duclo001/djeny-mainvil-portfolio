@@ -3,6 +3,7 @@
 
 i18nAjouter({
   fr: {
+    "pro-form-accord-requis": "Votre accord est nécessaire pour envoyer le message.",
     "pro-pub-precedent": "Article précédent",
     "pro-pub-suivant": "Article suivant",
     "pro-form-prenom": "Prénom",
@@ -107,6 +108,7 @@ i18nAjouter({
     "pro-cta-button": "Réserver une conversation confidentielle"
   },
   en: {
+    "pro-form-accord-requis": "Your agreement is required to send the message.",
     "pro-pub-precedent": "Previous article",
     "pro-pub-suivant": "Next article",
     "pro-form-prenom": "First name",

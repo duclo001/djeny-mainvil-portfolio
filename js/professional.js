@@ -437,9 +437,12 @@ document.addEventListener('DOMContentLoaded', () => {
       var vide = champ.type === 'checkbox' ? !champ.checked : !champ.value.trim();
       var mauvais = !vide && !champ.checkValidity();
       if (!vide && !mauvais) return;
-      marquer(champ, vide
-        ? texte('pro-form-requis', 'Ce champ est nécessaire.')
-        : texte('pro-form-courriel-invalide', 'Cette adresse ne semble pas valide.'));
+      // Une case à cocher ne se « remplit » pas : le message le dit.
+      var message;
+      if (mauvais) message = texte('pro-form-courriel-invalide', 'Cette adresse ne semble pas valide.');
+      else if (champ.type === 'checkbox') message = texte('pro-form-accord-requis', 'Votre accord est nécessaire pour envoyer le message.');
+      else message = texte('pro-form-requis', 'Ce champ est nécessaire.');
+      marquer(champ, message);
       if (!premier) premier = champ;
     });
     if (premier) premier.focus();
