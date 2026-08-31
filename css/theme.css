@@ -213,17 +213,22 @@
   position: relative;
 }
 
-/* Le fondu est incrusté dans le fichier image : la photo n'a pas
-   de bord franc. Ni cadre ni ombre, qui dessineraient un
-   rectangle là où l'œil ne voit aucun contour. */
+/* L'ancienne photo était un détourage au fondu incrusté, sans bord
+   franc : tout cadre y dessinait un rectangle fantôme, et une
+   dominante magenta traînait dans son dégradé. Le portrait d'origine
+   la remplace. Il a un bord net, donc un cadre et une ombre portée
+   l'ancrent dans la page. La désaturation qui masquait la dominante
+   n'a plus lieu d'être. */
 .executive-hero .hero-image-container::after {
   display: none;
 }
 
 .executive-hero .hero-image {
-  border-radius: 0;
-  box-shadow: none;
-  filter: saturate(0.72);
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--arrondi-lg);
+  box-shadow: var(--ombre-4);
 }
 
 .hero-content {
