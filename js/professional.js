@@ -457,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Garde-fou : sans clé renseignée, l'envoi partirait dans le vide.
     if (!cle || !cle.value || cle.value.indexOf('A_RENSEIGNER') !== -1) {
       afficher(texte('pro-form-non-configure',
-        'Le formulaire n\u2019est pas encore relié. Écrivez-moi en attendant.'), 'est-erreur');
+        'Le formulaire n\u2019est pas encore relié. Réessayez plus tard.'), 'est-erreur');
       return;
     }
 
@@ -479,7 +479,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(function () {
         afficher(texte('pro-form-erreur',
-          'L\u2019envoi n\u2019a pas abouti. Réessayez, ou réservez directement un échange.'), 'est-erreur');
+          'L\u2019envoi n\u2019a pas abouti. Réessayez dans un instant.'), 'est-erreur');
       })
       .then(function () {
         envoiEnCours = false;

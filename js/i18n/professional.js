@@ -20,8 +20,8 @@ i18nAjouter({
     "pro-form-courriel-invalide": "Cette adresse ne semble pas valide.",
     "pro-form-envoi-cours": "Envoi en cours…",
     "pro-form-succes": "Message envoyé. Je vous réponds sous deux jours ouvrables.",
-    "pro-form-erreur": "L’envoi n’a pas abouti. Réessayez, ou réservez directement un échange.",
-    "pro-form-non-configure": "Le formulaire n’est pas encore relié. Réservez un échange en attendant.",
+    "pro-form-erreur": "L’envoi n’a pas abouti. Réessayez dans un instant.",
+    "pro-form-non-configure": "Le formulaire n’est pas encore relié. Réessayez plus tard.",
     "pro-hero-title": "Vous avez des données, mais sont-elles exploitables ?",
     "pro-hero-subtitle": "Bonjour ! Je suis Djeny, consultante en intelligence d’affaires et transformation numérique.<br>J’aide les PME et les organisations à transformer leurs données en décisions stratégiques grâce à l’analytique et l’automatisation.",
     "pro-hero-credential": "M.Sc. Intelligence d’affaires · Économie · Montréal",
@@ -108,8 +108,7 @@ i18nAjouter({
     "pro-certif-verifier": "Vérifier sur Credly",
     "pro-certif-aria": "Vérifier sur Credly : certification SAS · HEC Montréal (nouvel onglet)",
     "pro-cta-title": "Clarifions votre performance.",
-    "pro-cta-text": "Un échange stratégique permet d’identifier rapidement les leviers d’amélioration et les zones de manque de visibilité.",
-    "pro-cta-button": "Réserver une conversation confidentielle"
+    "pro-cta-text": "Un échange stratégique permet d’identifier rapidement les leviers d’amélioration et les zones de manque de visibilité."
   },
   en: {
     "pro-form-accord-requis": "Your agreement is required to send the message.",
@@ -129,8 +128,8 @@ i18nAjouter({
     "pro-form-courriel-invalide": "This address does not look valid.",
     "pro-form-envoi-cours": "Sending…",
     "pro-form-succes": "Message sent. I reply within two business days.",
-    "pro-form-erreur": "The message could not be sent. Try again, or book a conversation directly.",
-    "pro-form-non-configure": "The form is not connected yet. Please book a conversation in the meantime.",
+    "pro-form-erreur": "The message could not be sent. Please try again in a moment.",
+    "pro-form-non-configure": "The form is not connected yet. Please try again later.",
     "pro-hero-title": "You have the data, but is it actionable?",
     "pro-hero-subtitle": "Hello! I’m Djeny, a consultant in business intelligence and digital transformation.<br>I help SMEs and organizations turn their data into strategic decisions through analytics and automation.",
     "pro-hero-credential": "M.Sc. Business Intelligence · Economics · Montreal",
@@ -217,7 +216,6 @@ i18nAjouter({
     "pro-certif-verifier": "Verify on Credly",
     "pro-certif-aria": "Verify on Credly: SAS · HEC Montréal certification (opens in a new tab)",
     "pro-cta-title": "Let us clarify your performance.",
-    "pro-cta-text": "A strategic conversation quickly surfaces the levers for improvement and the blind spots that limit visibility.",
-    "pro-cta-button": "Book a confidential conversation"
+    "pro-cta-text": "A strategic conversation quickly surfaces the levers for improvement and the blind spots that limit visibility."
   }
 });
