@@ -16,7 +16,7 @@ i18nAjouter({
     "mandat3-h2-2": "Solutions proposées",
     "mandat3-p2": "En tant qu’équipe, nous avons proposé des solutions innovantes, notamment un <strong>modèle de partenariat corporatif en responsabilité sociale (CSR)</strong> pour répondre aux enjeux de main-d’œuvre, une <strong>plateforme digitale</strong> visant à mobiliser des bénévoles flexibles (« Rescue Runners »), ainsi qu’un <strong>concept de financement</strong> transformant les achats du quotidien en impact social (« Your snack, their meal »).",
     "mandat3-h2-3": "Apprentissages",
-    "mandat3-p3": "Cette expérience m’a permis de contribuer à une initiative à fort impact social, tout en appliquant une approche stratégique et axée sur les données dans un contexte réel. Elle a renforcé mon engagement à utiliser la donnée, la collaboration et l’innovation pour bâtir des systèmes plus efficaces, inclusives et durables.",
+    "mandat3-p3": "Cette expérience m’a permis de contribuer à une initiative à fort impact social, tout en appliquant une approche stratégique et axée sur les données dans un contexte réel. Elle a renforcé mon engagement à utiliser la donnée, la collaboration et l’innovation pour bâtir des systèmes plus efficaces, inclusifs et durables.",
     "mandat3-credits-title": "Projet réalisé en juillet 2025 sur le terrain en collaboration avec :",
     "mandat3-souvenirs-title": "Souvenirs du terrain",
     "mandat3-souvenirs-text": "Quelques moments capturés lors du mandat à Bangkok : cuisine, logistique de redistribution et échanges avec les équipes locales."
