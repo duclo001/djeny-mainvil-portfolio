@@ -22,7 +22,7 @@ i18nAjouter({
     "footer-subtitle": "Economist & Business Analyst",
     "nav-home": "Home",
     "nav-publications-short": "Publications",
-    "nav-mandats": "Mandates",
+    "nav-mandats": "Engagements",
     "nav-services": "Services",
     "nav-apropos-short": "About",
     "nav-contact-short": "Contact",
@@ -32,6 +32,6 @@ i18nAjouter({
     "footer-copyright": "© 2026 Djeny Mainvil. All rights reserved.",
     "preloader-subtitle": "ECONOMIST & BUSINESS ANALYST",
     "btn-back-articles": "← Back to articles",
-    "btn-back-mandats": "← Back to mandates"
+    "btn-back-mandats": "← Back to engagements"
   }
 });

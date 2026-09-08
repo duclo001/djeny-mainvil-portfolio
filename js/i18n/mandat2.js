@@ -17,7 +17,7 @@ i18nAjouter({
   },
   en: {
     "mandat2-img-alt": "HR exploratory analysis, Business Intelligence",
-    "mandat2-eyebrow": "Mandate · HR & BI Analysis",
+    "mandat2-eyebrow": "Engagement · HR & BI Analysis",
     "mandat2-title": "HR exploratory analysis and workforce modeling",
     "mandat2-meta1": "HR data · Business Intelligence",
     "mandat2-meta2": "Cleaning, structuring, reliable indicators, confidentiality",

@@ -23,12 +23,12 @@ i18nAjouter({
   },
   en: {
     "mandat3-img1-alt": "SOS Kitchen Thailand project, international consulting",
-    "mandat3-eyebrow": "Mandate · International",
+    "mandat3-eyebrow": "Engagement · International",
     "mandat3-title": "Rethinking impact: SOS Kitchen Thailand project",
     "mandat3-meta1": "Bangkok, Thailand",
     "mandat3-meta2": "July 2025",
     "mandat3-meta3": "Multidisciplinary team",
-    "mandat3-intro": "As part of an international consulting mandate, I had the opportunity to be part of a multidisciplinary team aimed at strengthening the impact and operational effectiveness of <strong>SOS Kitchen Thailand</strong>, an organization committed to recovering food surplus and redistributing it to communities in need.",
+    "mandat3-intro": "As part of an international consulting engagement, I had the opportunity to be part of a multidisciplinary team aimed at strengthening the impact and operational effectiveness of <strong>SOS Kitchen Thailand</strong>, an organization committed to recovering food surplus and redistributing it to communities in need.",
     "mandat3-h2-1": "Operational diagnosis",
     "mandat3-p1": "Together, we conducted an in-depth analysis of operations, from sourcing to final delivery, in order to identify the main inefficiencies and improvement levers. Our thinking revolved around three strategic axes: strengthening operational capacity, optimizing volunteer engagement, and developing more sustainable funding models.",
     "mandat3-img2-alt": "Field work, SOS Kitchen Thailand",
@@ -38,6 +38,6 @@ i18nAjouter({
     "mandat3-p3": "This experience allowed me to contribute to a high social impact initiative while applying a strategic, data-driven approach in a real-world context. It strengthened my commitment to using data, collaboration and innovation to build more efficient, inclusive and sustainable systems.",
     "mandat3-credits-title": "Project carried out in July 2025 in the field in collaboration with:",
     "mandat3-souvenirs-title": "Field memories",
-    "mandat3-souvenirs-text": "A few moments captured during the mandate in Bangkok: cooking, redistribution logistics and exchanges with local teams."
+    "mandat3-souvenirs-text": "A few moments captured during the engagement in Bangkok: cooking, redistribution logistics and exchanges with local teams."
   }
 });

@@ -25,7 +25,7 @@ i18nAjouter({
   },
   en: {
     "mandat1-img-alt": "Sales dashboard, performance and customer analysis",
-    "mandat1-eyebrow": "Mandate · Strategic steering",
+    "mandat1-eyebrow": "Engagement · Strategic steering",
     "mandat1-title": "Performance analysis report, Sales dashboard",
     "mandat1-meta1": "Project",
     "mandat1-meta2": "Power BI · Commercial analysis",
