@@ -1,5 +1,5 @@
 /* Traductions propres à professional.html.
-   83 clés. Enregistré par js/i18n.js. */
+   107 clés. Enregistré par js/i18n.js. */
 
 i18nAjouter({
   fr: {
@@ -103,6 +103,11 @@ i18nAjouter({
     "pro-about-p6": "Titulaire d’une maîtrise en économie de l’Université de Montréal et d’une maîtrise en intelligence d’affaires de HEC Montréal, je combine une vision stratégique, une solide capacité d’analyse et une approche axée sur les résultats.",
     "pro-about-p7": "Aujourd’hui, je mets cette expertise au service des organisations qui souhaitent transformer leurs données en un véritable levier de performance. Que ce soit pour concevoir des tableaux de bord, optimiser des processus, intégrer des solutions d’intelligence artificielle ou accompagner la transformation numérique, mon objectif demeure le même : fournir des solutions concrètes qui créent une valeur durable.",
     "pro-about-img-alt": "Portrait professionnel de Djeny Mainvil",
+    "pro-about-aside-aria": "Portrait et certification",
+    "pro-certif-titre": "Certification",
+    "pro-certif-detail": "Spécialisation en intelligence d’affaires, maîtrise — août 2026",
+    "pro-certif-verifier": "Vérifier sur Credly",
+    "pro-certif-aria": "Vérifier sur Credly : certification SAS · HEC Montréal (nouvel onglet)",
     "pro-cta-title": "Clarifions votre performance.",
     "pro-cta-text": "Un échange stratégique permet d’identifier rapidement les leviers d’amélioration et les zones de manque de visibilité.",
     "pro-cta-button": "Réserver une conversation confidentielle"
@@ -208,6 +213,11 @@ i18nAjouter({
     "pro-about-p6": "Holding a master’s degree in economics from Université de Montréal and a master’s degree in business intelligence from HEC Montréal, I combine strategic vision, strong analytical ability and a results-driven approach.",
     "pro-about-p7": "Today, I bring this expertise to organizations that want to turn their data into a genuine performance lever. Whether the goal is designing dashboards, streamlining processes, integrating artificial intelligence solutions or supporting digital transformation, my objective remains the same: deliver concrete solutions that create lasting value.",
     "pro-about-img-alt": "Professional portrait of Djeny Mainvil",
+    "pro-about-aside-aria": "Portrait and certification",
+    "pro-certif-titre": "Certification",
+    "pro-certif-detail": "Academic specialization in business intelligence, master’s — August 2026",
+    "pro-certif-verifier": "Verify on Credly",
+    "pro-certif-aria": "Verify on Credly: SAS · HEC Montréal certification (opens in a new tab)",
     "pro-cta-title": "Let us clarify your performance.",
     "pro-cta-text": "A strategic conversation quickly surfaces the levers for improvement and the blind spots that limit visibility.",
     "pro-cta-button": "Book a confidential conversation"

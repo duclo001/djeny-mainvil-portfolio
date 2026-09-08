@@ -659,6 +659,72 @@
   box-shadow: var(--ombre-4);
 }
 
+/* Le badge prolonge la phrase qu'il jouxte — « une maîtrise en
+   intelligence d'affaires de HEC Montréal ». Il l'atteste plutôt qu'il
+   ne l'orne, d'où le lien vers Credly : l'image ne prouve rien par
+   elle-même, l'émetteur seul fait foi. Rien n'est chargé depuis Credly,
+   le badge est servi d'ici. */
+.certification-titre {
+  margin: var(--e-5) 0 var(--e-3);
+}
+
+.certification {
+  display: flex;
+  align-items: center;
+  gap: var(--e-4);
+  padding: var(--e-3);
+  border: 1px solid var(--trait);
+  border-radius: var(--arrondi);
+  background: var(--fond);
+  text-decoration: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.certification:hover,
+.certification:focus-visible {
+  border-color: var(--accent-trait);
+  box-shadow: var(--ombre-2);
+}
+
+/* Le badge est carré et ne doit jamais se laisser comprimer par le
+   texte qui l'accompagne. */
+.certification-badge {
+  flex: 0 0 auto;
+  width: 72px;
+  height: 72px;
+}
+
+.certification-corps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+  min-width: 0;
+}
+
+.certification-nom {
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: var(--texte);
+}
+
+.certification-detail {
+  font-size: var(--t-xs);
+  line-height: 1.45;
+  color: var(--texte-doux);
+}
+
+.certification-lien {
+  font-size: var(--t-xs);
+  font-weight: 600;
+  color: var(--accent-fort);
+}
+
+/* La flèche annonce la sortie du site. Elle est décorative : le lien
+   dit déjà « nouvel onglet » aux lecteurs d'écran. */
+.certification-lien::after {
+  content: ' ↗';
+}
+
 /* ═══ 9. Responsive ═════════════════════════════════════════ */
 
 @media (max-width: 900px) {
