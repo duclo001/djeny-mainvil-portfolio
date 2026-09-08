@@ -132,7 +132,7 @@ i18nAjouter({
     "pro-form-non-configure": "The form is not connected yet. Please try again later.",
     "pro-hero-title": "You have the data, but is it actionable?",
     "pro-hero-subtitle": "Hello! I’m Djeny, a consultant in business intelligence and digital transformation.<br>I help SMEs and organizations turn their data into strategic decisions through analytics and automation.",
-    "pro-hero-credential": "M.Sc. Business Intelligence · Economics · Montreal",
+    "pro-hero-credential": "M.Sc. Business Intelligence · Economics · Montréal",
     "pro-hero-cta1": "Let’s talk about your project",
     "pro-section-publications": "Publications",
     "pro-section-publications-intro": "Articles, analyses and research on performance, KPIs and decision-making.",
